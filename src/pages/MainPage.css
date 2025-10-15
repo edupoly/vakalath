@@ -1,0 +1,31 @@
+.icon-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease, padding 0.3s ease;
+  width: 44px; /* Initial width for icon only */
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.icon-expand-btn .btn-label {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* On hover, expand the button and show the text */
+.icon-expand-btn:hover {
+  width: auto; /* Adjust as needed */
+}
+
+.icon-expand-btn:hover .btn-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.table-bg{
+    background-color: #313388;
+}

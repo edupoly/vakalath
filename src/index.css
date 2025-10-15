@@ -1,0 +1,160 @@
+.home {
+  gap: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.card-custom {
+  width: 220px;
+  height: 220px;
+  margin: 24px;
+  background: linear-gradient(135deg, #f3f5fc 60%, #e7ebf7 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 80, 200, 0.09), 0 1px 4px rgba(60,60,90,0.09);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.13rem;
+  font-weight: 500;
+  transition:
+    box-shadow 0.3s cubic-bezier(.25,.8,.25,1),
+    transform 0.18s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+.card-custom:hover, .card-custom:focus {
+  box-shadow: 0 20px 48px 0 rgba(0, 123, 255, 0.13), 0 6px 16px rgba(0,35,120,0.13);
+  transform: scale(1.055) translateY(-10px);
+  border-color: #313388;
+  outline: none;
+}
+ 
+.sidebar {
+  background-color: #313388;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  width: 300px;
+  height: 100vh;
+}
+
+.sidebar li.active {
+  background-color: #f2f2f2;
+  color: #313388;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+
+/* body{
+  overflow-y: hidden;
+} */
+.main-screen {
+  height: 100vh;
+  /* overflow-y: scroll; */
+  margin-left: 300px;
+}
+
+.navbar{
+  /* position: fixed; */
+}
+.close-tag {
+  position: absolute;
+  font-size: x-large;
+  top: 10px;
+  right: 15px;
+}
+
+.body-bg {
+  background-color: #f2f2f2;
+}
+
+
+.list-icon {
+  display: none;
+}
+
+.loginPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPage .card {
+  min-width: 350px;
+  background-color: #f2f2f2;
+}
+
+.login-btn {
+  background-color: #313388;
+}
+
+.login-btn:hover {
+  background-color: #3436ab;
+}
+
+.signup-btn {
+  background-color: #313388;
+}
+
+.sign-btn:hover {
+  background-color: #3436ab;
+}
+
+@media (max-width: 1023px) {
+  .main-screen {
+    margin-left: 0px;
+  }
+
+  .list-icon {
+    display: block;
+  }
+
+  .loginPage {
+    height: calc(100vh - 150px);
+  }
+
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    height: 100vh;
+    width: 75%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .close-tag {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .avatar-circle {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    background: #f3f0ff;
+    color: #6a11cb;
+
+    border: 2px solid #8e2de2;
+  }
+
+
+}
