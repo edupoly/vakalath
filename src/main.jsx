@@ -15,6 +15,8 @@ import { store } from "./app/store.js";
 import { Provider } from "react-redux";
 import MainPage from "./pages/MainPage.jsx";
 import Home from "./pages/Home.jsx";
+import ABForm from "./pages/criminal/anticiptoryBail/Form.jsx";
+import HighCourt1 from "./pages/highcourt/HighCourt1.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,12 @@ const router = createBrowserRouter([
       {
         path: "/highcourt",
         element: <HighCourt />,
+        children: [
+          {
+            path:"/highcourt/casetype/:casetype",
+            element:<ABForm/>
+          }
+        ]
       },
       {
         path: "/highcourt/:id",
@@ -39,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/district",
-        element: <h1>district</h1>,
+        element: <HighCourt1 />,
       },
       {
         path: "/supremecourt",

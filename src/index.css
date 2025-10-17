@@ -5,13 +5,14 @@
   justify-content: center;
   align-items: stretch;
 }
+
 .card-custom {
   width: 220px;
   height: 220px;
   margin: 24px;
   background: linear-gradient(135deg, #f3f5fc 60%, #e7ebf7 100%);
   border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 80, 200, 0.09), 0 1px 4px rgba(60,60,90,0.09);
+  box-shadow: 0 8px 24px rgba(0, 80, 200, 0.09), 0 1px 4px rgba(60, 60, 90, 0.09);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,20 +20,22 @@
   font-size: 1.13rem;
   font-weight: 500;
   transition:
-    box-shadow 0.3s cubic-bezier(.25,.8,.25,1),
-    transform 0.18s cubic-bezier(.25,.8,.25,1);
+    box-shadow 0.3s cubic-bezier(.25, .8, .25, 1),
+    transform 0.18s cubic-bezier(.25, .8, .25, 1);
   cursor: pointer;
   user-select: none;
   border: 2px solid transparent;
   box-sizing: border-box;
 }
-.card-custom:hover, .card-custom:focus {
-  box-shadow: 0 20px 48px 0 rgba(0, 123, 255, 0.13), 0 6px 16px rgba(0,35,120,0.13);
+
+.card-custom:hover,
+.card-custom:focus {
+  box-shadow: 0 20px 48px 0 rgba(0, 123, 255, 0.13), 0 6px 16px rgba(0, 35, 120, 0.13);
   transform: scale(1.055) translateY(-10px);
   border-color: #313388;
   outline: none;
 }
- 
+
 .sidebar {
   background-color: #313388;
   position: fixed;
@@ -60,9 +63,10 @@
   margin-left: 300px;
 }
 
-.navbar{
+.navbar {
   /* position: fixed; */
 }
+
 .close-tag {
   position: absolute;
   font-size: x-large;
@@ -107,6 +111,54 @@
   background-color: #3436ab;
 }
 
+.form-group {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #000;
+  outline: none;
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 0 0.25rem;
+  color: #555;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label {
+  top: 0%;
+  left: 0.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2563eb;
+  /* Blue */
+  transform: translateY(-50%);
+}
+
+.form-select+.form-label {
+  top: 0%;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2563eb;
+  transform: translateY(-50%);
+}
+
 @media (max-width: 1023px) {
   .main-screen {
     margin-left: 0px;
@@ -120,7 +172,7 @@
     height: calc(100vh - 150px);
   }
 
-  
+
   .sidebar {
     position: fixed;
     top: 0;

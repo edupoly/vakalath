@@ -44,32 +44,32 @@ const Login = () => {
       <div className='card p-4 shadow-sm bg-body-tertiary border-0  rounded-4'>
         <form onSubmit={loginForm.handleSubmit}>
           <h2 className="mb-3 text-center fw-bold text-primary fs-4">Login</h2>
-          <div className="form-floating mb-3">
+          <div className="form-group">
             <input
               type="text"
               id="floatingUsername"
-              placeholder="Username"
+              placeholder=" "
               {...loginForm.getFieldProps('username')}
-              className={`form-control${loginForm.touched.username && loginForm.errors.username ? ' is-invalid' : ''}`}
+              className={`form-input ${loginForm.touched.username && loginForm.errors.username ? ' is-invalid' : ''}`}
             />
-            <label htmlFor="floatingUsername">Username</label>
-            {loginForm.touched.username && loginForm.errors.username && (
-              <div className="text-danger mt-1">{loginForm.errors.username}</div>
-            )}
+            <label className='form-label' htmlFor="floatingUsername">Username</label>
           </div>
-          <div className="form-floating mb-3">
+            {loginForm.touched.username && loginForm.errors.username && (
+              <div className="text-danger mt-1 mb-2">{loginForm.errors.username}</div>
+            )}
+          <div className="form-group">
             <input
               type="password"
               id="floatingPassword"
-              placeholder="Password"
+              placeholder=" "
               {...loginForm.getFieldProps('password')}
-              className={`form-control${loginForm.touched.password && loginForm.errors.password ? ' is-invalid' : ''}`}
+              className={`form-input${loginForm.touched.password && loginForm.errors.password ? ' is-invalid' : ''}`}
             />
-            <label htmlFor="floatingPassword">Password</label>
-            {loginForm.touched.password && loginForm.errors.password && (
-              <div className="text-danger mt-1">{loginForm.errors.password}</div>
-            )}
+            <label className='form-label' htmlFor="floatingPassword">Password</label>
           </div>
+            {loginForm.touched.password && loginForm.errors.password && (
+              <div className="text-danger mt-1 mb-2">{loginForm.errors.password}</div>
+            )}
           <button type="submit" className="login-btn btn w-100 text-white btn-primary">Login</button>
         </form>
         <div className="mt-3 text-center">

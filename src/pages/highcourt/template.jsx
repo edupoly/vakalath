@@ -5,35 +5,25 @@ import styles from '../../assets/templateStyles';
 const CauseTitle = ({ formData }) => (
     <View>
         <Text>Between:</Text>
-        {formData?.PetitionerName1 && <View>
-            <Text>1. {formData?.PetitionerName1} - {formData?.PetitionerAge1}</Text>
-            <Text>{formData?.PetitionerAddress1}</Text>
-        </View>}
-        {formData?.PetitionerName2 && <View>
-            <Text>2. {formData?.PetitionerName2} - {formData?.PetitionerAge2}</Text>
-            <Text>{formData?.PetitionerAddress2}</Text>
-        </View>}
-        {formData?.PetitionerName3 && <View>
-            <Text>3. {formData?.PetitionerName3} - {formData?.PetitionerAge3}</Text>
-            <Text>{formData?.PetitionerAddress3}</Text>
-        </View>}
+        {formData?.petitioners?.map((petitioner, index) => (
+            <View key={index}>
+                <Text>{index + 1}. {petitioner.name} - {petitioner.age}</Text>
+                <Text>{petitioner.address}</Text>
+            </View>
+        ))}
+
 
         <View style={styles.end}>
             <Text>..Petitioner</Text>
         </View>
         <Text>AND</Text>
-        {formData?.RespondentName1 && <View>
-            <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
-            <Text>{formData?.RespondentAddress1}</Text>
-        </View>}
-        {formData?.RespondentName2 && <View>
-            <Text>2. {formData?.RespondentName2} - {formData?.RespondentAge2}</Text>
-            <Text>{formData?.RespondentAddress2}</Text>
-        </View>}
-        {formData?.RespondentName3 && <View>
-            <Text>3. {formData?.RespondentName3} - {formData?.RespondentAge3}</Text>
-            <Text>{formData?.RespondentAddress3}</Text>
-        </View>}
+        {formData?.respondents?.map((respondent, index) => (
+            <View key={index}>
+                <Text>{index + 1}. {respondent.name} - {respondent.age}</Text>
+                <Text>{respondent.address}</Text>
+            </View>
+        ))}
+
         <View style={styles.end}>
             <Text>..Respondent</Text>
         </View>
@@ -146,10 +136,10 @@ const HighCourtTemplate = ({ formData }) => {
                         <Text style={styles.centerText}>District</Text>
                         <Text style={[styles.endText]} break>IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD</Text>
                         <Text style={styles.centerText}>W.P. NO. _____________ OF 2025</Text>
-                        <Text style={[styles.startText, { marginTop: 20 }]}>{formData?.RespondentName1}</Text>
+                        <Text style={[styles.startText, { marginTop: 20 }]}>{formData?.petitioners[0]?.name}</Text>
                         <Text style={[styles.endText, { marginTop: 20 }]}>...Petitioner</Text>
                         <Text style={styles.startText}>AND</Text>
-                        <Text style={styles.startText}>{formData?.PetitionerName1}</Text>
+                        <Text style={styles.startText}>{formData?.respondents[0]?.name}</Text>
                         <Text style={styles.endText}>...Respondent</Text>
                         <Text style={[styles.centerText, { marginTop: 40, textDecoration: 'underline' }]}>WRIT PETITION</Text>
                         <Text style={[styles.centerText, { marginTop: 60 }]}>Filed By:</Text>
@@ -202,7 +192,7 @@ const HighCourtTemplate = ({ formData }) => {
                         <Text style={styles.centerText}>SPECIAL ORIGINAL JURISDICTION</Text>
                         <Text style={[styles.centerText, { marginTop: 20 }]}>W.P. NO. _____________ OF 2025</Text>
                         <Text style={[styles.centerText, { marginTop: 10 }]}>District</Text>
-                        <Text style={[styles.startText, { marginTop: 20 }]}>{formData?.PetitionerName1}</Text>
+                        <Text style={[styles.startText, { marginTop: 20 }]}>{formData?.petitioners[0]?.name}</Text>
                         <Text style={[styles.endText, { marginTop: 20 }]}>...Petitioner/s</Text>
                         <Text style={[styles.centerText, { fontWeight: "bold" }]}>By</Text>
                         <Text style={[styles.centerText, { fontWeight: "bold" }]}>M/s K.V.R.PRASAD (9377)</Text>
@@ -228,7 +218,7 @@ const HighCourtTemplate = ({ formData }) => {
                         <Text style={[styles.centerText, { marginBottom: 30 }]}>W.P. NO. _____________ OF 2025</Text>
                         <Text style={styles.startText}>{formData?.State}</Text>
                         <Text style={styles.centerText}>District</Text>
-                        <Text style={[styles.startText, { marginTop: 20 }]}>{formData?.PetitionerName1}</Text>
+                        <Text style={[styles.startText, { marginTop: 20 }]}>{formData?.petitioners[0]?.name}</Text>
                         <Text style={[styles.endText, { marginTop: 20 }]}>... Petitioner/s</Text>
                         <Text style={styles.centerText}>By</Text>
                         <Text style={styles.centerText}>M/s K.V.R.PRASAD (9377)</Text>
@@ -251,10 +241,10 @@ const HighCourtTemplate = ({ formData }) => {
                     </View>
                     <View>
                         <Text style={{ fontSize: '10px' }}>Between:</Text>
-                        <Text style={{ fontSize: '10px' }}>1. {formData?.PetitionerName1} - {formData?.PetitionerAge1}</Text>
+                        <Text style={{ fontSize: '10px' }}>1. {formData?.petitioners[0]?.name} - {formData?.petitioners[0]?.age}</Text>
                         <Text style={styles.end}>..Petitioner</Text>
                         <Text style={{ fontSize: '10px' }}>AND</Text>
-                        <Text style={{ fontSize: '10px' }}>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
+                        <Text style={{ fontSize: '10px' }}>1. {formData?.respondents[0]?.name} - {formData?.respondents[0]?.age}</Text>
                         <Text style={styles.end}>..Respondent</Text>
                     </View>
                     <Text style={{ fontWeight: "bold", textDecoration: "underline", textAlign: "center" }}>CHECK LIST FOR WRIT PETITION</Text>
@@ -391,10 +381,10 @@ const HighCourtTemplate = ({ formData }) => {
                     <Text style={{ marginTop: 20, fontSize: 10, textAlign: "center" }}>I.A. No. __________ OF 2025   IN   W.P. No. __________ OF 2025</Text>
                     <View style={{ marginVertical: 20 }}>
                         <Text>Between:</Text>
-                        <Text>1. {formData?.PetitionerName1} - {formData?.PetitionerAge1}</Text>
+                        <Text>1. {formData?.petitioners[0]?.name} - {formData?.petitioners[0]?.age}</Text>
                         <Text style={styles.end}>..Petitioner</Text>
                         <Text>AND</Text>
-                        <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
+                        <Text>1. {formData?.respondents[0]?.name} - {formData?.respondents[0]?.age}</Text>
                         <Text style={styles.end}>..Respondent</Text>
                         <Text>To</Text>
                         <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
@@ -428,10 +418,10 @@ const HighCourtTemplate = ({ formData }) => {
                     </View>
                     <View style={{ marginVertical: 20 }}>
                         <Text>Between:</Text>
-                        <Text>1. {formData?.PetitionerName1} - {formData?.PetitionerAge1}</Text>
+                        <Text>1. {formData?.petitioners[0]?.name} - {formData?.petitioners[0]?.age}</Text>
                         <Text style={styles.end}>..Petitioner</Text>
                         <Text>AND</Text>
-                        <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
+                        <Text>1. {formData?.respondents[0]?.name} - {formData?.respondents[0]?.age}</Text>
                         <Text style={styles.end}>..Respondent</Text>
                         <Text>To</Text>
                         <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
@@ -660,10 +650,10 @@ const HighCourtTemplate = ({ formData }) => {
                     <Text style={{ marginTop: 15, textAlign: 'center', fontSize: 12 }}>W.P.NO. ________________________ of 2025</Text>
                     <View style={{ marginTop: 10 }}>
                         <Text>Between:</Text>
-                        <Text>1. {formData?.PetitionerName1} - {formData?.PetitionerAge1}</Text>
+                        <Text>1. {formData?.petitioners[0]?.name} - {formData?.petitioners[0]?.age}</Text>
                         <Text style={styles.end}>..Petitioner</Text>
                         <Text>AND</Text>
-                        <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
+                        <Text>1. {formData?.respondents[0]?.name} - {formData?.respondents[0]?.age}</Text>
                         <Text style={styles.end}>..Respondent</Text>
                     </View>
                     <Text style={{ marginTop: 30, textAlign: 'center', fontSize: 12, fontWeight: 'bold', textDecoration: 'underline' }}>LIST OF EVENTS</Text>
@@ -698,10 +688,10 @@ const HighCourtTemplate = ({ formData }) => {
                         <Text style={{ marginTop: 15, textAlign: 'center', fontSize: 12 }}>W.P.NO. ________________________ of 2025</Text>
                         <View style={{ marginTop: 10 }}>
                             <Text>Between:</Text>
-                            <Text>1. {formData?.PetitionerName1} - {formData?.PetitionerAge1}</Text>
+                            <Text>1. {formData?.petitioners[0]?.name} - {formData?.petitioners[0]?.age}</Text>
                             <Text style={styles.end}>..Petitioner</Text>
                             <Text>AND</Text>
-                            <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
+                            <Text>1. {formData?.respondents[0]?.name} - {formData?.respondents[0]?.age}</Text>
                             <Text style={styles.end}>..Respondent</Text>
                         </View>
                         <Text style={{ marginTop: 10, textAlign: 'center', fontSize: 12, fontWeight: 'bold', textDecoration: 'underline' }}>COURT FEE</Text>
@@ -719,10 +709,10 @@ const HighCourtTemplate = ({ formData }) => {
                         <Text style={{ textAlign: 'center', fontSize: 10, marginVertical: 20 }}>W.P.No.                  		OF 2025</Text>
                         <View style={{ marginTop: 10 }}>
                             <Text>Between:</Text>
-                            <Text>1. {formData?.PetitionerName1} - {formData?.PetitionerAge1}</Text>
+                            <Text>1. {formData?.petitioners[0]?.name} - {formData?.petitioners[0]?.age}</Text>
                             <Text style={styles.end}>..Petitioner</Text>
                             <Text>AND</Text>
-                            <Text>1. {formData?.RespondentName1} - {formData?.RespondentAge1}</Text>
+                            <Text>1. {formData?.respondents[0]?.name} - {formData?.respondents[0]?.age}</Text>
                             <Text style={styles.end}>..Respondent</Text>
                         </View>
                         <Text style={{ fontSize: 11, lineHeight: 1.4, marginTop: 10 }}>I, {formData?.PetitionerName1}, {formData?.PetitionerAddress1}, petitioner in the above Petition do hereby appoint and retain</Text>
@@ -785,15 +775,15 @@ const HighCourtTemplate = ({ formData }) => {
                     <View style={styles.table}>
                         <View style={styles.tableRow}>
                             <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>Name of the first petitioner:</Text>
-                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.PetitionerName1}</Text>
+                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.petitioners[0]?.name}</Text>
                             <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>Age:</Text>
-                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.PetitionerAge1}</Text>
+                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.petitioners[0]?.age}</Text>
                         </View>
                         <View style={styles.tableRow}>
                             <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>Name of the first Respondent:</Text>
-                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.RespondentName1}</Text>
+                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.respondents[0]?.name}</Text>
                             <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>Age:</Text>
-                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.RespondentAge1}</Text>
+                            <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>{formData?.respondents[0]?.age}</Text>
                         </View>
                         <View style={styles.tableRow}>
                             <Text style={[styles.tableCol, { width: '25%', fontSize: 10 }]}>District Name:</Text>

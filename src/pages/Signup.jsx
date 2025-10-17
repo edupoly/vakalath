@@ -50,113 +50,113 @@ const Signup = () => {
       <form onSubmit={formik.handleSubmit}>
         <div className="row">
           <div className="col-md-6 mb-2">
-            <div className="form-floating">
+            <div className="form-group">
               <input
                 type="text"
-                className={`form-control form-control-sm ${formik.touched.firstname && formik.errors.firstname ? "is-invalid" : ""
+                className={`form-input ${formik.touched.firstname && formik.errors.firstname ? "is-invalid" : ""
                   }`}
                 id="firstname"
-                placeholder="Firstname"
+                placeholder=" "
                 {...formik.getFieldProps("firstname")}
               />
-              <label htmlFor="firstname" className="small">Firstname</label>
-              {formik.touched.firstname && formik.errors.firstname && (
-                <div className="invalid-feedback">{formik.errors.firstname}</div>
-              )}
+              <label htmlFor="firstname" className="form-label">Firstname</label>
             </div>
+              {formik.touched.firstname && formik.errors.firstname && (
+                <div className="text-danger mt-1">{formik.errors.firstname}</div>
+              )}
           </div>
           <div className="col-md-6 mb-2">
-            <div className="form-floating">
+            <div className="form-group">
               <input
                 type="text"
-                className={`form-control form-control-sm ${formik.touched.lastname && formik.errors.lastname ? "is-invalid" : ""
+                className={`form-input ${formik.touched.lastname && formik.errors.lastname ? "is-invalid" : ""
                   }`}
                 id="lastname"
-                placeholder="Lastname"
+                placeholder=" "
                 {...formik.getFieldProps("lastname")}
               />
-              <label htmlFor="lastname" className="small">Lastname</label>
-              {formik.touched.lastname && formik.errors.lastname && (
-                <div className="invalid-feedback">{formik.errors.lastname}</div>
-              )}
+              <label htmlFor="lastname" className="form-label">Lastname</label>
             </div>
+              {formik.touched.lastname && formik.errors.lastname && (
+                <div className="text-danger mt-1">{formik.errors.lastname}</div>
+              )}
           </div>
         </div>
 
-        <div className="form-floating mb-2">
+        <div className="form-group mb-2">
           <input
             type="email"
-            className={`form-control form-control-sm ${formik.touched.email && formik.errors.email ? "is-invalid" : ""
+            className={`form-input ${formik.touched.email && formik.errors.email ? "is-invalid" : ""
               }`}
             id="email"
-            placeholder="Email"
+            placeholder=" "
             {...formik.getFieldProps("email")}
           />
-          <label htmlFor="email" className="small">Email</label>
-          {formik.touched.email && formik.errors.email && (
-            <div className="invalid-feedback">{formik.errors.email}</div>
-          )}
+          <label htmlFor="email" className="form-label">Email</label>
         </div>
+          {formik.touched.email && formik.errors.email && (
+            <div className="text-danger mt-1">{formik.errors.email}</div>
+          )}
 
-        <div className="form-floating mb-2">
+        <div className="form-group mb-2">
           <input
             type="text"
-            className={`form-control form-control-sm ${formik.touched.phone && formik.errors.phone ? "is-invalid" : ""
+            className={`form-input ${formik.touched.phone && formik.errors.phone ? "is-invalid" : ""
               }`}
             id="phone"
-            placeholder="Phone"
+            placeholder=" "
             {...formik.getFieldProps("number")}
           />
-          <label htmlFor="phone" className="small">Phone</label>
-          {formik.touched.number && formik.errors.number && (
-            <div className="invalid-feedback">{formik.errors.number}</div>
-          )}
+          <label htmlFor="phone" className="form-label">Phone</label>
         </div>
+          {formik.touched.number && formik.errors.number && (
+            <div className="text-danger mt-1">{formik.errors.number}</div>
+          )}
 
-        <div className="form-floating mb-2">
+        <div className="form-group mb-2">
           <input
             type="text"
-            className={`form-control form-control-sm ${formik.touched.username && formik.errors.username ? "is-invalid" : ""
+            className={`form-input ${formik.touched.username && formik.errors.username ? "is-invalid" : ""
               }`}
             id="username"
-            placeholder="Username"
+            placeholder=" "
             {...formik.getFieldProps("username")}
           />
-          <label htmlFor="username" className="small">Username</label>
-          {formik.touched.username && formik.errors.username && (
-            <div className="invalid-feedback">{formik.errors.username}</div>
-          )}
+          <label htmlFor="username" className="form-label">Username</label>
         </div>
+          {formik.touched.username && formik.errors.username && (
+            <div className="text-danger mt-1">{formik.errors.username}</div>
+          )}
 
-        <div className="form-floating mb-2">
+        <div className="form-group mb-2">
           <input
             type="password"
-            className={`form-control form-control-sm ${formik.touched.password && formik.errors.password ? "is-invalid" : ""
+            className={`form-input ${formik.touched.password && formik.errors.password ? "is-invalid" : ""
               }`}
             id="password"
-            placeholder="Password"
+            placeholder=" "
             {...formik.getFieldProps("password")}
           />
-          <label htmlFor="password" className="small">Password</label>
-          {formik.touched.password && formik.errors.password && (
-            <div className="invalid-feedback">{formik.errors.password}</div>
-          )}
+          <label htmlFor="password" className="form-label">Password</label>
         </div>
+          {formik.touched.password && formik.errors.password && (
+            <div className="text-danger mt-1">{formik.errors.password}</div>
+          )}
 
-        <div className="form-floating mb-2">
+        <div className="form-group mb-2">
           <input
             type="password"
-            className={`form-control form-control-sm ${formik.touched.confirmPassword && formik.errors.confirmPassword ? "is-invalid" : ""
+            className={`form-input ${formik.touched.confirmPassword && formik.errors.confirmPassword ? "is-invalid" : ""
               }`}
             id="confirmPassword"
-            placeholder="Confirm Password"
+            placeholder="  "
             {...formik.getFieldProps("confirmPassword")}
           />
-          <label htmlFor="confirmPassword" className="small">Confirm Password</label>
-          {formik.touched.confirmPassword && formik.errors.confirmPassword && (
-            <div className="invalid-feedback">{formik.errors.confirmPassword}</div>
-          )}
+          <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
         </div>
+          {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+            <div className="text-danger mt-1">{formik.errors.confirmPassword}</div>
+          )}
 
         <button type="submit" className="signup-btn btn btn-primary btn-sm w-100 mb-2 p-2">
           Signup

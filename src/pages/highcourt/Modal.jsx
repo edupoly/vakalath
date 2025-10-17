@@ -26,9 +26,9 @@ function HighCourtModal({ formData, modalRef }) {
                 <div className={`modal-content ${isMobile ? 'vh-50' : 'vh-100'}`}>
                     <div className="modal-header d-flex justify-content-between align-items-center w-100">
                         <h1 className="modal-title fs-5" id="staticBackdropLabel">High Court Template Preview</h1>
-                        <Link to={'/'} className=''>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </Link>
+                        {/* <Link to={'/'} className=''> */}
+                            <button type="button" className="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        {/* </Link> */}
                     </div>
                     <div className="modal-body p-0">
                         {

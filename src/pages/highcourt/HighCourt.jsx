@@ -12,6 +12,8 @@ import HighCourtModal from "./Modal";
 import { useSelector } from "react-redux";
 import { countEntries, highCourtInitialValues } from "../../services/functions";
 import { useParams } from "react-router-dom";
+import RespondentDetails from "./RespondentDetails";
+import PetitionerDetails from "./PetitionerDetails";
 
 function HighCourt({ casedata }) {
   const [formData, setFormData] = useState({});
@@ -21,9 +23,13 @@ function HighCourt({ casedata }) {
   const userDetails = useSelector((state) => state.user.userInfo);
   const [triggerGetCaseById, { data, isLoading }] = useLazyGetCaseByIdQuery();
   const [petitionerCount, setPetitionerCount] = useState(1);
-  const [respondentCount, setRespondentCount] = useState(1);
   const [updateForm] = useEditFileCaseMutation();
-
+  const [petitioners, setPetitioners] = useState([
+    { name: '', address: '', age: '' },
+  ]);
+  const [respondents, setRespondents] = useState([
+    { name: '', address: '', age: '' },
+  ]);
   const vakalathForm = useFormik({
     enableReinitialize: true,
     initialValues: data?.case || {
@@ -34,13 +40,13 @@ function HighCourt({ casedata }) {
     onSubmit: (values) => {
       console.log(values);
       setFormData({ ...values });
-      if (data?.case) {
-        console.log("lkfdfghkjh", values);
+      // if (data?.case) {
+      //   console.log("lkfdfghkjh", values);
 
-        updateForm({ ...values });
-      } else {
-        filecase(values);
-      }
+      //   updateForm({ ...values });
+      // } else {
+      //   filecase(values);
+      // }
       const modal = new window.bootstrap.Modal(modalRef.current);
       modal.show();
     },
@@ -53,30 +59,36 @@ function HighCourt({ casedata }) {
   }, [id]);
 
   useEffect(() => {
-    if (data) {
-      const petitionerCount1 = Object.keys(highCourtInitialValues).filter(
-        (key) => key.startsWith("PetitionerName")
-      ).length;
-      const respondentCount1 = Object.keys(highCourtInitialValues).filter(
-        (key) => key.startsWith("RespondentName")
-      ).length;
-      setPetitionerCount(petitionerCount1 || 1);
-      setRespondentCount(respondentCount1 || 1);
-      console.log(
-        "petitionerCount1respondentCount1",
-        petitionerCount1,
-        respondentCount1
-      );
+    vakalathForm.setFieldValue('petitioners', [
+    {
+        "name": "Rajesh Kumar",
+        "address": "12A, Banjara Hills, Hyderabad - 500034",
+        "age": "8"
+    },
+    {
+        "name": "Meena Kumari",
+        "address": "12A, Banjara Hills, Hyderabad - 500034",
+        "age": "13"
     }
-  }, [highCourtInitialValues]);
-
-  const addPetitioner = (type) => {
-    if (type === "Petitioner") {
-      setPetitionerCount((prev) => prev + 1);
-    } else if (type === "Respondent") {
-      setRespondentCount((prev) => prev + 1);
-    }
-  };
+]);
+    vakalathForm.setFieldValue('respondents', [
+    {
+        "name": "Ravi Verma",
+        "address": "21B, Jubilee Hills, Hyderabad - 500033",
+        "age": "13"
+    },
+    {
+        "name": "Ravi Verma",
+        "address": "21B, Jubilee Hills, Hyderabad - 500033",
+        "age": "13"
+    },
+    {
+        "name": "Ravi Verma",
+        "address": "21B, Jubilee Hills, Hyderabad - 500033",
+        "age": "13"
+    },
+]);
+  }, [petitioners, respondents]);
 
   const formatDate = () => {
     const rawDate = vakalathForm.values.Date;
@@ -90,7 +102,7 @@ function HighCourt({ casedata }) {
 
   useEffect(() => {
     document.title = "HighCourt"
-  },[])
+  }, [])
 
   return (
     <div>
@@ -149,9 +161,16 @@ function HighCourt({ casedata }) {
               <option value="" disabled>
                 Select Case Type
               </option>
-              <option value="Civil">Civil</option>
-              <option value="Criminal">Criminal</option>
-              <option value="Writ">Writ</option>
+              <option value="CMA">CMA</option>
+              <option value="CRP">CRP</option>
+              <option value="FIRST APPEAL">FIRST APPEAL</option>
+              <option value="SECOND APPEAL">SECOND APPEAL</option>
+              <option value="WRIT APPEAL">WA</option>
+              <option value="Writ Affidavit">Writ</option>
+              <option value="ANTICIPATORY BAIL">AB</option>
+              <option value="BAIL">BAIL</option>
+              <option value="CRIMINAL APPEAL">CRLA</option>
+              <option value="CRIMINAL REVISION CASE">CRLRC</option>
             </select>
             <label htmlFor="CaseType" className="ms-3">
               Case Type
@@ -200,124 +219,8 @@ function HighCourt({ casedata }) {
             </label>
           </div>
         </div>
-        <div>
-          <div className="d-flex justify-content-between align-items-center mb-2">
-            <label>Petitioner</label>
-            {petitionerCount < 3 && (
-              <button
-                type="button"
-                className="btn btn-sm btn-primary"
-                onClick={() => addPetitioner("Petitioner")}
-              >
-                + Add Petitioner
-              </button>
-            )}
-          </div>
-          {[...Array(petitionerCount)].map((_, i) => (
-            <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3" key={i}>
-              <div className="form-floating col mb-3">
-                <input
-                  className="form-control"
-                  id={`PetitionerName${i + 1}`}
-                  name={`PetitionerName${i + 1}`}
-                  placeholder={`PetitionerName${i + 1}`}
-                  value={vakalathForm.values[`PetitionerName${i + 1}`] || ""}
-                  onChange={vakalathForm.handleChange}
-                />
-                <label htmlFor={`PetitionerName${i + 1}`} className="ms-3">
-                  Petitioner Name
-                </label>
-              </div>
-
-              <div className="form-floating col mb-3">
-                <input
-                  className="form-control"
-                  id={`PetitionerAddress${i + 1}`}
-                  name={`PetitionerAddress${i + 1}`}
-                  placeholder={`PetitionerAddress${i + 1}`}
-                  value={vakalathForm.values[`PetitionerAddress${i + 1}`] || ""}
-                  onChange={vakalathForm.handleChange}
-                />
-                <label htmlFor={`PetitionerAddress${i + 1}`} className="ms-3">
-                  Petitioner's Address
-                </label>
-              </div>
-
-              <div className="form-floating col mb-3">
-                <input
-                  type="number"
-                  className="form-control"
-                  id={`PetitionerAge${i + 1}`}
-                  name={`PetitionerAge${i + 1}`}
-                  placeholder={`PetitionerAge${i + 1}`}
-                  value={vakalathForm.values[`PetitionerAge${i + 1}`] || ""}
-                  onChange={vakalathForm.handleChange}
-                />
-                <label htmlFor={`PetitionerAge${i + 1}`} className="ms-3">
-                  Petitioner Age
-                </label>
-              </div>
-            </div>
-          ))}
-          <div className="d-flex justify-content-between align-items-center mb-2">
-            <label>Respondent</label>
-            {respondentCount < 3 && (
-              <button
-                type="button"
-                className="btn btn-sm btn-primary"
-                onClick={() => addPetitioner("Respondent")}
-              >
-                + Add Respondent
-              </button>
-            )}
-          </div>
-          {[...Array(respondentCount)].map((_, i) => (
-            <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3" key={i}>
-              <div className="form-floating col mb-3">
-                <input
-                  className="form-control"
-                  id={`RespondentName${i + 1}`}
-                  name={`RespondentName${i + 1}`}
-                  placeholder={`RespondentName${i + 1}`}
-                  value={vakalathForm.values[`RespondentName${i + 1}`] || ""}
-                  onChange={vakalathForm.handleChange}
-                />
-                <label htmlFor={`RespondentName${i + 1}`} className="ms-3">
-                  Respondent Name
-                </label>
-              </div>
-
-              <div className="form-floating col mb-3">
-                <input
-                  className="form-control"
-                  id={`RespondentAddress${i + 1}`}
-                  name={`RespondentAddress${i + 1}`}
-                  placeholder={`RespondentAddress${i + 1}`}
-                  value={vakalathForm.values[`RespondentAddress${i + 1}`] || ""}
-                  onChange={vakalathForm.handleChange}
-                />
-                <label htmlFor={`RespondentAddress${i + 1}`} className="ms-3">
-                  Respondent's Address
-                </label>
-              </div>
-
-              <div className="form-floating col mb-3">
-                <input
-                  type="number"
-                  className="form-control"
-                  id={`RespondentAge${i + 1}`}
-                  name={`RespondentAge${i + 1}`}
-                  placeholder={`RespondentAge${i + 1}`}
-                  value={vakalathForm.values[`RespondentAge${i + 1}`] || ""}
-                  onChange={vakalathForm.handleChange}
-                />
-                <label htmlFor={`RespondentAge${i + 1}`} className="ms-3">
-                  Respondent Age
-                </label>
-              </div>
-            </div>
-          ))}
-        </div>
+        <PetitionerDetails petitioners={petitioners} setPetitioners={setPetitioners} />
+        <RespondentDetails respondents={respondents} setRespondents={setRespondents} />
         <div className="d-flex justify-content-center justify-content-md-end ">
           <button
             type="submit"

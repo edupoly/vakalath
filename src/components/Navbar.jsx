@@ -15,48 +15,50 @@ const Navbar = ({ isShow, setIsShow }) => {
     navigate("/login")
   };
   return (
-    <div className="d-flex justify-content-between align-items-center w-100 py-1 ms-4 me-4">
-      <div className="list-unstyled d-block d-lg-none">
-        <i
-          onClick={() => setIsShow(true)}
-          className="bi bi-list list-icon-mobile fs-1"
-        ></i>
-      </div>
-      <div>
-        {isShow ? (
-          <div className="fs-3">Vakalath - AI based Court Filing System</div>
-        ) : (
-          <div className="fw-bold fs-1">VAKALATH</div>
-        )}
-      </div>
-      <div>
-        {!userDetails ? (
-          <Link to={"/login"} className="btn btn-success">
-            Login
-          </Link>
-        ) : isShow ? (
-          <ul className="list-unstyled d-flex gap-4 align-items-center  mb-0">
-            <span>
-              <li className="text-secondary">Welcome..</li>
-              <li className="text-capitalize">
-                {userDetails?.firstname} {userDetails?.lastname}
+    <div className="navbar-style shadow-sm bg-white navbar rounded sticky-top">
+      <div className="d-flex justify-content-between align-items-center w-100 py-1 ms-4 me-4">
+        <div className="list-unstyled d-block d-lg-none">
+          <i
+            onClick={() => setIsShow(true)}
+            className="bi bi-list list-icon-mobile fs-1"
+          ></i>
+        </div>
+        <div>
+          {isShow ? (
+            <div className="fs-3">Vakalath - AI based Court Filing System</div>
+          ) : (
+            <div className="fw-bold fs-1">VAKALATH</div>
+          )}
+        </div>
+        <div>
+          {!userDetails ? (
+            <Link to={"/login"} className="btn btn-success">
+              Login
+            </Link>
+          ) : isShow ? (
+            <ul className="list-unstyled d-flex gap-4 align-items-center  mb-0">
+              <span>
+                <li className="text-secondary">Welcome..</li>
+                <li className="text-capitalize">
+                  {userDetails?.firstname} {userDetails?.lastname}
+                </li>
+              </span>
+              <li>
+                <button
+                  className="btn btn-danger btn-sm fw-semibold"
+                  onClick={logout}
+                >
+                  Logout
+                </button>
               </li>
-            </span>
-            <li>
-              <button
-                className="btn btn-danger btn-sm fw-semibold"
-                onClick={logout}
-              >
-                Logout
-              </button>
-            </li>
-          </ul>
-        ) : (
-          <div className="avatar-circle">
-            {userDetails?.firstname[0]}
-            {userDetails?.lastname[0]}
-          </div>
-        )}
+            </ul>
+          ) : (
+            <div className="avatar-circle">
+              {userDetails?.firstname[0]}
+              {userDetails?.lastname[0]}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
