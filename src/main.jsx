@@ -25,19 +25,21 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element:<Home/>
-      },
-      {
-      path:"/cases",
-        element: <MainPage />,
+        element: <Home />,
+        children: [
+          {
+            path: "/cases/:type",
+            element: <MainPage />,
+          },
+        ]
       },
       {
         path: "/highcourt",
         element: <HighCourt />,
         children: [
           {
-            path:"/highcourt/casetype/:casetype",
-            element:<ABForm/>
+            path: "/highcourt/casetype/:casetype",
+            element: <ABForm />
           }
         ]
       },

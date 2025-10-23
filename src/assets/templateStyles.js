@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   rightLane:{
-    width: '40%'
+    width: '41%'
   }
 });
 

@@ -1,0 +1,272 @@
+/* Page setup */
+.document {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 12px;
+  background-color: #fff;
+  padding: 50px 70px;
+  line-height: 1.5;
+}
+
+/* Headings */
+.heading {
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.headingAlt {
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.heading-center {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subTitle {
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.groundsTitle {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+/* Text alignment */
+.center {
+  text-align: center;
+}
+
+.centeredText {
+  text-align: center;
+}
+
+.start {
+  text-align: left;
+}
+
+.end {
+  text-align: right;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.leftText {
+  text-align: left;
+  font-size: 12px;
+}
+
+.rightText {
+  text-align: right;
+  font-size: 12px;
+}
+
+.justified {
+  text-align: justify;
+}
+
+.caseNo,
+.against {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Paragraphs and items */
+.paragraph {
+  margin-bottom: 6px;
+  text-align: justify;
+  font-size: 10px;
+  line-height: 1.5;
+  word-spacing: 10px;
+  font-family: 'Times New Roman', serif;
+}
+
+.justifiedText {
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.item {
+  font-size: 10px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.subItemGroup {
+  margin-left: 15px;
+}
+
+.subItem {
+  font-size: 10px;
+}
+
+/* Signatures */
+.signature-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.signatureBox {
+  width: 48%;
+}
+
+/* Cover page */
+.cover-page {
+  font-size: 12px;
+  font-family: 'Times New Roman', serif;
+  text-align: right;
+  padding-top: 40px;
+}
+
+/* Tables */
+.table {
+  display: table;
+  width: auto;
+  border: 1px solid #000;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.tableRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.tableColHeader {
+  width: 25%;
+  border: 1px solid #000;
+  border-right: 1px solid #000;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.tableCol {
+  width: 45%;
+  border: 1px solid #000;
+  border-right: 1px solid #000;
+  padding: 5px;
+}
+
+/* Table cells by width */
+.cell1 { width: 8%; }
+.cell2 { width: 32%; padding-right: 4px; }
+.cell3 { width: 15%; }
+.cell4 { width: 25%; }
+.cell5 { width: 20%; }
+
+.col1 { width: 12%; text-align: center; }
+.col2 { width: 13%; text-align: center; }
+.col3 { width: 23%; text-align: center; }
+.col4 { width: 18%; text-align: center; }
+.col5 { width: 22%; text-align: center; }
+.col6 { width: 11%; text-align: center; }
+
+.annexurecol1 { width: 10%; }
+.annexurecol2 { width: 15%; }
+.annexurecol3 { width: 40%; }
+.annexurecol4 { width: 17.5%; }
+.annexurecol5 { width: 17.5%; }
+
+.colLeft {
+  width: 60%;
+  text-align: center;
+}
+
+.colRight {
+  width: 40%;
+}
+
+/* Layout helpers */
+.row,
+.headerRow {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ccc;
+  padding: 4px 0;
+  font-size: 11px;
+}
+
+.headerRow {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  margin-top: 10px;
+}
+
+.centerRow {
+  display: flex;
+  justify-content: center;
+}
+
+.evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.endRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Horizontal rule */
+.hr {
+  border-bottom: 1px solid #000;
+  margin-top: 10px;
+}
+
+/* Misc */
+.officeUseBlock {
+  font-size: 10px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.battaRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.rightLane {
+  width: 41%;
+}
+
+/* Utility spacing classes (like Tailwind-like helpers) */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+
+.underline {
+  text-decoration: underline;
+}

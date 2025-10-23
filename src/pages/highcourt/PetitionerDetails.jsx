@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FloatingInput from '../../components/floatingInput';
 
-function PetitionerDetails({ petitioners, setPetitioners }) {
+function PetitionerDetails({ petitioners, setPetitioners, vakalathForm }) {
 
     const addPetitioner = () => {
-        setPetitioners([...petitioners, { name: '', address: '', age: '' }]);
+        setPetitioners([...petitioners, { Name: '', Address: '', Age: '' }]);
     };
 
     const handleChange = (index, field, value) => {
         const updated = [...petitioners];
         updated[index][field] = value;
         setPetitioners(updated);
+        vakalathForm.setFieldValue('Petitioners', petitioners);
+
     };
 
     const deleteRespondent = (index) => {
@@ -39,15 +41,14 @@ function PetitionerDetails({ petitioners, setPetitioners }) {
                             id={`PetitionerName${i + 1}`}
                             name={`PetitionerName${i + 1}`}
                             label={`Petitioner Name ${i + 1}`}
-                            value={petitioner.name}
+                            value={petitioner.Name}
                             onChange={(e) => handleChange(i, 'name', e.target.value)}
                         />
-
                         <FloatingInput
                             id={`PetitionerAddress${i + 1}`}
                             name={`PetitionerAddress${i + 1}`}
                             label={`Petitioner's Address ${i + 1}`}
-                            value={petitioner.address}
+                            value={petitioner.Address}
                             onChange={(e) => handleChange(i, 'address', e.target.value)}
                         />
 
@@ -56,7 +57,7 @@ function PetitionerDetails({ petitioners, setPetitioners }) {
                             id={`PetitionerAge${i + 1}`}
                             name={`PetitionerAge${i + 1}`}
                             label={`Petitioner Age ${i + 1}`}
-                            value={petitioner.age}
+                            value={petitioner.Age}
                             onChange={(e) => handleChange(i, 'age', e.target.value)}
                         />
                     </div>

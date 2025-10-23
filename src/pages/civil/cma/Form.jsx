@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import { useSelector } from 'react-redux';
 import PetitionerDetails from '../../highcourt/PetitionerDetails';
 import RespondentDetails from '../../highcourt/RespondentDetails';
+import FloatingInput from '../../../components/floatingInput';
 
 function CMAForm() {
     const [filecase] = useFileCaseMutation();
@@ -19,8 +20,32 @@ function CMAForm() {
     const vakalathForm = useFormik({
         enableReinitialize: true,
         initialValues: {
-            ...highCourtInitialValues,
-            Userid: userDetails && userDetails["_id"],
+            CourtName: "",
+            IAMainNumber: "",
+            OSNumber: "",
+            HighCourtName: "",
+            CMANumber: "",
+            AppellantName: "",
+            RespondentName: "",
+            AppellantAddress: "",
+            CounselName: "",
+            JudgmentDate: "",
+            TrialCourtName: "",
+            TrialCourtPlace: "",
+            GroundsOfAppeal: "",
+            ValuationAmount: "",
+            CourtFeePaid: "",
+            DistrictName: "",
+            FilingDate: "",
+            CMAMPNumber: "",
+            PetitionerName: "",
+            PetitionerFatherName: "",
+            PetitionerAge: "",
+            PetitionerOccupation: "",
+            PetitionerAddress: "",
+            PetitionPrayer: "",
+            SwornDate: "",
+            UserId: userDetails ? userDetails["_id"] : "",
         },
         onSubmit: (values) => {
             console.log(values);
@@ -39,9 +64,29 @@ function CMAForm() {
     };
     return (
         <form onSubmit={vakalathForm.handleSubmit} className=" m-5 my-md-4">
-            CMAForm
             <PetitionerDetails petitioners={petitioners} setPetitioners={setPetitioners} />
             <RespondentDetails respondents={respondents} setRespondents={setRespondents} />
+            <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-3">
+                <FloatingInput id="CourtName" name="CourtName" label="Court Name" value={vakalathForm.values.CourtName} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="IAMainNumber" name="IAMainNumber" label="I.A. Number" value={vakalathForm.values.IAMainNumber} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="OSNumber" name="OSNumber" label="O.S. Number" value={vakalathForm.values.OSNumber} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="HighCourtName" name="HighCourtName" label="High Court Name" value={vakalathForm.values.HighCourtName} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="CMANumber" name="CMANumber" label="C.M.A. Number" value={vakalathForm.values.CMANumber} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="AppellantName" name="AppellantName" label="Appellant Name" value={vakalathForm.values.AppellantName} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="AppellantAddress" name="AppellantAddress" label="Appellant Address" value={vakalathForm.values.AppellantAddress} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="CounselName" name="CounselName" label="Counsel Name" value={vakalathForm.values.CounselName} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="JudgmentDate" name="JudgmentDate" label="Judgment Date" value={vakalathForm.values.JudgmentDate} type="date" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="TrialCourtName" name="TrialCourtName" label="Trial Court Name" value={vakalathForm.values.TrialCourtName} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="TrialCourtPlace" name="TrialCourtPlace" label="Trial Court Place" value={vakalathForm.values.TrialCourtPlace} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="GroundsOfAppeal" name="GroundsOfAppeal" label="Grounds Of Appeal" value={vakalathForm.values.GroundsOfAppeal} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="ValuationAmount" name="ValuationAmount" label="Valuation Amount" value={vakalathForm.values.ValuationAmount} type="number" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="CourtFeePaid" name="CourtFeePaid" label="Court Fee Paid" value={vakalathForm.values.CourtFeePaid} type="number" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="DistrictName" name="DistrictName" label="District Name" value={vakalathForm.values.DistrictName} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="FilingDate" name="FilingDate" label="Filing Date" value={vakalathForm.values.FilingDate} type="date" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="CMAMPNumber" name="CMAMPNumber" label="C.M.A.M.P. Number" value={vakalathForm.values.CMAMPNumber} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="PetitionPrayer" name="PetitionPrayer" label="Petition Prayer" value={vakalathForm.values.PetitionPrayer} type="text" onChange={vakalathForm.handleChange} />
+                <FloatingInput id="SwornDate" name="SwornDate" label="Sworn Date" value={vakalathForm.values.SwornDate} type="date" onChange={vakalathForm.handleChange} />
+            </div>
             <div className="d-flex justify-content-center justify-content-md-end ">
                 <button
                     type="submit"

@@ -4,10 +4,10 @@ import FloatingInput from '../../components/floatingInput';
 function RespondentDetails({ respondents, setRespondents, editRespondents }) {
 
     const addRespondent = () => {
-        setRespondents([...respondents, { name: '', address: '', age: '' }]);
+        setRespondents([...respondents, { Name: '', Address: '', Age: '' }]);
     };
 
-     const deleteRespondent = (index) => {
+    const deleteRespondent = (index) => {
         const newDetails = respondents.filter((_, i) => i !== index);
         setRespondents(newDetails);
     };
@@ -16,6 +16,7 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
         const newDetails = [...respondents];
         newDetails[index][field] = value;
         setRespondents(newDetails);
+        vakalathForm.setFieldValue('Respondents', respondents);
     };
 
     return (
@@ -38,7 +39,7 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
                             id={`RespondentName${i + 1}`}
                             name={`RespondentName${i + 1}`}
                             label={`Respondent Name ${i + 1}`}
-                            value={respondent.name}
+                            value={respondent.Name}
                             onChange={(e) => handleChange(i, 'name', e.target.value)}
                         />
 
@@ -46,7 +47,7 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
                             id={`RespondentAddress${i + 1}`}
                             name={`RespondentAddress${i + 1}`}
                             label={`Respondent's Address ${i + 1}`}
-                            value={respondent.address}
+                            value={respondent.Address}
                             onChange={(e) => handleChange(i, 'address', e.target.value)}
                         />
 
@@ -55,7 +56,7 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
                             id={`RespondentAge${i + 1}`}
                             name={`RespondentAge${i + 1}`}
                             label={`Respondent Age ${i + 1}`}
-                            value={respondent.age}
+                            value={respondent.Age}
                             onChange={(e) => handleChange(i, 'age', e.target.value)}
                         />
                     </div>

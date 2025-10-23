@@ -14,6 +14,7 @@ import RevisionCaseForm from "../criminal/revisionCase/Form";
 
 function HighCourt1({ casedata }) {
   const { id } = useParams();
+  const [formData, setFormData] = useState({});
   const modalRef = useRef(null);
   const [caseType, setCaseType] = useState("");
   const caseTypeComponents = {
@@ -50,22 +51,22 @@ function HighCourt1({ casedata }) {
           <option value="" disabled>
             Select Case Type
           </option>
+          <option value="anticipatory_bail">AB</option>
+          <option value="bail">BAIL</option>
           <option value="cma">CMA</option>
+          <option value="criminal_appeal">CRLA</option>
+          <option value="criminal_revision_case">CRLRC</option>
           <option value="crp">CRP</option>
           <option value="first_appeal">FIRST APPEAL</option>
           <option value="second_appeal">SECOND APPEAL</option>
-          <option value="writ_appeal">WA</option>
           <option value="writ_affidavit">Writ</option>
-          <option value="anticipatory_bail">AB</option>
-          <option value="bail">BAIL</option>
-          <option value="criminal_appeal">CRLA</option>
-          <option value="criminal_revision_case">CRLRC</option>
+          <option value="writ_appeal">WA</option>
         </select>
         <label htmlFor="CaseType" className="ms-3 form-label">
           Case Type
         </label>
       </div>
-      {SelectedForm && <SelectedForm />}
+      {SelectedForm && <SelectedForm caseType={caseType} setFormData={setFormData} modalRef={modalRef} />}
     </div>
   );
 }

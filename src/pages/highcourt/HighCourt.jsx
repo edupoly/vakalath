@@ -22,35 +22,31 @@ function HighCourt({ casedata }) {
   const modalRef = useRef(null);
   const userDetails = useSelector((state) => state.user.userInfo);
   const [triggerGetCaseById, { data, isLoading }] = useLazyGetCaseByIdQuery();
-  const [petitionerCount, setPetitionerCount] = useState(1);
   const [updateForm] = useEditFileCaseMutation();
-  const [petitioners, setPetitioners] = useState([
-    { name: '', address: '', age: '' },
-  ]);
-  const [respondents, setRespondents] = useState([
-    { name: '', address: '', age: '' },
-  ]);
   const vakalathForm = useFormik({
     enableReinitialize: true,
     initialValues: data?.case || {
       ...highCourtInitialValues,
       Userid: userDetails && userDetails["_id"],
     },
-    // initialValues: { ...highCourtInitialValues, Userid: userDetails && userDetails['_id'] },
     onSubmit: (values) => {
-      console.log(values);
       setFormData({ ...values });
-      // if (data?.case) {
-      //   console.log("lkfdfghkjh", values);
+      if (data?.case) {
 
-      //   updateForm({ ...values });
-      // } else {
-      //   filecase(values);
-      // }
+        updateForm({ ...values });
+      } else {
+        filecase({ ...values,FilledFrom:"highcourt" });
+      }
       const modal = new window.bootstrap.Modal(modalRef.current);
       modal.show();
     },
   });
+  const [petitioners, setPetitioners] = useState(vakalathForm.values?.Petitioners || [
+    { Name: '', Address: '', Age: '' },
+  ]);
+  const [respondents, setRespondents] = useState( vakalathForm.values?.Respondents || [
+    { Name: '', Address: '', Age: '' },
+  ]);
 
   useEffect(() => {
     if (id) {
@@ -58,37 +54,10 @@ function HighCourt({ casedata }) {
     }
   }, [id]);
 
-  useEffect(() => {
-    vakalathForm.setFieldValue('petitioners', [
-    {
-        "name": "Rajesh Kumar",
-        "address": "12A, Banjara Hills, Hyderabad - 500034",
-        "age": "8"
-    },
-    {
-        "name": "Meena Kumari",
-        "address": "12A, Banjara Hills, Hyderabad - 500034",
-        "age": "13"
-    }
-]);
-    vakalathForm.setFieldValue('respondents', [
-    {
-        "name": "Ravi Verma",
-        "address": "21B, Jubilee Hills, Hyderabad - 500033",
-        "age": "13"
-    },
-    {
-        "name": "Ravi Verma",
-        "address": "21B, Jubilee Hills, Hyderabad - 500033",
-        "age": "13"
-    },
-    {
-        "name": "Ravi Verma",
-        "address": "21B, Jubilee Hills, Hyderabad - 500033",
-        "age": "13"
-    },
-]);
-  }, [petitioners, respondents]);
+  // useEffect(() => {
+  //   vakalathForm.setFieldValue('Petitioners', petitioners);
+  //   vakalathForm.setFieldValue('Respondents', respondents);
+  // }, [petitioners, respondents]);
 
   const formatDate = () => {
     const rawDate = vakalathForm.values.Date;
@@ -102,7 +71,13 @@ function HighCourt({ casedata }) {
 
   useEffect(() => {
     document.title = "HighCourt"
-  }, [])
+    if(data?.case){
+      console.log("vakalathForm.values",vakalathForm.values);
+      
+      setPetitioners(vakalathForm.values?.Petitioners)
+      setRespondents(vakalathForm.values?.Respondents)
+    }
+  }, [data])
 
   return (
     <div>
@@ -219,8 +194,8 @@ function HighCourt({ casedata }) {
             </label>
           </div>
         </div>
-        <PetitionerDetails petitioners={petitioners} setPetitioners={setPetitioners} />
-        <RespondentDetails respondents={respondents} setRespondents={setRespondents} />
+        <PetitionerDetails petitioners={petitioners} setPetitioners={setPetitioners} vakalathForm={vakalathForm}/>
+        <RespondentDetails respondents={respondents} setRespondents={setRespondents} vakalathForm={vakalathForm}/>
         <div className="d-flex justify-content-center justify-content-md-end ">
           <button
             type="submit"

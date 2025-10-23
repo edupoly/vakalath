@@ -20,24 +20,24 @@ function BailForm() {
   const vakalathForm = useFormik({
     enableReinitialize: true,
     initialValues: {
-        CrlpNo:"",
-        PetitionerName:"",
-        RespondentName:"",
-        CrimeNumber:"",
-        PoliceStationName:"",
-        Sections:"",
-        DateOfArrest:"",
-        PetitionerAddress:"",
-        CrlMpNo:"",
-        SessionJudge:"",
-        DateOfDismissal:"",
-        JailName:"",
-        ToDistrict:"",
+      CrlpNo: "",
+      CrimeNumber: "",
+      PoliceStationName: "",
+      Sections: "",
+      DateOfArrest: "",
+      Respondents: [],
+      Petitioners: [],
+      CrlMpNo: "",
+      SessionJudge: "",
+      DateOfDismissal: "",
+      JailName: "",
+      ToDistrict: "",
+
     },
     onSubmit: (values) => {
       console.log(values);
-      // setFormData({ ...values });
-      //   filecase(values);
+      setFormData({ ...values });
+      filecase({ ...values, FilledFrom: "bail" });
       const modal = new window.bootstrap.Modal(modalRef.current);
       modal.show();
     },
@@ -51,126 +51,7 @@ function BailForm() {
   };
   return (
     <form onSubmit={vakalathForm.handleSubmit} className=" m-5 my-md-4">
-      <FloatingInput
-        id={`CrlpNo`}
-        name={`CrlpNo`}
-        label={`CrlpNo`}
-        value={""}
-        type="number"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`PetitionerName`}
-        name={`PetitionerName`}
-        label={`PetitionerName`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-    <FloatingInput
-        id={`RespondentName`}
-        name={`RespondentName`}
-        label={`RespondentName`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`CrimeNumber`}
-        name={`CrimeNumber`}
-        label={`CrimeNumber`}
-        value={""}
-        type="number"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`PoliceStationName`}
-        name={`PoliceStationName`}
-        label={`PoliceStationName`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`Sections`}
-        name={`Sections`}
-        label={`Sections`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`DateOfArrest`}
-        name={`DateOfArrest`}
-        label={`DateOfArrest`}
-        value={""}
-        type="number"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`PetitionerAddress`}
-        name={`PetitionerAddress`}
-        label={`PetitionerAddress`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`CrlMpNo`}
-        name={`CrlMpNo`}
-        label={`CrlMpNo`}
-        value={""}
-        type="number"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-       <FloatingInput
-        id={`SessionJudge`}
-        name={`SessionJudge`}
-        label={`SessionJudge`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-       <FloatingInput
-        id={`DateOfDismissal`}
-        name={`DateOfDismissal`}
-        label={`DateOfDismissal`}
-        value={""}
-        type="number"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />  
-      <FloatingInput
-        id={`PoliceStationName`}
-        name={`PoliceStationName`}
-        label={`PoliceStationName`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-      <FloatingInput
-        id={`Date`}
-        name={`Date`}
-        label={`Date`}
-        value={""}
-        type="number"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-       <FloatingInput
-        id={`JailName`}
-        name={`JailName`}
-        label={`JailName`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
-       <FloatingInput
-        id={`ToDistrict`}
-        name={`ToDistrict`}
-        label={`ToDistrict`}
-        value={""}
-        type="text"
-        onChange={(e) =>vakalathForm.handleChange()}
-      />
+
       <PetitionerDetails
         petitioners={petitioners}
         setPetitioners={setPetitioners}
@@ -179,6 +60,104 @@ function BailForm() {
         respondents={respondents}
         setRespondents={setRespondents}
       />
+      <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-3">
+        <FloatingInput
+          id={`CrlpNo`}
+          name={`CrlpNo`}
+          label={`CrlpNo`}
+          value={""}
+          type="number"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`CrimeNumber`}
+          name={`CrimeNumber`}
+          label={`CrimeNumber`}
+          value={""}
+          type="number"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`PoliceStationName`}
+          name={`PoliceStationName`}
+          label={`PoliceStationName`}
+          value={""}
+          type="text"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`Sections`}
+          name={`Sections`}
+          label={`Sections`}
+          value={""}
+          type="text"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`DateOfArrest`}
+          name={`DateOfArrest`}
+          label={`DateOfArrest`}
+          value={""}
+          type="number"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`CrlMpNo`}
+          name={`CrlMpNo`}
+          label={`CrlMpNo`}
+          value={""}
+          type="number"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`SessionJudge`}
+          name={`SessionJudge`}
+          label={`SessionJudge`}
+          value={""}
+          type="text"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`DateOfDismissal`}
+          name={`DateOfDismissal`}
+          label={`DateOfDismissal`}
+          value={""}
+          type="number"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`PoliceStationName`}
+          name={`PoliceStationName`}
+          label={`PoliceStationName`}
+          value={""}
+          type="text"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`Date`}
+          name={`Date`}
+          label={`Date`}
+          value={""}
+          type="number"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`JailName`}
+          name={`JailName`}
+          label={`JailName`}
+          value={""}
+          type="text"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+        <FloatingInput
+          id={`ToDistrict`}
+          name={`ToDistrict`}
+          label={`ToDistrict`}
+          value={""}
+          type="text"
+          onChange={(e) => vakalathForm.handleChange()}
+        />
+      </div>
       <div className="d-flex justify-content-center justify-content-md-end ">
         <button
           type="submit"

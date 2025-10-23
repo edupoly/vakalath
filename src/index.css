@@ -8,7 +8,7 @@
 
 .card-custom {
   width: 220px;
-  height: 220px;
+  /* height: 220px; */
   margin: 24px;
   background: linear-gradient(135deg, #f3f5fc 60%, #e7ebf7 100%);
   border-radius: 20px;
@@ -31,9 +31,14 @@
 .card-custom:hover,
 .card-custom:focus {
   box-shadow: 0 20px 48px 0 rgba(0, 123, 255, 0.13), 0 6px 16px rgba(0, 35, 120, 0.13);
-  transform: scale(1.055) translateY(-10px);
+  transform: scale(1.055) translateY(0);
   border-color: #313388;
   outline: none;
+}
+
+.card-custom+.active {
+  border-color: #313388;
+
 }
 
 .sidebar {
