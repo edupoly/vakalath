@@ -1,14 +1,14 @@
 import { PDFViewer, pdf } from '@react-pdf/renderer';
-import React, { useEffect, useState } from 'react';
-import { useConvertPdfToDocxMutation } from '../../services/caseDetailsApi';
+import React, { useEffect, useRef, useState } from 'react';
 import AnticiptoryBailFile from '../criminal/anticiptoryBail/template';
 import CriminalBailFile from '../criminal/bail/template';
 import HighCourtTemplate from './template';
-// import { useConvertPdfToDocxMutation } from '../path-to-fileApi'; // Adjust path
+import generateAndDownloadDocx, { getDocxDocument } from '../criminal/anticiptoryBail/template1';
+import { Packer } from 'docx';
+import { renderAsync } from 'docx-preview';
 
 function HighCourtModal({ formData, modalRef, type }) {
   const [isMobile, setIsMobile] = useState(false);
-  const [convertPdfToDocx, { isLoading, error }] = useConvertPdfToDocxMutation();
 
   const caseTypeTemplates = {
     cma: "CMAFile",
@@ -29,31 +29,21 @@ function HighCourtModal({ formData, modalRef, type }) {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  const handleConvertAndDownloadDocx = async () => {
-    try {
-      // Generate PDF blob from the selected template
-      const pdfBlob = await pdf(<SelectedTemplate formData={formData} />).toBlob();
+  const containerRef = useRef();
 
-      // Create a File object for uploading
-      const pdfFile = new File([pdfBlob], 'generated.pdf', { type: 'application/pdf' });
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.innerHTML = "";
 
-      // Upload the PDF file to backend and get DOCX blob response
-      const docxBlob = await convertPdfToDocx(pdfFile).unwrap();
-
-      // Trigger DOCX download
-      const url = window.URL.createObjectURL(docxBlob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'converted.docx';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      console.error('Conversion failed:', err);
-      alert('Failed to convert PDF to DOCX');
+      const doc = getDocxDocument(formData); // use the named export
+      Packer.toBlob(doc).then((blob) => {
+        renderAsync(blob, containerRef.current, null, {
+          className: "docx-preview",
+          style: { width: "100%", height: "500px", border: "1px solid #ccc" },
+        });
+      });
     }
-  };
+  }, [formData]);
 
   return (
     <div
@@ -75,25 +65,24 @@ function HighCourtModal({ formData, modalRef, type }) {
             <button type="button" className="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body p-0">
-            {isMobile ? (
-              <div className="text-center d-flex justify-content-center align-items-center" style={{ height: '150px' }}>
-                <button onClick={handleConvertAndDownloadDocx} className="btn btn-success p-2" disabled={isLoading}>
-                  {isLoading ? 'Converting...' : 'Download DOCX'}
+            {/* {isMobile
+              ? <div className="text-center d-flex justify-content-center align-items-center" style={{ height: '150px' }}>
+                <button onClick={handleDownload} className="btn btn-success p-2">
+                  Download High Court Template
                 </button>
               </div>
-            ) : (
-              <>
-                <PDFViewer style={{ width: '100%', height: '88vh' }}>
-                  <SelectedTemplate formData={formData} />
-                </PDFViewer>
-                <div className="text-center my-2">
-                  <button onClick={handleConvertAndDownloadDocx} className="btn btn-success" disabled={isLoading}>
-                    {isLoading ? 'Converting...' : 'Download DOCX'}
-                  </button>
-                  {error && <p className="text-danger mt-2">Conversion failed, please try again.</p>}
-                </div>
-              </>
-            )}
+              : <PDFViewer style={{ width: '100%', height: '88vh' }}>
+                <HighCourtTemplate formData={formData} />
+              </PDFViewer>
+            } */}
+            <div ref={containerRef} />
+
+          </div>
+          <div className="modal-footer">
+            <button className="btn btn-success p-2" onClick={() => generateAndDownloadDocx(formData)}>
+              Download DOCX
+            </button>
+            <button className="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
           </div>
         </div>
       </div>

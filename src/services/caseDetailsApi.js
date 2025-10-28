@@ -36,23 +36,6 @@ export const caseDetailsApi = createApi({
         method: "DELETE",
       }),
     }),
-    convertPdfToDocx: builder.mutation({
-      query: (pdfFile) => {
-        const formData = new FormData();
-        formData.append('file', pdfFile);
-
-        return {
-          url: 'convert-pdf-to-docx',
-          method: 'POST',
-          body: formData,
-          // Custom response handler to return blob
-          responseHandler: async (response) => {
-            const blob = await response.blob();
-            return blob;
-          },
-        };
-      },
-    }),
   }),
 });
 
@@ -66,5 +49,4 @@ export const {
   useDeleteFileCaseMutation,
   useGetCasesByIdQuery,
   useLazyGetCasesByIdQuery,
-  useConvertPdfToDocxMutation
 } = caseDetailsApi;

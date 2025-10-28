@@ -11,8 +11,6 @@ function PetitionerDetails({ petitioners, setPetitioners, vakalathForm }) {
         const updated = [...petitioners];
         updated[index][field] = value;
         setPetitioners(updated);
-        vakalathForm.setFieldValue('Petitioners', petitioners);
-
     };
 
     const deleteRespondent = (index) => {
@@ -20,7 +18,11 @@ function PetitionerDetails({ petitioners, setPetitioners, vakalathForm }) {
         setPetitioners(newDetails);
     };
 
-
+useEffect(()=>{
+    if(vakalathForm?.values?.Petitioners){
+        setPetitioners([...vakalathForm?.values?.Petitioners])
+    }
+},[])
     return (
         <div>
             <div className="d-flex justify-content-between align-items-center">
@@ -41,15 +43,15 @@ function PetitionerDetails({ petitioners, setPetitioners, vakalathForm }) {
                             id={`PetitionerName${i + 1}`}
                             name={`PetitionerName${i + 1}`}
                             label={`Petitioner Name ${i + 1}`}
-                            value={petitioner.Name}
-                            onChange={(e) => handleChange(i, 'name', e.target.value)}
+                            value={petitioner?.Name}
+                            onChange={(e) => handleChange(i, 'Name', e.target.value)}
                         />
                         <FloatingInput
                             id={`PetitionerAddress${i + 1}`}
                             name={`PetitionerAddress${i + 1}`}
                             label={`Petitioner's Address ${i + 1}`}
-                            value={petitioner.Address}
-                            onChange={(e) => handleChange(i, 'address', e.target.value)}
+                            value={petitioner?.Address}
+                            onChange={(e) => handleChange(i, 'Address', e.target.value)}
                         />
 
                         <FloatingInput
@@ -57,8 +59,8 @@ function PetitionerDetails({ petitioners, setPetitioners, vakalathForm }) {
                             id={`PetitionerAge${i + 1}`}
                             name={`PetitionerAge${i + 1}`}
                             label={`Petitioner Age ${i + 1}`}
-                            value={petitioner.Age}
-                            onChange={(e) => handleChange(i, 'age', e.target.value)}
+                            value={petitioner?.Age}
+                            onChange={(e) => handleChange(i, 'Age', e.target.value)}
                         />
                     </div>
                     {i !== 0 ? <button type="button" className="btn-close" onClick={() => deleteRespondent(i)}></button> : <div className='p-2 ms-2'></div>}

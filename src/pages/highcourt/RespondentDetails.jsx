@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FloatingInput from '../../components/floatingInput';
 
-function RespondentDetails({ respondents, setRespondents, editRespondents }) {
+function RespondentDetails({ respondents, setRespondents, vakalathForm }) {
 
     const addRespondent = () => {
         setRespondents([...respondents, { Name: '', Address: '', Age: '' }]);
@@ -18,6 +18,12 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
         setRespondents(newDetails);
         vakalathForm.setFieldValue('Respondents', respondents);
     };
+
+    useEffect(()=>{
+        if(vakalathForm?.values?.Respondents){
+            setRespondents([...vakalathForm?.values?.Respondents])
+        }
+    },[])
 
     return (
         <div>
@@ -40,7 +46,7 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
                             name={`RespondentName${i + 1}`}
                             label={`Respondent Name ${i + 1}`}
                             value={respondent.Name}
-                            onChange={(e) => handleChange(i, 'name', e.target.value)}
+                            onChange={(e) => handleChange(i, 'Name', e.target.value)}
                         />
 
                         <FloatingInput
@@ -48,7 +54,7 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
                             name={`RespondentAddress${i + 1}`}
                             label={`Respondent's Address ${i + 1}`}
                             value={respondent.Address}
-                            onChange={(e) => handleChange(i, 'address', e.target.value)}
+                            onChange={(e) => handleChange(i, 'Address', e.target.value)}
                         />
 
                         <FloatingInput
@@ -57,7 +63,7 @@ function RespondentDetails({ respondents, setRespondents, editRespondents }) {
                             name={`RespondentAge${i + 1}`}
                             label={`Respondent Age ${i + 1}`}
                             value={respondent.Age}
-                            onChange={(e) => handleChange(i, 'age', e.target.value)}
+                            onChange={(e) => handleChange(i, 'Age', e.target.value)}
                         />
                     </div>
                     {i !== 0 ? <button type="button" className="btn-close" onClick={() => deleteRespondent(i)}></button> : <div className='p-2 ms-2'></div>}

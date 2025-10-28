@@ -10,10 +10,10 @@ import FloatingInput from '../../../components/floatingInput';
 function SecondAppealForm() {
     const [filecase] = useFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
-        { name: '', address: '', age: '' },
+        { Name: '', Address: '', Age: '' },
     ]);
     const [respondents, setRespondents] = useState([
-        { name: '', address: '', age: '' },
+        { Name: '', Address: '', Age: '' },
     ]);
     const userDetails = useSelector((state) => state.user.userInfo);
 
@@ -60,7 +60,7 @@ function SecondAppealForm() {
         return isNaN(parsedDate) ? '' : parsedDate.toISOString().split('T')[0];
     };
     return (
-        <form onSubmit={vakalathForm.handleSubmit} className=" m-5 my-md-4">
+        <form onSubmit={vakalathForm.handleSubmit} className=" ">
             SecondAppealForm
             <PetitionerDetails petitioners={petitioners} setPetitioners={setPetitioners} />
             <RespondentDetails respondents={respondents} setRespondents={setRespondents} />

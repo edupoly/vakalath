@@ -31,11 +31,7 @@ const Navbar = ({ isShow, setIsShow }) => {
           )}
         </div>
         <div>
-          {!userDetails ? (
-            <Link to={"/login"} className="btn btn-success">
-              Login
-            </Link>
-          ) : isShow ? (
+          {userDetails && isShow ? (
             <ul className="list-unstyled d-flex gap-4 align-items-center  mb-0">
               <span>
                 <li className="text-secondary">Welcome..</li>

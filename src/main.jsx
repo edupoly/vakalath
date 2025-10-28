@@ -17,6 +17,7 @@ import MainPage from "./pages/MainPage.jsx";
 import Home from "./pages/Home.jsx";
 import ABForm from "./pages/criminal/anticiptoryBail/Form.jsx";
 import HighCourt1 from "./pages/highcourt/HighCourt1.jsx";
+import SupremeCourtForm from "./pages/supemeCourt/Form.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,12 +37,6 @@ const router = createBrowserRouter([
       {
         path: "/highcourt",
         element: <HighCourt />,
-        children: [
-          {
-            path: "/highcourt/casetype/:casetype",
-            element: <ABForm />
-          }
-        ]
       },
       {
         path: "/highcourt/:id",
@@ -53,7 +48,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/supremecourt",
-        element: <h1>supremecourt</h1>,
+        element: <SupremeCourtForm />,
+      },
+      {
+        path: "/supremecourt/:id",
+        element: <SupremeCourtForm />,
       },
       {
         path: "/companylaw",

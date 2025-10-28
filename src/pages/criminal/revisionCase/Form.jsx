@@ -5,14 +5,15 @@ import { useFormik } from 'formik';
 import { useSelector } from 'react-redux';
 import PetitionerDetails from '../../highcourt/PetitionerDetails';
 import RespondentDetails from '../../highcourt/RespondentDetails';
+import FloatingInput from '../../../components/floatingInput';
 
 function RevisionCaseForm() {
     const [filecase] = useFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
-        { name: '', address: '', age: '' },
+        { Name: '', Address: '', Age: '' },
     ]);
     const [respondents, setRespondents] = useState([
-        { name: '', address: '', age: '' },
+        { Name: '', Address: '', Age: '' },
     ]);
     const userDetails = useSelector((state) => state.user.userInfo);
 
@@ -60,7 +61,7 @@ function RevisionCaseForm() {
         return isNaN(parsedDate) ? '' : parsedDate.toISOString().split('T')[0];
     };
     return (
-        <form onSubmit={vakalathForm.handleSubmit} className=" m-5 my-md-4">
+        <form onSubmit={vakalathForm.handleSubmit} className=" ">
             <PetitionerDetails petitioners={petitioners} setPetitioners={setPetitioners} />
             <RespondentDetails respondents={respondents} setRespondents={setRespondents} />
             <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-3">

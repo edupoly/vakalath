@@ -20,6 +20,7 @@ const MainPage = ({ type, setType }) => {
   const modalRef = useRef(null);
 
   const [pdfData, setPdfData] = useState("");
+  const [selectedType, setSelectedType] = useState("");
   useEffect(() => {
     console.log("casese", data);
   }, [data]);
@@ -33,7 +34,7 @@ const MainPage = ({ type, setType }) => {
   async function deleteCase(id) {
 
     await deleteFileCase(id);
-    triggerGetAllCasesById({ userId: userDetails["_id"], type })
+    triggerGetAllCasesById(userDetails["_id"])
 
   }
 
@@ -51,6 +52,7 @@ const MainPage = ({ type, setType }) => {
           <thead className="table-primary">
             <tr>
               <th className="text-center">Sl.no</th>
+              <th className="text-center">Court</th>
               <th className="text-center">Petitioner</th>
               <th className="text-center">Respondent</th>
               <th className="text-center">Actions</th>
@@ -62,25 +64,26 @@ const MainPage = ({ type, setType }) => {
                 {(!type || type == c?.FilledFrom) &&
                   <tr className="text-center">
                     <td>{i + 1}</td>
-                    <td>{c?.Petitioners?.[0]?.Name}</td>
-                    <td>{c?.Respondents?.[0]?.Name}</td>
+                    <td>{c?.FilledFrom}</td>
+                    <td>{c?.Petitioners[0] ? c?.Petitioners?.[0]?.Name : c?.PetitionerName1 ? c?.PetitionerName1 : ""}</td>
+                    <td>{c?.Respondents[0] ? c?.Respondents?.[0]?.Name : c?.RespondentName1 ? c?.RespondentName1 : ""}</td>
                     <td className="d-flex gap-2 justify-content-center">
                       <button
                         className="btn btn-success"
                         onClick={() => {
                           openCase(c);
-                          setType(c?.FilledFrom)
+                          setSelectedType(c?.FilledFrom)
                         }}
                       >
                         <i className="bi bi-eye me-2"></i>
-                        <span className="btn-label">View Case</span>
+                        {/* <span className="btn-label">View Case</span> */}
                       </button>
                       <Link
-                        to={`/highcourt/${c["_id"]}`}
+                        to={`/${c?.FilledFrom}/${c["_id"]}`}
                         className="btn btn-info text-light"
                       >
                         <i className="bi bi-pencil-square me-2"></i>
-                        <span className="btn-label">Edit Case</span>
+                        {/* <span className="btn-label">Edit Case</span> */}
                       </Link>
                       <button
                         className="btn btn-danger"
@@ -89,7 +92,7 @@ const MainPage = ({ type, setType }) => {
                         }}
                       >
                         <i className="bi bi-trash3 me-2"></i>
-                        Delete Case
+                        {/* Delete Case */}
                       </button>
                     </td>
                   </tr>
@@ -99,7 +102,7 @@ const MainPage = ({ type, setType }) => {
           </tbody>
         </table>
       </div>
-      <HighCourtModal formData={pdfData} modalRef={modalRef} type={type} />
+      <HighCourtModal formData={pdfData} modalRef={modalRef} type={selectedType} />
     </div>
   );
 };
