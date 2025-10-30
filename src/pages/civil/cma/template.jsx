@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
 import styles from '../../../assets/templateStyles';
-
+  
 const CMAFile = () => (
     <Document>
         <Page size="A4">

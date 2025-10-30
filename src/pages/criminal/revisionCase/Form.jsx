@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 import PetitionerDetails from '../../highcourt/PetitionerDetails';
 import RespondentDetails from '../../highcourt/RespondentDetails';
 import FloatingInput from '../../../components/floatingInput';
+import HighCourtModal from '../../highcourt/Modal';
 
-function RevisionCaseForm() {
+function RevisionCaseForm({ caseType, formData, setFormData, modalRef }) {
     const [filecase] = useFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
         { Name: '', Address: '', Age: '' },
@@ -61,6 +62,7 @@ function RevisionCaseForm() {
         return isNaN(parsedDate) ? '' : parsedDate.toISOString().split('T')[0];
     };
     return (
+       <>
         <form onSubmit={vakalathForm.handleSubmit} className=" ">
             <PetitionerDetails petitioners={petitioners} setPetitioners={setPetitioners} />
             <RespondentDetails respondents={respondents} setRespondents={setRespondents} />
@@ -98,6 +100,8 @@ function RevisionCaseForm() {
                 </button>
             </div>
         </form>
+      <HighCourtModal formData={formData} modalRef={modalRef} type={caseType} />
+       </>
     )
 }
 
