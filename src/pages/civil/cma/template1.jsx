@@ -1,6 +1,6 @@
 import { Document, Packer, Paragraph, TextRun, PageBreak, AlignmentType } from "docx";
 import { saveAs } from "file-saver";
-import { paragraphStyles, createParagraph } from "../../../services/templateFunctions";
+import { paragraphStyles1, createParagraph } from "../../../services/templateFunctions";
 
 export const CMATemplate = (formData) => {
   return new Document({
@@ -8,124 +8,124 @@ export const CMATemplate = (formData) => {
       {
         properties: {},
         children: [
-          createParagraph("MEMORANDUM OF CIVIL MISCELLANEOUS APPEAL", paragraphStyles.headingCenter),
-          createParagraph("(UNDER ORDER 43 RULE 1 OF C.P.C.)", paragraphStyles.center),
-          createParagraph("IN THE COURT OF THE _________________________________________", paragraphStyles.center),
-          createParagraph("I.A.No. _______ OF 2007", paragraphStyles.startText),
-          createParagraph("IN", paragraphStyles.startText),
-          createParagraph("O.S.No. _______ OF 2007", paragraphStyles.startText),
+          createParagraph("MEMORANDUM OF CIVIL MISCELLANEOUS APPEAL", paragraphStyles1.headingCenter),
+          createParagraph("(UNDER ORDER 43 RULE 1 OF C.P.C.)", paragraphStyles1.center),
+          createParagraph("IN THE COURT OF THE _________________________________________", paragraphStyles1.center),
+          createParagraph("I.A.No. _______ OF 2007", paragraphStyles1.startText),
+          createParagraph("IN", paragraphStyles1.startText),
+          createParagraph("O.S.No. _______ OF 2007", paragraphStyles1.startText),
 
-          createParagraph("IN THE HIGH COURT OF JUDICATURE : ANDHRA PRADESH AT HYDERABAD", paragraphStyles.center),
-          createParagraph("C.M.A.No. _______ OF 2007", paragraphStyles.center),
+          createParagraph("IN THE HIGH COURT OF JUDICATURE : ANDHRA PRADESH AT HYDERABAD", paragraphStyles1.center),
+          createParagraph("C.M.A.No. _______ OF 2007", paragraphStyles1.center),
 
-          createParagraph("BETWEEN:", paragraphStyles.startText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("...APPELLANT", paragraphStyles.endText),
+          createParagraph("BETWEEN:", paragraphStyles1.startText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("...APPELLANT", paragraphStyles1.endText),
 
-          createParagraph("AND", paragraphStyles.startText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("________________", paragraphStyles.normalText),
-          createParagraph("...RESPONDENT", paragraphStyles.endText),
+          createParagraph("AND", paragraphStyles1.startText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("________________", paragraphStyles1.normalText),
+          createParagraph("...RESPONDENT", paragraphStyles1.endText),
 
           createParagraph(
             "The address for service of all notices and process on the above named Appellant is that of his counsel M/s ###, Advocate, __________________, Hyderabad.",
-            paragraphStyles.paragraph
+            paragraphStyles1.paragraph
           ),
 
           createParagraph(
             "The above named Appellant begs to present this Memorandum of Civil Miscellaneous Appeal against the Judgment passed in I.A.No._____ of 2007 in O.S.No._____ of 2007, Dt.__________, on the file of _________________, __________, for the following grounds among other:",
-            paragraphStyles.paragraph
+            paragraphStyles1.paragraph
           ),
 
-          createParagraph("G R O U N D S", paragraphStyles.headingCenter),
+          createParagraph("G R O U N D S", paragraphStyles1.headingCenter),
 
-          createParagraph("1. The Judgment and decree of the Lower Court is illegal, contrary to law and facts, weight of evidence and probabilities of the case.", paragraphStyles.item),
-          createParagraph("2.", paragraphStyles.item),
+          createParagraph("1. The Judgment and decree of the Lower Court is illegal, contrary to law and facts, weight of evidence and probabilities of the case.", paragraphStyles1.item),
+          createParagraph("2.", paragraphStyles1.item),
 
           new Paragraph({ text: "", pageBreakBefore: true }),
 
-          createParagraph("3.", paragraphStyles.item),
-          createParagraph("4.", paragraphStyles.item),
-          createParagraph("5.", paragraphStyles.item),
+          createParagraph("3.", paragraphStyles1.item),
+          createParagraph("4.", paragraphStyles1.item),
+          createParagraph("5.", paragraphStyles1.item),
 
-          createParagraph("MEMO OF VALUATION", paragraphStyles.headingCenter),
+          createParagraph("MEMO OF VALUATION", paragraphStyles1.headingCenter),
 
           createParagraph(
             "The value of Appeal is Rs.____________/-, hence Court fee of Rs.10/- paid herewith which is sufficient under the A.P.C.F. and S.V.Act.",
-            paragraphStyles.paragraph
+            paragraphStyles1.paragraph
           ),
 
-          createParagraph("HYDERABAD", paragraphStyles.leftText),
-          createParagraph("DATE:", paragraphStyles.leftText),
-          createParagraph("COUNSEL FOR THE APPELLANT", paragraphStyles.rightText),
+          createParagraph("HYDERABAD", paragraphStyles1.leftText),
+          createParagraph("DATE:", paragraphStyles1.leftText),
+          createParagraph("COUNSEL FOR THE APPELLANT", paragraphStyles1.rightText),
 
           new Paragraph({ text: "", pageBreakBefore: true }),
 
-          createParagraph("_________ DISTRICT", paragraphStyles.rightLane),
-          createParagraph("HIGH COURT : HYDERABAD", paragraphStyles.center),
+          createParagraph("_________ DISTRICT", paragraphStyles1.rightLane),
+          createParagraph("HIGH COURT : HYDERABAD", paragraphStyles1.center),
 
-          createParagraph("C.M.A.No. _______ OF 2007", paragraphStyles.center),
-          createParagraph("AGAINST", paragraphStyles.center),
-          createParagraph("I.A.No. _______ OF 2007", paragraphStyles.center),
-          createParagraph("IN", paragraphStyles.center),
-          createParagraph("O.S.No. _______ OF 2007", paragraphStyles.center),
+          createParagraph("C.M.A.No. _______ OF 2007", paragraphStyles1.center),
+          createParagraph("AGAINST", paragraphStyles1.center),
+          createParagraph("I.A.No. _______ OF 2007", paragraphStyles1.center),
+          createParagraph("IN", paragraphStyles1.center),
+          createParagraph("O.S.No. _______ OF 2007", paragraphStyles1.center),
 
-          createParagraph("ON THE FILE OF THE", paragraphStyles.center),
-          createParagraph("__________________________", paragraphStyles.center),
-          createParagraph("__________________________", paragraphStyles.center),
+          createParagraph("ON THE FILE OF THE", paragraphStyles1.center),
+          createParagraph("__________________________", paragraphStyles1.center),
+          createParagraph("__________________________", paragraphStyles1.center),
 
-          createParagraph("G R O U N D S", paragraphStyles.headingCenter),
+          createParagraph("G R O U N D S", paragraphStyles1.headingCenter),
 
-          createParagraph("Filed By:", paragraphStyles.center),
-          createParagraph("M/s ###(000)", paragraphStyles.center),
-          createParagraph("ADVOCATE", paragraphStyles.center),
-          createParagraph("COUNSEL FOR THE APPELLANT / PETITIONER", paragraphStyles.center),
+          createParagraph("Filed By:", paragraphStyles1.center),
+          createParagraph("M/s ###(000)", paragraphStyles1.center),
+          createParagraph("ADVOCATE", paragraphStyles1.center),
+          createParagraph("COUNSEL FOR THE APPELLANT / PETITIONER", paragraphStyles1.center),
 
           new Paragraph({ text: "", pageBreakBefore: true }),
 
-          createParagraph("IN THE HIGH COURT OF JUDICATURE : ANDHRA PRADESH", paragraphStyles.center),
-          createParagraph("AT HYDERABAD", paragraphStyles.center),
-          createParagraph("C.M.A.M.P.No. _______ OF 2007", paragraphStyles.center),
-          createParagraph("IN", paragraphStyles.center),
-          createParagraph("C.M.A.No. _______ OF 2007", paragraphStyles.center),
+          createParagraph("IN THE HIGH COURT OF JUDICATURE : ANDHRA PRADESH", paragraphStyles1.center),
+          createParagraph("AT HYDERABAD", paragraphStyles1.center),
+          createParagraph("C.M.A.M.P.No. _______ OF 2007", paragraphStyles1.center),
+          createParagraph("IN", paragraphStyles1.center),
+          createParagraph("C.M.A.No. _______ OF 2007", paragraphStyles1.center),
 
-          createParagraph("Between:", paragraphStyles.startText),
-          createParagraph("_________________", paragraphStyles.startText),
-          createParagraph("...PETITIONER", paragraphStyles.endText),
-          createParagraph("AND", paragraphStyles.startText),
-          createParagraph("_____________________", paragraphStyles.startText),
-          createParagraph("...RESPONDENT", paragraphStyles.endText),
+          createParagraph("Between:", paragraphStyles1.startText),
+          createParagraph("_________________", paragraphStyles1.startText),
+          createParagraph("...PETITIONER", paragraphStyles1.endText),
+          createParagraph("AND", paragraphStyles1.startText),
+          createParagraph("_____________________", paragraphStyles1.startText),
+          createParagraph("...RESPONDENT", paragraphStyles1.endText),
 
-          createParagraph("A F F I D A V I T", paragraphStyles.headingCenter),
+          createParagraph("A F F I D A V I T", paragraphStyles1.headingCenter),
 
           createParagraph(
             "I, _________________, S/o._____________, aged __ years, Occ:___________,R/o.__________________________________ District, temporarily come down to Hyderabad, do hereby solemnly affirm and state as follows:",
-            paragraphStyles.paragraph
+            paragraphStyles1.paragraph
           ),
 
-          createParagraph("1. I am the Petitioner herein and I know the facts of the case.", paragraphStyles.item),
-          createParagraph("2.", paragraphStyles.item),
-          createParagraph("3.", paragraphStyles.item),
-          createParagraph("4.", paragraphStyles.item),
+          createParagraph("1. I am the Petitioner herein and I know the facts of the case.", paragraphStyles1.item),
+          createParagraph("2.", paragraphStyles1.item),
+          createParagraph("3.", paragraphStyles1.item),
+          createParagraph("4.", paragraphStyles1.item),
 
           createParagraph(
             "It is therefore prayed that this Hon'ble Court may be pleased to _________________________________________ and pass such other order or orders as this Hon'ble Court may deem fit and proper in the circumstances of the Case.",
-            paragraphStyles.paragraph
+            paragraphStyles1.paragraph
           ),
 
-          createParagraph("Last Page Cross....", paragraphStyles.item),
-          createParagraph("DEPONENT", paragraphStyles.item),
+          createParagraph("Last Page Cross....", paragraphStyles1.item),
+          createParagraph("DEPONENT", paragraphStyles1.item),
 
-          createParagraph("Sworn and Signed in my presence", paragraphStyles.item),
-          createParagraph("on this day of _________", paragraphStyles.item),
-          createParagraph("at Hyderabad.", paragraphStyles.item),
+          createParagraph("Sworn and Signed in my presence", paragraphStyles1.item),
+          createParagraph("on this day of _________", paragraphStyles1.item),
+          createParagraph("at Hyderabad.", paragraphStyles1.item),
 
-          createParagraph("ADVOCATE :: HYDERABAD", paragraphStyles.startText),
+          createParagraph("ADVOCATE :: HYDERABAD", paragraphStyles1.startText),
         ],
       },
     ],

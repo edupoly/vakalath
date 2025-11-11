@@ -25,7 +25,7 @@ export const caseDetailsApi = createApi({
     editFileCase: builder.mutation({
       // for updating cases
       query: (data) => ({
-        url: `/editFileCase/${data._id}`,
+        url: `/editFileCase/${data['_id']}`,
         method: "PUT",
         body: data,
       }),

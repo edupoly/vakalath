@@ -69,30 +69,27 @@ const MainPage = ({ type, setType }) => {
                     <td>{c?.Respondents[0] ? c?.Respondents?.[0]?.Name : c?.RespondentName1 ? c?.RespondentName1 : ""}</td>
                     <td className="d-flex gap-2 justify-content-center">
                       <button
-                        className="btn btn-success"
+                        className="btn btn-success px-2 py-1"
                         onClick={() => {
                           openCase(c);
-                          setSelectedType(c?.FilledFrom)
+                          setSelectedType(c?.CaseType)
                         }}
                       >
-                        <i className="bi bi-eye me-2"></i>
-                        {/* <span className="btn-label">View Case</span> */}
+                        <i className="bi bi-eye lh-1"></i>
                       </button>
                       <Link
                         to={`/${c?.FilledFrom}/${c["_id"]}`}
-                        className="btn btn-info text-light"
+                        className="btn btn-info text-light px-2 py-1"
                       >
-                        <i className="bi bi-pencil-square me-2"></i>
-                        {/* <span className="btn-label">Edit Case</span> */}
+                        <i className="bi bi-pencil-square lh-1"></i>
                       </Link>
                       <button
-                        className="btn btn-danger"
+                        className="btn btn-danger px-2 py-1"
                         onClick={() => {
                           deleteCase(c["_id"]);
                         }}
                       >
-                        <i className="bi bi-trash3 me-2"></i>
-                        {/* Delete Case */}
+                        <i className="bi bi-trash3 lh-1"></i>
                       </button>
                     </td>
                   </tr>

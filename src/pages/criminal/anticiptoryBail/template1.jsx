@@ -3,8 +3,9 @@ import { saveAs } from "file-saver";
 import {
   createParagraph,
   getPetitionersParagraphs,
-  paragraphStyles,
 } from "../../../services/templateFunctions";
+import { getDocxDocument } from "../bail/template1";
+import paragraphStyles from "../../../assets/templateStyles";
 
 export const ABTemplate = (formData) => {
   const petitionersParagraphs = getPetitionersParagraphs(formData?.Petitioners);
@@ -31,7 +32,7 @@ export const ABTemplate = (formData) => {
             `CRL.P.No. ${formData?.CrlpNo || "________"} OF 2007`,
             paragraphStyles.caseNo
           ),
-          createParagraph("BETWEEN:", paragraphStyles.centerText),
+          createParagraph("BETWEEN:", paragraphStyles.startText),
           ...petitionersParagraphs,
           createParagraph("..PETITIONER/ACCUSED", paragraphStyles.endText),
           createParagraph("AND", paragraphStyles.centerText),
@@ -50,19 +51,16 @@ export const ABTemplate = (formData) => {
             paragraphStyles.headingCenter
           ),
           createParagraph(
-            `The petitioner is accused in Crime No. ${
-              formData?.CrimeNumber || "____"
-            } of 2007 of ${
-              formData?.PoliceStationName || "____"
-            } Police Station. He is alleged to have committed offenses punishable under Sections ${
-              formData?.Sections || "____"
+            `The petitioner is accused in Crime No. ${formData?.CrimeNumber || "____"
+            } of 2007 of ${formData?.PoliceStationName || "____"
+            } Police Station. He is alleged to have committed offenses punishable under Sections ${formData?.Sections || "____"
             }. He is apprehending arrest in the above crime.`,
             paragraphStyles.paragraph
           ),
           ...Array.from({ length: 10 }, (_, i) =>
             createParagraph(
-              `${i + 1}. The petitioner submits that ...`,
-              paragraphStyles.item
+              `${i + 1}. The petitioner submits that`,
+              { spacing: { after: 800 } },
             )
           ),
           createParagraph(
@@ -101,9 +99,4 @@ export const ABTemplate = (formData) => {
   });
 };
 
-const generateAndDownloadDocx = (formData) => {
-  const doc = getDocxDocument(formData);
-  Packer.toBlob(doc).then((blob) => saveAs(blob, "HighCourtBail.docx"));
-};
-
-export default generateAndDownloadDocx;
+ 

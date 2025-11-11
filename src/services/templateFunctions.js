@@ -1,6 +1,47 @@
-import { AlignmentType, Paragraph, TextRun } from "docx";
+import { AlignmentType, Packer, Paragraph, TableCell, TextRun, WidthType, UnderlineType, Table, TableRow } from "docx";
+
+import { CMATemplate } from "../pages/civil/cma/template1";
+import { CRPTemplate } from "../pages/civil/crp/template1";
+import { FirstAppealTemplate } from "../pages/civil/firstAppeal/template1";
+import { SecondAppealTemplate } from "../pages/civil/secondAppeal/template1";
+import { WritAppealTemplate } from "../pages/civil/writAppeal/template1";
+import { AffidavitTemplate } from "../pages/civil/writAffidavit/template1";
+import { ABTemplate } from "../pages/criminal/anticiptoryBail/template1";
+import CriminalBailFile from "../pages/criminal/bail/template";
+import { CriminalAppealTemplate } from "../pages/criminal/appeal/template1";
+import { CriminalRevisionTemplate } from "../pages/criminal/revisionCase/template1";
+import HighCourtTemplate from "../pages/highcourt/template";
+import { AmendmentTemplate } from "../pages/highcourt/amendment/template";
+import { AntiBailTemplate } from "../pages/highcourt/antibail/template";
+import { BailTemplate } from "../pages/highcourt/bail/template";
+import { WPAffidavitTemplate } from "../pages/highcourt/wpafi/template";
 
 export const paragraphStyles = {
+    centerText: { alignment: AlignmentType.CENTER },
+    centerTextSmall: { alignment: AlignmentType.CENTER, spacing: { after: 0 } },
+    centerTextBig: { alignment: AlignmentType.CENTER, spacing: { before: 400, after: 0 } },
+    leftAlignSmall: { alignment: AlignmentType.LEFT, spacing: { after: 0 } },
+    leftAlignText: { alignment: AlignmentType.LEFT },
+    rightAlignText: { alignment: AlignmentType.RIGHT },
+    rightAlignSmall: { alignment: AlignmentType.RIGHT, spacing: { after: 0 } },
+    rightALignBig: { alignment: AlignmentType.RIGHT, spacing: { line: 1000 } },
+    paraText: { alignment: AlignmentType.JUSTIFIED, spacing: { after: 0 } },
+    emptySpace: { spacing: { line: 1000 } },
+    emptySpaceSmall: { spacing: { line: 400 } },
+    emptySpaceBig: { spacing: { line: 5000 } },
+    singleSpace: { spacing: { line: 200 } },
+    leftunderlinedHeading: { alignment: AlignmentType.LEFT, bold: true, underline: { type: UnderlineType.SINGLE } },
+    underlinedHeading: { alignment: AlignmentType.CENTER, bold: true, underline: { type: UnderlineType.SINGLE } },
+    underlinedHeadingSmall: { alignment: AlignmentType.CENTER, bold: true, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
+    underlinedHeadingRight: { alignment: AlignmentType.RIGHT, bold: true, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
+    underlinedHeadingLeft: { alignment: AlignmentType.LEFT, bold: true, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
+    underlinedTextSmall: { alignment: AlignmentType.CENTER, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
+    underlinedText: { alignment: AlignmentType.CENTER, underline: { type: UnderlineType.SINGLE }, spacing: { after: 400 } },
+    bulletPoint: { spacing: { before: 100, after: 1000 } },
+    centerHeading: { alignment: AlignmentType.CENTER, bold: true, spacing: { after: 0 } }
+};
+
+export const paragraphStyles1 = {
     page: { spacing: { after: 0 }, alignment: AlignmentType.LEFT },
     heading: { bold: true, spacing: { after: 200 }, alignment: AlignmentType.LEFT },
     headingCenter: { bold: true, underline: {}, alignment: AlignmentType.CENTER },
@@ -36,14 +77,15 @@ export const paragraphStyles = {
     battaRow: { alignment: AlignmentType.LEFT },
     rightLane: { alignment: AlignmentType.RIGHT }
 };
+export const createParagraph = (text, options = {}) => {
+    const textRunOptions = { text: text, ...options };
 
-
-export const createParagraph = (text, options = {}) =>
-    new Paragraph({
-        children: [new TextRun({ text, ...options })],
+    return new Paragraph({
+        children: [new TextRun(textRunOptions)],
         alignment: options.alignment || AlignmentType.LEFT,
-        spacing: { after: 200 },
+        spacing: options.spacing || { after: 200 },
     });
+};
 
 export const getPetitionersParagraphs = (petitioners = []) => {
     return petitioners
@@ -53,3 +95,151 @@ export const getPetitionersParagraphs = (petitioners = []) => {
         ])
         .flat();
 };
+
+export const generateAndDownloadDocx = (formData) => {
+    const doc = caseTypeTemplates[formData?.CaseType](formData);
+    Packer.toBlob(doc).then((blob) => saveAs(blob, `${formData?.CaseType}.docx`));
+};
+
+export const headerCell = (text, options) =>
+    new TableCell({
+        children: [
+            new Paragraph({
+                children: [new TextRun({ text, bold: options?.headerbold })],
+                alignment: options?.alignment || AlignmentType.CENTER,
+                width: {
+                    size: 100,
+                    type: WidthType.DXA
+                }
+            }),
+        ],
+        columnSpan: options?.colSpan || 1,
+    });
+
+export const cell = (text, options) =>
+    new TableCell({
+        // width: { size: options?.width , type: WidthType.PERCENTAGE },
+        columnSpan: options?.colSpan || 1,
+        children: [new Paragraph({
+            children: [new TextRun(text)],
+            alignment: options?.alignment || AlignmentType.LEFT,
+        })],
+    });
+
+export const caseTypeTemplates = {
+    cma: CMATemplate,
+    crp: CRPTemplate,
+    firstAppeal: FirstAppealTemplate,
+    secondAppeal: SecondAppealTemplate,
+    writAppeal: WritAppealTemplate,
+    writPetition: AffidavitTemplate,
+    antiBail: AntiBailTemplate,
+    amendment: AmendmentTemplate,
+    bail: BailTemplate,
+    criminalAppeal: CriminalAppealTemplate,
+    criminalRevisionCase: CriminalRevisionTemplate,
+    highcourt: HighCourtTemplate,
+    affidavit:WPAffidavitTemplate
+
+};
+
+export const SignatureRow = (formdata) => {
+    return new Table({
+        rows: [
+            new TableRow({
+                children: [
+                    cell(`Date: ${formdata?.fdate || "______________"}`, paragraphStyles.leftAlignSmall),
+                    cell(`Counsel for the Petitioner`, paragraphStyles.leftAlignSmall),
+                ]
+            }),
+            new TableRow({
+                children: [
+                    cell(`${formdata?.place || "______________"}`, paragraphStyles.leftAlignSmall)
+                ]
+            })
+        ],
+        width: {
+            size: 8835,
+            type: WidthType.DXA
+        },
+        borders: {
+            top: { size: 0 },
+            bottom: { size: 0 },
+            left: { size: 0 },
+            right: { size: 0 },
+            insideHorizontal: { size: 0 },
+            insideVertical: { size: 0 },
+        }
+    })
+}
+
+
+export const caseTypeFields = [
+    { label: "AB", value: "antiBail" },
+    { label: "WPAFI", value: "affidavit" },
+    { label: "AMENDAMENT", value: "amendament" },
+    { label: "BAIL", value: "bail" },
+    { label: "Anti Bail", value: "antiBail" },
+
+    { label: "APPEALSUiT", value: "appealSuit" },
+    { label: "CA", value: "ca" },
+    { label: "CAVEAT", value: "caveat" },
+    { label: "CEA", value: "centralExciseAppeal" },
+
+    { label: "CMA", value: "cma" },
+    { label: "CRP", value: "civilRevisionPetition" },
+    // { label: "CRP (2nd File)", value: "crpSecond" },
+
+    { label: "CP", value: "companyPetition" },
+    { label: "HC", value: "compromiseHc" },
+    { label: "CC", value: "contemptCase" },
+    { label: "COUNTER", value: "counter" },
+    { label: "CRLA", value: "criminalAppeal" },
+    { label: "CRLRC", value: "criminalRevisionCase" },
+    { label: "CRLRC-MACMA", value: "criminalRevisionCaseMacma" },
+
+    { label: "XOBJ", value: "crossObjections" },
+
+    { label: "DRTSA", value: "debtsRecoveryTribunal" },
+    { label: "DELAYREP", value: "delayInRepresentation" },
+    { label: "DISPENSE", value: "dispense" },
+    { label: "EXPEDITE", value: "expedite" },
+    { label: "EXTENSION", value: "extension" },
+
+    { label: "FCA", value: "familyCourtsAppeal" },
+    { label: "FORBEING", value: "forbeing" },
+    { label: "IMPLEAD", value: "implead" },
+
+    { label: "WTA", value: "incomeTaxAppellateTribunal" },
+    { label: "ITTA", value: "taxAppellateTribunal" },
+
+    { label: "LEAVE", value: "leave" },
+    { label: "LR-PETPET", value: "lrPetPet" },
+    { label: "LR-PRETREP", value: "lrPreTreps" },
+
+    { label: "MEMOHC", value: "memoForProofOfService" },
+    { label: "CCCA", value: "civilMiscAppealMemorandum" },
+
+    { label: "TRCRMP", value: "transferCriminalPetition" },
+    { label: "TRCMP", value: "transferMiscPetition" },
+
+    { label: "OSA", value: "originalSideAppeal" },
+
+    { label: "PIL", value: "pil" },
+    { label: "QUASH", value: "quash" },
+    { label: "RECTRAN", value: "receiveAndTransmit" },
+
+    { label: "REVIEW", value: "reviewPetition" },
+    { label: "SECOND APPEAL", value: "secondAppeal" },
+
+    { label: "FASC", value: "stateConsumerRedressalCommission" },
+
+    { label: "VACATE-MACMA", value: "vacateMacma" },
+    { label: "VACATE", value: "vacate" },
+
+    { label: "VAKALATH", value: "vakalath" },
+
+    { label: "WRIT - IA", value: "writIa" },
+    { label: "WP", value: "writPetition" },
+    { label: "WA", value: "writAppeal" }
+];

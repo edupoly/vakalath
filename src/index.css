@@ -165,6 +165,21 @@
   transform: translateY(-50%);
 }
 
+/* .modal-body {
+  max-height: calc(100vh - 60px);
+} */
+
+.docx-preview-wrapper{
+  max-height: 83.5vh;
+  padding: 5px !important;
+}
+
+.docx-preview-wrapper>section.docx-preview{
+  min-height: 100% !important;
+  overflow-y: auto;
+  margin-bottom: 0px !important;
+}
+
 @media (max-width: 1023px) {
   .main-screen {
     margin-left: 0px;

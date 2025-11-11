@@ -59,7 +59,7 @@ export const WritAppealTemplate = (formData) => {
         createParagraph("W.A.M.P.No.                OF 2007", paragraphStyles.centerText),
         createParagraph("IN", paragraphStyles.centerText),
         createParagraph("W.A.No.                OF 2007", paragraphStyles.centerText),
-        createParagraph("Between:", paragraphStyles.centerText),
+        createParagraph("BETWEEN:", paragraphStyles.startText),
         createParagraph("_________________", paragraphStyles.leftText),
         createParagraph("...PETITIONER", paragraphStyles.rightText),
         createParagraph("AND", paragraphStyles.centerText),

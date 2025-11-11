@@ -12,6 +12,8 @@ import WritAppealForm from "../civil/writAppeal/Form";
 import BailForm from "../criminal/bail/Form";
 import RevisionCaseForm from "../criminal/revisionCase/Form";
 import { useLazyGetCaseByIdQuery } from "../../services/caseDetailsApi";
+import HighCourtForm from "./HighCourtForm";
+import { caseTypeFields } from "../../services/templateFunctions";
 
 function HighCourt({ casedata }) {
   const { id } = useParams();
@@ -38,43 +40,38 @@ function HighCourt({ casedata }) {
     if (data?.case) {
       setCaseType(data?.case?.CaseType)
     }
-  }, [data])
-
-  useEffect(() => {
     if (id) {
       triggerGetCaseById(id);
     }
-  }, [id]);
+    console.log("caseType",caseType);
+    
+  }, [data, id,caseType])
+
   return (
     <div className="p-5">
-      <div className="form-group col my-3">
+      <div className="form-group my-3">
         <select
           className="form-select"
           id="CaseType"
           name="CaseType"
           value={caseType}
-          onChange={(event) => setCaseType(event.target.value)}
+          onChange={(e)=>setCaseType(e.target.value)}
         // required
         >
           <option value="" disabled>
             Select Case Type
           </option>
-          <option value="anticipatory_bail">AB</option>
-          <option value="bail">BAIL</option>
-          <option value="cma">CMA</option>
-          <option value="criminal_appeal">CRLA</option>
-          <option value="criminal_revision_case">CRLRC</option>
-          <option value="crp">CRP</option>
-          <option value="first_appeal">FIRST APPEAL</option>
-          <option value="second_appeal">SECOND APPEAL</option>
-          <option value="writ_affidavit">Writ</option>
-          <option value="writ_appeal">WA</option>
+          {caseTypeFields?.map(({ label, value }) => {
+            return <option key={label} value={value}>{label}</option>
+          })}
         </select>
         <label htmlFor="CaseType" className="ms-3 form-label">
           Case Type
         </label>
       </div>
-      {SelectedForm && <SelectedForm caseType={caseType} formData={formData} setFormData={setFormData} modalRef={modalRef} />}
+
+      <HighCourtForm  caseType={caseType} formData={formData} data={data} setFormData={setFormData} modalRef={modalRef} />
+      {/* {SelectedForm && <SelectedForm caseType={caseType} formData={formData} data={data} setFormData={setFormData} modalRef={modalRef} />} */}
     </div>
   );
 }
