@@ -32,6 +32,27 @@ export const headerWith1Number = (lines) => {
         h3Center(lines[1])
     ]
 }
+export const headerWithNumbers = (data) => {
+    const lines = data?.lines || [];
+
+    let firstLine;
+    if (data?.head?.bold && data?.head?.underline) {
+        firstLine = h3underlineBoldCenter(data?.head?.text);
+    } else if (data?.head?.bold) {
+        firstLine = h3BoldCenter(data?.head?.text);
+    } else if (data?.head?.underline) {
+        firstLine = h3UnderlineCenter(data?.head?.text);
+    } else {
+        firstLine = h3Center(data?.head?.text);
+    }
+
+    return [
+        firstLine,
+        ...LineSpace(1),
+        ...lines?.map((line) => h3Center(line)).flat(),
+  ];
+};
+
 
 export const headerWith2NumbersBold = (lines) => {
     return [

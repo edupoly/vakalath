@@ -2,15 +2,14 @@ import { tabSpace } from "../../../components/templates/elementTypes";
 
 export const CRLASections = {
   "374(2)": {
-    mainTitle: `MEMORANDUM OF CRIMINAL APPEAL`,
-    subTitle: `UNDER SECTION 374(2) OF CRIMINAL PROCEDURE CODE, 1973`,
-    headerLines: [
-      `«highcourt»`,
-      `Crl.A.No. ${tabSpace(3)} OF «myear»`,
-      `IN`,
-      `«OPNO»`
-    ],
-    headerLine: { bold: true, underLine: true },
+    header: {
+      head: { text: `«highcourt»` },
+      lines: [
+        `Crl.A.No. ${tabSpace(3)} OF «myear»`,
+        `IN`,
+        `«OPNO»`
+      ]
+    },
     betweenSection: {
       pet: `...Accused/Appellant`,
       res: `...Complainant/Respondent`
@@ -19,7 +18,7 @@ export const CRLASections = {
       {
         head: "",
         para: [`${tabSpace(1)}The address for service of all notices and process on the above named Appellant is that of his counsel «counsel_address»`,
-          `${tabSpace(1)}The above named Appellant begs to file this Criminal Appeal against the judgment and sentence passed by the learned «lowercourt» in «OPNO», dated «OPDATE»,  for the following grounds among other:`]
+        `${tabSpace(1)}The above named Appellant begs to file this Criminal Appeal against the judgment and sentence passed by the learned «lowercourt» in «OPNO», dated «OPDATE»,  for the following grounds among other:`]
       },
       {
         head: "GROUNDS",
@@ -43,8 +42,6 @@ export const CRLASections = {
   },
 
   482: {
-    mainTitle: `MEMORANDUM OF CRIMINAL MISC. PETITION`,
-    subTitle: `UNDER SECTION 482 OF CRIMINAL PROCEDURE CODE, 1973`,
     headerLines: [
       `«highcourt»`,
       `I.A.No. ${tabSpace(3)} OF «myear»`,
@@ -63,8 +60,6 @@ export const CRLASections = {
   },
 
   389: {
-    mainTitle: `MEMORANDUM OF CRIMINAL MISC. PETITION`,
-    subTitle: `UNDER SECTION 389(1) OF CRIMINAL PROCEDURE CODE, 1973`,
     headerLines: [
       `«highcourt»`,
       `I.A.No. ${tabSpace(3)} OF «myear»`,
@@ -83,8 +78,6 @@ export const CRLASections = {
   },
 
   378: {
-    mainTitle: `MEMORANDUM OF CRIMINAL MISC. PETITION`,
-    subTitle: `UNDER SECTION 378(4) OF CRIMINAL PROCEDURE CODE, 1973`,
     headerLines: [
       `«highcourt»`,
       `I.A.No. ${tabSpace(3)} OF «myear»`,

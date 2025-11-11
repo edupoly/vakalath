@@ -4,7 +4,7 @@ const initialState = {
   userInfo: null, // Stores user data (e.g., name, email, token)
 };
 
-const userSlice = createSlice({
+const submittedDataSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -17,5 +17,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
-export default userSlice.reducer;
+export const { setUser, clearUser } = submittedDataSlice.actions;
+export default submittedDataSlice.reducer;
