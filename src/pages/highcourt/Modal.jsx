@@ -17,6 +17,8 @@ import { WritAppealTemplate } from "../civil/writAppeal/template1";
 import { AffidavitTemplate } from "../civil/writAffidavit/template1";
 import { CriminalRevisionTemplate } from "../criminal/revisionCase/template1";
 import { CriminalAppealTemplate } from "../criminal/appeal/template1";
+import { saveAs } from "file-saver";
+
 function HighCourtModal({ formData, modalRef, type }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -61,6 +63,16 @@ function HighCourtModal({ formData, modalRef, type }) {
     }
   }, [formData]);
 
+  // ✅ Added: Correct download function
+  const handleDownload = () => {
+    if (!SelectedTemplate) return;
+    const doc = SelectedTemplate(formData);
+    Packer.toBlob(doc).then((blob) => {
+      const fileName = `${type?.toUpperCase() || "Document"}.docx`;
+      saveAs(blob, fileName);
+    });
+  };
+
   return (
     <div
       className="modal fade vh-100"
@@ -86,22 +98,14 @@ function HighCourtModal({ formData, modalRef, type }) {
             ></button>
           </div>
           <div className="modal-body p-0">
-            {/* {isMobile
-              ? <div className="text-center d-flex justify-content-center align-items-center" style={{ height: '150px' }}>
-                <button onClick={handleDownload} className="btn btn-success p-2">
-                  Download High Court Template
-                </button>
-              </div>
-              : <PDFViewer style={{ width: '100%', height: '88vh' }}>
-                <HighCourtTemplate formData={formData} />
-              </PDFViewer>
-            } */}
+            {/* Preview Container */}
             <div ref={containerRef} />
           </div>
           <div className="modal-footer">
+            {/* ✅ Updated download button */}
             <button
               className="btn btn-success p-2"
-              onClick={() => generateAndDownloadDocx(formData)}
+              onClick={handleDownload}
             >
               Download DOCX
             </button>

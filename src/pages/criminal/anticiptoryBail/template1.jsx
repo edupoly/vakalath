@@ -1,10 +1,11 @@
-import { Document, Packer, PageBreak, AlignmentType } from "docx";
+import { Document, Packer, PageBreak, AlignmentType, Table, TableRow, TableCell, WidthType } from "docx";
 import { saveAs } from "file-saver";
 import {
   createParagraph,
   getPetitionersParagraphs,
   paragraphStyles,
 } from "../../../services/templateFunctions";
+import { getDocxDocument } from "../bail/template1";
 
 export const ABTemplate = (formData) => {
   const petitionersParagraphs = getPetitionersParagraphs(formData?.Petitioners);
@@ -16,85 +17,144 @@ export const ABTemplate = (formData) => {
         children: [
           createParagraph(
             "MEMORANDUM OF CRIMINAL PETITION",
-            paragraphStyles.headingCenter
+            paragraphStyles.mainHeadingCenter
           ),
           createParagraph(
             "(UNDER SECTION 438 CRIMINAL PROCEDURE CODE)",
-            paragraphStyles.center
+            paragraphStyles.mainHeadingCenter
           ),
           createParagraph(
             "IN THE HIGH COURT OF JUDICATURE OF ANDHRA PRADESH",
-            paragraphStyles.heading
+            paragraphStyles.mainHeadingCenter
           ),
-          createParagraph("AT HYDERABAD", paragraphStyles.center),
+          createParagraph("AT HYDERABAD", paragraphStyles.mainHeadingCenter),
           createParagraph(
             `CRL.P.No. ${formData?.CrlpNo || "________"} OF 2007`,
-            paragraphStyles.caseNo
+            paragraphStyles.centerText
           ),
-          createParagraph("BETWEEN:", paragraphStyles.centerText),
+          createParagraph("BETWEEN:", paragraphStyles.leftAlignText),
           ...petitionersParagraphs,
-          createParagraph("..PETITIONER/ACCUSED", paragraphStyles.endText),
-          createParagraph("AND", paragraphStyles.centerText),
+          createParagraph("..PETITIONER/ACCUSED", paragraphStyles.rightAlignText),
+          createParagraph("AND", paragraphStyles.leftAlignText),
           createParagraph(
             "THE STATE OF A.P. REP. BY",
-            paragraphStyles.startText
+            paragraphStyles.leftAlignSmall
           ),
-          createParagraph("PUBLIC PROSECUTOR", paragraphStyles.startText),
-          createParagraph("..RESPONDENT/COMPLAINANT", paragraphStyles.endText),
+          createParagraph("PUBLIC PROSECUTOR", paragraphStyles.leftAlignSmall),
+          createParagraph("..RESPONDENT/COMPLAINANT", paragraphStyles.rightAlignText),
           createParagraph(
-            `The address for service of all notices and process on the above named Petitioner is that of his counsel M/s ###, Advocate, Hyderabad.`,
-            paragraphStyles.justifiedText
+            `     The address for service of all notices and process on the above named Petitioner is that of his counsel M/s ###, Advocate, Hyderabad.`,
+            paragraphStyles.paraText
           ),
+          createParagraph("", paragraphStyles.emptySpace),
           createParagraph(
             "PETITION FOR ANTICIPATORY BAIL",
-            paragraphStyles.headingCenter
+            paragraphStyles.underlinedHeading
           ),
           createParagraph(
-            `The petitioner is accused in Crime No. ${
-              formData?.CrimeNumber || "____"
-            } of 2007 of ${
-              formData?.PoliceStationName || "____"
-            } Police Station. He is alleged to have committed offenses punishable under Sections ${
-              formData?.Sections || "____"
+            `       The petitioner is accused in Crime No. ${formData?.CrimeNumber || "____"
+            } of 2007 of ${formData?.PoliceStationName || "____"
+            } Police Station. He is alleged to have committed offenses punishable under Sections ${formData?.Sections || "____"
             }. He is apprehending arrest in the above crime.`,
-            paragraphStyles.paragraph
+            paragraphStyles.paraText
           ),
-          ...Array.from({ length: 10 }, (_, i) =>
+          ...Array.from({ length: 8 }, (_, i) =>
             createParagraph(
-              `${i + 1}. The petitioner submits that ...`,
-              paragraphStyles.item
+              `${i + 1}. The petitioner submits that`,
+              paragraphStyles.bulletPoint
             )
           ),
-          createParagraph(
-            "It is therefore prayed that this Hon'ble Court may be pleased to direct the Station House Officer _______________ Police Station to release the Petitioner on Bail in the event of his arrest in connection with Crime No.______ of 2007 of ____________ Police Station.",
-            paragraphStyles.paragraph
+          createParagraph('9. The petitioner submits that  he is a permanent resident of ______________________ having fixed abode and landed property and there is no question of absconding.',
+            paragraphStyles.paraText
           ),
-          createParagraph("HYDERABAD", paragraphStyles.leftText),
-          createParagraph(
-            "COUNSEL FOR THE PETITIONER",
-            paragraphStyles.rightText
+          createParagraph("", paragraphStyles.emptySpaceSmall),
+          createParagraph('10.  The petitioner submits that  he filed Crl.M.P.No. _________ before the learned Sessions Judge ____________ and the same was dismissed on ________.',
+            paragraphStyles.paraText
           ),
-          createParagraph("DATE: ____________", paragraphStyles.leftText),
-          createParagraph("", { children: [new PageBreak()] }),
+          createParagraph("", paragraphStyles.emptySpaceSmall),
+          createParagraph('11.  The Petitioner submits that he is willing to furnish suitable security and abide by any conditions which this Honble Court may deem fit to impose ',
+            paragraphStyles.paraText
+          ),
+          createParagraph("", paragraphStyles.emptySpaceSmall),
+          createParagraph(
+            "       It is therefore prayed that this Hon'ble Court may be pleased to direct the Station House Officer _______________ Police Station to release the Petitioner on Bail in the event of his arrest in connection with Crime No.______ of 2007 of ____________ Police Station.",
+            paragraphStyles.paraText
+          ),
+          createParagraph("", paragraphStyles.emptySpaceSmall),
+          new Table({
+            rows: [
+              new TableRow({
+                children: [
+                  new TableCell({
+                    children: [
+                      createParagraph("HYDERABAD", paragraphStyles.leftAlignText),
+                    ],
+                    // Set cell width to automatically adjust
+                    width: {
+                      size: 100, // 50%
+                      type: WidthType.PERCENTAGE,
+                    },
+                  }),
+                  new TableCell({
+                    children: [
+                      createParagraph(
+                        "COUNSEL FOR THE PETITIONER",
+                        paragraphStyles.rightAlignText
+                      ),
+                    ],
+                    // Set cell width to automatically adjust
+                    width: {
+                      size: 100, // 50%
+                      type: WidthType.AUTO,
+                    },
+                  }),
+                ],
+                width: {
+                  size: 100, // 50%
+                  type: WidthType.PERCENTAGE,
+                },
+              }),
+            ]
+          }),
+
+          createParagraph("DATE: ____________", paragraphStyles.leftAlignSmall),
+        ]
+      },
+      {
+        properties: {
+          page: {
+            margin: {
+              top: 720,
+              right: 720,
+              left: 7000,
+              bottom: 720
+            }
+          }
+        },
+        children: [
+          // createParagraph("", { children: [new PageBreak()] }),
           createParagraph(
             `${formData?.Place || "________"} DISTRICT`,
-            paragraphStyles.rightLane
+            paragraphStyles.centerText
           ),
-          createParagraph("HIGH COURT HYDERABAD", paragraphStyles.centeredText),
+          createParagraph("HIGH COURT", paragraphStyles.centerHeading),
+          createParagraph('HYDERABAD', paragraphStyles.centerHeading),
           createParagraph(
             `Crl.P.No. ${formData?.CrlpNo || "________"} OF 2007`,
-            paragraphStyles.centeredText
+            paragraphStyles.centerTextBig
           ),
+          createParagraph("", paragraphStyles.emptySpaceBig),
           createParagraph(
-            "PETITION FOR ANTICIPATORY BAIL",
-            paragraphStyles.headingAlt
+            "PETITION FOR",
+            paragraphStyles.underlinedHeadingSmall
           ),
-          createParagraph("M/s ### (000)", paragraphStyles.leftText),
-          createParagraph("Advocate", paragraphStyles.leftText),
-          createParagraph(
-            "COUNSEL FOR THE PETITIONER",
-            paragraphStyles.rightText
-          ),
+          createParagraph("ANTICIPATORY BAIL", paragraphStyles.underlinedHeadingSmall),
+          createParagraph("", paragraphStyles.emptySpaceBig),
+          createParagraph("M/s ### (000)", paragraphStyles.centerTextSmall),
+          createParagraph("Advocate", paragraphStyles.centerTextSmall),
+          createParagraph("", paragraphStyles.emptySpaceSmall),
+          createParagraph("COUNSEL FOR THE", paragraphStyles.centerTextSmall),
+          createParagraph('PETITIONER', paragraphStyles.centerTextSmall)
         ],
       },
     ],
