@@ -17,6 +17,7 @@ import { BailTemplate } from "../pages/highcourt/bail/template";
 import { WPAffidavitTemplate } from "../pages/highcourt/wpafi/template";
 import { CRLATemplate } from "../pages/highcourt/crla/template";
 import { writPetitionTemplate } from "../pages/highcourt/writPetition/template";
+import { WATemplate } from "../pages/highcourt/writAppeal/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -133,7 +134,7 @@ export const caseTypeTemplates = {
     crp: CRPTemplate,
     firstAppeal: FirstAppealTemplate,
     secondAppeal: SecondAppealTemplate,
-    writAppeal: WritAppealTemplate,
+    writAppeal: WATemplate,
     writPetition: writPetitionTemplate,
     antiBail: AntiBailTemplate,
     amendment: AmendmentTemplate,
