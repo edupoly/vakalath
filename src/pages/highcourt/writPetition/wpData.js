@@ -1,8 +1,8 @@
-import { tabSpace } from "../../../components/templates/elementTypes";
+import { LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
 
 export const writPetitionSections = {
   "wp.no": {
-    headerLines: [`«highcourt»`, `W.P. NO..  OF «myear»`],
+    
     betweenSection: {
       pet: `..Petitioner`,
       res: `..Respondent`,
@@ -36,7 +36,6 @@ export const writPetitionSections = {
       "(SPECIAL ORIGINAL JURISDICTION)",
       "(UNDER ART. 226 OF THE CONSTITUTION OF INDIA)",
     ],
-    headerLines: [`«highcourt»`, `W.P. NO.  OF «myear»`],
     betweenSection: {
       pet: `..Petitioner/s`,
       res: `..Respondent/s`,
@@ -54,14 +53,14 @@ export const writPetitionSections = {
     footerRight: [`Counsel for the Petitioner`],
   },
   "sec-151": {
-    mainTitle: `MEMORANDUM OF WRIT PETITION MISC. PETITION`,
-    subTitle: ["(UNDER SEC. 151 OF THE C.P.C.)"],
-    headerLines: [
-      `«highcourt»`,
-      `I.A. NO.                         OF «myear»`,
-      `IN`,
-      `W.P. NO.               		     OF «myear»`,
-    ],
+    // mainTitle: `MEMORANDUM OF WRIT PETITION MISC. PETITION`,
+    // subTitle: ["(UNDER SEC. 151 OF THE C.P.C.)"],
+    // headerLines: [
+    //   `«highcourt»`,
+    //   `I.A. NO.                         OF «myear»`,
+    //   `IN`,
+    //   `W.P. NO.               		     OF «myear»`,
+    // ],
     betweenSection: {
       pet: `..Petitioner/s`,
       res: `..Respondent/s`,
@@ -70,11 +69,12 @@ export const writPetitionSections = {
       {
         head: "",
         para: [
-          `${tabSpace(10)}qwerFor the reasons stated in the affidavit filed in support of the above Writ Petition it is hereby prayed that this Hon'ble Court may be pleased «INTERIM_PRAYER» pending disposal of the above writ petition and to pass such other order or orders as this Hon’ble Court may deems fit just and proper in the circumstances of the case.`,
+          `${tabSpace(1)}For the reasons stated in the affidavit filed in support of the above Writ Petition it is hereby prayed that this Hon'ble Court may be pleased «INTERIM_PRAYER» pending disposal of the above writ petition and to pass such other order or orders as this Hon’ble Court may deems fit just and proper in the circumstances of the case.`,
         ],
       },
     ],
     footerLeft: ["«place»", "DATE: «fdate»"],
     footerRight: ["Counsel for the Petitioner"],
   },
+  
 };

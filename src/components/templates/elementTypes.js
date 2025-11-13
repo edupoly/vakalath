@@ -1,4 +1,4 @@
-import { PageBreak } from "docx"
+import { AlignmentType, PageBreak } from "docx"
 import { createParagraph, paragraphStyles } from "../../services/templateFunctions"
 
 export const tabSpace = (num) => {
