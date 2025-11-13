@@ -12,6 +12,7 @@ import { renderAsync } from "docx-preview";
 import { ABTemplate } from "./pages/criminal/anticiptoryBail/template1";
 import { AntiBailTemplate } from "./pages/highcourt/antibail/template";
 import { initialValues } from "./services/initialFormValues";
+import { CRLATemplate } from "./pages/highcourt/crla/template";
 
 function App() {
   const [isShow, setIsShow] = useState(window.innerWidth < 1024 ? false : true);
@@ -58,7 +59,7 @@ const [petitioners, setPetitioners] = useState([
   //   if (containerRef.current) {
   //     containerRef.current.innerHTML = "";
 
-  //     const doc = CRLATemplate && CRLATemplate({...initialValues["criminalAppeal"],...formData});
+  //     const doc = CRLATemplate && CRLATemplate({...initialValues["criminalAppeal"],...formData,Petitioners:petitioners,Respondents:respondents});
   //     if (doc) {
   //       Packer.toBlob(doc).then((blob) => {
   //         renderAsync(blob, containerRef.current, null, {

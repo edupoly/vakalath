@@ -1,6 +1,7 @@
 import { AlignmentType, Table, TableCell, TableRow, WidthType } from "docx";
 import { createParagraph, paragraphStyles } from "../../services/templateFunctions";
 import { h3Left, h3Right, paragraph } from "./elementTypes";
+import { header } from "./HeaderSection";
 
 export const listWithNumbers = (lines, type) => {
   return [
@@ -107,7 +108,7 @@ export const listWithColon = (lines) => {
 //   ];
 // }
 
-export const headerList = (header, lines) => {
+export const headerList = ({head, lines}) => {
   return new Table({
     width: { size: 100, type: WidthType.PERCENTAGE },
     borders: {
@@ -124,7 +125,7 @@ export const headerList = (header, lines) => {
           new TableCell({
             width: { size: 10, type: WidthType.PERCENTAGE },
             margins: { left: 0, right: 0, top: 0, bottom: 0 },
-            children: [h3Left(header)],
+            children: [header(head)],
           }),
           new TableCell({
             width: { size: 80, type: WidthType.PERCENTAGE },

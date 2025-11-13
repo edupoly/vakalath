@@ -1,18 +1,23 @@
 import { BetweenSection } from "../templates/BetweenSection"
 import { h3BoldCenter, h3underlineBoldCenter, LineSpace, tabSpace } from "../templates/elementTypes"
 import { createSignatureFooter } from "../templates/FooterSections"
-import { headerWith2Numbers, headerWithNumbers } from "../templates/HeaderSection"
+import { header, headerTable, headerWith2Numbers, headerWithNumbers } from "../templates/HeaderSection"
+import { headerList } from "../templates/ListSection"
 import { addParagraphs } from "../templates/paragraphFunctions"
 
 
 export const combinedSections = (formData, sectionData) => {
     return [
-        ...headerWithNumbers(sectionData?.header),
+        ...headerTable(sectionData?.header),
+        header(sectionData?.mainTitle),
+        header(sectionData?.subTitle),
+        ...headerWithNumbers(sectionData?.headLines),
         ...BetweenSection(
             formData,
             sectionData?.betweenSection?.pet,
             sectionData?.betweenSection?.res
         ),
+        ...createSignatureFooter(sectionData?.middleContent),
         ...(sectionData?.headPara
             ? sectionData.headPara.flatMap((set) => {
                 const elements = []
@@ -21,6 +26,10 @@ export const combinedSections = (formData, sectionData) => {
                 return elements
             })
             : []),
-        createSignatureFooter(["DATE:«fdate»", "«place»"], ["Counsel For Appellant"]),
+        ...createSignatureFooter(sectionData?.footer),
+        sectionData?.note && headerList(sectionData?.note),
+        header(sectionData?.before),
+        ...LineSpace(3),
+        header(sectionData?.advocate),
     ]
 }
