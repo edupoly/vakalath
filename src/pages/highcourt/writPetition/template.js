@@ -61,7 +61,13 @@ export const writPetitionTemplate = (formData) => {
               " I, «verification», being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language.   Hence verified at «place» on this the day of «fdate»"
           ),
           ...LineSpace(1),
-          createSignatureFooter(["Advocate"], ["Deponent"]),
+          ...createSignatureFooter([
+  {
+    left: ["Advocate"],
+    right: ["Deponent"]
+  }
+]),
+
           pageBreak(),
           h3BoldCenter("MEMORANDUM OF WRIT PETITION"),
           h3BoldCenter("(SPECIAL ORIGINAL JURISDICTION)"),
@@ -231,34 +237,46 @@ export const writPetitionTemplate = (formData) => {
           ),
           h3Left(tabSpace(1) + " Proforma Draft Interim Order"),
           ...LineSpace(1),
-          createSignatureFooter(
-            ["Signature of the", "Scrutiny Officer"],
-            ["Signature of the Advocate", "Name: «counsel_code»"]
-          ),
+          ...createSignatureFooter([
+  {
+    left: ["Signature of the", "Scrutiny Officer"],
+    right: ["Signature of the Advocate", "Name: «counsel_code»"]
+  }
+]),
+
           ...LineSpace(1),
-          createSignatureFooter(
-            [
-              "FOR OFFICE USE ONLY",
-              "Respondent Vakalat filed by",
-              "Counter Filed for Respt.No.",
-              "Other Miscellaneous Petitions filed",
-            ],
-            ["", " for Respt.No", "", ""]
-          ),
+          ...createSignatureFooter([
+  {
+    left: [
+      "FOR OFFICE USE ONLY",
+      "Respondent Vakalat filed by",
+      "Counter Filed for Respt.No.",
+      "Other Miscellaneous Petitions filed",
+    ],
+    right: ["", " for Respt.No", "", ""],
+  }
+]),
+
           pageBreak(),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left("«RESPONDENT_ADDRESS»"),
-          createSignatureFooter(
-            ["«place»", "DATE: «fdate»"],
-            ["Counsel for the Petitioner(s)."]
-          ),
+         ...createSignatureFooter([
+  {
+    left: ["«place»", "DATE: «fdate»"],
+    right: ["Counsel for the Petitioner(s)."]
+  }
+]),
+
           ...LineSpace(10),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left("«RESPONDENT_ADDRESS»"),
-          createSignatureFooter(
-            ["«place»", "DATE: «fdate»"],
-            ["Counsel for the Petitioner(s)."]
-          ),
+          ...createSignatureFooter([
+  {
+    left: ["«place»", "DATE: «fdate»"],
+    right: ["Counsel for the Petitioner(s)."]
+  }
+]),
+
           pageBreak(),
           h3UnderlineBoldLeft("RESPONDENTS ADDRESSES:"),
           h3Left("«RESPONDENT_ADDRESS»"),
@@ -280,10 +298,13 @@ export const writPetitionTemplate = (formData) => {
               "We have served the copies of Writ Petition, Affidavit, Writ Petition Miscellaneous Petition(s) and Material Papers on the other side Counsel/Government Pleader."
           ),
           ...LineSpace(5),
-          createSignatureFooter(
-            ["«place»", "DATE: «fdate»"],
-            ["Counsel for the Petitioner"]
-          ),
+          ...createSignatureFooter([
+  {
+    left: ["«place»", "DATE: «fdate»"],
+    right: ["Counsel for the Petitioner"]
+  }
+]),
+
           pageBreak(),
           h3Center("«highcourt»"),
           ...LineSpace(1),
@@ -384,7 +405,13 @@ export const writPetitionTemplate = (formData) => {
            ...LineSpace(3),
           h3UnderlineCenter("Annexure – I"),
           ...LineSpace(3),
-          createSignatureFooter(["«place»","DATE: «fdate»"],["Counsel for Petitioner/s"]),
+          ...createSignatureFooter([
+  {
+    left: ["«place»", "DATE: «fdate»"],
+    right: ["Counsel for Petitioner/s"]
+  }
+]),
+
           pageBreak(),
           h3Center("«highcourt»"),
           ...LineSpace(1),
@@ -393,7 +420,13 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3underlineBoldCenter("COURT FEE"),
           ...LineSpace(20),
-          createSignatureFooter(["DATE: «fdate»","«place»"],["","Counsel for the Petitioner"]),
+         ...createSignatureFooter([
+  {
+    left: ["DATE: «fdate»", "«place»"],
+    right: ["", "Counsel for the Petitioner"]
+  }
+]),
+
           pageBreak(),
           h3BoldCenter("«highcourt»"),
           ...LineSpace(1),
