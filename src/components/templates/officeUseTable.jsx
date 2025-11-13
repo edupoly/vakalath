@@ -2,7 +2,7 @@ import { Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentTyp
 import { cell, headerCell } from "../../services/templateFunctions";
 import officeUseTableData from "../../assets/officeUseTableData.json"
 
-export const OfficeUseTable = (file,formData) => {
+export const OfficeUseTable = (formData) => {
     return [
         new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
@@ -22,14 +22,14 @@ export const OfficeUseTable = (file,formData) => {
                 new TableRow({
                     children: [
                         headerCell("Filing No. (Unregistered)"),
-                        headerCell(officeUseTableData[file],{alignment: AlignmentType.LEFT}),
+                        headerCell(officeUseTableData[formData?.CaseType],{alignment: AlignmentType.LEFT}),
                         headerCell(formData?.myear || "«myear»"),
                     ],
                 }),
                 new TableRow({  
                     children: [
                         headerCell("Main No. (Registered)"),
-                        headerCell(officeUseTableData[file],{alignment: AlignmentType.LEFT}),
+                        headerCell(officeUseTableData[formData?.CaseType],{alignment: AlignmentType.LEFT}),
                         headerCell(formData?.myear || "«myear»"),
                     ],
                 }),

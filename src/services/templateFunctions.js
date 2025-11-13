@@ -18,6 +18,7 @@ import { WPAffidavitTemplate } from "../pages/highcourt/wpafi/template";
 import { CRLATemplate } from "../pages/highcourt/crla/template";
 import { writPetitionTemplate } from "../pages/highcourt/writPetition/template";
 import { WATemplate } from "../pages/highcourt/writAppeal/template";
+import { WIATemplate } from "../pages/highcourt/writ-IA/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -147,8 +148,8 @@ export const caseTypeTemplates = {
     criminalAppeal: CRLATemplate,
     criminalRevisionCase: CriminalRevisionTemplate,
     highcourt: HighCourtTemplate,
-    affidavit: WPAffidavitTemplate
-
+    affidavit: WPAffidavitTemplate,
+    writIa:WIATemplate,
 };
 
 export const SignatureRow = (formdata) => {
