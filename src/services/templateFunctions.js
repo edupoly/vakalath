@@ -41,7 +41,12 @@ export const paragraphStyles = {
     underlinedTextSmall: { alignment: AlignmentType.CENTER, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
     underlinedText: { alignment: AlignmentType.CENTER, underline: { type: UnderlineType.SINGLE }, spacing: { after: 400 } },
     bulletPoint: { spacing: { before: 100, after: 1000 } },
-    centerHeading: { alignment: AlignmentType.CENTER, bold: true, spacing: { after: 0 } }
+    centerHeading: { alignment: AlignmentType.CENTER, bold: true, spacing: { after: 0 } },
+    leftHeading: { alignment: AlignmentType.LEFT, bold: true, spacing: { after: 0 } },
+    leftUnderline: { alignment: AlignmentType.LEFT, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
+    rightHeading: { alignment: AlignmentType.RIGHT, bold: true, spacing: { after: 0 } },
+    rightUnderline: { alignment: AlignmentType.RIGHT, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
+    rightunderlinedHeading: { alignment: AlignmentType.RIGHT, bold: true, underline: { type: UnderlineType.SINGLE } },
 };
 
 export const paragraphStyles1 = {
@@ -142,7 +147,7 @@ export const caseTypeTemplates = {
     criminalAppeal: CRLATemplate,
     criminalRevisionCase: CriminalRevisionTemplate,
     highcourt: HighCourtTemplate,
-    affidavit:WPAffidavitTemplate
+    affidavit: WPAffidavitTemplate
 
 };
 
