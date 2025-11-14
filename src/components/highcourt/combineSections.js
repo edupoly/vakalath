@@ -6,7 +6,8 @@ import { headerList } from "../templates/ListSection"
 import { addParagraphs } from "../templates/paragraphFunctions"
 
 
-export const combinedSections = (formData, sectionData) => {
+export const combinedSections = (sectionData,formData) => {
+    // const submittedFormData = useSelector((state) => state.submittedForm.fData);
     return [
         ...headerTable(sectionData?.header),
         header(sectionData?.mainTitle),
@@ -19,12 +20,12 @@ export const combinedSections = (formData, sectionData) => {
         ),
         ...createSignatureFooter(sectionData?.middleContent),
         ...(sectionData?.headPara
-            ? sectionData.headPara.flatMap((set) => {
+            ? sectionData.headPara.map((set) => {
                 const elements = []
                 if (set?.head) elements.push(h3underlineBoldCenter(set.head))
                 if (set?.para) elements.push(...addParagraphs(set.para))
                 return elements
-            })
+            }).flat()
             : []),
         ...createSignatureFooter(sectionData?.footer),
         sectionData?.note && headerList(sectionData?.note),
