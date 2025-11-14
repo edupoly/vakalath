@@ -1,17 +1,245 @@
-    import { combinedSections } from "../../../components/highcourt/combineSections"
-    import { writAppealSections } from "./waData"
+import { Document } from "docx";
+import { combinedSections } from "../../../components/highcourt/combineSections";
+import { h2UnderlineBoldCenter, h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, h3UnderlineCenter, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
+import { writAppealSections } from "./waData";
+import { createRightAlignPage } from "../../../components/templates/tableFunctions";
+import { BetweenSection } from "../../../components/templates/BetweenSection";
+import { create4LineFooter, createSignatureFooter} from "../../../components/templates/FooterSections";
+import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
+import { OfficeUseTable } from "../../../components/templates/officeUseTable";
+import { InfoTable } from "../../../components/templates/InfoTable";
+import { ChallanTable } from "../../../components/templates/ChallanTable";
+import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
 
-    export const WATemplate = (formData) => {
-    return new Document({
-            sections: [
-                {
-                    children: [
-                        ...combinedSections(formData, writAppealSections["clause-15"]),
-                    ]
-                }
-            ]
-        });
-    };
+export const WATemplate = (formData) => {
+  return new Document({
+    sections: [
+      {
+        properties: {},
+        children: [
+          ...combinedSections(formData, writAppealSections["clause-15"]),
+          pageBreak(),
+          createRightAlignPage([
+          h3Center("«district» :: District"),
+          h3Center("«highcourt»"),
+          ...LineSpace(1),
+          h3Center("W.A.No.                  OF «myear»"),
+          h3Center("AGAINST"),
+          ...LineSpace(1),
+          h3Center("«OPNO»"),
+          ...LineSpace(1),
+          ...BetweenSection(formData,"..Appellant","…Respondent"),
+          ...LineSpace(15),
+          h3underlineBoldCenter("G R O U N D S"),
+          ...LineSpace(15),
+          ...create4LineFooter(["Filed By:","M/s «counsel_code»","Advocate","Counsel for Appellant"])
+          ]),
+          pageBreak(),
+          ...combinedSections(formData, writAppealSections["affidavit"]),
+          h3Center("ADVOCATE :: «place»"),
+          pageBreak(),
+          h3UnderlineCenter("VERIFICATION STATEMENT"),
+          h3Left(tabSpace(1)+"I, «verification», being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at «place» on this the day of «fdate»"),
+          h3Right("Deponent"),
+          pageBreak(),
+          ...combinedSections(formData, writAppealSections["sec-151-1st"]),
+          pageBreak(),
+          createRightAlignPage([
+          h3Center("«DISTRICT» District"),
+          ...LineSpace(1),
+          h3Center("«highcourt»"),
+          ...LineSpace(1),
+          h3Center("I.A.NO.             OF «myear»"),
+          h3Center("IN"),
+          h3Center("W.A. No.             OF «myear»"),
+          ...LineSpace(15),
+          h3underlineBoldCenter("DIRECTION PETITION"),
+          ...LineSpace(15),
+          ...create4LineFooter(["Filed By:","M/s «counsel_code»","Advocate","Counsel for Petitioner"]),
+        ]),
+        pageBreak(),
+         createRightAlignPage([
+        h2UnderlineBoldCenter("HIGH COURT"),
+        h3BoldCenter("WRIT APPEAL MISC.PETITION"),
+        h3Center("I.A.NO.                  OF «myear»"),
+        h3Center("IN"),
+        h3Center("W.A.NO.                  OF «myear»"),
+        ...LineSpace(1),
+        h3Center("«DISTRICT»    District"),
+        ...LineSpace(1),
+        h3Left("«PETITIONER_NAME»"),
+        h3Right(" ... Petitioner"),
+        ...LineSpace(1),
+        h3Left("By «counsel_code»"),
+        h3Center("NATURE OF APPLICATION"),
+        h3Center("(UNDER SEC. 151 C.P.C."),
+        h3Left("The Hon’ble Court may be pleased «INTERIM_PRAYER»   and pass such other order or orders may deem fit and proper in the circumstances of the case."),
+        ...LineSpace(3),
+        h3Left("PRESENTED ON: «fdate»"),
+        ...LineSpace(1),
+        h3Left("REPRESENTED ON:"),
+        ...LineSpace(1),
+        h3Left("By «counsel_code»"),
+      ]),
+      pageBreak(),
+      h3Center("MEMORANDUM OF WRIT APPEAL MISC. PETITION"),
+      h3Center("(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)"),
+      ...combinedSections(formData, writAppealSections["sec-151-2nd"]),
+      pageBreak(),
+       createRightAlignPage([
+          h3Center("«DISTRICT» District"),
+          ...LineSpace(1),
+          h3Center("«highcourt»"),
+          ...LineSpace(1),
+          h3Center("I.A.NO.             OF «myear»"),
+          h3Center("IN"),
+          h3Center("W.A. No.             OF «myear»"),
+          ...LineSpace(15),
+          h3underlineBoldCenter("LEAVE PETITION"),
+          ...LineSpace(15),
+          ...create4LineFooter(["Filed By:","M/s «counsel_code»","Advocate","Counsel for Petitioner"]),
+        ]),
+        pageBreak(),
+        createRightAlignPage([
+        h2UnderlineBoldCenter("HIGH COURT"),
+        h3BoldCenter("WRIT APPEAL MISC.PETITION"),
+        h3Center("I.A.NO.                  OF «myear»"),
+        h3Center("IN"),
+        h3Center("W.A.NO.                  OF «myear»"),
+        ...LineSpace(1),
+        h3Center("«DISTRICT»    District"),
+        ...LineSpace(1),
+        h3Left("«PETITIONER_NAME»"),
+        h3Right(" ... Petitioner"),
+        ...LineSpace(1),
+        h3Left("By «counsel_code»"),
+        h3Center("NATURE OF APPLICATION"),
+        h3Center("(UNDER SEC. 151 C.P.C."),
+        h3Left("The Hon’ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated «OPDATE» passed in «OPNO», by the «lowercourt» in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case."),
+        ...LineSpace(3),
+        h3Left("PRESENTED ON: «fdate»"),
+        ...LineSpace(1),
+        h3Left("REPRESENTED ON:"),
+        ...LineSpace(1),
+        h3Left("By «counsel_code»"),
+      ]),
+      pageBreak(),
+       createRightAlignPage([
+        h3BoldCenter("«DISTRICT» DISTRICT"),
+        h2UnderlineBoldCenter("HIGH COURT"),
+        h3BoldCenter("WRIT  APPEAL"),
+        ...LineSpace(1),
+        h3Center("(Under Clause 15 of Letters Patent)"),
+        h3Center("W.A.NO.                  OF «myear»"),
+        h3Center("AGAINST"),
+        h3Center("«OPNO»"),
+        h3Center("dated «OPDATE»"),
+        ...LineSpace(1),
+        h3Left("«PETITIONER_NAME»"),
+        h3Right("…Appellant/s"),
+        ...LineSpace(1),
+        h3Left("By «counsel_code»"),
+        h3Center("Advocate"),
+        ...LineSpace(1),
+        h3Center("Vs"),
+        ...LineSpace(1),
+        h3Left("«RESPONDENT_NAME»"),
+        h3Right("..Respondent/s"),
+        h3Left("Date of Order : «OPDATE»"),
+        h3Left("Appeal Presented on:"),
+        h3Left("Re-presented on :"),
+        h3Left("Filed:"),
+        h3Left("Admitted:"),
+        h3Left("Judge: The Hon’ble Mr.Justice"),
+        h3Center("«lowercourt»"),
+        ...LineSpace(1),
+        h3Left("To be heard on:"),
+        h3Center("I.A. No.                 of «myear»")
+      ]),
+      pageBreak(),
+      ChronologicalTable(formData),
+      ...createSignatureFooter([
+    {
+        left: ["DATE: «fdate»", "«place»"],
+        right: ["", "Counsel for the Petitioner"]
+    }
+]),
 
+      pageBreak(),
+      h3underlineBoldCenter("BATA FORM"),
+      ...LineSpace(1),
+      h3Left("«RESPONDENT_ADDRESS»"),
+      ...LineSpace(2),
+     ...createSignatureFooter([
+    {
+        left: ["DATE: «fdate»", "«place»"],
+        right: ["", "Counsel for the Petitioner"]
+    }
+]),
 
+      ...LineSpace(10),
+      h3underlineBoldCenter("BATA FORM"),
+      ...LineSpace(1),
+      h3Left("«RESPONDENT_ADDRESS»"),
+      ...LineSpace(2),
+      ...createSignatureFooter([
+    {
+        left: ["DATE: «fdate»", "«place»"],
+        right: ["", "Counsel for the Petitioner"]
+    }
+]),
 
+      pageBreak(),
+      h3Center("«highcourt»"),
+      ...LineSpace(1),
+      h3Center("W.A.NO.                 	OF «myear»"),
+      ...BetweenSection(formData,"..Petitioner","..Respondent"),
+      ...LineSpace(1),
+      h3underlineBoldCenter("COURT FEE"),
+      ...LineSpace(10),
+     ...createSignatureFooter([
+    {
+        left: ["DATE: «fdate»", "«place»"],
+        right: ["", "Counsel for the Petitioner"]
+    }
+]),
+      pageBreak(),
+      h3UnderlineCenter("MEMO OF APPEARANCE"),
+      ...combinedSections(formData, writAppealSections["memo-of-appearance"]),
+      pageBreak(),
+      createRightAlignPage([
+          h3Center("«DISTRICT» District"),
+          ...LineSpace(1),
+          h3Center("«highcourt»"),
+          ...LineSpace(1),
+          h3Center("W.A. No.             OF «myear»"),
+          h3Center("IN"),
+          h3Center("«OPNO»"),
+          ...LineSpace(15),
+          h3underlineBoldCenter("MEMO OF APPEARANCE"),
+          ...LineSpace(15),
+          ...create4LineFooter(["Filed By:","M/s «counsel_code»","Advocate","Counsel for Petitioner"]),
+        ]),
+        pageBreak(),
+        ...OfficeUseTable(formData),
+        ...InfoTable(formData),
+        ...ChallanTable(formData),
+        ...LowerCourtTable(formData),
+        pageBreak(),
+        h3UnderlineBoldLeft("Full Cause Title:"),
+        ...BetweenSection(formData,"..Petitioner(s)","..Respondent(s)"),
+        pageBreak(),
+        h3UnderlineBoldLeft("Main Case Prayer :"),
+        ...LineSpace(1),
+        h3Left(tabSpace(1)+"It is therefore prayed that this Hon'ble Court may be pleased «MAIN_PRAYER» and pass such other order or orders may deem fit and proper in the circumstances of the case."),
+        ...LineSpace(2),
+         h3UnderlineBoldLeft("IA(s) Prayer:"),
+        ...LineSpace(1),
+        h3Left(tabSpace(1)+"It is also just and necessary that this Hon'ble Court may be pleased «INTERIM_PRAYER» pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case."),
+        ...LineSpace(2),
+        h3Left(tabSpace(1)+"It is also just and necessary that this Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated «OPDATE» passed in «OPNO», by the «lowercourt» in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case."),
+    ],
+      },
+    ],
+  });
+};
