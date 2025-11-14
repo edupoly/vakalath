@@ -9,39 +9,40 @@ import { pageTable } from "../../../components/highcourt/rightSideCommonSections
 import { headerList } from "../../../components/templates/ListSection";
 
 export const CRLATemplate = (formData) => {
+    
     return new Document({
         sections: [
             {
                 properties: {},
                 children: [
-                    ...combinedSections(formData, CRLASections["374(2)"]),
+                    ...combinedSections(CRLASections("374(2)",formData),formData),
                     pageBreak(),
-                    pageTable(CRLASections["sidePage1"]),
+                    pageTable(CRLASections("sidePage1",formData)),
                     pageBreak(),
-                    ...combinedSections(formData, CRLASections["482"]),
+                    ...combinedSections(CRLASections("482",formData),formData),
                     pageBreak(),
-                    pageTable(CRLASections["sidePage2"]),
+                    pageTable(CRLASections("sidePage2",formData)),
                     pageBreak(),
-                    ...combinedSections(formData, CRLASections["389(1)"]),
+                    ...combinedSections(CRLASections("389(1)",formData),formData),
                     pageBreak(),
-                    pageTable(CRLASections["sidePage3"]),
+                    pageTable(CRLASections("sidePage3",formData)),
                     pageBreak(),
-                    ...combinedSections(formData, CRLASections["482(1)"]),
+                    ...combinedSections(CRLASections("482(1)",formData),formData),
                     pageBreak(),
-                    pageTable(CRLASections["sidePage4"]),
+                    pageTable(CRLASections("sidePage4",formData)),
                     pageBreak(),
-                    ...combinedSections(formData, CRLASections["affidavit"]),
+                    ...combinedSections(CRLASections("affidavit",formData),formData),
                     pageBreak(),
-                    ...combinedSections(formData, CRLASections["378(4)"]),
+                    ...combinedSections(CRLASections("378(4)",formData),formData),
                     pageBreak(),
-                    pageTable(CRLASections["sidePage5"]),
+                    pageTable(CRLASections("sidePage5",formData)),
                     pageBreak(),
                 ],
             },
         ],
     });
 
-    //    ...combinedSections(formData,CRLASections["374(2)"]),
+    //    ...combinedSections(RLASections["374(2)"]),
     //     pageBreak(),
     //     createRightAlignPage([
     //         h3Center("«district» :: District"),
@@ -61,7 +62,7 @@ export const CRLATemplate = (formData) => {
     //         ])
     //     ]),
     //     pageBreak(),
-    //    ...combinedSections(formData,CRLASections["482"]),
+    //    ...combinedSections(RLASections["482"]),
     //     pageBreak(),
     //     createRightAlignPage([
     //         h3Center("«district» :: District"),

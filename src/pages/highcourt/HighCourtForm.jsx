@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { highCourtInitialValues } from "../../../services/functions";
 import { useFormik } from "formik";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEditFileCaseMutation, useFileCaseMutation } from "../../services/caseDetailsApi";
 import PetitionerDetails from "./PetitionerDetails";
 import RespondentDetails from "./RespondentDetails";
@@ -9,6 +9,7 @@ import FloatingInput from "../../components/floatingInput";
 import { fieldsData } from "../../services/highcourtFields";
 import { initialValues } from "../../services/initialFormValues";
 import HighCourtModal from "./Modal";
+import { setFData } from "../../services/submitedDataSlice";
 
 function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     const [filecase] = useFileCaseMutation();
@@ -22,6 +23,7 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
         // { Name: "", Address: "", Age: "" },
     ]);
     const userDetails = useSelector((state) => state.user.userInfo);
+    const dispatch = useDispatch()
 
     const selectedInitialValues = initialValues[caseType] ? { ...initialValues[caseType], Petitioners: petitioners, Respondents: respondents, Userid: userDetails && userDetails["_id"] } : {}
     console.log("initialValues[caseType]", initialValues[caseType]);
@@ -32,6 +34,8 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
         onSubmit: (values) => {
             console.log(values);
             setFormData({ ...values, CaseType: caseType, });
+            dispatch(setFData({ ...values, CaseType: caseType, }));
+
             // if (data?.case) {
             //     updateForm({ ...values });
             // } else {
