@@ -19,6 +19,8 @@ import { CRLATemplate } from "../pages/highcourt/crla/template";
 import { writPetitionTemplate } from "../pages/highcourt/writPetition/template";
 import { WATemplate } from "../pages/highcourt/writAppeal/template";
 import { WIATemplate } from "../pages/highcourt/writ-IA/template";
+import { vakalathTemplate } from "../pages/highcourt/vakalath/template";
+import { vacateTemplate } from "../pages/highcourt/vacate/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -150,6 +152,8 @@ export const caseTypeTemplates = {
     highcourt: HighCourtTemplate,
     affidavit: WPAffidavitTemplate,
     writIa:WIATemplate,
+    vakalath:vakalathTemplate,
+    vacate:vacateTemplate,
 };
 
 export const SignatureRow = (formdata) => {
