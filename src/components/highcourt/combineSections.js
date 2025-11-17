@@ -5,7 +5,7 @@ import {
   LineSpace,
   tabSpace,
 } from "../templates/elementTypes";
-import { createSignatureFooter } from "../templates/FooterSections";
+import { SignatureFooter } from "../templates/FooterSections";
 import {
   header,
   headerTable,
@@ -27,16 +27,16 @@ export const combinedSections = (sectionData,formData) => {
             sectionData?.betweenSection?.pet,
             sectionData?.betweenSection?.res
         ),
-        ...createSignatureFooter(sectionData?.middleContent),
+        ...SignatureFooter(sectionData?.middleContent),
         ...(sectionData?.headPara
             ? sectionData.headPara.map((set) => {
                 const elements = []
-                if (set?.head) elements.push(h3underlineBoldCenter(set.head))
+                if (set?.head) elements.push(header(set.head))
                 if (set?.para) elements.push(...addParagraphs(set.para))
                 return elements
             }).flat()
             : []),
-        ...createSignatureFooter(sectionData?.footer),
+        ...SignatureFooter(sectionData?.footer),
         sectionData?.note && headerList(sectionData?.note),
         header(sectionData?.before),
         ...LineSpace(3),

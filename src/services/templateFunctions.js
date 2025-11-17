@@ -1,7 +1,5 @@
 import { AlignmentType, Packer, Paragraph, TableCell, TextRun, WidthType, UnderlineType, Table, TableRow } from "docx";
 
-import { CMATemplate } from "../pages/civil/cma/template1";
-import { CRPTemplate } from "../pages/civil/crp/template1";
 import { FirstAppealTemplate } from "../pages/civil/firstAppeal/template1";
 import { SecondAppealTemplate } from "../pages/civil/secondAppeal/template1";
 import { WritAppealTemplate } from "../pages/civil/writAppeal/template1";
@@ -21,6 +19,22 @@ import { WATemplate } from "../pages/highcourt/writAppeal/template";
 import { WIATemplate } from "../pages/highcourt/writ-IA/template";
 import { vakalathTemplate } from "../pages/highcourt/vakalath/template";
 import { vacateTemplate } from "../pages/highcourt/vacate/template";
+import { CRLRCTemplate } from "../pages/highcourt/crlrc/template";
+import { CMATemplate } from "../pages/highcourt/cma/template";
+import { CRPTemplate } from "../pages/highcourt/crp/template";
+import { PetpetrTemplate } from "../pages/highcourt/petpetr/template";
+import { PetrespTemplate } from "../pages/highcourt/petresp/template";
+import { MemoHCTemplate } from "../pages/highcourt/memohc/template";
+import { EXTENSIONTemplate } from "../pages/highcourt/extension/template";
+import { EXPEDITETemplate } from "../pages/highcourt/expedite/template";
+import { DRTSATemplate } from "../pages/highcourt/drtsa/template";
+import { DISPENSETemplate } from "../pages/highcourt/dispense/template";
+import { DELAYREPTemplate } from "../pages/highcourt/delayrep/template";
+import { CCCATemplate } from "../pages/highcourt/ccca/template";
+import { TRCRLMPTemplate } from "../pages/highcourt/trcrlmp/template";
+import { TRCMPTemplate } from "../pages/highcourt/trcmp/template";
+import { OSATemplate } from "../pages/highcourt/osa/template";
+import { PILTemplate } from "../pages/highcourt/pil/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -139,7 +153,7 @@ export const cell = (text, options) =>
 
 export const caseTypeTemplates = {
     cma: CMATemplate,
-    crp: CRPTemplate,
+    civilRevisionPetition: CRPTemplate,
     firstAppeal: FirstAppealTemplate,
     secondAppeal: SecondAppealTemplate,
     writAppeal: WATemplate,
@@ -148,12 +162,25 @@ export const caseTypeTemplates = {
     amendment: AmendmentTemplate,
     bail: BailTemplate,
     criminalAppeal: CRLATemplate,
-    criminalRevisionCase: CriminalRevisionTemplate,
+    criminalRevisionCase: CRLRCTemplate,
     highcourt: HighCourtTemplate,
     affidavit: WPAffidavitTemplate,
     writIa:WIATemplate,
     vakalath:vakalathTemplate,
     vacate:vacateTemplate,
+    lrPetPet:PetpetrTemplate,
+    lrPreTreps:PetrespTemplate,
+    memoForProofOfService:MemoHCTemplate,
+    debtsRecoveryTribunal:DRTSATemplate,
+    delayInRepresentation:DELAYREPTemplate,
+    dispense:DISPENSETemplate,
+    expedite:EXPEDITETemplate,
+    extension:EXTENSIONTemplate,
+    civilMiscAppealMemorandum:CCCATemplate,
+    transferCriminalPetition:TRCRLMPTemplate,
+    transferMiscPetition:TRCMPTemplate,
+    originalSideAppeal:OSATemplate,
+    pil:PILTemplate
 };
 
 export const SignatureRow = (formdata) => {
@@ -233,7 +260,7 @@ export const caseTypeFields = [
     { label: "MEMOHC", value: "memoForProofOfService" },
     { label: "CCCA", value: "civilMiscAppealMemorandum" },
 
-    { label: "TRCRMP", value: "transferCriminalPetition" },
+    { label: "TRCRLMP", value: "transferCriminalPetition" },
     { label: "TRCMP", value: "transferMiscPetition" },
 
     { label: "OSA", value: "originalSideAppeal" },

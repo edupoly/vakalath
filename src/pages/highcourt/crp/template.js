@@ -1,0 +1,165 @@
+import { Document } from "docx";
+import { combinedSections } from "../../../components/highcourt/combineSections";
+import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
+import { h3BoldCenter, h3Center, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak } from "../../../components/templates/elementTypes";
+import { OfficeUseTable } from "../../../components/templates/officeUseTable";
+import { InfoTable } from "../../../components/templates/InfoTable";
+import { ChallanTable } from "../../../components/templates/ChallanTable";
+import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
+import { BetweenSection } from "../../../components/templates/BetweenSection";
+import { addParagraphs } from "../../../components/templates/paragraphFunctions";
+import { createSignatureFooter } from "../../../components/templates/FooterSections";
+import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
+import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { CRPSections } from "./crpData";
+
+export const CRPTemplate = (formData) => {
+
+    return new Document({
+        sections: [
+            {
+                properties: {},
+                children: [
+                    ...combinedSections(CRPSections("115", formData), formData),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage1", formData), formData),
+                    pageBreak(),
+                    ...combinedSections(CRPSections("affidavit", formData), formData),
+                    pageBreak(),
+                    ...combinedSections(CRPSections("151(1)", formData), formData),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage2", formData), formData),
+                    pageBreak(),
+                    ...combinedSections(CRPSections("sec-5", formData), formData),
+                    pageBreak(),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage3", formData), formData),
+                    pageBreak(),
+                    ...combinedSections(CRPSections("151(2)", formData), formData),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage4", formData), formData),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage5", formData), formData),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage6", formData), formData),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage7", formData), formData),
+                    pageBreak(),
+
+                    // headerWith1NumberBold([
+                    //     `IN THE COURT OF THE «district»`,
+                    //     `O.S.No. OF${tabSpace(3)}«myear»`
+                    // ]),
+                    h3Center("CHRONOLOGICAL / RUNNING INDEX "),
+                    ChronologicalTable(formData),
+                    // createSignatureFooter([{
+                    //     left: [
+                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `${formData?.place || "«place»"}`
+                    //     ],
+                    //     right: [
+                    //         `Counsel for the Petitioner`
+                    //     ]
+                    // }]),
+                    pageBreak(),
+                    h3underlineBoldCenter("BATA FORM"),
+                    ...formData?.Respondents?.map((res) => [
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
+                    ]).flat(),
+                    // createSignatureFooter([{
+                    //     left: [
+                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `${formData?.place || "«place»"}`
+                    //     ],
+                    //     right: [
+                    //         `Counsel for the Petitioner`
+                    //     ]
+                    // }]),
+                    ...LineSpace(3),
+                    h3underlineBoldCenter("BATA FORM"),
+                    ...formData?.Respondents?.map((res) => [
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
+                    ]).flat(),
+                    // createSignatureFooter([{
+                    //     left: [
+                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `${formData?.place || "«place»"}`
+                    //     ],
+                    //     right: [
+                    //         `Counsel for the Petitioner`
+                    //     ]
+                    // }]),
+                    pageBreak(),
+                    ...combinedSections(CRPSections("notice", formData), formData),
+                    pageBreak(),
+                    ...combinedSections(CRPSections("crp_notice", formData), formData),
+                    pageBreak(),
+                    ...combinedSections(CRPSections("crp_court_fee", formData), formData),
+                    pageBreak(),
+                    pageTable(CRPSections("sidePage8", formData), formData),
+                    pageBreak(),
+
+                    h3BoldCenter(formData?.highcourt || "__________"),
+                    h3BoldCenter("Basic Information"),
+                    ...OfficeUseTable(formData),
+                    ...InfoTable(formData),
+                    ...ChallanTable(formData),
+                    ...LowerCourtTable(formData),
+                    pageBreak(),
+                    h3UnderlineBoldLeft("Full Cause Title:"),
+                    ...BetweenSection(formData),
+                    pageBreak(),
+                    h3UnderlineBoldLeft("Main Case Prayer:"),
+                    ...addParagraphs([`It is therefore prayed that this Hon'ble Court may be pleased «MAIN_PRAYER» and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
+                    h3UnderlineBoldLeft("IA(s) Prayer:"),
+                    ...addParagraphs([`It is also just and necessary that this Hon'ble Court may be pleased «INTERIM_PRAYER» pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
+                ],
+            },
+        ],
+    });
+
+    //    ...combinedSections(RLASections["374(2)"]),
+    //     pageBreak(),
+    //     createRightAlignPage([
+    //         h3Center("«district» :: District"),
+    //         ...headerWith2Numbers([
+    //             "IN THE COURT OF THE «district»",
+    //             `I.A.No. ${tabSpace(3)} OF <<myear>>`,
+    //             "IN",
+    //             `«OPNO» \nDated «OPDATE»  \nOn the file of the  \n«lowercourt»`
+    //         ]),
+    //         ...LineSpace(10),
+    //         h3underlineBoldCenter("MEMORANDUM OF APPEAL"),
+    //         ...LineSpace(10),
+    //         ...create3LineFooter([
+    //             "Filed By:",
+    //             "M/s <<counsel_address1>>",
+    //             "Counsel for Petitioner"
+    //         ])
+    //     ]),
+    //     pageBreak(),
+    //    ...combinedSections(RLASections["482"]),
+    //     pageBreak(),
+    //     createRightAlignPage([
+    //         h3Center("«district» :: District"),
+    //         ...headerWith2Numbers([
+    //             "IN THE COURT OF THE <<highcourt>>",
+    //             `I.A.No. ${tabSpace(3)} OF <<myear>>`,
+    //             "IN",
+    //             `Crl.A.No.${tabSpace(3)}OF «myear»`
+    //         ]),
+    //         ...LineSpace(10),
+    //         h3underlineBoldCenter("SUSPENSION PETITION"),
+    //         ...LineSpace(10),
+    //         ...create3LineFooter([
+    //             "Filed By:",
+    //             "M/s <<counsel_address1>> Advocate",
+    //             "Counsel for Petitioner"
+    //         ])
+    //     ]),
+    //     pageBreak(),
+
+
+};

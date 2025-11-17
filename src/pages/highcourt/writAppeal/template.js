@@ -4,7 +4,7 @@ import { h2UnderlineBoldCenter, h3BoldCenter, h3Center, h3Left, h3Right, h3under
 import { writAppealSections } from "./waData";
 import { createRightAlignPage } from "../../../components/templates/tableFunctions";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
-import { create4LineFooter, createSignatureFooter} from "../../../components/templates/FooterSections";
+import { create4LineFooter, SignatureFooter} from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
@@ -17,7 +17,7 @@ export const WATemplate = (formData) => {
       {
         properties: {},
         children: [
-          ...combinedSections(formData, writAppealSections["clause-15"]),
+          ...combinedSections(writAppealSections("clause-15",formData),formData),
           pageBreak(),
           createRightAlignPage([
           h3Center("«district» :: District"),
@@ -35,14 +35,14 @@ export const WATemplate = (formData) => {
           ...create4LineFooter(["Filed By:","M/s «counsel_code»","Advocate","Counsel for Appellant"])
           ]),
           pageBreak(),
-          ...combinedSections(formData, writAppealSections["affidavit"]),
+          ...combinedSections(writAppealSections("affidavit",formData),formData),
           h3Center("ADVOCATE :: «place»"),
           pageBreak(),
           h3UnderlineCenter("VERIFICATION STATEMENT"),
           h3Left(tabSpace(1)+"I, «verification», being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at «place» on this the day of «fdate»"),
           h3Right("Deponent"),
           pageBreak(),
-          ...combinedSections(formData, writAppealSections["sec-151-1st"]),
+          ...combinedSections(writAppealSections("sec-151-1st",formData),formData),
           pageBreak(),
           createRightAlignPage([
           h3Center("«DISTRICT» District"),
@@ -84,7 +84,7 @@ export const WATemplate = (formData) => {
       pageBreak(),
       h3Center("MEMORANDUM OF WRIT APPEAL MISC. PETITION"),
       h3Center("(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)"),
-      ...combinedSections(formData, writAppealSections["sec-151-2nd"]),
+      ...combinedSections(writAppealSections("sec-151-2nd",formData),formData),
       pageBreak(),
        createRightAlignPage([
           h3Center("«DISTRICT» District"),
@@ -158,7 +158,7 @@ export const WATemplate = (formData) => {
       ]),
       pageBreak(),
       ChronologicalTable(formData),
-      ...createSignatureFooter([
+      ...SignatureFooter([
     {
         left: ["DATE: «fdate»", "«place»"],
         right: ["", "Counsel for the Petitioner"]
@@ -170,7 +170,7 @@ export const WATemplate = (formData) => {
       ...LineSpace(1),
       h3Left("«RESPONDENT_ADDRESS»"),
       ...LineSpace(2),
-     ...createSignatureFooter([
+     ...SignatureFooter([
     {
         left: ["DATE: «fdate»", "«place»"],
         right: ["", "Counsel for the Petitioner"]
@@ -182,7 +182,7 @@ export const WATemplate = (formData) => {
       ...LineSpace(1),
       h3Left("«RESPONDENT_ADDRESS»"),
       ...LineSpace(2),
-      ...createSignatureFooter([
+      ...SignatureFooter([
     {
         left: ["DATE: «fdate»", "«place»"],
         right: ["", "Counsel for the Petitioner"]
@@ -197,7 +197,7 @@ export const WATemplate = (formData) => {
       ...LineSpace(1),
       h3underlineBoldCenter("COURT FEE"),
       ...LineSpace(10),
-     ...createSignatureFooter([
+     ...SignatureFooter([
     {
         left: ["DATE: «fdate»", "«place»"],
         right: ["", "Counsel for the Petitioner"]
@@ -205,7 +205,7 @@ export const WATemplate = (formData) => {
 ]),
       pageBreak(),
       h3UnderlineCenter("MEMO OF APPEARANCE"),
-      ...combinedSections(formData, writAppealSections["memo-of-appearance"]),
+      ...combinedSections(writAppealSections("memo-of-appearance",formData),formData),
       pageBreak(),
       createRightAlignPage([
           h3Center("«DISTRICT» District"),

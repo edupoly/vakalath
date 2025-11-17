@@ -501,6 +501,22 @@ export const initialValues = {
         fdate: "2025-04-10",
         DISTRICT: "Hyderabad"
     },
+    civilMiscAppealMemorandum: {
+        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        OPNO: "CMA/123/2025",
+        lowercourt: "District Court, Hyderabad",
+        myear: 2025,
+        OPDATE: "2025-07-15",
+        counsel_address: "Suite 8, Advocate Chambers, High Court, Hyderabad - 500032",
+        place: "Hyderabad",
+        fdate: "2025-07-18",
+        district: "Hyderabad",
+        counsel_code: "HYD-046",
+        verification: "Verified and signed at Hyderabad",
+        INTERIM_PRAYER: "Grant interim relief pending disposal",
+        MAIN_PRAYER: "Allow the civil miscellaneous appeal with costs",
+        R25: "BCETG-2025-001"
+    },
     transferCriminalPetition: {
         highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
         OPNO: "TCP/13/2025",

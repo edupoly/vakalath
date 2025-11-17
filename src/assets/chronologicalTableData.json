@@ -489,7 +489,7 @@
             }
         ]
     },
-    "crp": {
+    "civilRevisionPetition": {
         "header": [
             "Sl. No.",
             "Description of Document",
@@ -746,7 +746,7 @@
             }
         ]
     },
-    "crla": {
+    "criminalAppeal": {
         "header": [
             "Sl. No.",
             "Exhibit",
@@ -839,7 +839,7 @@
             }
         ]
     },
-    "crlrc": {
+    "criminalRevisionCase": {
         "header": [
             "Sl. No.",
             "Exhibit",
@@ -1401,7 +1401,7 @@
             }
         ]
     },
-    "trcrlmp": {
+    "transferCriminalPetition": {
         "header": [
             "Sl. No.",
             "Description of Document",
@@ -1476,7 +1476,7 @@
             }
         ]
     },
-    "trcmp": {
+    "transferMiscPetition": {
         "header": [
             "Sl. No.",
             "Description of Document",

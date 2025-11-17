@@ -48,7 +48,7 @@ export const writPetitionTemplate = (formData) => {
           h3Center("«highcourt»"),
           ...LineSpace(1),
           h3Center(`W.P. NO.${tabSpace(3)}OF  «myear»`),
-          ...combinedSections(formData, writPetitionSections["wp.no"]),
+          ...combinedSections(writPetitionSections("wp.no", formData), formData),
           ...LineSpace(1),
           h3Center("BEFORE ME"),
           ...LineSpace(1),
@@ -58,15 +58,12 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(3) +
-              " I, «verification», being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language.   Hence verified at «place» on this the day of «fdate»"
+            " I, «verification», being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language.   Hence verified at «place» on this the day of «fdate»"
           ),
           ...LineSpace(1),
-          ...createSignatureFooter([
-  {
-    left: ["Advocate"],
-    right: ["Deponent"]
-  }
-]),
+          createSignatureFooter(["Advocate"],
+            ["Deponent"]
+          ),
 
           pageBreak(),
           h3BoldCenter("MEMORANDUM OF WRIT PETITION"),
@@ -76,16 +73,16 @@ export const writPetitionTemplate = (formData) => {
           h3Center("«highcourt»"),
           ...LineSpace(1),
           h3Center(`W.P. NO.${tabSpace(3)}OF  «myear»`),
-          ...combinedSections(formData, writPetitionSections["Art-226"]),
+          ...combinedSections(writPetitionSections("Art-226", formData), formData),
           pageBreak(),
           createRightAlignPage([
             h3Center("«district» x:: District"),
-          ...LineSpace(1),
+            ...LineSpace(1),
             ...headerWith2Numbers([
               "«highcourt»",
               `W.P. NO. ${tabSpace(3)} OF <<myear>>`,
             ]),
-          ...LineSpace(1),
+            ...LineSpace(1),
             ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
             ...LineSpace(15),
             h3underlineBoldCenter("WRIT PETITION"),
@@ -106,13 +103,13 @@ export const writPetitionTemplate = (formData) => {
           h3Center(`I.A. NO.${tabSpace(3)}OF «myear»`),
           h3Center("IN"),
           h3Center(`W.P. NO.${tabSpace(3)}OF «myear»`),
-          ...combinedSections(formData, writPetitionSections["sec-151"]),
+          ...combinedSections(writPetitionSections("sec-151", formData), formData),
           pageBreak(),
           createRightAlignPage([
             h3Center("«district» x:: District"),
-          ...LineSpace(1),
+            ...LineSpace(1),
             h3Center("«highcourt»"),
-          ...LineSpace(1),
+            ...LineSpace(1),
             ...headerWith2Numbers([
               `I.A.NO.${tabSpace(3)}OF «myear»`,
               `W.P. NO.${tabSpace(3)}OF «myear»`,
@@ -233,49 +230,37 @@ export const writPetitionTemplate = (formData) => {
           h3Left(tabSpace(1) + "Batta        Rs."),
           h3Left(
             tabSpace(1) +
-              "Notice Papers, Covers with Postal Addresses and Ack.Forms"
+            "Notice Papers, Covers with Postal Addresses and Ack.Forms"
           ),
           h3Left(tabSpace(1) + " Proforma Draft Interim Order"),
           ...LineSpace(1),
-          ...createSignatureFooter([
-  {
-    left: ["Signature of the", "Scrutiny Officer"],
-    right: ["Signature of the Advocate", "Name: «counsel_code»"]
-  }
-]),
+          createSignatureFooter(["Signature of the", "Scrutiny Officer"],
+            ["Signature of the Advocate", "Name: «counsel_code»"]
+          ),
 
           ...LineSpace(1),
-          ...createSignatureFooter([
-  {
-    left: [
-      "FOR OFFICE USE ONLY",
-      "Respondent Vakalat filed by",
-      "Counter Filed for Respt.No.",
-      "Other Miscellaneous Petitions filed",
-    ],
-    right: ["", " for Respt.No", "", ""],
-  }
-]),
+          createSignatureFooter([
+            "FOR OFFICE USE ONLY",
+            "Respondent Vakalat filed by",
+            "Counter Filed for Respt.No.",
+            "Other Miscellaneous Petitions filed",
+          ],
+            ["", " for Respt.No", "", ""],
+          ),
 
           pageBreak(),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left("«RESPONDENT_ADDRESS»"),
-         ...createSignatureFooter([
-  {
-    left: ["«place»", "DATE: «fdate»"],
-    right: ["Counsel for the Petitioner(s)."]
-  }
-]),
+          createSignatureFooter(["«place»", "DATE: «fdate»"],
+            ["Counsel for the Petitioner(s)."]
+          ),
 
           ...LineSpace(10),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left("«RESPONDENT_ADDRESS»"),
-          ...createSignatureFooter([
-  {
-    left: ["«place»", "DATE: «fdate»"],
-    right: ["Counsel for the Petitioner(s)."]
-  }
-]),
+          createSignatureFooter(["«place»", "DATE: «fdate»"],
+            ["Counsel for the Petitioner(s)."]
+          ),
 
           pageBreak(),
           h3UnderlineBoldLeft("RESPONDENTS ADDRESSES:"),
@@ -295,15 +280,12 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(5),
           h3Left(
             tabSpace(1) +
-              "We have served the copies of Writ Petition, Affidavit, Writ Petition Miscellaneous Petition(s) and Material Papers on the other side Counsel/Government Pleader."
+            "We have served the copies of Writ Petition, Affidavit, Writ Petition Miscellaneous Petition(s) and Material Papers on the other side Counsel/Government Pleader."
           ),
           ...LineSpace(5),
-          ...createSignatureFooter([
-  {
-    left: ["«place»", "DATE: «fdate»"],
-    right: ["Counsel for the Petitioner"]
-  }
-]),
+          createSignatureFooter(["«place»", "DATE: «fdate»"],
+            ["Counsel for the Petitioner"]
+          ),
 
           pageBreak(),
           h3Center("«highcourt»"),
@@ -317,11 +299,11 @@ export const writPetitionTemplate = (formData) => {
           ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
           h3Left(
             tabSpace(1) +
-              "Take Notice that the Appellant /Petitioner (Respondent) has/have presented a petition to the Court Praying that  Under Section 151 of C.P.C.     (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court  on the      day     «myear»."
+            "Take Notice that the Appellant /Petitioner (Respondent) has/have presented a petition to the Court Praying that  Under Section 151 of C.P.C.     (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court  on the      day     «myear»."
           ),
           h3Left(
             tabSpace(2) +
-              "Notice and Interim Stay has/have been granted by order Court      dated the      of        «myear» the affidavit of                                 has been filed in support thereof Dated at «place» this            day     «myear»"
+            "Notice and Interim Stay has/have been granted by order Court      dated the      of        «myear» the affidavit of                                 has been filed in support thereof Dated at «place» this            day     «myear»"
           ),
           ...LineSpace(1),
           h3Right("Advocate for Petitioner"),
@@ -336,15 +318,15 @@ export const writPetitionTemplate = (formData) => {
           ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
           h3Left(
             tabSpace(1) +
-              "Mr. «counsel_code» upon motion this day made in to this Court by bring of opinion that the record to and touching upon all the matter and contentions raised in the memorandum of representation petition, a copy of which is annexed hereto, together with the decision therein should be called for and pursued: IT IS HEREBY COMMANDED."
+            "Mr. «counsel_code» upon motion this day made in to this Court by bring of opinion that the record to and touching upon all the matter and contentions raised in the memorandum of representation petition, a copy of which is annexed hereto, together with the decision therein should be called for and pursued: IT IS HEREBY COMMANDED."
           ),
           h3Left(
             tabSpace(1) +
-              " (1) That you, the aforesaid Respondent No.         do sent, of our use in High Court of Judicature Andhra Pradesh all and singular the said record and other with all the things touching the same as fully and perfectly as they have been made by you and now remain in your custody or power together with this, Rule Nisi before the day of         «myear»   and"
+            " (1) That you, the aforesaid Respondent No.         do sent, of our use in High Court of Judicature Andhra Pradesh all and singular the said record and other with all the things touching the same as fully and perfectly as they have been made by you and now remain in your custody or power together with this, Rule Nisi before the day of         «myear»   and"
           ),
           h3Left(
             tabSpace(1) +
-              " That you intend to oppose the petition you the aforesaid Respondent No.             do appear personally OR by Advocate on the         day of               «myear» at 10-30 A.M. before the court show cause why this petition should not be complied with and that we may cause further to be done there on what of right and according to law we shall see fit to be done."
+            " That you intend to oppose the petition you the aforesaid Respondent No.             do appear personally OR by Advocate on the         day of               «myear» at 10-30 A.M. before the court show cause why this petition should not be complied with and that we may cause further to be done there on what of right and according to law we shall see fit to be done."
           ),
           h3Left(
             "WITNESS  the Hon'ble Chief Justice of High Court of Judicature, Andhra Pradesh at «place», this the year two thousand eleven"
@@ -357,31 +339,31 @@ export const writPetitionTemplate = (formData) => {
           h3Left(tabSpace(2) + " (To be endorsed on Writ to appear)"),
           h3Left(
             tabSpace(1) +
-              "The Process of the Writ of Certiorari where of mention is which made was served on respondent This                           day of                    two thousand eleven"
+            "The Process of the Writ of Certiorari where of mention is which made was served on respondent This                           day of                    two thousand eleven"
           ),
           h3Left(
             tabSpace(1) +
-              "This should be served urgently on the Respondent  No.               and  returned to the High Court"
+            "This should be served urgently on the Respondent  No.               and  returned to the High Court"
           ),
           h3Left(tabSpace(1) + "writ and rule nise"),
           h3Left("-------------------------------"),
           h3Left(`W.P. NO.${tabSpace(3)}OF «myear»`),
           h3Left(
             tabSpace(1) +
-              "Certified that the required conveyance charges and the process for the service of the Process have been collected it is requested that English Translation of the Process Service, Report, it is in Vernacular, my be sent along with the Rule-Nise returned.I"
+            "Certified that the required conveyance charges and the process for the service of the Process have been collected it is requested that English Translation of the Process Service, Report, it is in Vernacular, my be sent along with the Rule-Nise returned.I"
           ),
           h3Left("FORM: 8"),
           h3Left(tabSpace(2) + "RETURN OF THE WRIT OF CERTIORARI ORDER NISI "),
           h3Left(tabSpace(3) + "(TO BE ENDORSED ON WRIT TO PRODUCE)"),
           h3Left(
             tabSpace(1) +
-              "The process of the Writ of certiorari where of mention is within made with all things touching the same in the several papers hereto annexed as within commanded."
+            "The process of the Writ of certiorari where of mention is within made with all things touching the same in the several papers hereto annexed as within commanded."
           ),
           h3Left("The Answer of"),
           h3Left("The                                   respondent here"),
           h3Left(
             tabSpace(2) +
-              " Date                     day of                 «myear»"
+            " Date                     day of                 «myear»"
           ),
           h3Center("(Sd)"),
           pageBreak(),
@@ -393,7 +375,7 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(2),
           ChronologicalTable(formData),
           pageBreak(),
-           h3Center("«highcourt»"),
+          h3Center("«highcourt»"),
           ...LineSpace(1),
           h3Center(`W.P. NO.${tabSpace(3)}OF «myear»`),
           ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
@@ -401,16 +383,13 @@ export const writPetitionTemplate = (formData) => {
           h3UnderlineCenter("LIST OF EVENTS"),
           h3UnderlineCenter("Annexure – I"),
           //Anexure Table
-           h3UnderlineCenter("LIST OF EVENTS"),
-           ...LineSpace(3),
+          h3UnderlineCenter("LIST OF EVENTS"),
+          ...LineSpace(3),
           h3UnderlineCenter("Annexure – I"),
           ...LineSpace(3),
-          ...createSignatureFooter([
-  {
-    left: ["«place»", "DATE: «fdate»"],
-    right: ["Counsel for Petitioner/s"]
-  }
-]),
+          createSignatureFooter(["«place»", "DATE: «fdate»"],
+            ["Counsel for Petitioner/s"]
+          ),
 
           pageBreak(),
           h3Center("«highcourt»"),
@@ -420,76 +399,73 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3underlineBoldCenter("COURT FEE"),
           ...LineSpace(20),
-         ...createSignatureFooter([
-  {
-    left: ["DATE: «fdate»", "«place»"],
-    right: ["", "Counsel for the Petitioner"]
-  }
-]),
+          createSignatureFooter(["DATE: «fdate»", "«place»"],
+            ["", "Counsel for the Petitioner"]
+          ),
 
           pageBreak(),
           h3BoldCenter("«highcourt»"),
           ...LineSpace(1),
           h3BoldCenter("ORIGINAL/APPELLATE SIDE"),
-        
+
           h3Center(`W.P. NO.${tabSpace(3)}OF «myear»`),
           ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
           ...LineSpace(1),
-          h3Left(tabSpace(1)+" I, «verification», petitioner in the above Petition do hereby appoint and retain"),
+          h3Left(tabSpace(1) + " I, «verification», petitioner in the above Petition do hereby appoint and retain"),
           ...LineSpace(1),
           h3BoldCenter("«counsel_code»"),
           h3Center("Advocate"),
           ...LineSpace(1),
-          h3Left(tabSpace(1)+"Advocate/s of the High Court to appear for me/us in the above Appeal/Petition and to conduct and prosecute (or defend) the same and all proceedings that may be taken in respect of any application connected with the same or any decree or order passed therein including all applications for return of documents or the receipt of any money that may be payable to me/us in the said Appeal/Petition and also to appear in all applications under Clause-XV of the Letters Pattent and in all applications for review and for leave to the Supreme Court of India and in all applications review of judgment."),
+          h3Left(tabSpace(1) + "Advocate/s of the High Court to appear for me/us in the above Appeal/Petition and to conduct and prosecute (or defend) the same and all proceedings that may be taken in respect of any application connected with the same or any decree or order passed therein including all applications for return of documents or the receipt of any money that may be payable to me/us in the said Appeal/Petition and also to appear in all applications under Clause-XV of the Letters Pattent and in all applications for review and for leave to the Supreme Court of India and in all applications review of judgment."),
           ...LineSpace(10),
-          h3Left(tabSpace(2)+"I certify that the contents this Vakalatnama were read out and explained in Urdu/Hindi/Telugu to the executant or executants who appeared perfectly to understand the same and made his/her/their signatures or mark in my presence."),
+          h3Left(tabSpace(2) + "I certify that the contents this Vakalatnama were read out and explained in Urdu/Hindi/Telugu to the executant or executants who appeared perfectly to understand the same and made his/her/their signatures or mark in my presence."),
           ...LineSpace(1),
           h3Left("Executed before me this ____________ day of ____________ «myear»"),
           h3Right(" ADVOCATE :: «place»"),
           pageBreak(),
           createRightAlignPage([
-          h3Left("S.R.No."),
-          h3BoldCenter("«district» District"),
-          ...LineSpace(1),
+            h3Left("S.R.No."),
+            h3BoldCenter("«district» District"),
+            ...LineSpace(1),
+            h3BoldCenter("«highcourt»"),
+            ...LineSpace(1),
+            h3BoldCenter("ORIGINAL/APPELLATE SIDE"),
+            ...LineSpace(1),
+            h3Center(`W.P. NO.${tabSpace(3)}OF «myear»`),
+            ...LineSpace(15),
+            h1BoldCenter("VAKALAT"),
+            h2BoldCenter("ACCEPTED"),
+            ...LineSpace(10),
+            h3Center("«counsel_code»"),
+            h3Center("COUNSEL FOR  PETITIONER"),
+            ...LineSpace(3),
+            h3Left("DATE :   «fdate»"),
+            h3Left("_____________________________"),
+            h3Left("Address for Service:"),
+            h3Left("«counsel_address» "),
+          ]),
+          pageBreak(),
           h3BoldCenter("«highcourt»"),
           ...LineSpace(1),
-          h3BoldCenter("ORIGINAL/APPELLATE SIDE"),
+          h3BoldCenter("Basic Information"),
+          ...OfficeUseTable("wp"),
           ...LineSpace(1),
-          h3Center(`W.P. NO.${tabSpace(3)}OF «myear»`),
-          ...LineSpace(15),
-          h1BoldCenter("VAKALAT"),
-          h2BoldCenter("ACCEPTED"),
-          ...LineSpace(10),
-          h3Center("«counsel_code»"),
-          h3Center("COUNSEL FOR  PETITIONER"),
+          ...InfoTable(formData),
+          ...LineSpace(1),
+          h3Left("II. Fee paid by : Challan / Stamps				 Challan Date: "),
+          ...ChallanTable(formData),
+          ...LineSpace(1),
+          ...LowerCourtTable(formData),
+          pageBreak(),
+          h3UnderlineBoldLeft("Full Cause Title:"),
+          ...LineSpace(1),
+          ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
+          pageBreak(),
+          h3UnderlineBoldLeft("Main Case Prayer :"),
+          h3Left(tabSpace(2) + "It is therefore prayed that this Hon'ble Court may be pleased «MAIN_PRAYER» and pass such other order or orders may deem fit and proper in the circumstances of the case."),
           ...LineSpace(3),
-          h3Left("DATE :   «fdate»"),
-          h3Left("_____________________________"),
-          h3Left("Address for Service:"),
-          h3Left("«counsel_address» "),
-        ]),
-        pageBreak(),
-        h3BoldCenter("«highcourt»"),
-        ...LineSpace(1),
-        h3BoldCenter("Basic Information"),
-        ...OfficeUseTable("wp"),
-        ...LineSpace(1),
-        ...InfoTable(formData),
-        ...LineSpace(1),
-        h3Left("II. Fee paid by : Challan / Stamps				 Challan Date: "),
-        ...ChallanTable(formData),
-        ...LineSpace(1),
-        ...LowerCourtTable(formData),
-        pageBreak(),
-        h3UnderlineBoldLeft("Full Cause Title:"),
-        ...LineSpace(1),
-        ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
-        pageBreak(),
-        h3UnderlineBoldLeft("Main Case Prayer :"),
-        h3Left(tabSpace(2)+"It is therefore prayed that this Hon'ble Court may be pleased «MAIN_PRAYER» and pass such other order or orders may deem fit and proper in the circumstances of the case."),
-        ...LineSpace(3),  
-        h3UnderlineBoldLeft("IA(s) Prayer:"),
-        h3Left(tabSpace(2)+"It is also just and necessary that this Hon'ble Court may be pleased «INTERIM_PRAYER» pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case."),
+          h3UnderlineBoldLeft("IA(s) Prayer:"),
+          h3Left(tabSpace(2) + "It is also just and necessary that this Hon'ble Court may be pleased «INTERIM_PRAYER» pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case."),
         ],
       },
     ],

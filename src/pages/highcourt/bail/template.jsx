@@ -53,7 +53,7 @@ export const BailTemplate = (formData) => {
           createParagraph("IN", paragraphStyles.centerText),
           createParagraph(`Crl.P.NO. ${formData?.OPNO || "__________"} OF ${formData?.myear || "__________"}`, paragraphStyles.centerText),
           createParagraph(`${formData?.district || "__________"} District`, paragraphStyles.centerText),
-          createParagraph(`${formData?.Petitioners?.[0]?.Name || "__________"}`, paragraphStyles.leftAlignText),
+          createParagraph(`s?.[0]?.Name || "__________"}`, paragraphStyles.leftAlignText),
           createParagraph("... Petitioner/Accused", paragraphStyles.leftAlignText),
           createParagraph(`By ${formData?.counsel_code || "__________"}`, paragraphStyles.leftAlignText),
           createParagraph("NATURE OF APPLICATION", paragraphStyles.centerText),

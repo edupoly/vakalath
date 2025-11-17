@@ -71,7 +71,7 @@ export const WPAffidavitTemplate = (formData) => {
                         paragraphStyles1.paragraph
                     ),
                     createParagraph("Advocate", paragraphStyles1.leftText),
-                    createParagraph("Deponent", paragraphStyles1.rightzText),
+                    createParagraph("Deponent", paragraphStyles1.rightText),
                 ],
             },
         ],

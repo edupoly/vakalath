@@ -3,25 +3,40 @@ import { header, headerWithNumbers } from "../templates/HeaderSection";
 import { createSignatureFooter } from "../templates/FooterSections";
 import { h3Left, LineSpace } from "../templates/elementTypes";
 import { BetweenSection } from "../templates/BetweenSection";
+import { createParagraph, paragraphStyles } from "../../services/templateFunctions";
+import { addParagraphs } from "../templates/paragraphFunctions";
 
-const rightCell = (data) => {
+const rightCell = (data, formData) => {
     return [
+        header(data?.mainTitle),
+        ...LineSpace(1),
+        header(data?.subTitle),
+        ...LineSpace(1),
         ...headerWithNumbers(data?.headLines),
-        // data?.betweenSection ? [...BetweenSection(
-        //     "formData",
-        //     data?.betweenSection?.pet,
-        //     data?.betweenSection?.res
-        // )]
+        ...(data?.betweenSection?.pet ? [
+            createParagraph(formData?.Petitioners[0]?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+            ...LineSpace(1), createParagraph(data?.betweenSection?.pet, { ...paragraphStyles.rightAlignSmall, size: 22, font: "Tahoma" }), ...LineSpace(1)]
+            : LineSpace(1)),
+
+        ...(data?.headPara
+            ? data.headPara.map((set) => {
+                return [
+                    header(set?.head),
+                    ...addParagraphs(set?.para)
+                ]
+            }).flat()
+            : LineSpace(8)),
+        data?.middleHeader && header(data?.middleHeader),
         ...LineSpace(10),
-        header(data?.middleHeader),
-        ...LineSpace(10),
-        ...data?.footer.map((foot) => {
-            return foot?.left?.map((text) => h3Left(text))
-        }).flat()
+        ...(data?.footer || []).flatMap((foot) => [
+            ...(foot?.left || []).map((text) => h3Left(text)),
+            ...LineSpace(1)
+        ]),
+        ...LineSpace(1),
     ]
 }
 
-export const pageTable = ({ left, right }) => {
+export const pageTable = ({ left, right }, formData) => {
     return new Table({
         rows: [
             new TableRow({
@@ -31,7 +46,7 @@ export const pageTable = ({ left, right }) => {
                         width: { size: 60, type: WidthType.PERCENTAGE },
                     }),
                     new TableCell({
-                        children: rightCell(right),
+                        children: rightCell(right, formData),
                         width: { size: 40, type: WidthType.PERCENTAGE },
                     }),
                 ],
