@@ -55,7 +55,7 @@ export const WPAffidavitTemplate = (formData) => {
                     ),
                     createParagraph("", { children: [new PageBreak()] }),
                     createParagraph("last page corrs.", paragraphStyles1.leftText),
-                    createParagraph("Deponent", paragraphStyles1.rightzText),
+                    createParagraph("Deponent", paragraphStyles1.rightText),
                     createParagraph(
                         `Solemnly and sincerely affirm this the day of ${formData?.fdate || "_________"} and signed his name in my presence.`,
                         paragraphStyles1.paragraph
