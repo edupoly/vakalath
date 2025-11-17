@@ -1,13 +1,14 @@
 import { LineSpace, tabSpace } from "../../../components/templates/elementTypes";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 
-export const vacateSections = {
- "counter-affidavit": {
+export const vacateSections =(key,formData)=> {
+  let data={
+    "counter-affidavit": {
     headLines: [
       {
-        head: { text: `«highcourt»` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}` },
         lines: [
-          `W.P. NO.               		OF «myear»`,
+          `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
         ],
       },
     ],
@@ -22,22 +23,22 @@ export const vacateSections = {
         para: [
           `${tabSpace(
             1
-          )}I, «verification», now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:.`,
+          )}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:.`,
           `1.   I am the Respondent No._____ herein in the above Writ Petition and as such I am well acquainted with the facts of the case.`,
-          `2.	I read the petitioner’s affidavit filed in support of writ petition and I submit that it does not disclose any valid or substantial grounds to issue any relief as prayed for. The petitioner is put to strict proof of the allegations which are denied, except to the extent of specifically admitted hereunder. The petitioner has not approached with the clean hands. The writ petition has to be dismissed as the writ petition is not maintainable. The petitioner has to move the appropriate forum.`,
+          `2.	  I read the petitioner’s affidavit filed in support of writ petition and I submit that it does not disclose any valid or substantial grounds to issue any relief as prayed for. The petitioner is put to strict proof of the allegations which are denied, except to the extent of specifically admitted hereunder. The petitioner has not approached with the clean hands. The writ petition has to be dismissed as the writ petition is not maintainable. The petitioner has to move the appropriate forum.`,
           `3.	I deny that `,
           `${tabSpace(
             1
           )}It is therefore prayed that this Hon’ble Court may be pleased to dismiss the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
            `${tabSpace(
             1
-          )}It is therefore prayed that this Hon'ble Court may be pleased  «INTERIM_PRAYER» and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+          )}It is therefore prayed that this Hon'ble Court may be pleased  ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
         ],
       },
     ],
     footer: [
       {
-        left: [`last page corrs.`, `Solemnly and sincerely affirm this`,`the day of  «fdate»`,`and signed his name in my presence.`],
+        left: [`last page corrs.`, `Solemnly and sincerely affirm this`,`the day of  ${formData?.fdate || "«fdate»"}`,`and signed his name in my presence.`],
         right: [`Deponent`,``,``,``]
       },
     ],
@@ -51,13 +52,13 @@ export const vacateSections = {
         para: [
           `${tabSpace(
             1
-          )}I, «verification», being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`,
+          )}I, ${formData?.verification || "«verification»"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`,
         ],
       },
     ],
     footer: [
       {
-        left: [`Verified at «place» on this `,`the day of «fdate»`,``,``],
+        left: [`Verified at ${formData?.place || "«place»"} on this `,`the day of  ${formData?.fdate || "«fdate»"}`,``,``],
         right: [``,``,`Deponent`,``]
       },
     ],
@@ -68,11 +69,11 @@ export const vacateSections = {
     subTitle: { text: "(UNDER SEC. 151 OF THE C.P.C.)" },
     headLines: [
       {
-        head: { text: `«highcourt»` },
+        head: { text: ` ${formData?.highcourt || "«highcourt»"}` },
         lines: [
-          `I.A.No               		OF «myear»`,
+          `I.A.No.${tabSpace(3)}OF  ${formData?.myear || "«myear»"}`,
           `IN`,
-          `W.P. NO.               		OF «myear»`,
+          `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
         ],
       },
     ],
@@ -87,13 +88,13 @@ export const vacateSections = {
         para: [
           `${tabSpace(
             1
-          )}For the reasons stated in the accompanying counter affidavit it is therefore prayed that this Hon'ble Court may be pleased  «INTERIM_PRAYER»  and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+          )}For the reasons stated in the accompanying counter affidavit it is therefore prayed that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
         ],
       },
     ],
     footer: [
       {
-        left: [`«place»`, `DATE: «fdate»`],
+        left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
         right: [`Counsel for the Petitioner`]
       },
     ],
@@ -102,23 +103,26 @@ export const vacateSections = {
     right: {
       headLines: [
         {
-          head: { text: `«district» :: District` },
+          head: { text: `${formData?.district || "«district»"}:: District` },
           lines: []
         },
         {
-          head: { text: `«highcourt»` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}` },
           lines: [
-            `I.A.NO.${tabSpace(3)}OF «myear»`,
+            `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
-            `W.P. NO.${tabSpace(3)}OF «myear»`,
+            `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           ]
         },
 
       ],
       middleHeader: { text: "VACATE PETITION", bold: true, underline: true },
       footer: [{
-        left: [`Filed By:`, `M/s «counsel_code»`, `Advocate`, `Counsel for Appellant`],
+        left: [`Filed By:`, `M/s ${formData?.counsel_code || "«counsel_code»"}`, `Advocate`, `Counsel for Appellant`],
       }],
     }
   },
+  }
+
+  return data[key]
 };

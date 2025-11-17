@@ -19,7 +19,7 @@
    "quash": "CRL.P.NO.",
    "rectran": "R&T.NO.",
    "secondAppeal": "S.A.NO.",
-   "itta": "ITTA.NO.",
+   "taxAppellateTribunal": "ITTA.NO.",
    "writAppeal": "W.A.NO.",
    "wp": "W.P.NO."
 }

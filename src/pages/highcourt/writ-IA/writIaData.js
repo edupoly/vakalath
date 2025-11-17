@@ -9,9 +9,9 @@ export const writIaSections = {
       {
         head: { text: `«highcourt»` },
         lines: [
-          `I.A. NO.                        OF «myear»`,
+          `I.A. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,
-          `W.P. NO.               		OF «myear»`,
+          `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
         ],
       },
     ],
@@ -26,14 +26,14 @@ export const writIaSections = {
         para: [
           `${tabSpace(
             1
-          )}For the reasons stated in the affidavit filed in support of the above Writ Petition it is therefore prayed that this Hon'ble Court may be pleased  «INTERIM_PRAYER» pending disposal the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+          )}For the reasons stated in the affidavit filed in support of the above Writ Petition it is therefore prayed that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || " «INTERIM_PRAYER»"} pending disposal the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
            
         ],
       },
     ],
     footer: [
       {
-        left: [`«place»`, `DATE:«fdate»`],
+        left: [`${formData?.place || " «place»"}`, `DATE:${formData?.fdate || " «fdate»"}`],
         right: [`Counsel for the Petitioner`],
       },
     ],
@@ -42,22 +42,22 @@ export const writIaSections = {
     right: {
       headLines: [
         {
-          head: { text: `«district» :: District` },
+          head: { text: `${formData?.district || " «district»"} :: District` },
           lines: []
         },
         {
-          head: { text: `«highcourt»` },
+          head: { text: `${formData?.highcourt || " «highcourt»"}` },
           lines: [
-            `I.A.NO.${tabSpace(3)}OF «myear»`,
+            `I.A.NO.${tabSpace(3)}OF ${formData?.myear || " «myear»"}`,
             `IN`,
-            `W.P. NO.${tabSpace(3)}OF «myear»`,
+            `W.P. NO.${tabSpace(3)}OF ${formData?.myear || " «myear»"}`,
           ]
         },
 
       ],
       middleHeader: { text: "DIRECTION / SUSPENSION PETITION", bold: true, underline: true },
       footer: [{
-        left: [`Filed By:`, `M/s «counsel_code»`, `Advocate`, `Counsel for Petitioner`],
+        left: [`Filed By:`, `M/s ${formData?.counsel_code || " «counsel_code»"}`, `Advocate`, `Counsel for Petitioner`],
 
       }],
     }

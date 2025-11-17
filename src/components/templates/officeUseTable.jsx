@@ -22,6 +22,8 @@ export const OfficeUseTable = (formData) => {
                 new TableRow({
                     children: [
                         headerCell("Filing No. (Unregistered)"),
+                        console.log(officeUseTableData[formData?.CaseType],formData?.CaseType   ),
+                        
                         headerCell(officeUseTableData[formData?.CaseType],{alignment: AlignmentType.LEFT}),
                         headerCell(formData?.myear || "«myear»"),
                     ],

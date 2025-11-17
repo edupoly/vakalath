@@ -21,6 +21,10 @@ import { WATemplate } from "../pages/highcourt/writAppeal/template";
 import { WIATemplate } from "../pages/highcourt/writ-IA/template";
 import { vakalathTemplate } from "../pages/highcourt/vakalath/template";
 import { vacateTemplate } from "../pages/highcourt/vacate/template";
+import { vacateMacmaTemplate } from "../pages/highcourt/vacateMacma/template";
+import { taxAppellateTribunalTemplate } from "../pages/highcourt/taxAppellateTribunal/template";
+import { stateConsumerRedressalCommissionTemplate } from "../pages/highcourt/stateConsumerRedressalCommison/template";
+import { secondAppealTemplate } from "../pages/highcourt/secondAppeal/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -154,6 +158,10 @@ export const caseTypeTemplates = {
     writIa:WIATemplate,
     vakalath:vakalathTemplate,
     vacate:vacateTemplate,
+    vacateMacma:vacateMacmaTemplate,
+    taxAppellateTribunal:taxAppellateTribunalTemplate,
+    stateConsumerRedressalCommission:stateConsumerRedressalCommissionTemplate,
+    secondAppeal:secondAppealTemplate,
 };
 
 export const SignatureRow = (formdata) => {
