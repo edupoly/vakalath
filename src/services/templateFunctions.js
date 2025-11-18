@@ -39,6 +39,9 @@ import { TRCRLMPTemplate } from "../pages/highcourt/trcrlmp/template";
 import { TRCMPTemplate } from "../pages/highcourt/trcmp/template";
 import { OSATemplate } from "../pages/highcourt/osa/template";
 import { PILTemplate } from "../pages/highcourt/pil/template";
+import { WtaTemplate } from "../pages/highcourt/Wta/template";
+import { rectranTemplate } from "../pages/highcourt/rectran/template";
+import { reviewTemplate } from "../pages/highcourt/reviewPetition/template";
 import { ContemptAffidavitTemplate } from "../pages/highcourt/cc/template";
 import { CounterTemplate } from "../pages/highcourt/counter/template";
 import { FCATemplate } from "../pages/highcourt/fca/template";
@@ -216,7 +219,10 @@ export const caseTypeTemplates = {
     caveat: CaveatTemplate,
     companyPetition:CPTemplate,
     compromiseHc:HCTemplate,
-    implead:IMPLEADTemplate
+    implead:IMPLEADTemplate,
+    incomeTaxAppellateTribunal:WtaTemplate,
+    receiveAndTransmit:rectranTemplate,
+    reviewPetition:reviewTemplate,
 };
 
 export const SignatureRow = (formdata) => {
