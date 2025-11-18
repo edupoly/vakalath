@@ -1223,7 +1223,7 @@
             }
         ]
     },
-    "wta": {
+    "incomeTaxAppellateTribunal": {
         "header": [
             "Sl. No.",
             "Exhibit",
@@ -1929,7 +1929,7 @@
             }
         ]
     },
-    "rectran": {
+    "receiveAndTransmit": {
         "header": [
             "Sl. No.",
             "Description of Document",

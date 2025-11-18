@@ -39,6 +39,9 @@ import { TRCRLMPTemplate } from "../pages/highcourt/trcrlmp/template";
 import { TRCMPTemplate } from "../pages/highcourt/trcmp/template";
 import { OSATemplate } from "../pages/highcourt/osa/template";
 import { PILTemplate } from "../pages/highcourt/pil/template";
+import { WtaTemplate } from "../pages/highcourt/Wta/template";
+import { rectranTemplate } from "../pages/highcourt/rectran/template";
+import { reviewTemplate } from "../pages/highcourt/reviewPetition/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -188,7 +191,10 @@ export const caseTypeTemplates = {
     transferCriminalPetition:TRCRLMPTemplate,
     transferMiscPetition:TRCMPTemplate,
     originalSideAppeal:OSATemplate,
-    pil:PILTemplate
+    pil:PILTemplate,
+    incomeTaxAppellateTribunal:WtaTemplate,
+    receiveAndTransmit:rectranTemplate,
+    reviewPetition:reviewTemplate,
 };
 
 export const SignatureRow = (formdata) => {
