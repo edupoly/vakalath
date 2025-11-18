@@ -11,9 +11,9 @@ export const WIATemplate = (formData) => {
       {
         properties: {},
         children: [
-        ...combinedSections(formData, writIaSections["sec-151"]),
+        ...combinedSections(writIaSections("sec-151",formData),formData),
         pageBreak(),
-        pageTable(writIaSections["sidePage1"]),
+        pageTable(writIaSections("sidePage1",formData),formData),
         pageBreak(),
         createRightAlignPage([
         h2BoldCenter("HIGH COURT"),

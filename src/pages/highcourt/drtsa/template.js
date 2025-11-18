@@ -17,7 +17,7 @@ export const DRTSATemplate = (formData) => {
                     ...LineSpace(1),
                     h3Center("MATERIAL PAPER INDEX"),
 
-                    // createSignatureFooter(["PLACE : HYDERABAD",`DATE : ${formData?.fdate || "«fdate»"}`],["COUNSEL FOR APPLICANT"]),
+                    createSignatureFooter(["PLACE : HYDERABAD",`DATE : ${formData?.fdate || "«fdate»"}`],["COUNSEL FOR APPLICANT"]),
                     pageBreak(),
                     ...combinedSections(DRTSASections("page2",formData),formData),
                     pageBreak(),
@@ -42,7 +42,7 @@ export const DRTSATemplate = (formData) => {
                     h3underlineBoldCenter("RUNNING INDEX"),
                     ChronologicalTable(formData),
                     ...LineSpace(2),
-                    // createSignatureFooter(["Hyderabad",`Date  : ${formData?.fdate || "«fdate»"}`],["COUNSEL FOR APPLICANTS"]),
+                    createSignatureFooter(["Hyderabad",`Date  : ${formData?.fdate || "«fdate»"}`],["COUNSEL FOR APPLICANTS"]),
                     pageBreak(),
                     ...combinedSections(DRTSASections("page6",formData),formData),
                     ...LineSpace(3),

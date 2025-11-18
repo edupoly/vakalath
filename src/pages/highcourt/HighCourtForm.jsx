@@ -25,7 +25,7 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     const userDetails = useSelector((state) => state.user.userInfo);
     const dispatch = useDispatch()
 
-    const selectedInitialValues = initialValues[caseType] ? { ...initialValues[caseType], Petitioners: petitioners, Respondents: respondents, Userid: userDetails && userDetails["_id"] } : {}
+    const selectedInitialValues = initialValues[caseType] ? { ...initialValues[caseType], Petitioners: petitioners, Respondents: respondents, CaseType: caseType, FilledFrom: "highcourt", Userid: userDetails && userDetails["_id"] } : {}
     console.log("initialValues[caseType]", initialValues[caseType]);
 
     const vakalathForm = useFormik({
@@ -33,18 +33,18 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
         initialValues: { ...selectedInitialValues },
         onSubmit: (values) => {
             console.log(values);
-            setFormData({ ...values, CaseType: caseType, });
-            dispatch(setFData({ ...values, CaseType: caseType, }));
+            setFormData({ ...values/* , CaseType: caseType, */ });
+            dispatch(setFData({ ...values/* , CaseType: caseType, */ }));
 
-            // if (data?.case) {
-            //     updateForm({ ...values });
-            // } else {
-            // filecase({
-            //     ...values,
-            //     FilledFrom: "highcourt",
-            //     CaseType: caseType,
-            // });
-            // }
+            if (data?.case) {
+                updateForm({ ...values });
+            } else {
+                filecase({
+                    ...values,
+                    // FilledFrom: "highcourt",
+                    // CaseType: caseType,
+                });
+            }
             const modal = new window.bootstrap.Modal(modalRef.current);
             modal.show();
         },

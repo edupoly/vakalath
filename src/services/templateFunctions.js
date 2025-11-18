@@ -39,6 +39,20 @@ import { TRCRLMPTemplate } from "../pages/highcourt/trcrlmp/template";
 import { TRCMPTemplate } from "../pages/highcourt/trcmp/template";
 import { OSATemplate } from "../pages/highcourt/osa/template";
 import { PILTemplate } from "../pages/highcourt/pil/template";
+import { ContemptAffidavitTemplate } from "../pages/highcourt/cc/template";
+import { CounterTemplate } from "../pages/highcourt/counter/template";
+import { FCATemplate } from "../pages/highcourt/fca/template";
+import { ForbeingTemplate } from "../pages/highcourt/forbeing/template";
+import { CATemplate } from "../pages/highcourt/ca/template";
+import { LeaveTemplate } from "../pages/highcourt/leave/template";
+import { QuashTemplate } from "../pages/highcourt/quash/template";
+import { CEATemplate } from "../pages/highcourt/cea/template";
+import { AppealSuitTemplate } from "../pages/highcourt/appealSuit/template";
+import { XOBJTemplate } from "../pages/highcourt/xobj/template";
+import { CaveatTemplate } from "../pages/highcourt/caveat/template";
+import { CPTemplate } from "../pages/highcourt/cp/template";
+import { HCTemplate } from "../pages/highcourt/hc/template";
+import { IMPLEADTemplate } from "../pages/highcourt/implead/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -163,32 +177,46 @@ export const caseTypeTemplates = {
     writAppeal: WATemplate,
     writPetition: writPetitionTemplate,
     antiBail: AntiBailTemplate,
-    amendment: AmendmentTemplate,
+    amendament: AmendmentTemplate,
     bail: BailTemplate,
     criminalAppeal: CRLATemplate,
     criminalRevisionCase: CRLRCTemplate,
     highcourt: HighCourtTemplate,
     affidavit: WPAffidavitTemplate,
-    writIa:WIATemplate,
-    vakalath:vakalathTemplate,
-    vacate:vacateTemplate,
-    vacateMacma:vacateMacmaTemplate,
-    taxAppellateTribunal:taxAppellateTribunalTemplate,
-    stateConsumerRedressalCommission:stateConsumerRedressalCommissionTemplate,
-    secondAppeal:secondAppealTemplate,
-    lrPetPet:PetpetrTemplate,
-    lrPreTreps:PetrespTemplate,
-    memoForProofOfService:MemoHCTemplate,
-    debtsRecoveryTribunal:DRTSATemplate,
-    delayInRepresentation:DELAYREPTemplate,
-    dispense:DISPENSETemplate,
-    expedite:EXPEDITETemplate,
-    extension:EXTENSIONTemplate,
-    civilMiscAppealMemorandum:CCCATemplate,
-    transferCriminalPetition:TRCRLMPTemplate,
-    transferMiscPetition:TRCMPTemplate,
-    originalSideAppeal:OSATemplate,
-    pil:PILTemplate
+    writIa: WIATemplate,
+    vakalath: vakalathTemplate,
+    vacate: vacateTemplate,
+    vacateMacma: vacateMacmaTemplate,
+    taxAppellateTribunal: taxAppellateTribunalTemplate,
+    stateConsumerRedressalCommission: stateConsumerRedressalCommissionTemplate,
+    secondAppeal: secondAppealTemplate,
+    lrPetPet: PetpetrTemplate,
+    lrPreTreps: PetrespTemplate,
+    memoForProofOfService: MemoHCTemplate,
+    debtsRecoveryTribunal: DRTSATemplate,
+    delayInRepresentation: DELAYREPTemplate,
+    dispense: DISPENSETemplate,
+    expedite: EXPEDITETemplate,
+    extension: EXTENSIONTemplate,
+    civilMiscAppealMemorandum: CCCATemplate,
+    transferCriminalPetition: TRCRLMPTemplate,
+    transferMiscPetition: TRCMPTemplate,
+    originalSideAppeal: OSATemplate,
+    pil: PILTemplate,
+    contemptCase: ContemptAffidavitTemplate,
+    counter: CounterTemplate,
+    familyCourtsAppeal: FCATemplate,
+    forbeing: ForbeingTemplate,
+    ca: CATemplate,
+    leave: LeaveTemplate,
+    quash: QuashTemplate,
+    centralExciseAppeal: CEATemplate,
+    appealSuit:AppealSuitTemplate,
+    crossObjections:XOBJTemplate,
+    caveat: CaveatTemplate,
+    companyPetition:CPTemplate,
+    compromiseHc:HCTemplate,
+    implead:IMPLEADTemplate
 };
 
 export const SignatureRow = (formdata) => {
@@ -225,9 +253,9 @@ export const SignatureRow = (formdata) => {
 export const caseTypeFields = [
     { label: "AB", value: "antiBail" },
     { label: "WPAFI", value: "affidavit" },
-    { label: "AMENDAMENT", value: "amendament" },
+    { label: "AMENDMENT", value: "amendament" },
     { label: "BAIL", value: "bail" },
-    { label: "Anti Bail", value: "antiBail" },
+    // { label: "Anti Bail", value: "antiBail" },
 
     { label: "APPEALSUiT", value: "appealSuit" },
     { label: "CA", value: "ca" },

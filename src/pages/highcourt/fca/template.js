@@ -1,8 +1,7 @@
 import { Document } from "docx";
-import { CRLRCSections } from "./crlrcData";
 import { combinedSections } from "../../../components/highcourt/combineSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
-import { h3BoldCenter, h3Center, h3UnderlineBoldLeft, pageBreak } from "../../../components/templates/elementTypes";
+import { h3BoldCenter, h3Center, h3UnderlineBoldLeft, pageBreak, h3underlineBoldCenter, tabSpace, LineSpace } from "../../../components/templates/elementTypes";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
@@ -11,57 +10,72 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
+import { fcaSections } from "./fcaData";
+import { header, headerWith1Number } from "../../../components/templates/HeaderSection";
+import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
 
-export const CRLRCTemplate = (formData) => {
+export const FCATemplate = (formData) => {
 
     return new Document({
         sections: [
             {
                 properties: {},
                 children: [
-                    ...combinedSections(CRLRCSections("397_401", formData),formData),
+                    ...combinedSections(fcaSections("19", formData), formData),
                     pageBreak(),
-                    pageTable(CRLRCSections("sidePage1", formData), formData),
+                    pageTable(fcaSections("sidePage1", formData), formData),
                     pageBreak(),
-                    ...combinedSections(CRLRCSections("482(1)", formData),formData),
+                    ...combinedSections(fcaSections("affidavit", formData), formData),
                     pageBreak(),
-                    pageTable(CRLRCSections("sidePage2", formData), formData),
+                    ...combinedSections(fcaSections("151", formData), formData),
                     pageBreak(),
-                    ...combinedSections(CRLRCSections("397(1)", formData),formData),
+                    pageTable(fcaSections("sidePage2", formData), formData),
                     pageBreak(),
-                    pageTable(CRLRCSections("sidePage3", formData), formData),
+                    pageTable(fcaSections("sidePage3", formData), formData),
                     pageBreak(),
-                    pageTable(CRLRCSections("sidePage4", formData), formData),
+                    pageTable(fcaSections("sidePage4", formData), formData),
                     pageBreak(),
-                    pageTable(CRLRCSections("sidePage5", formData), formData),
-                    pageBreak(),
-                    pageTable(CRLRCSections("sidePage6", formData), formData),
-                    pageBreak(),
-                    // headerWith1NumberBold([
-                    //     `IN THE COURT OF THE «district»`,
-                    //     `O.S.No. OF${tabSpace(3)}«myear»`
-                    // ]),
-                    h3Center("CHRONOLOGICAL / RUNNING INDEX "),
+                    ...headerWith1Number([
+                        ` «highcourt»`,
+                        `F.C.A.No. OF${tabSpace(3)}«myear»`
+                    ]),
+                    h3Center("RUNNING INDEX "),
                     ChronologicalTable(formData),
-                    // createSignatureFooter([{
-                    //     left: [
-                    //         `DATE:${formData?.fdate || "«fdate»"}`,
-                    //         `${formData?.place || "«place»"}`
-                    //     ],
-                    //     right: [
-                    //         `Counsel for the Petitioner`
-                    //     ]
-                    // }]),
+                    createSignatureFooter([
+                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `${formData?.place || "«place»"}`
+                    ], [
+                        `Counsel for the Petitioner`
+                    ]
+                    ),
                     pageBreak(),
-                    ...combinedSections(CRLRCSections("meoa", formData),formData),
+                    h3underlineBoldCenter("BATA FORM"),
+                    ...formData?.Respondents?.map((res) => [
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
+                    ]).flat(),
+                    createSignatureFooter([
+                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `${formData?.place || "«place»"}`
+                    ], [
+                        `Counsel for the Petitioner`
+                    ]
+                    ),
+                    ...LineSpace(3),
+                    h3underlineBoldCenter("BATA FORM"),
+                    ...formData?.Respondents?.map((res) => [
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
+                    ]).flat(),
+                    createSignatureFooter([
+                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `${formData?.place || "«place»"}`
+                    ], [
+                        `Counsel for the Petitioner`
+                    ]
+                    ),
                     pageBreak(),
-                    pageTable(CRLRCSections("sidePage7", formData), formData),
-                    pageBreak(),
-                    ...combinedSections(CRLRCSections("482(2)", formData),formData),
-                    pageBreak(),
-                    pageTable(CRLRCSections("sidePage8", formData), formData),
-                    pageBreak(),
-                    pageTable(CRLRCSections("482(3)", formData), formData),
+                    ...combinedSections(fcaSections("151_notice", formData), formData),
                     pageBreak(),
                     h3BoldCenter(formData?.highcourt || "__________"),
                     h3BoldCenter("Basic Information"),
@@ -75,8 +89,6 @@ export const CRLRCTemplate = (formData) => {
                     ...addParagraphs([` It is therefore prayed that this Hon'ble Court may be pleased «MAIN_PRAYER» and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
                     h3UnderlineBoldLeft("IA(s) Prayer:"),
                     ...addParagraphs([`It is also just and necessary that this Hon'ble Court may be pleased «INTERIM_PRAYER» pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
-                    ...addParagraphs([`It is therefore prayed that this Hon'ble Court may be pleased to enlarge the petitioner on bail in «OPNO», dated «OPDATE», of «lowercourt» «INTERIM_PRAYER»  and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
-                    ...addParagraphs([`It is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of «OPNO», dated «OPDATE»  on the file of «lowercourt» before this Hon’ble Court pending disposal of the main Crl. RC and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`]),
                 ],
             },
         ],

@@ -61,19 +61,14 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(3) +
-              `I, ${
-                formData?.verification || "«verification»"
-              }, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language.   Hence verified at ${
-                formData?.place || "«place»"
-              } on this the day of ${formData?.fdate || "«fdate»"}`
+            `I, ${formData?.verification || "«verification»"
+            }, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language.   Hence verified at ${formData?.place || "«place»"
+            } on this the day of ${formData?.fdate || "«fdate»"}`
           ),
           ...LineSpace(1),
-          ...createSignatureFooter([
-            {
-              left: ["Advocate"],
-              right: ["Deponent"],
-            },
-          ]),
+          createSignatureFooter(["Advocate"],
+            ["Deponent"],
+          ),
 
           pageBreak(),
           h3BoldCenter("MEMORANDUM OF WRIT PETITION"),
@@ -167,8 +162,7 @@ export const writPetitionTemplate = (formData) => {
             h3UnderlineCenter("NATURE OF APPLICATION"),
             h3Center("(Under Art. 226 of Constitution of India)"),
             h3Left(
-              `The Hon’ble Court may be pleased ${
-                formData?.MAIN_PRAYER || "«MAIN_PRAYER»"
+              `The Hon’ble Court may be pleased ${formData?.MAIN_PRAYER || "«MAIN_PRAYER»"
               } «MAIN_PRAYER» and to pass such other order or orders as this Hon’ble Court may deems fit just and proper in the circumstances of the case.`
             ),
             ...LineSpace(1),
@@ -254,45 +248,33 @@ export const writPetitionTemplate = (formData) => {
           ),
           h3Left(tabSpace(1) + " Proforma Draft Interim Order"),
           ...LineSpace(1),
-          ...createSignatureFooter([
-            {
-              left: ["Signature of the", "Scrutiny Officer"],
-              right: ["Signature of the Advocate", `Name: ${formData?.counsel_code || "«counsel_code»"}`],
-            },
-          ]),
+          createSignatureFooter(["Signature of the", "Scrutiny Officer"],
+            ["Signature of the Advocate", `Name: ${formData?.counsel_code || "«counsel_code»"}`],
+          ),
 
           ...LineSpace(1),
-          ...createSignatureFooter([
-            {
-              left: [
-                "FOR OFFICE USE ONLY",
-                "Respondent Vakalat filed by",
-                "Counter Filed for Respt.No.",
-                "Other Miscellaneous Petitions filed",
-              ],
-              right: ["", " for Respt.No", "", ""],
-            },
-          ]),
+          createSignatureFooter([
+            "FOR OFFICE USE ONLY",
+            "Respondent Vakalat filed by",
+            "Counter Filed for Respt.No.",
+            "Other Miscellaneous Petitions filed",
+          ],
+            ["", " for Respt.No", "", ""],
+          ),
 
           pageBreak(),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
-          ...createSignatureFooter([
-            {
-              left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
-              right: ["Counsel for the Petitioner(s)."],
-            },
-          ]),
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+            ["Counsel for the Petitioner(s)."],
+          ),
 
           ...LineSpace(10),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
-          ...createSignatureFooter([
-            {
-              left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
-              right: ["Counsel for the Petitioner(s)."],
-            },
-          ]),
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+            ["Counsel for the Petitioner(s)."],
+          ),
 
           pageBreak(),
           h3UnderlineBoldLeft("RESPONDENTS ADDRESSES:"),
@@ -315,12 +297,9 @@ export const writPetitionTemplate = (formData) => {
             "We have served the copies of Writ Petition, Affidavit, Writ Petition Miscellaneous Petition(s) and Material Papers on the other side Counsel/Government Pleader."
           ),
           ...LineSpace(5),
-          ...createSignatureFooter([
-            {
-              left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
-              right: ["Counsel for the Petitioner"],
-            },
-          ]),
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+            ["Counsel for the Petitioner"],
+          ),
 
           pageBreak(),
           h3Center(`${formData?.highcourt || "«highcourt»"}`),
@@ -334,11 +313,11 @@ export const writPetitionTemplate = (formData) => {
           ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
           h3Left(
             tabSpace(1) +
-              `Take Notice that the Appellant /Petitioner (Respondent) has/have presented a petition to the Court Praying that  Under Section 151 of C.P.C.     (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court  on the      day     ${formData?.myear || "«myear»"}.`
+            `Take Notice that the Appellant /Petitioner (Respondent) has/have presented a petition to the Court Praying that  Under Section 151 of C.P.C.     (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court  on the      day     ${formData?.myear || "«myear»"}.`
           ),
           h3Left(
             tabSpace(2) +
-              `Notice and Interim Stay has/have been granted by order Court      dated the      of        ${formData?.myear || "«myear»"} the affidavit of                                 has been filed in support thereof Dated at «place» this            day     ${formData?.myear || "«myear»"}`
+            `Notice and Interim Stay has/have been granted by order Court      dated the      of        ${formData?.myear || "«myear»"} the affidavit of                                 has been filed in support thereof Dated at «place» this            day     ${formData?.myear || "«myear»"}`
           ),
           ...LineSpace(1),
           h3Right("Advocate for Petitioner"),
@@ -353,15 +332,15 @@ export const writPetitionTemplate = (formData) => {
           ...BetweenSection(formData, " ..Petitioner", "…Respondent"),
           h3Left(
             tabSpace(1) +
-              `Mr. ${formData?.counsel_code || "«counsel_code»"} upon motion this day made in to this Court by bring of opinion that the record to and touching upon all the matter and contentions raised in the memorandum of representation petition, a copy of which is annexed hereto, together with the decision therein should be called for and pursued: IT IS HEREBY COMMANDED.`
+            `Mr. ${formData?.counsel_code || "«counsel_code»"} upon motion this day made in to this Court by bring of opinion that the record to and touching upon all the matter and contentions raised in the memorandum of representation petition, a copy of which is annexed hereto, together with the decision therein should be called for and pursued: IT IS HEREBY COMMANDED.`
           ),
           h3Left(
             tabSpace(1) +
-              `(1) That you, the aforesaid Respondent No.         do sent, of our use in High Court of Judicature Andhra Pradesh all and singular the said record and other with all the things touching the same as fully and perfectly as they have been made by you and now remain in your custody or power together with this, Rule Nisi before the day of         ${formData?.myear || "«myear»"}   and`
+            `(1) That you, the aforesaid Respondent No.         do sent, of our use in High Court of Judicature Andhra Pradesh all and singular the said record and other with all the things touching the same as fully and perfectly as they have been made by you and now remain in your custody or power together with this, Rule Nisi before the day of         ${formData?.myear || "«myear»"}   and`
           ),
           h3Left(
             tabSpace(1) +
-              `That you intend to oppose the petition you the aforesaid Respondent No.             do appear personally OR by Advocate on the         day of               ${formData?.myear || "«myear»"} at 10-30 A.M. before the court show cause why this petition should not be complied with and that we may cause further to be done there on what of right and according to law we shall see fit to be done.`
+            `That you intend to oppose the petition you the aforesaid Respondent No.             do appear personally OR by Advocate on the         day of               ${formData?.myear || "«myear»"} at 10-30 A.M. before the court show cause why this petition should not be complied with and that we may cause further to be done there on what of right and according to law we shall see fit to be done.`
           ),
           h3Left(
             `WITNESS  the Hon'ble Chief Justice of High Court of Judicature, Andhra Pradesh at ${formData?.place || "«place»"}, this the year two thousand eleven`
@@ -398,7 +377,7 @@ export const writPetitionTemplate = (formData) => {
           h3Left("The                                   respondent here"),
           h3Left(
             tabSpace(2) +
-              `Date                     day of                 ${formData?.myear || "«myear»"}`
+            `Date                     day of                 ${formData?.myear || "«myear»"}`
           ),
           h3Center("(Sd)"),
           pageBreak(),
@@ -422,12 +401,9 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(3),
           h3UnderlineCenter("Annexure – I"),
           ...LineSpace(3),
-          ...createSignatureFooter([
-            {
-              left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
-              right: ["Counsel for Petitioner/s"],
-            },
-          ]),
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+            ["Counsel for Petitioner/s"],
+          ),
 
           pageBreak(),
           h3Center("«highcourt»"),
@@ -437,12 +413,9 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3underlineBoldCenter("COURT FEE"),
           ...LineSpace(20),
-          ...createSignatureFooter([
-            {
-              left: [`DATE: ${formData?.fdate || "«fdate»"}`, "«place»"],
-              right: ["", "Counsel for the Petitioner"],
-            },
-          ]),
+          createSignatureFooter([`DATE: ${formData?.fdate || "«fdate»"}`, "«place»"],
+            ["", "Counsel for the Petitioner"],
+          ),
 
           pageBreak(),
           h3BoldCenter(`${formData?.highcourt || "«highcourt»"}`),
@@ -454,7 +427,7 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(1) +
-              `I, ${formData?.verification || "«verification»"}, petitioner in the above Petition do hereby appoint and retain`
+            `I, ${formData?.verification || "«verification»"}, petitioner in the above Petition do hereby appoint and retain`
           ),
           ...LineSpace(1),
           h3BoldCenter(`${formData?.counsel_code || "«counsel_code»"}`),
@@ -462,12 +435,12 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(1) +
-              "Advocate/s of the High Court to appear for me/us in the above Appeal/Petition and to conduct and prosecute (or defend) the same and all proceedings that may be taken in respect of any application connected with the same or any decree or order passed therein including all applications for return of documents or the receipt of any money that may be payable to me/us in the said Appeal/Petition and also to appear in all applications under Clause-XV of the Letters Pattent and in all applications for review and for leave to the Supreme Court of India and in all applications review of judgment."
+            "Advocate/s of the High Court to appear for me/us in the above Appeal/Petition and to conduct and prosecute (or defend) the same and all proceedings that may be taken in respect of any application connected with the same or any decree or order passed therein including all applications for return of documents or the receipt of any money that may be payable to me/us in the said Appeal/Petition and also to appear in all applications under Clause-XV of the Letters Pattent and in all applications for review and for leave to the Supreme Court of India and in all applications review of judgment."
           ),
           ...LineSpace(10),
           h3Left(
             tabSpace(2) +
-              "I certify that the contents this Vakalatnama were read out and explained in Urdu/Hindi/Telugu to the executant or executants who appeared perfectly to understand the same and made his/her/their signatures or mark in my presence."
+            "I certify that the contents this Vakalatnama were read out and explained in Urdu/Hindi/Telugu to the executant or executants who appeared perfectly to understand the same and made his/her/their signatures or mark in my presence."
           ),
           ...LineSpace(1),
           h3Left(
@@ -516,13 +489,13 @@ export const writPetitionTemplate = (formData) => {
           h3UnderlineBoldLeft("Main Case Prayer :"),
           h3Left(
             tabSpace(2) +
-              `It is therefore prayed that this Hon'ble Court may be pleased ${formData?.MAIN_PRAYER || "«MAIN_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+            `It is therefore prayed that this Hon'ble Court may be pleased ${formData?.MAIN_PRAYER || "«MAIN_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
           ),
           ...LineSpace(3),
           h3UnderlineBoldLeft("IA(s) Prayer:"),
           h3Left(
             tabSpace(2) +
-              `It is also just and necessary that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+            `It is also just and necessary that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`
           ),
         ],
       },

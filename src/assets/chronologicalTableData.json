@@ -185,7 +185,7 @@
             }
         ]
     },
-    "appealsuit": {
+    "appealSuit": {
         "header": [
             "Sl.No.",
             "Description of Document",
@@ -314,7 +314,7 @@
             }
         ]
     },
-    "cea": {
+    "centralExciseAppeal": {
         "header": [
             "Sl. No.",
             "Exhibit",
@@ -571,7 +571,7 @@
             }
         ]
     },
-    "hc": {
+    "compromiseHc": {
         "header": [
             "Sl. No.",
             "Exhibit",
@@ -664,7 +664,7 @@
             }
         ]
     },
-    "cc": {
+    "contemptCase": {
         "header": [
             "Sl. No.",
             "Description of Document",
@@ -924,7 +924,7 @@
             }
         ]
     },
-    "macma": {
+    "criminalRevisionCaseMacma": {
         "header": [
             "Sl. No.",
             "Description of Document",
@@ -1006,7 +1006,7 @@
             }
         ]
     },
-    "xobj": {
+    "crossObjections": {
         "header": [
             "Sl. No.",
             "Description of Document",
@@ -1088,7 +1088,7 @@
             }
         ]
     },
-    "drtsa": {
+    "debtsRecoveryTribunal": {
         "header": [
             "Sl. No.",
             "Description of the document",
@@ -1141,7 +1141,7 @@
             }
         ]
     },
-    "fca": {
+    "familyCourtsAppeal": {
         "header": [
             "Sl. No.",
             "Description of Document",
@@ -1223,7 +1223,7 @@
             }
         ]
     },
-    "wta": {
+    "incomeTaxAppellateTribunal": {
         "header": [
             "Sl. No.",
             "Exhibit",
@@ -1316,7 +1316,7 @@
             }
         ]
     },
-    "ccca": {
+    "civilMiscAppealMemorandum": {
         "header": [
             "Sl. No.",
             "Exhibit",
@@ -1565,7 +1565,7 @@
             }
         ]
     },
-    "osa": {
+    "originalSideAppeal": {
         "header": [
             "Sl. No.",
             "Description of Document",
@@ -1929,7 +1929,7 @@
             }
         ]
     },
-    "rectran": {
+    "receiveAndTransmit": {
         "header": [
             "Sl. No.",
             "Description of Document",
