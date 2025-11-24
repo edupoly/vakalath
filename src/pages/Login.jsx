@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLogInMutation } from '../services/userApi';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../services/userSlice';
+import { notifyError, notifySuccess } from '../components/Toast';
 
 const Login = () => {
   const [loginUser] = useLogInMutation()
@@ -27,10 +28,16 @@ const Login = () => {
     }),
     onSubmit: async (values) => {
       let login = await loginUser(values)
-      if (login?.data?.user) {
-        localStorage?.setItem('token', login?.data?.token)
-        dispatch(setUser(login?.data?.user));
-        navigate('/')
+      console.log('token', login)
+      notifyError(login?.error?.data?.message)
+      if (login?.error) {
+      console.log('toke1n',login?.error)
+      }else{
+      notifySuccess(login?.data?.message)
+      localStorage?.setItem('token', login?.data?.token)
+      dispatch(setUser(login?.data?.user));
+      navigate('/')
+      
       }
     },
   });

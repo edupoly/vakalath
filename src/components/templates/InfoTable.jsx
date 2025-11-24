@@ -1,5 +1,6 @@
 import { Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType, } from "docx";
 import { cell, createParagraph, headerCell, paragraphStyles, } from "../../services/templateFunctions";
+import { h3BoldLeft } from "./elementTypes";
 
 export const InfoTable = (formData) => {
     const infoRows = [
@@ -48,7 +49,7 @@ export const InfoTable = (formData) => {
     });
 
     return [
-        createParagraph("I.", paragraphStyles.heading),
+        h3BoldLeft("I."),
         new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
             alignment: AlignmentType.CENTER,

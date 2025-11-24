@@ -36,7 +36,7 @@ export const create3LineFooter = (lines) => {
 
 
 export const SignatureFooter = (footer = []) => {
-    return footer?.flatMap((foot) => {
+    return footer?.flatMap((foot, i) => {
         const table = new Table({
             rows: [
                 new TableRow({
@@ -52,7 +52,7 @@ export const SignatureFooter = (footer = []) => {
                     ].filter(Boolean), // remove any null cells
                 }),
             ],
-            width: { size: 8835, type: WidthType.DXA },
+            width: { size: 100, type: WidthType.PERCENTAGE },
             borders: {
                 top: { size: 0 },
                 bottom: { size: 0 },
@@ -63,7 +63,7 @@ export const SignatureFooter = (footer = []) => {
             },
         });
 
-        return [table, ...LineSpace(1)];
+        return [table, ...((i != 0 && i != footer?.length) ? LineSpace(1) : [])];
     });
 };
 
@@ -89,10 +89,7 @@ export const createSignatureFooter = (cell1, cell2) => {
                 ]
             }),
         ],
-        width: {
-            size: 8835,
-            type: WidthType.DXA
-        },
+        width: { size: 100, type: WidthType.PERCENTAGE },
         borders: {
             top: { size: 0 },
             bottom: { size: 0 },

@@ -33,8 +33,6 @@ export const CCCATemplate = (formData) => {
                     // pageBreak(),
                     pageTable(CCCASections("sidePage3", formData), formData),
                     pageBreak(),
-                    pageTable(CCCASections("sidePage4", formData), formData),
-                    pageBreak(),
                     // headerWith1NumberBold([
                     //     `IN THE COURT OF THE «district»`,
                     //     `O.S.No. OF${tabSpace(3)}«myear»`
@@ -76,6 +74,8 @@ export const CCCATemplate = (formData) => {
                     ...combinedSections(CCCASections("notice", formData), formData),
                     pageBreak(),
                     ...combinedSections(CCCASections("cma_notice", formData), formData),
+                    pageBreak(),
+                    pageTable(CCCASections("sidePage4", formData), formData),
                     pageBreak(),
                     h3BoldCenter(formData?.highcourt || "__________"),
                     h3BoldCenter("Basic Information"),

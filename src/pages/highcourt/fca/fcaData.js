@@ -309,7 +309,7 @@ export const fcaSections = (key, formData) => {
                         ]
                     },
                     {
-                        "head": { "text": `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"}` },
+                        "head": { "text": `` },
                         "lines": [
                             `…Petitioner`,
                             `Versus`,

@@ -1,7 +1,7 @@
 import { Document } from "docx";
 import { combinedSections } from "../../../components/highcourt/combineSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
-import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak } from "../../../components/templates/elementTypes";
+import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
@@ -25,6 +25,13 @@ export const AppealSuitTemplate = (formData) => {
                     pageTable(appealSuitSections("sidePage1", formData), formData),
                     pageBreak(),
                     ...combinedSections(appealSuitSections("affidavit", formData), formData),
+                    pageBreak(),
+                    h3underlineBoldCenter("VERIFICATION STATEMENT"),
+                    ...LineSpace(1),
+                    h3Left(`${tabSpace(1)}I, ${formData?.verification || "«verification»"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`),
+                    createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formData?.fdate || "«fdate»"}`],
+                        ["Deponent"],
+                    ),
                     pageBreak(),
                     ...combinedSections(appealSuitSections("151", formData), formData),
                     pageBreak(),
@@ -55,6 +62,7 @@ export const AppealSuitTemplate = (formData) => {
                     // ]),
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
+                    ...LineSpace(1),
                     createSignatureFooter([
                         `DATE:${formData?.fdate || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
@@ -65,14 +73,21 @@ export const AppealSuitTemplate = (formData) => {
                     ),
                     pageBreak(),
                     h3underlineBoldCenter("BATTA FORM"),
-                    h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
-                    createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    ...formData?.Respondents?.map((res) => [
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
+                    ]).flat(),
+                     createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
                         ["Counsel for the Petitioner(s)."],
                     ),
 
+
                     ...LineSpace(10),
                     h3underlineBoldCenter("BATTA FORM"),
-                    h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
+                    ...formData?.Respondents?.map((res) => [
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
+                    ]).flat(),
                     createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
                         ["Counsel for the Petitioner(s)."],
                     ),
@@ -83,7 +98,7 @@ export const AppealSuitTemplate = (formData) => {
                         `The hours of attendance of the office of the Registrar of High Court are from 10-30 AM to 4.15 PM.`,
                         `Note: Process server should make an endorsement in his return to the effect that a copy of the notice and a copy of the Memorandum of Appeal have been served. Attention is directed to High Court Circular, Dis.No.781 of 1922.`
                     ]),
-                     pageBreak(),
+                    pageBreak(),
                     ...combinedSections(appealSuitSections("CivilMiscNotice", formData), formData),
                     pageBreak(),
                     h3BoldCenter(formData?.highcourt || "__________"),

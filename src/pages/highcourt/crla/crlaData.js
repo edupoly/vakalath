@@ -684,6 +684,34 @@ export const CRLASections = (key, formData) => {
       }
     },
     "sidePage12": {
+      left: {
+        left: [
+          { "text": "CRIMINAL APPEAL No.",bold:true },
+          { "text": "Records called for" },
+          { "text": "Records received" },
+          { "text": "Sent to Copying Section" },
+          { "text": "Received from Copying Section" },
+          { "text": "Sent to Press" },
+          { "text": "Received from Press" },
+          { "text": "Notice Issued" },
+          { "text": "Date of hearing" },
+          { "text": "On the ready board" },
+          { "text": "Records returned" }
+        ],
+        right: [
+          { "text": "«myear»",bold:true },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" }
+        ]
+      },
       right: {
         headLines: [
           {

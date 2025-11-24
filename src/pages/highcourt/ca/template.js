@@ -22,7 +22,15 @@ export const CATemplate = (formData) => {
                 children: [
                     ...combinedSections(caSections("form51", formData), formData),
                     ChronologicalTable(formData),
-                    ...combinedSections(caSections("form51footer", formData), formData),
+                    ...LineSpace(1),
+                    createSignatureFooter([
+                        `Date: ${formData?.fdate || "«fdate»"}`,
+                        `${formData?.station || "«station»"}`
+                    ], [
+                        `${formData?.counsel_code1 || "«counsel_code1»"}`,
+                        "Advocate for Petitioner/Plaintiff"
+                    ]),
+                    pageBreak(),
                     pageTable(caSections("sidePage1", formData), formData),
 
                 ],

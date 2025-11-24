@@ -51,7 +51,7 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "BRIEF FACTS:" },
+                    head: { text: "BRIEF FACTS:",bold:true,underline:true },
                     para: [
                         "1.",
                         "2.",
@@ -59,7 +59,7 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "GROUNDS OF APPEAL" },
+                    head: { text: "GROUNDS OF APPEAL",underline:true },
                     para: [
                         "1.1). The Order of the Appellate Tribunal is contrary to law.",
                         "1.2).",
@@ -67,7 +67,7 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "Substantial Question of Law" },
+                    head: { text: "Substantial Question of Law",bold:true,underline:true },
                     para: [
                         "a) Whether the Hon’ble Tribunal is right in allowing",
                         "b) Whether the Hon’ble Tribunal is right in holding",
@@ -75,13 +75,13 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "PRAYER:" },
+                    head: { text: "PRAYER:",bold:true,underline:true },
                     para: [
                         `It is therefore prayed in the interest of justice that the Hon’ble High Court may be pleased to allow the appeal by duly setting aside the Final Order No.______ dated _____ passed in Appeal No._______ by the Customs, Excise and Service Tax Appellate Tribunal, South Zonal Bench, Bangalore and pass such other order as the Hon’ble Court may deem fit and proper in the facts and circumstances of the case.`
                     ]
                 },
                 {
-                    head: { text: "Memo of Valuation:" },
+                    head: { text: "Memo of Valuation:",bold:true,underline:true },
                     para: [
                         `The value of the appeal is Rs._______ and fixed Court of Rs.200/- is exempted under Section 35(G) of Central Excise Act 1944.`
                     ]
@@ -139,7 +139,7 @@ export const ceaSections = (key, formData) => {
         "affidavit": {
             header: [],
 
-            mainTitle: { text: "AFFIDAVIT" },
+            mainTitle: { text: "" },
             subTitle: { text: "" },
 
             headLines: [
@@ -154,13 +154,13 @@ export const ceaSections = (key, formData) => {
             ],
 
             betweenSection: {
-                pet: `${formData?.petitioner_name || "«petitioner_name»"}...Petitioner`,
+                pet: `...Petitioner`,
                 res: `${formData?.respondent_name || "«respondent_name»"}...Respondent`
             },
 
             headPara: [
                 {
-                    head: { text: "" },
+                    head: { text: "AFFIDAVIT",bold:true,underline:true },
                     para: [
                         `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
@@ -287,7 +287,7 @@ export const ceaSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"}`,
+                            ``,
                             `... Petitioner`,
                             `By ${formData?.counsel_code || "«counsel_code»"}`,
                             ``,
@@ -322,7 +322,7 @@ export const ceaSections = (key, formData) => {
             ],
 
             betweenSection: {
-                pet: `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"}..Petitioner/s`,
+                pet: `..Petitioner/s`,
                 res: `${formData?.RESPONDENT_NAME || "«RESPONDENT_NAME»"}..Respondent/s`,
                 resAddress: `${formData?.respondent_address || "«respondent_address»"}`
             },
@@ -353,8 +353,8 @@ export const ceaSections = (key, formData) => {
         "ServiceCertificate": {
             header: [],
 
-            mainTitle: { text: "SERVICE CERTIFICATE" },
-            subTitle: { text: "(PROOF OF SERVICE)" },
+            mainTitle: { text: "SERVICE CERTIFICATE",bold:true,underline:true },
+            subTitle: { text: "(PROOF OF SERVICE)",underline:true },
 
             headPara: [
                 {

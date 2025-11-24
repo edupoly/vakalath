@@ -20,8 +20,8 @@ export const xobjSections = (key, formData) => {
             }],
 
             betweenSection: {
-                pet: `${formData?.petitioner_address || "«petitioner_address»"}\n...Cross Objector/Respondent`,
-                res: `${formData?.respondent_address || "«respondent_address»"}\n...Appellant/Respondent`
+                pet: `...Cross Objector/Respondent`,
+                res: `...Appellant/Respondent`
             },
 
             headPara: [
@@ -95,7 +95,7 @@ export const xobjSections = (key, formData) => {
             }],
 
             betweenSection: {
-                pet: `${formData?.petitioner_name || "«petitioner_name»"}\n..Petitioner/s`,
+                pet: `\n..Petitioner/s`,
                 res: `${formData?.respondent_name || "«respondent_name»"}\n...Respondent/s`
             },
 
@@ -135,8 +135,8 @@ export const xobjSections = (key, formData) => {
             }],
 
             betweenSection: {
-                pet: `${formData?.PETITIONER_ADDRESS || "«PETITIONER_ADDRESS»"}\n..Petitioner/s`,
-                res: `${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}\n..Respondent/s`
+                pet: `..Petitioner/s`,
+                res: `..Respondent/s`
             },
 
             headPara: [
@@ -196,8 +196,8 @@ export const xobjSections = (key, formData) => {
             }],
 
             betweenSection: {
-                pet: `${formData?.PETITIONER_ADDRESS || "«PETITIONER_ADDRESS»"}\n..Petitioner/s`,
-                res: `${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}\n..Respondent/s`
+                pet: `..Petitioner/s`,
+                res: `..Respondent/s`
             },
 
             headPara: [
@@ -262,7 +262,7 @@ export const xobjSections = (key, formData) => {
                     }
                 ],
                 betweenSection: {
-                    pet: `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"} ... Cross Objector`
+                    pet: ` ... Cross Objector`
                 },
                 headPara: [
                     {
@@ -308,7 +308,7 @@ export const xobjSections = (key, formData) => {
                     }
                 ],
                 betweenSection: {
-                    pet: `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"} ... Cross Objector`
+                    pet: ` ... Cross Objector`
                 },
                 headPara: [
                     {
@@ -336,6 +336,26 @@ export const xobjSections = (key, formData) => {
             }
         },
         "sidePage6": {
+            left: {
+                left: [
+                    { "text": "Notice put up on Board" },
+                    { "text": "" },
+                    { "text": "Hearing fixed " },
+                    { "text": "" },
+                    { "text": "Record Called for" },
+                    { "text": "" },
+                    { "text": "Notice sent to Respondent" },
+                ],
+                right: [
+                    { "text": "«myear»" },
+                    { "text": "" },
+                    { "text": "«myear»" },
+                    { "text": "" },
+                    { "text": "«myear»" },
+                    { "text": "" },
+                    { "text": "«myear»" },
+                ]
+            },
             right: {
                 headLines: [
                     {
@@ -373,7 +393,7 @@ export const xobjSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"} ... Cross Objector` },
+                        head: { text: ` ... Cross Objector` },
                         lines: []
                     },
                     {

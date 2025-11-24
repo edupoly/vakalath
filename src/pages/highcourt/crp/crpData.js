@@ -553,6 +553,22 @@ export const CRPSections = (key, formData) => {
             ]
         },
         "sidePage8": {
+            left: {
+                left: [
+                    { "text": "1.Notice put up on Board" },
+                    { "text": "2.Hearing fixed " },
+                    { "text": "3.Record Called for" },
+                    { "text": "4.Process Fee paid" },
+                    { "text": "5.Notice sent to Respondent" },
+                ],
+                right: [
+                    { "text": "«myear»" },
+                    { "text": "«myear»" },
+                    { "text": "«myear»" },
+                    { "text": "«myear»" },
+                    { "text": "«myear»" },
+                ]
+            },
             right: {
                 mainTitle: { text: "HIGH COURT", bold: true, underline: true },
                 subTitle: { text: "CIVIL REVISION PETITION ", bold: true },

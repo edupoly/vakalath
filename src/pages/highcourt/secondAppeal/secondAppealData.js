@@ -326,8 +326,7 @@ export const secondAppealSections = (key, formData) => {
               text: "NATURE OF APPLICATION (UNDER SEC. 151 C.P.C.)",
             },
             para: [
-              `The Hon'ble Court may be pleased to ${
-                formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"
+              `The Hon'ble Court may be pleased to ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"
               } pending disposal of the above criminal appeal and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
             ],
           },
@@ -377,10 +376,8 @@ export const secondAppealSections = (key, formData) => {
               text: "NATURE OF APPLICATION(UNDER SEC. 151 C.P.C.)",
             },
             para: [
-              `The Hon’ble Court may be pleased to condone the delay of (     ) days in filing the above S.A. passed in ${
-                formData?.OPNO || "«OPNO»"
-              } , dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${
-                formData?.lowercourt || "«lowercourt»"
+              `The Hon’ble Court may be pleased to condone the delay of (     ) days in filing the above S.A. passed in ${formData?.OPNO || "«OPNO»"
+              } , dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"
               } otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
             ],
           },
@@ -430,10 +427,8 @@ export const secondAppealSections = (key, formData) => {
               text: "NATURE OF APPLICATION(UNDER SEC. 151 C.P.C.)",
             },
             para: [
-              `The Hon’ble Court may be pleased to    dispense with Xerox  Copy of the judgment and decree dated ${
-                formData?.OPDATE || "«OPDATE»"
-              } passed in ${formData?.OPNO || "«OPNO»"} on the file of the  ${
-                formData?.lowercourt || "«lowercourt»"
+              `The Hon’ble Court may be pleased to    dispense with Xerox  Copy of the judgment and decree dated ${formData?.OPDATE || "«OPDATE»"
+              } passed in ${formData?.OPNO || "«OPNO»"} on the file of the  ${formData?.lowercourt || "«lowercourt»"
               } in filing the above S.A. otherwise the petitioner will be suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
             ],
           },
@@ -458,13 +453,11 @@ export const secondAppealSections = (key, formData) => {
           lines: [
             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}${tabSpace(
               2
-            )}IN${tabSpace(2)}S.A.NO.${tabSpace(3)}OF ${
-              formData?.myear || "«myear»"
+            )}IN${tabSpace(2)}S.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"
             }`,
             `AGAINST`,
-            `${
-                formData?.OPNO || "«OPNO»"
-              }`,
+            `${formData?.OPNO || "«OPNO»"
+            }`,
             `on the file of ${formData?.lowercourt || "«lowercourt»"}`,
           ],
         },
@@ -480,15 +473,12 @@ export const secondAppealSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )}Take Notice that the Appellant /Petitioner (Respondent) has/have presented a petition to the Court Praying that Under Section 151 of C.P.C.     (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court  on the day ${
-              formData?.myear || "«myear»"
+            )}Take Notice that the Appellant /Petitioner (Respondent) has/have presented a petition to the Court Praying that Under Section 151 of C.P.C.     (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court  on the day ${formData?.myear || "«myear»"
             }.`,
             `${tabSpace(
               1
-            )}Notice and Interim Stay has/have been granted by order Court      dated the      of     ${
-              formData?.myear || "«myear»"
-            } the affidavit of                              has been filed in support thereof Dated at ${
-              formData?.place || "«place»"
+            )}Notice and Interim Stay has/have been granted by order Court      dated the      of     ${formData?.myear || "«myear»"
+            } the affidavit of                              has been filed in support thereof Dated at ${formData?.place || "«place»"
             } this            day     ${formData?.myear || "«myear»"}`,
           ],
         },
@@ -541,19 +531,36 @@ export const secondAppealSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`DATE: ${formData?.fdate || "«fdate»"}`,`${formData?.place || "«place»"}`],
+          left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
           right: [` Advocate for Petitioner`],
         },
       ],
     },
-     sidepage8: {
+    sidepage8: {
+      left: {
+        left: [
+          { "text": "Records called for" },
+          { "text": "Hearing baesd for" },
+          { "text": "Notice put up on Board" },
+          { "text": "Process Fee paid" },
+          { "text": "Notice sent to Respondent" },
+        ],
+        right: [
+          { "text": `${formData?.myear || "«myear»"}` },
+          { "text": `${formData?.myear || "«myear»"}` },
+          { "text": `${formData?.myear || "«myear»"}` },
+          { "text": `${formData?.myear || "«myear»"}` },
+          { "text": `${formData?.myear || "«myear»"}` },
+
+        ]
+      },
       right: {
         mainTitle: { text: "UNDER SECTION 100 OF C.P.C.", bold: false, underline: false },
         subTitle: { text: "HIGH COURT", bold: true },
         headLines: [
           {
             head: { text: `SECOND APPEAL` },
-            lines: [  
+            lines: [
               `S.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             ],
           },
@@ -569,14 +576,14 @@ export const secondAppealSections = (key, formData) => {
               bold: true,
             },
             para: [
-            `Advocate`,
-            `In the court of the ${formData?.lowercourt || "«lowercourt»"}`,
-            `${formData?.OPNO || "«OPNO»"}`,
-            `dated ${formData?.OPDATE || "«OPDATE»"}`,
-            `In the court of the`,
-            `ORIGINAL SUIT No.           OF   ${formData?.myear || "«myear»"}`,
+              `Advocate`,
+              `In the court of the ${formData?.lowercourt || "«lowercourt»"}`,
+              `${formData?.OPNO || "«OPNO»"}`,
+              `dated ${formData?.OPDATE || "«OPDATE»"}`,
+              `In the court of the`,
+              `ORIGINAL SUIT No.           OF   ${formData?.myear || "«myear»"}`,
             ],
-         
+
           },
           {
             head: {

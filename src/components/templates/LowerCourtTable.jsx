@@ -1,9 +1,10 @@
 import { Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType, Columns, } from "docx";
 import { cell, createParagraph, headerCell, paragraphStyles } from "../../services/templateFunctions";
+import { h3BoldCenter } from "./elementTypes";
 
 export const LowerCourtTable = (formData) => {
     return [
-        createParagraph("III. Lower Court Details: (for Civil and Criminal Cases Only)", paragraphStyles.leftunderlinedHeading),
+        h3BoldCenter("III. Lower Court Details: (for Civil and Criminal Cases Only)"),
         new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
             alignment: AlignmentType.CENTER,
@@ -19,9 +20,9 @@ export const LowerCourtTable = (formData) => {
                 }),
                 new TableRow({
                     children: [
-                        cell(formData?.case_no || "«OPNO»", { alignment: AlignmentType.CENTER,colSpan:3 }),
-                        cell(formData?.order_date || "«OPDATE»", { alignment: AlignmentType.CENTER }),
-                        cell(formData?.lower_court || "«lowercourt»", { alignment: AlignmentType.CENTER }),
+                        cell(formData?.OPNO || "«OPNO»", { alignment: AlignmentType.CENTER,colSpan:3 }),
+                        cell(formData?.OPDATE || "«OPDATE»", { alignment: AlignmentType.CENTER }),
+                        cell(formData?.lowercourt || "«lowercourt»", { alignment: AlignmentType.CENTER }),
                     ],
                 }),
 

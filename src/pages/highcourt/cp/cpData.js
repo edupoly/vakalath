@@ -66,7 +66,7 @@ export const CPSections = (key, formData) => {
                 {
                     head: { text: "PETITION FILED UNDER SEC.433(e),(f), 434(1)(a) and (439) OF THE COMPANIES ACT, 1956 READ WITH RULE-95 OF THE COMPANY (COURT) RULES 1959.", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}The petition of ${formData?.petitioner_name || "«petitioner_name»"}, the petitioner herein, most respectfully showeth:`,
+                        `${tabSpace(1)}The petition of , the petitioner herein, most respectfully showeth:`,
                         `1.     The address of the Petitioner Company for the purpose of service of notices, summons, etc., is that of their counsel ${formData?.counsel_address || "«counsel_address»"}`,
                         `2.   ${formData?.respondent_name || "«respondent_name»"} (hereinafter referred to as "The Respondent Company") is a public limited Company incorporated under the Companies Act, 1956, as Company No.__________ with the Registrar of Companies, ___________________`,
                         `3.   The Registered Office of the Respondent Company is at  _______`,
@@ -221,9 +221,10 @@ export const CPSections = (key, formData) => {
             }
         },
         sidePage3:{
-            // left:{
-            //     h3Left: [{text:"Presented"},{text:"Represented"},{text:"Admitted"},]
-            // },
+            left:{
+                left: [{text:"Presented"},{text:"Represented"},{text:"Admitted"},],
+                right:[""]
+            },
             right: {
                 mainTitle: { text: "HIGH COURT", bold : true, underline: true },
                 subTitle: { text: "(ORDINARY ORIGINAL CIVIL JURISDICTION)" },

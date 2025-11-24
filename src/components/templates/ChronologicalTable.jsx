@@ -1,4 +1,4 @@
-import { Table, TableRow, WidthType } from "docx";
+import { AlignmentType, Table, TableRow, WidthType } from "docx";
 import { cell, headerCell } from "../../services/templateFunctions";
 import chronologicalTableData from "../../assets/chronologicalTableData.json";
 
@@ -22,7 +22,7 @@ export const ChronologicalTable = (formData) => {
       new TableRow({
         children:
           caseData?.header?.map((header) =>
-            headerCell(header, { headerbold: true })
+            headerCell(header, { headerbold: chronologicalTableData[formData?.CaseType]?.headerbold || false })
           ) || [],
       }),
       ...(caseData?.rows?.map(
@@ -35,8 +35,10 @@ export const ChronologicalTable = (formData) => {
       ) || []),
     ],
     width: {
-      size: 8500,
+      size: 6500,
       type: WidthType.DXA,
     },
+    alignment: AlignmentType.CENTER,
+
   });
 };

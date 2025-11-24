@@ -29,7 +29,7 @@ export const CMASections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "GROUNDS" },
+                    head: { text: "GROUNDS",bold:true,underline:true },
                     para: [
                         "1. The Judgment and decree of the Lower Court is illegal, contrary to law and facts, weight of evidence and probabilities of the case.",
                         "2.",
@@ -40,7 +40,7 @@ export const CMASections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "MEMO OF VALUATION" },
+                    head: { text: "MEMO OF VALUATION",bold:true,underline:true },
                     para: [
                         `The value of Appeal is Rs.____________/-, hence Court fee of Rs.10/- paid herewith which is sufficient under the A.P.C.F. and S.V.Act.`
                     ]
@@ -100,7 +100,7 @@ export const CMASections = (key, formData) => {
             },
             headPara: [
                 {
-                    head: { text: "A F F I D A V I T" },
+                    head: { text: "A F F I D A V I T",bold:true,underline:true },
                     para: [
                         `I, ${formData?.verification || "«verification»"}, temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
@@ -121,13 +121,6 @@ export const CMASections = (key, formData) => {
                         `at ${formData?.place || "«place»"}`,
                         `ADVOCATE :: ${formData?.place || "«place»"}`
                     ]
-                },
-                {
-                    head: "VERIFICATION STATEMENT",
-                    left: [
-                        `I, ${formData?.verification || "«verification»"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`
-                    ],
-                    right: ["Deponent"]
                 }
             ]
         },
@@ -297,9 +290,9 @@ export const CMASections = (key, formData) => {
             },
             headPara: [
                 {
-                    head: { text: `To` },
+                    head: { text: `` },
                     para: [
-                        ``,
+                        `To`,
                         `Take Notice that the Appellant/Petitioner (Respondent) has/have presented a petition to the Court praying that Under Section 151 of C.P.C. (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court on the day ${formData?.myear || "«myear»"}.`,
                         `Notice and Interim Stay has/have been granted by order Court dated the day of ${formData?.myear || "«myear»"} the affidavit of ${formData?.verification || "«verification»"} has been filed in support thereof. Dated at ${formData?.place || "«place»"} this day ${formData?.myear || "«myear»"}.`
                     ]
@@ -327,9 +320,9 @@ export const CMASections = (key, formData) => {
             },
             headPara: [
                 {
-                    head: { text: `To` },
+                    head: { text: `` },
                     para: [
-                        ``,
+                        `To`,
                         `Take Notice that an appeal/revision/petition from the above decree/order has been presented by the above named appellant/petitioner and registered in this court and that if you intend the same you must enter your appearance in this court and give notice thereof to the appellant or petitioner or his pleader within 30 days after service of the notice on you.`,
                         `If no appearance is entered on your behalf by yourself, your pleader, or someone by law authorized to act for you in this appeal/revision, it will be heard and decided in your absence.`,
                         `The address for service of the appellant/petitioner is that of his Advocate By ${formData?.counsel_code || "«counsel_code»"}`,
@@ -353,12 +346,6 @@ export const CMASections = (key, formData) => {
                 }
             ]
         }
-
-
-
-
-
-
     }
 
     return data[key];

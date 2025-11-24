@@ -1,27 +1,27 @@
 import { BetweenSection } from "../templates/BetweenSection";
 import {
-  h3BoldCenter,
-  h3underlineBoldCenter,
-  LineSpace,
-  tabSpace,
+    h3BoldCenter,
+    h3underlineBoldCenter,
+    LineSpace,
+    tabSpace,
 } from "../templates/elementTypes";
 import { SignatureFooter } from "../templates/FooterSections";
 import {
-  header,
-  headerTable,
-  headerWith2Numbers,
-  headerWithNumbers,
+    header,
+    headerTable,
+    headerWith2Numbers,
+    headerWithNumbers,
 } from "../templates/HeaderSection";
 import { headerList } from "../templates/ListSection";
 import { addParagraphs } from "../templates/paragraphFunctions";
 
-export const combinedSections = (sectionData,formData) => {
+export const combinedSections = (sectionData, formData) => {
     // const submittedFormData = useSelector((state) => state.submittedForm.fData);
     return [
-        ...headerTable(sectionData?.header),
-        header(sectionData?.mainTitle),
-        header(sectionData?.subTitle),
-        ...headerWithNumbers(sectionData?.headLines),
+        ...((sectionData?.header && headerTable(sectionData?.header)) || []),
+        sectionData?.mainTitle && header(sectionData?.mainTitle),
+        sectionData?.subTitle && header(sectionData?.subTitle),
+        ...(sectionData?.headLines ? headerWithNumbers(sectionData?.headLines) : []),
         ...BetweenSection(
             formData,
             sectionData?.betweenSection?.pet,
@@ -38,8 +38,8 @@ export const combinedSections = (sectionData,formData) => {
             : []),
         ...SignatureFooter(sectionData?.footer),
         sectionData?.note && headerList(sectionData?.note),
-        header(sectionData?.before),
-        ...LineSpace(3),
-        header(sectionData?.advocate),
+        sectionData?.before && header(sectionData?.before),
+        ...(sectionData?.advocate ? LineSpace(3) : []),
+        sectionData?.advocate && header(sectionData?.advocate),
     ]
 }

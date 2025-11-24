@@ -16,14 +16,14 @@ export const caveatSections = (key, formData) => {
             }],
 
             betweenSection: {
-                pet: `${formData?.petitioner_address || "«petitioner_address»"}\n...Petitioner/Caveator`,
-                res: `${formData?.respondent_address || "«respondent_address»"}\n...Respondent`
+                pet: `...Petitioner/Caveator`,
+                res: `...Respondent`
             },
 
-            
+
             headPara: [
                 {
-                    head: { text: "A F F I D A V I T" },
+                    head: { text: "A F F I D A V I T", bold: true, underline: true },
                     para: [
                         `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
@@ -59,8 +59,8 @@ export const caveatSections = (key, formData) => {
             }],
 
             betweenSection: {
-                pet: `${formData?.petitioner_address || "«petitioner_address»"}\n...Petitioner`,
-                res: `${formData?.respondent_address || "«respondent_address»"}\n...Respondent`
+                pet: `...Petitioner`,
+                res: `...Respondent`
             },
 
             headPara: [

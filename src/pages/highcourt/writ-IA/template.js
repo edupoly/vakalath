@@ -26,7 +26,7 @@ export const WIATemplate = (formData) => {
         ...LineSpace(1),
         h3Center(`${formData?.DISTRICT || "«DISTRICT»"}    District`),
         ...LineSpace(1),
-        h3Left(`${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"}`),
+        h3Left(``),
         h3Right("... Petitioner/s"),
         ...LineSpace(1),
         h3BoldCenter("By"),
