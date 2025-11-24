@@ -34,7 +34,7 @@ export const appealSuitSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "G R O U N D S" },
+                    head: { text: "G R O U N D S", bold: true, underline: true },
                     para: [
                         "1. The Judgment and decree of the Lower Court is illegal, contrary to law and facts, weight of evidence and probabilities of the case.",
                         "2.",
@@ -43,7 +43,7 @@ export const appealSuitSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "MEMO OF VALUATION" },
+                    head: { text: "MEMO OF VALUATION", bold: true, underline: true },
                     para: [
                         "The value of appeal is Rs.____________ and the Court Fee payable thereon is Rs._____/- and the same is sufficient under the A.P.C.F. and S.V.Act."
                     ]
@@ -53,11 +53,11 @@ export const appealSuitSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `${formData?.place || "«place»"}`
+                        `${formData?.place || "«place»"}`,
+                        `DATE: ${formData?.fdate || "«fdate»"}`
                     ],
                     right: [
                         `Counsel For Appellant`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
                     ]
                 }
             ]
@@ -79,9 +79,12 @@ export const appealSuitSections = (key, formData) => {
                         ]
                     }
                 ],
-
+                betweenSection: {
+                    pet: `...Petitioner`,
+                    res: `...Respondent`
+                },
                 middleHeader: {
-                    text: "BETWEEN",
+                    text: "G R O U N D S",
                     bold: true,
                     underline: true
                 },
@@ -89,14 +92,6 @@ export const appealSuitSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"}`,
-                            `..Petitioner/s`,
-                            `AND`,
-                            `${formData?.RESPONDENT_NAME || "«RESPONDENT_NAME»"}`,
-                            `…Respondent`,
-                            ``,
-                            `G R O U N D S`,
-                            ``,
                             `Filed By:`,
                             `M/s ${formData?.counsel_code || "«counsel_code»"}`,
                             `Advocate`,
@@ -130,11 +125,11 @@ export const appealSuitSections = (key, formData) => {
 
             headPara: [
                 {
-                    head: { text: "AFFIDAVIT" },
+                    head: { text: "AFFIDAVIT", bold: true, underline: true },
                     para: [
                         `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
-                        "1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.",
-                        "2. I submit that ",
+                        `1.${tabSpace(1)}I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
+                        `2.${tabSpace(1)}I submit that `,
                         `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
@@ -200,7 +195,7 @@ export const appealSuitSections = (key, formData) => {
             right: {
                 headLines: [
                     {
-                        head: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
+                        head: { text: `${formData?.district || "«DISTRICT»"} District` },
                         lines: []
                     },
                     {
@@ -278,7 +273,7 @@ export const appealSuitSections = (key, formData) => {
             right: {
                 headLines: [
                     {
-                        head: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
+                        head: { text: `${formData?.district || "«DISTRICT»"} District` },
                         lines: []
                     },
                     {
@@ -356,7 +351,7 @@ export const appealSuitSections = (key, formData) => {
             right: {
                 headLines: [
                     {
-                        head: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
+                        head: { text: `${formData?.district || "«DISTRICT»"} District` },
                         lines: []
                     },
                     {
@@ -389,7 +384,7 @@ export const appealSuitSections = (key, formData) => {
         },
         "sidePage5": {
             right: {
-                mainTitle: { text: "HIGH COURT", bold: true, underline: true },
+                mainTitle: { text: "HIGH COURT", bold: true, underline: true,size:20 },
                 subTitle: { text: "CIVIL MISC.PETITION", bold: true },
 
                 headLines: [
@@ -402,7 +397,7 @@ export const appealSuitSections = (key, formData) => {
                         ]
                     },
                     {
-                        head: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
+                        head: { text: `${formData?.district || "«DISTRICT»"} District` },
                         lines: []
                     }
                 ],
@@ -442,7 +437,7 @@ export const appealSuitSections = (key, formData) => {
         },
         "sidePage6": {
             right: {
-                mainTitle: { text: "HIGH COURT", bold: true, underline: true },
+                mainTitle: { text: "HIGH COURT", bold: true, underline: true,size:20 },
                 subTitle: { text: "CIVIL MISC.PETITION", bold: true },
 
                 headLines: [
@@ -455,7 +450,7 @@ export const appealSuitSections = (key, formData) => {
                         ]
                     },
                     {
-                        head: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
+                        head: { text: `${formData?.district || "«DISTRICT»"} District` },
                         lines: []
                     }
                 ],
@@ -495,7 +490,7 @@ export const appealSuitSections = (key, formData) => {
         },
         "sidePage7": {
             right: {
-                mainTitle: { text: "HIGH COURT", bold: true, underline: true },
+                mainTitle: { text: "HIGH COURT", bold: true, underline: true,size:20 },
                 subTitle: { text: "CIVIL MISC.PETITION", bold: true },
 
                 headLines: [
@@ -508,7 +503,7 @@ export const appealSuitSections = (key, formData) => {
                         ]
                     },
                     {
-                        head: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
+                        head: { text: `${formData?.district || "«DISTRICT»"} District` },
                         lines: []
                     }
                 ],
@@ -569,8 +564,8 @@ export const appealSuitSections = (key, formData) => {
                     }
                 ],
                 "betweenSection": {
-                    "pet": `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"} ..Petitioner/s`,
-                    "resp": `${formData?.RESPONDENT_NAME || "«RESPONDENT_NAME»"} ..Respondent/s`
+                    "pet": `..Petitioner/s`,
+                    "resp": `..Respondent/s`
                 },
                 "headPara": [
                     {
@@ -655,8 +650,8 @@ export const appealSuitSections = (key, formData) => {
             ],
 
             betweenSection: {
-                pet: `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"} ..Petitioner`,
-                res: `${formData?.RESPONDENT_NAME || "«RESPONDENT_NAME»"} ..Respondent`,
+                pet: `..Petitioner`,
+                res: `..Respondent`,
                 resAddress: `${formData?.respondent_address || "«respondent_address»"}`
             },
 

@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // Define a service using a base URL and expected endpoints
 export const usersApi = createApi({
   reducerPath: "usersApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://3.238.106.157:4500/api/users" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://vakalath-backend-production.up.railway.app/api/users" }),
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (userData) => ({

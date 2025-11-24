@@ -1,7 +1,7 @@
 import { Document } from "docx";
 import { combinedSections } from "../../../components/highcourt/combineSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
-import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
+import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, h3UnderlineCenter, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
@@ -26,7 +26,7 @@ export const CaveatTemplate = (formData) => {
                     h3Center(`ADVOCATE :: ${formData?.place || "«place»"}`),
                     ...LineSpace(1),
                     pageBreak(),
-                    h3underlineBoldCenter("VERIFICATION STATEMENT"),
+                    h3UnderlineCenter("VERIFICATION STATEMENT"),
                     ...LineSpace(1),
                     h3Left(
                         `${tabSpace(
@@ -37,7 +37,7 @@ export const CaveatTemplate = (formData) => {
                         ["", "", "Deponent", ""],
                     ),
                     pageBreak(),
-                    ...combinedSections(caveatSections("form51footer", formData), formData),
+                    ...combinedSections(caveatSections("148A", formData), formData),
                     pageBreak(),
                     pageTable(caveatSections("sidePage1", formData), formData),
 

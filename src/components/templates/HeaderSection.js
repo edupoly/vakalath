@@ -37,41 +37,41 @@ export const headerWith1Number = (lines) => {
 export const header = (head) => {
     let firstLine;
     if (head?.bold && head?.underline) {
-        firstLine = h3underlineBoldCenter(head?.text);
+        firstLine = h3underlineBoldCenter(head?.text,head?.size && head?.size*2);
     } else if (head?.bold) {
-        firstLine = h3BoldCenter(head?.text);
+        firstLine = h3BoldCenter(head?.text,head?.size && head?.size*2);
     } else if (head?.underline) {
-        firstLine = h3UnderlineCenter(head?.text);
+        firstLine = h3UnderlineCenter(head?.text,head?.size && head?.size*2);
     } else {
-        firstLine = h3Center(head?.text);
+        firstLine = h3Center(head?.text,head?.size && head?.size*2);
     }
     return firstLine;
 }
 
-const leftHeader = (head) => {
+export const leftHeader = (head) => {
     let firstLine;
     if (head?.bold && head?.underline) {
-        firstLine = h3UnderlineBoldLeft(head?.text);
+        firstLine = h3UnderlineBoldLeft(head?.text,head?.size && head?.size*2);
     } else if (head?.bold) {
-        firstLine = h3BoldLeft(head?.text);
+        firstLine = h3BoldLeft(head?.text,head?.size && head?.size*2);
     } else if (head?.underline) {
-        firstLine = h3UnderlineLeft(head?.text);
+        firstLine = h3UnderlineLeft(head?.text,head?.size && head?.size*2);
     } else {
-        firstLine = h3Left(head?.text);
+        firstLine = h3Left(head?.text,head?.size && head?.size*2);
     }
     return firstLine;
 }
 
-const rightHeader = (head) => {
+export const rightHeader = (head) => {
     let firstLine;
     if (head?.bold && head?.underline) {
-        firstLine = h3UnderlineBoldRight(head?.text);
+        firstLine = h3UnderlineBoldRight(head?.text,head?.size && head?.size*2);
     } else if (head?.bold) {
-        firstLine = h3BoldRight(head?.text);
+        firstLine = h3BoldRight(head?.text,head?.size && head?.size*2);
     } else if (head?.underline) {
-        firstLine = h3UnderlineRight(head?.text);
+        firstLine = h3UnderlineRight(head?.text,head?.size && head?.size*2);
     } else {
-        firstLine = h3Right(head?.text);
+        firstLine = h3Right(head?.text,head?.size && head?.size*2);
     }
     return firstLine;
 }
@@ -135,19 +135,19 @@ export const headerTable = (headerArray = []) => {
             rows: [
                 new TableRow({
                     children: [
-                        headerObj.left ? new TableCell({
-                            children: [leftHeader(headerObj.left)],
+                        headerObj?.left ? new TableCell({
+                            children: [leftHeader(headerObj?.left)],
                             width: { size: 50, type: WidthType.PERCENTAGE },
                         }) : null,
 
-                        headerObj.right ? new TableCell({
-                            children: [rightHeader(headerObj.right)],  // reuse header, or create rightHeader if different
+                        headerObj?.right ? new TableCell({
+                            children: [rightHeader(headerObj?.right)],  // reuse header, or create rightHeader if different
                             width: { size: 30, type: WidthType.PERCENTAGE },
                         }) : null,
                     ],
                 }),
             ],
-            width: { size: 8835, type: WidthType.DXA },
+            width: { size: 7835, type: WidthType.DXA },
             borders: {
                 top: { size: 0 },
                 bottom: { size: 0 },

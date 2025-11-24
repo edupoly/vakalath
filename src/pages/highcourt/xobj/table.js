@@ -1,6 +1,6 @@
 import { Table, TableRow, TableCell, Paragraph, WidthType } from "docx";
 
-export const xobjTable = new Table({
+export const xobjTable = ()=>( new Table({
   width: { size: 100, type: WidthType.PERCENTAGE },
   rows: [
     new TableRow({
@@ -45,4 +45,4 @@ export const xobjTable = new Table({
       ]
     }),
   ]
-});
+}));

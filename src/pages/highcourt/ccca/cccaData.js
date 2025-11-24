@@ -240,6 +240,18 @@ export const CCCASections = (key, formData) => {
             }
         },
         "sidePage4": {
+            left: {
+                left: [
+                    { "text": "1.Records called for" },
+                    { "text": "2.Hearing fixed for" },
+                    { "text": "3.Notice put up on Board" },
+                    { "text": "4.Process for paid" },
+                    { "text": "5.Notice sent to Respondent" },
+                    { "text": "6.BHI for Deposit sent" },
+                    { "text": "7.Deposit paid" },
+                ],
+                right: []
+            },
             right: {
                 mainTitle: { text: `HIGH COURT`, bold: true, underline: true },
                 subTitle: { text: `CIVIL MISC. APPEAL`, bold: true },
@@ -275,12 +287,16 @@ export const CCCASections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `Presented on: ${formData?.fdate || "«fdate»"}`,
-                            `Represented on:`,
-                            `Filed on:`,
-                            `Admitted on:`
+                            `DECREE PASSED ON : ${formData?.OPDATE || "«OPDATE»"}`,
+                            `APPEAL PRESENTED ON     :`,
+                            `APPEAL RE-PRESENTED ON:`,
+                            `APPEAL FILED ON               :`,
+                            `APPEAL ADMITTED ON       :`,
+                            `APPEAL VALUED AT RUPEES:`,
+                            `STAMP DUTY PAID RUPEES  :`,
                         ]
-                    }
+                    },
+                    { left: [`To be heard on:`] }
                 ]
             }
         },

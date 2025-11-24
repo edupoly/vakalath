@@ -18,6 +18,7 @@ import Home from "./pages/Home.jsx";
 import ABForm from "./pages/criminal/anticiptoryBail/Form.jsx";
 import HighCourt1 from "./pages/highcourt/HighCourt1.jsx";
 import SupremeCourtForm from "./pages/supemeCourt/Form.jsx";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/district",
-        element: <HighCourt1 />,
+        element: <h1>lower court</h1>,
       },
       {
         path: "/supremecourt",
@@ -80,6 +81,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </>
   </Provider>
 );

@@ -1,7 +1,7 @@
 import { Document } from "docx";
 import { combinedSections } from "../../../components/highcourt/combineSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
-import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak } from "../../../components/templates/elementTypes";
+import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
@@ -23,13 +23,12 @@ export const XOBJTemplate = (formData) => {
                 children: [
                     ...combinedSections(xobjSections("41-22", formData), formData),
                     xobjTable(),
-                    SignatureFooter({
-                        left: [
+                    createSignatureFooter([
                             `${formData?.place || "«place»"}`,
                             `DATE: ${formData?.fdate || "«fdate»"}`
                         ],
-                        right: [`Counsel For Cross Objector`]
-                    }),
+                        [`Counsel For Cross Objector`]
+                    ),
                     pageBreak(),
                     pageTable(xobjSections("sidePage1", formData), formData),
                     pageBreak(),
@@ -88,6 +87,8 @@ export const XOBJTemplate = (formData) => {
                         ["", "Counsel for the Petitioner"],
                     ),
 
+                    pageBreak(),
+                    pageTable(xobjSections("sidePage6", formData), formData),
                     pageBreak(),
                     h3BoldCenter(formData?.highcourt || "__________"),
                     h3BoldCenter("Basic Information"),

@@ -1,7 +1,7 @@
 import { Document } from "docx";
 import { combinedSections } from "../../../components/highcourt/combineSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
-import { h3BoldCenter, h3Center, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak } from "../../../components/templates/elementTypes";
+import { h3BoldCenter, h3Center, h3underlineBoldCenter, h3UnderlineBoldLeft, h3UnderlineCenter, LineSpace, pageBreak } from "../../../components/templates/elementTypes";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
@@ -20,13 +20,17 @@ export const CMATemplate = (formData) => {
             {
                 properties: {},
                 children: [
-                    ...combinedSections(CMASections("order43_rule1", formData),formData),
+                    ...combinedSections(CMASections("order43_rule1", formData), formData),
                     pageBreak(),
                     pageTable(CMASections("sidePage1", formData), formData),
                     pageBreak(),
-                    ...combinedSections(CMASections("affidavit_cma", formData),formData),
+                    ...combinedSections(CMASections("affidavit_cma", formData), formData),
                     pageBreak(),
-                    ...combinedSections(CMASections("151", formData),formData),
+                    h3UnderlineCenter("VERIFICATION STATEMENT"),
+                    ...addParagraphs([`I, ${formData?.verification || "_________"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true, I understood and the contents are correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language. Hence verified at ${formData?.place || "_________"} on this the day of ${formData?.fdate || "_________"}.`]),
+                    createSignatureFooter([], ["Deponent"]),
+                    pageBreak(),
+                    ...combinedSections(CMASections("151", formData), formData),
                     pageBreak(),
                     pageTable(CMASections("sidePage2", formData), formData),
                     pageBreak(),
@@ -81,14 +85,15 @@ export const CMATemplate = (formData) => {
                     //     ]
                     // }]),
                     pageBreak(),
-                    ...combinedSections(CMASections("notice", formData),formData),
+                    ...combinedSections(CMASections("notice", formData), formData),
                     pageBreak(),
-                    ...combinedSections(CMASections("cma_notice", formData),formData),
+                    ...combinedSections(CMASections("cma_notice", formData), formData),
                     pageBreak(),
                     h3BoldCenter(formData?.highcourt || "__________"),
                     h3BoldCenter("Basic Information"),
                     ...OfficeUseTable(formData),
                     ...InfoTable(formData),
+                    ...LineSpace(1),
                     ...ChallanTable(formData),
                     ...LowerCourtTable(formData),
                     h3UnderlineBoldLeft("Full Cause Title:"),

@@ -8,7 +8,7 @@ import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { ABSections } from "./antiBail";
 import { combinedSections } from "../../../components/highcourt/combineSections";
-import { LineSpace, pageBreak } from "../../../components/templates/elementTypes";
+import { h3Center, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
 
 export const AntiBailTemplate = (formData) => {
@@ -24,7 +24,7 @@ export const AntiBailTemplate = (formData) => {
                 pageBreak(),
                 pageTable(ABSections("sidePage2", formData), formData),
                 pageBreak(),
-                createParagraph(formData?.highcourt || "IN THE HIGH COURT OF ________", paragraphStyles.centerHeading),
+                h3Center(formData?.highcourt || "IN THE HIGH COURT OF ________"),
                 createParagraph(`Crl.P. No. ${formData?.crlpNo || "_________"} OF ${formData?.myear || "_________"}`, paragraphStyles.centerText),
                 createParagraph("CHRONOLOGICAL / RUNNING INDEX", paragraphStyles.centerHeading),
                 ChronologicalTable(formData),
@@ -36,11 +36,11 @@ export const AntiBailTemplate = (formData) => {
                 ...ChallanTable(formData),
                 ...LowerCourtTable(formData),
                 createParagraph("Full Cause Title:", paragraphStyles.leftunderlinedHeading),
-                ...BetweenSection(formData, '...Petitioner/Accused', "...Respondent/Complainant"),
+                ...BetweenSection(formData, '...Petitioner(s)', "...Respondent(s)"),
                 createParagraph("Main Case Prayer:", paragraphStyles.leftunderlinedHeading),
-                createParagraph(`It is therefore prayed that this Hon'ble Court may be pleased ${formData?.MAIN_PRAYER || "_________"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`, paragraphStyles.paraText),
+                createParagraph(`${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased ${formData?.MAIN_PRAYER || "_________"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`, paragraphStyles.paraText),
                 createParagraph("IA(s) Prayer:", paragraphStyles.leftunderlinedHeading),
-                createParagraph(`It is also just and necessary that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "_________"} pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`, paragraphStyles.paraText),
+                createParagraph(`${tabSpace(1)}It is also just and necessary that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "_________"} pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`, paragraphStyles.paraText),
             ],
         }],
     });

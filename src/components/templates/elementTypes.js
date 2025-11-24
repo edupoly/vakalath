@@ -11,7 +11,7 @@ export const tabSpace = (num) => {
 
 export const LineSpace = (n) => {
     return Array.from({ length: n }, (_, i) =>
-        createParagraph("", paragraphStyles.singleSpace)
+        createParagraph("", {...paragraphStyles.singleSpace,size:10})
     )
 }
 
@@ -19,51 +19,51 @@ export const pageBreak = () => {
     return createParagraph("", { children: [new PageBreak()] })
 }
 
-export const h3underlineBoldCenter = (text) => {
-    return createParagraph(text, paragraphStyles.underlinedHeadingSmall)
+export const h3underlineBoldCenter = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.underlinedHeadingSmall,size})
 }
 
-export const h3BoldCenter = (text) => {
-    return createParagraph(text, paragraphStyles.centerHeading)
+export const h3BoldCenter = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.centerHeading,size})
 }
 
-export const h3UnderlineCenter = (text) => {
-    return createParagraph(text, paragraphStyles.underlinedTextSmall)
+export const h3UnderlineCenter = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.underlinedTextSmall,size})
 }
 
-export const h3Center = (text) => {
-    return createParagraph(text, paragraphStyles.centerTextSmall)
+export const h3Center = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.centerTextSmall,size})
 }
 
-export const h3Left = (text) => {
-    return createParagraph(text, paragraphStyles.leftAlignSmall)
+export const h3Left = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.leftAlignSmall,size})
 }
 
-export const h3BoldLeft = (text) => {
-    return createParagraph(text, paragraphStyles.leftHeading)
+export const h3BoldLeft = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.leftHeading,size})
 }
 
-export const h3UnderlineLeft = (text) => {
-    return createParagraph(text, paragraphStyles.leftUnderline)
+export const h3UnderlineLeft = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.leftUnderline,size})
 }
 
 export const h3UnderlineBoldLeft = (text) => {
-    return createParagraph(text, paragraphStyles.underlinedHeadingLeft)
+    return createParagraph(text, {...paragraphStyles.underlinedHeadingLeft,size:28})
 }
 
-export const h3Right = (text) => {
-    return createParagraph(text, paragraphStyles.rightAlignSmall)
+export const h3Right = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.rightAlignSmall,size})
 }
 
-export const h3BoldRight = (text) => {
-    return createParagraph(text, paragraphStyles.rightHeading)
+export const h3BoldRight = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.rightHeading,size})
 }
 
-export const h3UnderlineRight = (text) => {
-    return createParagraph(text, paragraphStyles.rightUnderline)
+export const h3UnderlineRight = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.rightUnderline,size})
 }
-export const h3UnderlineBoldRight = (text) => {
-    return createParagraph(text, paragraphStyles.rightunderlinedHeading)
+export const h3UnderlineBoldRight = (text,size) => {
+    return createParagraph(text, {...paragraphStyles?.rightunderlinedHeading,size})
 }
 
 export const h1BoldCenter = (text) => {

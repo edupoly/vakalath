@@ -56,6 +56,7 @@ import { CaveatTemplate } from "../pages/highcourt/caveat/template";
 import { CPTemplate } from "../pages/highcourt/cp/template";
 import { HCTemplate } from "../pages/highcourt/hc/template";
 import { IMPLEADTemplate } from "../pages/highcourt/implead/template";
+import { CRLRCMacmaTemplate } from "../pages/highcourt/crlrcMacma/template";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -66,7 +67,7 @@ export const paragraphStyles = {
     rightAlignText: { alignment: AlignmentType.RIGHT },
     rightAlignSmall: { alignment: AlignmentType.RIGHT, spacing: { after: 0 } },
     rightALignBig: { alignment: AlignmentType.RIGHT, spacing: { line: 1000 } },
-    paraText: { alignment: AlignmentType.JUSTIFIED, spacing: { after: 0 } },
+    paraText: { alignment: AlignmentType.JUSTIFIED, spacing: { line:400,after:0 } },
     emptySpace: { spacing: { line: 1000 } },
     emptySpaceSmall: { spacing: { line: 400 } },
     emptySpaceBig: { spacing: { line: 5000 } },
@@ -124,7 +125,7 @@ export const paragraphStyles1 = {
     rightLane: { alignment: AlignmentType.RIGHT }
 };
 export const createParagraph = (text, options = {}) => {
-    const textRunOptions = { text: text, ...options };
+    const textRunOptions = { text: text, ...options,size: options.size || 24 };
 
     return new Paragraph({
         children: [new TextRun(textRunOptions)],
@@ -223,6 +224,7 @@ export const caseTypeTemplates = {
     incomeTaxAppellateTribunal:WtaTemplate,
     receiveAndTransmit:rectranTemplate,
     reviewPetition:reviewTemplate,
+    criminalRevisionCaseMacma:CRLRCMacmaTemplate
 };
 
 export const SignatureRow = (formdata) => {

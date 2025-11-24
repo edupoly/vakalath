@@ -1,5 +1,8 @@
 import { Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType } from "docx";
 import { cell, createParagraph, paragraphStyles } from "../../services/templateFunctions";
+import { createSignatureFooter } from "./FooterSections";
+import { h3BoldRight } from "./elementTypes";
+import { headerTable } from "./HeaderSection";
 
 export const ChallanTable = (formData) => {
     const feeItems = [
@@ -16,7 +19,7 @@ export const ChallanTable = (formData) => {
         { label: "Total", key: "total_fee", default: "Rs." },
     ];
 
-    const tableRows = feeItems.map(item => 
+    const tableRows = feeItems.map(item =>
         new TableRow({
             children: [
                 cell(item.label, { alignment: AlignmentType.CENTER, width: 70 }),
@@ -26,8 +29,10 @@ export const ChallanTable = (formData) => {
     );
 
     return [
-        createParagraph("II. Fee paid by : Challan / Stamps", paragraphStyles.heading),
-        createParagraph("Challan Date:", paragraphStyles.heading),
+        ...headerTable([{
+            left: { text: "II. Fee paid by : Challan / Stamps", bold: true },
+            right: { text: "Challan Date:", bold: true }
+        }]),
         new Table({
             width: { size: 50, type: WidthType.PERCENTAGE },
             alignment: AlignmentType.CENTER,

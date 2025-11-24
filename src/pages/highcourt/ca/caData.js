@@ -8,8 +8,8 @@ export const caSections = (key, formData) => {
                 left: { text: "Form No.51", bold: true },
                 right: { text: "Rule 128(C.R.P)", bold: true }
             }],
-            mainTitle: { text: "Application for Certified Copies" },
-            subTitle: { text: "IN THE COURT OF THE " + (formData?.district || "«district»") },
+            mainTitle: { text: "Application for Certified Copies",bold:true },
+            subTitle: { text: "IN THE COURT OF THE " + (formData?.district || "«district»"),bold:true },
             headLines: [{
                 head: { text: "" },
                 lines: [
@@ -24,56 +24,10 @@ export const caSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `${tabSpace(1)}It is requested that the Certified Copies for the documents undermentioned may be furnished to:`,
-                        `${tabSpace(2)}Plaintiff: ${formData?.plaintiff_copy_to || "________________________"}`,
-                        `${tabSpace(2)}Defendant: ${formData?.defendant_copy_to || "________________________"}`,
-                        `${tabSpace(1)}The copies are urgently required for: ${formData?.purpose || "____________________________________"}`
+                        `${tabSpace(1)}It is requested that the Certified Copies for the documents undermentioned may be furnished to Plaintiff ____________________________________ Defendant ____________________________________ The copies are urgently required for: ____________________________________`
                     ]
                 }
             ],
-            footer: [{
-                left: [
-                    `DATE: ${formData?.fdate || "«fdate»"}`,
-                    `${formData?.place || "«place»"}`
-                ],
-                right: ["Counsel for the Applicant"]
-            }]
-        },
-        "form51footer": {
-            mainTitle: { text: "" },
-            subTitle: { text: "" },
-            headLines: [
-                {
-                    head: { text: "" },
-                    lines: [
-                        "",
-                        "",
-                        ""
-                    ]
-                }
-            ],
-            betweenSection: {
-                pet: "",
-                res: ""
-            },
-            headPara: [
-                {
-                    head: { text: "" },
-                    para: [""]
-                }
-            ],
-            footer: [
-                {
-                    left: [
-                        `Date: ${formData?.fdate || "«fdate»"}`,
-                        `${formData?.station || "«station»"}`
-                    ],
-                    right: [
-                        `${formData?.counsel_code1 || "«counsel_code1»"}`,
-                        "Advocate for Petitioner/Plaintiff"
-                    ]
-                }
-            ]
         },
         "sidePage1": {
             right: {
@@ -91,27 +45,11 @@ export const caSections = (key, formData) => {
                 ],
 
                 betweenSection: {
-                    pet: "BETWEEN:"
+                    pet: "….Plaintiff",
+                    res: "….Defendant",
                 },
 
-                headPara: [
-                    {
-                        head: { text: `${formData?.PETITIONER_NAME || "«PETITIONER_NAME»"}` },
-                        para: ["…Plaintiff"]
-                    },
-                    {
-                        head: { text: "AND" },
-                        para: []
-                    },
-                    {
-                        head: { text: `${formData?.respondent_name || "«respondent_name»"}` },
-                        para: ["..Defendant"]
-                    },
-                    {
-                        head: { text: "COPY APPLICATION", bold: true },
-                        para: []
-                    }
-                ],
+                middleHeader:{ text: "COPY APPLICATION", bold: true },
 
                 footer: [
                     {

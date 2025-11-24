@@ -1,7 +1,7 @@
 import { Document } from "docx";
 import { combinedSections } from "../../../components/highcourt/combineSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
-import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, LineSpace, pageBreak } from "../../../components/templates/elementTypes";
+import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, h3UnderlineBoldLeft, h3UnderlineCenter, LineSpace, pageBreak } from "../../../components/templates/elementTypes";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
@@ -25,6 +25,11 @@ export const CEATemplate = (formData) => {
                     pageTable(ceaSections("sidePage1", formData), formData),
                     pageBreak(),
                     ...combinedSections(ceaSections("affidavit", formData), formData),
+                    h3Center(`ADVOCATE :: ${formData?.place || "_________"}`),
+                    pageBreak(),
+                    h3UnderlineCenter("VERIFICATION STATEMENT"),
+                    ...addParagraphs([`I, ${formData?.verification || "_________"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true, I understood and the contents are correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language. Hence verified at ${formData?.place || "_________"} on this the day of ${formData?.fdate || "_________"}.`]),
+                    createSignatureFooter([], ["Deponent"]),
                     pageBreak(),
                     ...combinedSections(ceaSections("151", formData), formData),
                     pageBreak(),
@@ -32,10 +37,7 @@ export const CEATemplate = (formData) => {
                     pageBreak(),
                     pageTable(ceaSections("sidePage3", formData), formData),
                     pageBreak(),
-                    ...combinedSections(ceaSections("notice", formData), formData),
-                    pageBreak(),
-                    ...combinedSections(ceaSections("ServiceCertificate", formData), formData),
-                    pageBreak(),
+                   
                     // headerWith1NumberBold([
                     //     `IN THE COURT OF THE «district»`,
                     //     `O.S.No. OF${tabSpace(3)}«myear»`
@@ -64,6 +66,10 @@ export const CEATemplate = (formData) => {
                         ["Counsel for the Petitioner(s)."],
                     ),
 
+                    pageBreak(),
+                     ...combinedSections(ceaSections("notice", formData), formData),
+                    pageBreak(),
+                    ...combinedSections(ceaSections("ServiceCertificate", formData), formData),
                     pageBreak(),
                     h3BoldCenter(formData?.highcourt || "__________"),
                     h3BoldCenter("Basic Information"),

@@ -217,6 +217,95 @@ export const taxAppellateTribunalSections = (key, formData) => {
         },
       ],
     },
+    "sidePage4": {
+      left: {
+        left: [
+          { "text": "Records called for" },
+          { "text": "Hearing fixed for" },
+          { "text": "Notice put up on Board" },
+          { "text": "Process for paid" },
+          { "text": "Notice sent to Respondent" },
+          { "text": "BHI for Deposit sent" },
+          { "text": "Deposit paid" },
+        ],
+        right: [
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+          { "text": "«myear»" },
+        ]
+      },
+      right: {
+        headLines: [
+          {
+            head: { text: "HIGH COURT" },
+            lines: []
+          },
+          {
+            head: { text: "A P P E A L" },
+            lines: []
+          },
+          {
+            head: {
+              text: `I.T.T.A.NO.                  of ${formData?.myear || "«myear»"}`
+            },
+            lines: []
+          },
+          {
+            head: {
+              text: `District:  ${formData?.DISTRICT || "«DISTRICT»"}`
+            },
+            lines: []
+          },
+          {
+            head: { text: "INCOME TAX APPELLATE TRIBUNAL, BENCH," },
+            lines: [
+              `${formData?.OPNO || "«OPNO»"}`
+            ]
+          },
+          {
+            head: { text: `` },
+            lines: ["APPELLANT"]
+          },
+          {
+            head: { text: "Versus" },
+            lines: []
+          },
+          {
+            head: { text: `${formData?.respondent_name || "«respondent_name»"}` },
+            lines: ["RESPONDENT"]
+          },
+          {
+            head: { text: `By ${formData?.counsel_code || "«counsel_code»"}` },
+            lines: []
+          }
+        ],
+
+        middleHeader: {
+          text: "",
+          bold: false,
+          underline: false
+        },
+
+        footer: [
+          {
+            left: [
+              "Nature of Claim",
+              "Decree passed on",
+              "Appeal Presented on",
+              "Appeal Filed on",
+              "Appeal admitted on",
+              "Appeal Valued at Rupees",
+              "Stamp Duty paid Rupees",
+              "To be heard on"
+            ]
+          }
+        ]
+      }
+    },
   };
   return data[key];
 };
