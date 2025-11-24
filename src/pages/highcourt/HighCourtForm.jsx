@@ -36,15 +36,15 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
             setFormData({ ...values/* , CaseType: caseType, */ });
             dispatch(setFData({ ...values/* , CaseType: caseType, */ }));
 
-            // if (data?.case) {
-            //     updateForm({ ...values });
-            // } else {
-            //     filecase({
-            //         ...values,
-            //         // FilledFrom: "highcourt",
-            //         // CaseType: caseType,
-            //     });
-            // }
+            if (data?.case) {
+                updateForm({ ...values });
+            } else {
+                filecase({
+                    ...values,
+                    // FilledFrom: "highcourt",
+                    // CaseType: caseType,
+                });
+            }
             const modal = new window.bootstrap.Modal(modalRef.current);
             modal.show();
         },
