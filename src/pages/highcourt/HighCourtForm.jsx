@@ -15,12 +15,12 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     const [filecase] = useFileCaseMutation();
     const [updateForm] = useEditFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
-        { Name: "Rajesh Kumar", Address: "12A, Banjara Hills, Hyderabad - 500034", Age: "6" }
-        // { Name: "", Address: "", Age: "" },
+        // { Name: "Rajesh Kumar", Address: "12A, Banjara Hills, Hyderabad - 500034", Age: "6" }
+        { Name: "", Address: "", Age: "" },
     ]);
     const [respondents, setRespondents] = useState([
-        { Name: "Ravi Verma", Address: "21B, Jubilee Hills, Hyderabad - 500033", Age: "21" }
-        // { Name: "", Address: "", Age: "" },
+        // { Name: "Ravi Verma", Address: "21B, Jubilee Hills, Hyderabad - 500033", Age: "21" }
+        { Name: "", Address: "", Age: "" },
     ]);
     const userDetails = useSelector((state) => state.user.userInfo);
     const dispatch = useDispatch()
