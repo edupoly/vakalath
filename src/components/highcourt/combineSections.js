@@ -37,6 +37,7 @@ export const combinedSections = (sectionData, formData) => {
             }).flat()
             : []),
         ...SignatureFooter(sectionData?.footer),
+          ...LineSpace(1),
         sectionData?.note && headerList(sectionData?.note),
         sectionData?.before && header(sectionData?.before),
         ...(sectionData?.advocate ? LineSpace(3) : []),

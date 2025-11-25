@@ -1,5 +1,5 @@
 import { Document, PageBreak } from "docx";
-import { createParagraph, paragraphStyles1 } from "../../../services/templateFunctions";
+import { createParagraph, paragraphStyles, paragraphStyles1, templateProperties } from "../../../services/templateFunctions";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { h3UnderlineCenter, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
 import { createRightAlignPage } from "../../../components/templates/tableFunctions";
@@ -8,7 +8,7 @@ export const AmendmentTemplate = (formData) => {
     return new Document({
         sections: [
             {
-                properties: {},
+                properties: templateProperties,
                 children: [
                     createParagraph(
                         formData?.highcourt || "IN THE HIGH COURT OF JUDICATURE AT _______",
@@ -105,7 +105,7 @@ export const AmendmentTemplate = (formData) => {
                     pageBreak(),
                     createRightAlignPage([
                         createParagraph(
-                            `${formData?.DISTRICT || "_________"} District`,
+                            `${formData?.district || "_________"} District`,
                             paragraphStyles1.rightLane
                         ),
                         createParagraph(
@@ -145,12 +145,12 @@ export const AmendmentTemplate = (formData) => {
                             `W.P. NO. ${formData?.wpNo || "_______"} OF ${formData?.myear || "_______"}`,
                             paragraphStyles1.centerText
                         ),
-                        createParagraph(`${formData?.DISTRICT || "_________"} District`, paragraphStyles1.rightLane),
-                        createParagraph(formData?.PETITIONER_NAME || "_________", paragraphStyles1.justifiedText),
+                        createParagraph(`${formData?.district || "_________"} District`, paragraphStyles1.rightLane),
+                        createParagraph(formData?.Petitioners?.[0]?.Name || "_________", paragraphStyles1.justifiedText),
                         createParagraph("... Petitioner/s", paragraphStyles1.endText),
-                        createParagraph("By", paragraphStyles1.paragraph),
-                        createParagraph(`M/s ${formData?.counsel_code || "_________"}`, paragraphStyles1.leftText),
-                        createParagraph("NATURE OF APPLICATION", paragraphStyles1.headingCenter),
+                        createParagraph("By", paragraphStyles.centerHeading),
+                        createParagraph(`M/s ${formData?.counsel_code || "_________"}`, paragraphStyles.centerHeading),
+                        createParagraph("NATURE OF APPLICATION", paragraphStyles.underlinedTextSmall),
                         createParagraph("(UNDER SEC. 151 C.P.C.)", paragraphStyles1.center),
                         createParagraph(
                             "This Hon’ble Court may be pleased to permit the petitioner to amend the prayer in WP.No.___________ as follows:",
@@ -160,6 +160,7 @@ export const AmendmentTemplate = (formData) => {
                             `this Hon'ble Court may be pleased ${formData?.MAIN_PRAYER || "_________"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
                             paragraphStyles1.paragraph
                         ),
+                        ...LineSpace(3),
                         createParagraph(`PRESENTED ON: ${formData?.fdate || "_________"}`, paragraphStyles1.leftText),
                         createParagraph("REPRESENTED ON:", paragraphStyles1.leftText),
                         createParagraph(`FILED ON: ${formData?.fdate || "_________"}`, paragraphStyles1.leftText),

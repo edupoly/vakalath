@@ -181,6 +181,10 @@
   margin-bottom: 0px !important; */
 }
 
+.modal-dialog{
+  width: 1024px;
+}
+
 @media (max-width: 1023px) {
   .main-screen {
     margin-left: 0px;

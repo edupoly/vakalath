@@ -44,7 +44,7 @@ function HighCourtModal({ formData, modalRef, type }) {
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable my-0 vh-100">
+      <div className="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable my-0 vh-100">
         <div className={`modal-content ${isMobile ? 'vh-50' : 'vh-100'}`}>
           <div className="modal-header d-flex justify-content-between align-items-center w-100 py-2">
             <h5 className="modal-title fw-bold" id="staticBackdropLabel">

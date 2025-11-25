@@ -35,8 +35,8 @@ export const ChronologicalTable = (formData) => {
       ) || []),
     ],
     width: {
-      size: 6500,
-      type: WidthType.DXA,
+      size: 100,
+      type: WidthType.PERCENTAGE,
     },
     alignment: AlignmentType.CENTER,
 

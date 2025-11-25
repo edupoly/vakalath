@@ -13,7 +13,7 @@ export const caSections = (key, formData) => {
             headLines: [{
                 head: { text: "" },
                 lines: [
-                    `O.S.No. ${formData?.osno || "«O.S.No.»"} of ${formData?.myear || "«myear»"}`
+                    `O.S.No. ${tabSpace(3)} of ${formData?.myear || "«myear»"}`
                 ]
             }],
             betweenSection: {

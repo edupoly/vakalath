@@ -1,8 +1,7 @@
 import { Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType } from "docx";
 import { cell, createParagraph, paragraphStyles } from "../../services/templateFunctions";
-import { createSignatureFooter } from "./FooterSections";
-import { h3BoldRight } from "./elementTypes";
 import { headerTable } from "./HeaderSection";
+import { LineSpace } from "./elementTypes";
 
 export const ChallanTable = (formData) => {
     const feeItems = [
@@ -33,6 +32,7 @@ export const ChallanTable = (formData) => {
             left: { text: "II. Fee paid by : Challan / Stamps", bold: true },
             right: { text: "Challan Date:", bold: true }
         }]),
+        ...LineSpace(1),
         new Table({
             width: { size: 50, type: WidthType.PERCENTAGE },
             alignment: AlignmentType.CENTER,

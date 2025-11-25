@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { appealSuitSections } from "./asData";
 
@@ -18,7 +18,7 @@ export const AppealSuitTemplate = (formData) => {
     return new Document({
         sections: [
             {
-                properties: {},
+                properties: templateProperties,
                 children: [
                     ...combinedSections(appealSuitSections("96_41", formData), formData),
                     pageBreak(),

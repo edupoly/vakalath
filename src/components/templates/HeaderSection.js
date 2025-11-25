@@ -147,7 +147,7 @@ export const headerTable = (headerArray = []) => {
                     ],
                 }),
             ],
-            width: { size: 7835, type: WidthType.DXA },
+            width: { size: 100, type: WidthType.PERCENTAGE },
             borders: {
                 top: { size: 0 },
                 bottom: { size: 0 },

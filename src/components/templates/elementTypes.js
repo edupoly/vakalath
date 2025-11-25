@@ -11,7 +11,7 @@ export const tabSpace = (num) => {
 
 export const LineSpace = (n) => {
     return Array.from({ length: n }, (_, i) =>
-        createParagraph("", {...paragraphStyles.singleSpace,size:10})
+        createParagraph("", {...paragraphStyles.singleSpace})
     )
 }
 

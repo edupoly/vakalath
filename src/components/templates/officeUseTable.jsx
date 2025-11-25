@@ -5,11 +5,12 @@ import officeUseTableData from "../../assets/officeUseTableData.json"
 export const OfficeUseTable = (formData) => {
     return [
         new Table({
-            width: { size: 100, type: WidthType.PERCENTAGE },
+            width: { size: 75, type: WidthType.PERCENTAGE },
+            alignment: AlignmentType.CENTER,
             rows: [
                 new TableRow({
                     children: [
-                        headerCell("FOR OFFICE USE ONLY", { colSpan:3}),
+                        headerCell("FOR OFFICE USE ONLY", { colSpan: 3 }),
                     ],
                 }),
                 new TableRow({
@@ -22,16 +23,16 @@ export const OfficeUseTable = (formData) => {
                 new TableRow({
                     children: [
                         headerCell("Filing No. (Unregistered)"),
-                        console.log(officeUseTableData[formData?.CaseType],formData?.CaseType   ),
-                        
-                        headerCell(officeUseTableData[formData?.CaseType],{alignment: AlignmentType.LEFT}),
+                        console.log(officeUseTableData[formData?.CaseType], formData?.CaseType),
+
+                        headerCell(officeUseTableData[formData?.CaseType], { alignment: AlignmentType.LEFT }),
                         headerCell(formData?.myear || "«myear»"),
                     ],
                 }),
-                new TableRow({  
+                new TableRow({
                     children: [
                         headerCell("Main No. (Registered)"),
-                        headerCell(officeUseTableData[formData?.CaseType],{alignment: AlignmentType.LEFT}),
+                        headerCell(officeUseTableData[formData?.CaseType], { alignment: AlignmentType.LEFT }),
                         headerCell(formData?.myear || "«myear»"),
                     ],
                 }),

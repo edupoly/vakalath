@@ -1,4 +1,4 @@
-import { AlignmentType, Packer, Paragraph, TableCell, TextRun, WidthType, UnderlineType, Table, TableRow } from "docx";
+import { AlignmentType, Packer, Paragraph, TableCell, TextRun, WidthType, UnderlineType, Table, TableRow, convertInchesToTwip } from "docx";
 
 import { FirstAppealTemplate } from "../pages/civil/firstAppeal/template1";
 import { SecondAppealTemplate } from "../pages/civil/secondAppeal/template1";
@@ -67,9 +67,9 @@ export const paragraphStyles = {
     rightAlignText: { alignment: AlignmentType.RIGHT },
     rightAlignSmall: { alignment: AlignmentType.RIGHT, spacing: { after: 0 } },
     rightALignBig: { alignment: AlignmentType.RIGHT, spacing: { line: 1000 } },
-    paraText: { alignment: AlignmentType.JUSTIFIED, spacing: { line:400,after:0 } },
+    paraText: { alignment: AlignmentType.JUSTIFIED, spacing: { line: 400, after: 0 } },
     emptySpace: { spacing: { line: 1000 } },
-    emptySpaceSmall: { spacing: { line: 400 } },
+    emptySpaceSmall: { spacing: { line: 100 } },
     emptySpaceBig: { spacing: { line: 5000 } },
     singleSpace: { spacing: { line: 200 } },
     leftunderlinedHeading: { alignment: AlignmentType.LEFT, bold: true, underline: { type: UnderlineType.SINGLE } },
@@ -125,7 +125,7 @@ export const paragraphStyles1 = {
     rightLane: { alignment: AlignmentType.RIGHT }
 };
 export const createParagraph = (text, options = {}) => {
-    const textRunOptions = { text: text, ...options,size: options.size || 24 };
+    const textRunOptions = { text: text, ...options, size: options.size || 24 };
 
     return new Paragraph({
         children: [new TextRun(textRunOptions)],
@@ -148,6 +148,12 @@ export const generateAndDownloadDocx = (formData) => {
     Packer.toBlob(doc).then((blob) => saveAs(blob, `${formData?.CaseType}.docx`));
 };
 
+const margins = {
+    top: convertInchesToTwip(0.05),
+    bottom: convertInchesToTwip(0.05),
+    left: convertInchesToTwip(0.05),
+    right: convertInchesToTwip(0.05),
+}
 export const headerCell = (text, options) =>
     new TableCell({
         children: [
@@ -160,6 +166,7 @@ export const headerCell = (text, options) =>
                 }
             }),
         ],
+        margins: margins,
         columnSpan: options?.colSpan || 1,
     });
 
@@ -167,6 +174,7 @@ export const cell = (text, options) =>
     new TableCell({
         // width: { size: options?.width , type: WidthType.PERCENTAGE },
         columnSpan: options?.colSpan || 1,
+        margins: margins,
         children: [new Paragraph({
             children: [new TextRun(text)],
             alignment: options?.alignment || AlignmentType.LEFT,
@@ -215,16 +223,16 @@ export const caseTypeTemplates = {
     leave: LeaveTemplate,
     quash: QuashTemplate,
     centralExciseAppeal: CEATemplate,
-    appealSuit:AppealSuitTemplate,
-    crossObjections:XOBJTemplate,
+    appealSuit: AppealSuitTemplate,
+    crossObjections: XOBJTemplate,
     caveat: CaveatTemplate,
-    companyPetition:CPTemplate,
-    compromiseHc:HCTemplate,
-    implead:IMPLEADTemplate,
-    incomeTaxAppellateTribunal:WtaTemplate,
-    receiveAndTransmit:rectranTemplate,
-    reviewPetition:reviewTemplate,
-    criminalRevisionCaseMacma:CRLRCMacmaTemplate
+    companyPetition: CPTemplate,
+    compromiseHc: HCTemplate,
+    implead: IMPLEADTemplate,
+    incomeTaxAppellateTribunal: WtaTemplate,
+    receiveAndTransmit: rectranTemplate,
+    reviewPetition: reviewTemplate,
+    criminalRevisionCaseMacma: CRLRCMacmaTemplate
 };
 
 export const SignatureRow = (formdata) => {
@@ -257,6 +265,20 @@ export const SignatureRow = (formdata) => {
     })
 }
 
+export const templateProperties = {
+    page: {
+        size: {
+            width: 10478,   // 34 cm page width
+            height: 16839,  // A4 height (29.7 cm)
+        },
+        margin: {
+            top: 1440,      // 1 inch
+            right: 1440,    // 1 inch
+            bottom: 1440,   // 1 inch
+            left: 2440,     // 1 inch
+        },
+    },
+}
 
 export const caseTypeFields = [
     { label: "AB", value: "antiBail" },

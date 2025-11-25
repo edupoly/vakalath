@@ -9,7 +9,7 @@ export const ABSections = (key, formData) => {
                 {
                     head: { text: `${formData?.highcourt || "«highcourt»"}` },
                     lines: [
-                        `CRL.P.No. OF ${formData?.myear || "«myear»"}`,
+                        `CRL.P.No.${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         `IN`,
                         `${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}`,
                         `on the file of the ${formData?.lowercourt || "«lowercourt»"}`
@@ -114,7 +114,7 @@ export const ABSections = (key, formData) => {
                     {
                         left: [
                             `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
-                            `AdvocatREPRESENTED ON:e`,
+                            `REPRESENTED ON:e`,
                             `FILED ON: ${formData?.fdate || "«fdate»"}`
                         ]
                     }
