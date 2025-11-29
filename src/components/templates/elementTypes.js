@@ -20,7 +20,7 @@ export const pageBreak = () => {
 }
 
 export const h3underlineBoldCenter = (text,size) => {
-    return createParagraph(text, {...paragraphStyles?.underlinedHeadingSmall,size})
+    return createParagraph(text, {...paragraphStyles?.underlinedHeading,size})
 }
 
 export const h3BoldCenter = (text,size) => {

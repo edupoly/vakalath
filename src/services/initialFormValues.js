@@ -23,11 +23,11 @@ export const initialValues = {
         place: "",
         fdate: "",
         district: "",
-        counsel_address: "Chamber No. 5, Advocate Chambers, Supreme Block, Hyderabad - 500032",
-        counsel_code: "HYD-002",
-        verification: "Verified at Hyderabad",
-        MAIN_PRAYER: "Prayer to allow amendment of the plaint",
-        INTERIM_PRAYER: "Interim protection as may be directed"
+        counsel_address: "",
+        counsel_code: "",
+        verification: "",
+        MAIN_PRAYER: "",
+        INTERIM_PRAYER: ""
     },
     antiBail: {
         highcourt: "",
@@ -107,20 +107,20 @@ export const initialValues = {
         fdate: ""
     },
     caveat: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
-        caveat_no: "CAV/456/2025",
-        myear: "2025",
-        wp_no: "WP(C) 789/2025",
-        OPNO: "CV/001/2025",
-        lowercourt: "Original Side, Hyderabad",
-        verification: "Verified at Hyderabad",
-        place: "Hyderabad",
-        counsel_address: "No. 7, Counsel Chambers, Nampally, Hyderabad - 500001",
-        interim_prayer: "For interim injunction",
-        OPDATE: "2025-02-10",
-        fdate: "2025-02-12",
-        counsel_code: "HYD-007",
-        district: "Hyderabad"
+        highcourt: "",
+        caveat_no: "",
+        myear: "",
+        wp_no: "",
+        OPNO: "",
+        lowercourt: "",
+        verification: "",
+        place: "",
+        counsel_address: "",
+        interim_prayer: "",
+        OPDATE: "",
+        fdate: "",
+        counsel_code: "",
+        district: ""
     },
     centralExciseAppeal: {
         highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",

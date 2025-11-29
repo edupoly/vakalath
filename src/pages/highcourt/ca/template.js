@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { caSections } from "./caData";
 
@@ -18,7 +18,7 @@ export const CATemplate = (formData) => {
     return new Document({
         sections: [
             {
-                properties: {},
+                properties: templateProperties,
                 children: [
                     ...combinedSections(caSections("form51", formData), formData),
                     ChronologicalTable(formData),
@@ -27,7 +27,7 @@ export const CATemplate = (formData) => {
                         `Date: ${formData?.fdate || "«fdate»"}`,
                         `${formData?.station || "«station»"}`
                     ], [
-                        `${formData?.counsel_code1 || "«counsel_code1»"}`,
+                        `${formData?.counsel_code || "«counsel_code»"}`,
                         "Advocate for Petitioner/Plaintiff"
                     ]),
                     pageBreak(),

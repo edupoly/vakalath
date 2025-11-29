@@ -12,15 +12,16 @@ import HighCourtModal from "./Modal";
 import { setFData } from "../../services/submitedDataSlice";
 
 function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
+    const [submitted,setSubmitted]=useState(false)
     const [filecase] = useFileCaseMutation();
     const [updateForm] = useEditFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
-        // { Name: "Rajesh Kumar", Address: "12A, Banjara Hills, Hyderabad - 500034", Age: "6" }
-        { Name: "", Address: "", Age: "" },
+        { Name: "Rajesh Kumar", Address: "12A, Banjara Hills, Hyderabad - 500034", Age: "6" }
+        // { Name: "", Address: "", Age: "" },
     ]);
     const [respondents, setRespondents] = useState([
-        // { Name: "Ravi Verma", Address: "21B, Jubilee Hills, Hyderabad - 500033", Age: "21" }
-        { Name: "", Address: "", Age: "" },
+        { Name: "Ravi Verma", Address: "21B, Jubilee Hills, Hyderabad - 500033", Age: "21" }
+        // { Name: "", Address: "", Age: "" },
     ]);
     const userDetails = useSelector((state) => state.user.userInfo);
     const dispatch = useDispatch()
@@ -100,7 +101,8 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
                     <div className="d-flex justify-content-center justify-content-md-end ">
                         <button
                             type="submit"
-                            className="btn btn-success border border-3 border-success w-md-50 w-lg-25"
+                            onClick={()=>setSubmitted(true)}
+                            className={`btn btn-success border border-3 border-success w-md-50 w-lg-25 ${submitted && "disabled"}`}
                         >
                             Submit
                         </button>

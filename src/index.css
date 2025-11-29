@@ -184,6 +184,70 @@
 .modal-dialog{
   width: 1024px;
 }
+.signUp .stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50%;
+  /* margin-bottom: 25px; */
+}
+
+.signUp .step {
+  text-align: center;
+  font-weight: 600;
+  color: #999;
+  font-size: 14px;
+  position: relative;
+}
+
+/* Current step: border colored only */
+.signUp .step.active {
+  color: rgb(0,0,255) !important;
+}
+
+.signUp .step-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 5px auto;
+  background: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Current step: border blue, not filled */
+.signUp .step.active .step-circle {
+  border-color: rgb(0,0,255);
+  background: white;
+  color: rgb(0,0,255);
+}
+
+/* Completed step: filled blue */
+.signUp .step.completed .step-circle {
+  background: rgb(0,0,255);
+  border-color: rgb(0,0,255);
+  color: white;
+}
+
+.signUp .step-line {
+  position: absolute;
+  top: 11px;
+  left: 20%;
+  width: 55%;
+  height: 2px;
+  background: #999;
+  transition: background-color 0.3s ease;
+}
+
+/* Completed line */
+.signUp .step-line.active-line {
+  background: rgb(0,0,255);
+}
+
 
 @media (max-width: 1023px) {
   .main-screen {

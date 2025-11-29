@@ -3,9 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Packer } from "docx";
 import { renderAsync } from "docx-preview";
 import { caseTypeTemplates, generateAndDownloadDocx } from "../../services/templateFunctions";
+import { useNavigate } from "react-router-dom";
 function HighCourtModal({ formData, modalRef, type }) {
   const [isMobile, setIsMobile] = useState(false);
   const SelectedTemplate = caseTypeTemplates[type];
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -52,6 +54,7 @@ function HighCourtModal({ formData, modalRef, type }) {
             </h5>
             <button
               type="button"
+              onClick={()=>navigate("/")}
               className="btn-close text-white"
               data-bs-dismiss="modal"
               aria-label="Close"
@@ -78,6 +81,7 @@ function HighCourtModal({ formData, modalRef, type }) {
               Download DOCX
             </button>
             <button
+              onClick={()=>navigate("/")}
               className="btn btn-secondary"
               data-bs-dismiss="modal"
               aria-label="Close"

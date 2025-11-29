@@ -33,8 +33,9 @@ export const CaveatTemplate = (formData) => {
                             1
                         )}I, ${formData?.verification || "«verification»"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`
                     ),
-                    createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formData?.fdate || "«fdate»"}`, "", ""],
-                        ["", "", "Deponent", ""],
+                    ...LineSpace(1),
+                    createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formData?.fdate || "«fdate»"}`],
+                        ["Deponent"],
                     ),
                     pageBreak(),
                     ...combinedSections(caveatSections("148A", formData), formData),

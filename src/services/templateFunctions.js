@@ -125,7 +125,7 @@ export const paragraphStyles1 = {
     rightLane: { alignment: AlignmentType.RIGHT }
 };
 export const createParagraph = (text, options = {}) => {
-    const textRunOptions = { text: text, ...options, size: options.size || 24 };
+    const textRunOptions = { text: text, ...options, font: options.font || "Tahoma", size: options.size || 24 };
 
     return new Paragraph({
         children: [new TextRun(textRunOptions)],

@@ -56,7 +56,7 @@ export const caSections = (key, formData) => {
                         left: [
                             `FILED ON: ${formData?.fdate || "«fdate»"}`,
                             `FILED BY:`,
-                            `M/s ${formData?.counsel_address1 || "«counsel_address1»"}`,
+                            `M/s ${formData?.counsel_address || "«counsel_address»"}`,
                             `Advocate`,
                             `ADVOCATE FOR PLAINTIFF`
                         ]
