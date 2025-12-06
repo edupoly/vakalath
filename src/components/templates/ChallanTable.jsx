@@ -7,7 +7,7 @@ export const ChallanTable = (formData) => {
     const feeItems = [
         { label: "Court Fee", key: "court_fee", default: "Rs." },
         { label: "Carbon Copy", key: "carbon_copy", default: "Rs.15/-" },
-        { label: "Vakalath", key: "vakalath", default: "Rs.105/-" },
+        { label: "Vakalath", key: "vakalath", default: "Rs.255/-" },
         { label: "Batta in Main Case (Process Fees)", key: "batta_main", default: "Rs." },
         { label: "IA (MPs) Court Fee", key: "ia_court_fee", default: "Rs." },
         { label: "Batta in IA (MPs) (Process Fees)", key: "batta_ia", default: "Rs." },

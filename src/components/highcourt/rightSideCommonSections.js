@@ -72,11 +72,11 @@ export const pageTable = (data, formData) => {
                 children: [
                     new TableCell({
                         children: [leftCell(data?.left, formData)],
-                        width: { size: 55, type: WidthType.PERCENTAGE },
+                        width: { size: 50, type: WidthType.PERCENTAGE },
                     }),
                     new TableCell({
                         children: rightCell(data?.right, formData),
-                        width: { size: 45, type: WidthType.PERCENTAGE },
+                        width: { size: 50, type: WidthType.PERCENTAGE },
                     }),
                 ],
             }),

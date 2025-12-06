@@ -25,7 +25,8 @@ export const InfoTable = (formData) => {
         {
             singleRow: true,
             label: "Name of the Counsel & Code:",
-            value: formData?.counsel_code || "«counsel_code»",
+            // value: formData?.counsel_code || "«counsel_code»",
+            value: "9377",
         },
     ];
     const tableRows = infoRows.map((row) => {

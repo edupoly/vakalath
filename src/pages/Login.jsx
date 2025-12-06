@@ -86,9 +86,9 @@ const Login = () => {
           {loginForm.touched.password && loginForm.errors.password && (
             <div className="text-danger mt-1 mb-2">{loginForm.errors.password}</div>
           )}
-          <button type="submit" className="login-btn btn w-100 text-white btn-primary">Login</button>
+          <button type="submit" className="login-btn btn w-100 text-white btn-primary mt-3">Login</button>
         </form>
-        <div className="mt-3 text-center">
+        <div className="mt-2 text-center">
           <span>Are you a new user? </span>
           <Link to="/signup" className="text-primary text-decoration-none">Signup</Link>
         </div>

@@ -125,7 +125,7 @@ export const paragraphStyles1 = {
     rightLane: { alignment: AlignmentType.RIGHT }
 };
 export const createParagraph = (text, options = {}) => {
-    const textRunOptions = { text: text, ...options, font: options.font || "Tahoma", size: options.size || 24 };
+    const textRunOptions = { text: text, ...options, font: "Calibri (Body)", size: options.size || 25,allCaps:options?.allCaps || false };
 
     return new Paragraph({
         children: [new TextRun(textRunOptions)],
@@ -272,11 +272,17 @@ export const templateProperties = {
             height: 16839,  // A4 height (29.7 cm)
         },
         margin: {
-            top: 1440,      // 1 inch
-            right: 1440,    // 1 inch
-            bottom: 1440,   // 1 inch
-            left: 2440,     // 1 inch
-        },
+            top: 1440,     // 2.54 cm
+            bottom: 1440,  // 2.54 cm
+            left: 1080,    // 1.91 cm
+            right: 1080,   // 1.91 cm
+        }
+        // margin: {
+        //     top: 1440,      // 1 inch
+        //     right: 1440,    // 1 inch
+        //     bottom: 1440,   // 1 inch
+        //     left: 2440,     // 1 inch
+        // },
     },
 }
 
@@ -349,3 +355,9 @@ export const caseTypeFields = [
     { label: "WP", value: "writPetition" },
     { label: "WA", value: "writAppeal" }
 ];
+
+export const formatDate = (iso) => {
+    if (!iso) return "";
+    const [y, m, d] = iso.split("-");
+    return `${d}-${m}-${y}`;
+};

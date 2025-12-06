@@ -21,6 +21,7 @@ export const combinedSections = (sectionData, formData) => {
         ...((sectionData?.header && headerTable(sectionData?.header)) || []),
         sectionData?.mainTitle && header(sectionData?.mainTitle),
         sectionData?.subTitle && header(sectionData?.subTitle),
+        ...LineSpace(1),
         ...(sectionData?.headLines ? headerWithNumbers(sectionData?.headLines) : []),
         ...BetweenSection(
             formData,

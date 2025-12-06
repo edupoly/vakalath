@@ -1,6 +1,6 @@
 export const initialValues = {
     affidavit: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         OPNO: "OP/123/2025",
         OPDATE: "2025-06-15",
@@ -15,7 +15,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Pending final disposal, grant interim relief"
     },
     amendament: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         OPNO: "OP/124/2025",
         OPDATE: "2025-07-01",
@@ -30,7 +30,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Interim protection as may be directed"
     },
     antiBail: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         OPNO: "AB/56/2025",
         OPDATE: "2025-05-12",
@@ -45,7 +45,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Stay interim bail"
     },
     appealSuit: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         OPNO: "AS/789/2025",
         OPDATE: "2025-04-10",
@@ -60,7 +60,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Grant interim stay of operation of the impugned order"
     },
     bail: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         OPNO: "B/210/2025",
         OPDATE: "2025-05-10",
@@ -85,7 +85,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Grant interim bail till next date"
     },
     ca: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         OPNO: "CA/98/2025",
         OPDATE: "2025-03-20",
@@ -107,7 +107,7 @@ export const initialValues = {
         fdate: "2025-03-22"
     },
     caveat: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         caveat_no: "CAV/456/2025",
         myear: "2025",
         wp_no: "WP(C) 789/2025",
@@ -123,7 +123,7 @@ export const initialValues = {
         district: "Hyderabad"
     },
     centralExciseAppeal: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         CEA_No: "CEA/2025/34",
         myear: "2025",
         order_in_original_no: "OIO/45/2024",
@@ -145,7 +145,7 @@ export const initialValues = {
         OPDATE: "2025-01-10"
     },
     cma: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         CMA_No: "CMA/321/2025",
         myear: "2025",
         lowercourt: "Family Court, Hyderabad",
@@ -171,7 +171,7 @@ export const initialValues = {
         running_index: ["1", "2"]
     },
     civilRevisionPetition: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         lowercourt: "Civil Judge Court, Hyderabad",
         OPNO: "CRP/44/2025",
         OPDATE: "2025-07-18",
@@ -195,7 +195,7 @@ export const initialValues = {
         IA_PRAYER: "Grant urgent IA"
     },
     companyPetition: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         lowercourt: "Company Bench, Hyderabad",
         CP_NO: "CP/11/2025",
         myear: "2025",
@@ -221,7 +221,7 @@ export const initialValues = {
         IA_PRAYER: "Appointment of provisional liquidator"
     },
     compromiseHc: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         ia_no: "IA/77/2025",
         crlp_no: "CRLP/21/2025",
         myear: "2025",
@@ -236,7 +236,7 @@ export const initialValues = {
         running_index: "1"
     },
     contemptCase: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         cc_no: "CC/12/2025",
         myear: "2025",
         OPNO: "OP/555/2025",
@@ -252,7 +252,7 @@ export const initialValues = {
         running_index: "1"
     },
     counter: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         OPDATE: "2025-06-01",
         OPNO: "CTR/09/2025",
@@ -265,7 +265,7 @@ export const initialValues = {
         DISTRICT: "Hyderabad"
     },
     criminalAppeal: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "CRL.A/88/2025",
         lowercourt: "Sessions Court, Hyderabad",
         myear: "2025",
@@ -283,7 +283,7 @@ export const initialValues = {
         verification: "Verified at Hyderabad"
     },
     criminalRevisionCase: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "CRR/33/2025",
         lowercourt: "Sessions Court, Hyderabad",
         myear: "2025",
@@ -301,7 +301,7 @@ export const initialValues = {
         verification: "Verified in Hyderabad"
     },
     criminalRevisionCaseMacma: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "CRR-M/12/2025",
         lowercourt: "MACMA Bench, Hyderabad",
         myear: "2025",
@@ -319,7 +319,7 @@ export const initialValues = {
         verification: "Verified at Hyderabad"
     },
     crossObjections: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "CO/45/2025",
         lowercourt: "Arbitration Tribunal, Hyderabad",
         myear: "2025",
@@ -345,7 +345,7 @@ export const initialValues = {
         verification: "Verified at Hyderabad"
     },
     delayInRepresentation: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "DLR/05/2025",
         lowercourt: "District Court, Hyderabad",
         myear: "2025",
@@ -357,7 +357,7 @@ export const initialValues = {
         verification: "Verified at Hyderabad"
     },
     dispense: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "DSP/02/2025",
         lowercourt: "District Court, Hyderabad",
         myear: "2025",
@@ -369,7 +369,7 @@ export const initialValues = {
         verification: "Verified at Hyderabad"
     },
     expedite: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "EXP/14/2025",
         lowercourt: "Civil Court, Hyderabad",
         myear: "2025",
@@ -382,7 +382,7 @@ export const initialValues = {
         verification: "Verified at Hyderabad"
     },
     extension: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "EXT/06/2025",
         lowercourt: "Family Court, Hyderabad",
         myear: "2025",
@@ -395,7 +395,7 @@ export const initialValues = {
         verification: "Verified at Hyderabad"
     },
     familyCourtsAppeal: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "FCA/09/2025",
         lowercourt: "Family Court, Hyderabad",
         myear: "2025",
@@ -413,7 +413,7 @@ export const initialValues = {
         MAIN_PRAYER: "Allow appeal and modify order"
     },
     forbeing: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         lowercourt: "Civil Court, Hyderabad",
         myear: "2025",
         place: "Hyderabad",
@@ -424,7 +424,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Interim relief as may be necessary"
     },
     implead: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-11-05",
@@ -453,7 +453,7 @@ export const initialValues = {
         MAIN_PRAYER: "Set aside assessment"
     },
     leave: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-01-10",
@@ -467,7 +467,7 @@ export const initialValues = {
         lowercourt: "District Court, Hyderabad"
     },
     lrPetPet: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-02-01",
@@ -481,7 +481,7 @@ export const initialValues = {
         lowercourt: "Lower Court, Hyderabad"
     },
     lrPreTreps: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-03-01",
@@ -495,14 +495,14 @@ export const initialValues = {
         lowercourt: "Civil Judge, Hyderabad"
     },
     memoForProofOfService: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-04-10",
         DISTRICT: "Hyderabad"
     },
     civilMiscAppealMemorandum: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "CMA/123/2025",
         lowercourt: "District Court, Hyderabad",
         myear: 2025,
@@ -518,7 +518,7 @@ export const initialValues = {
         R25: "BCETG-2025-001"
     },
     transferCriminalPetition: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "TCP/13/2025",
         lowercourt: "Sessions Court, Hyderabad",
         myear: "2025",
@@ -533,7 +533,7 @@ export const initialValues = {
         MAIN_PRAYER: "Transfer petition allowed"
     },
     transferMiscPetition: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "TMP/08/2025",
         lowercourt: "Civil Court, Hyderabad",
         myear: "2025",
@@ -548,7 +548,7 @@ export const initialValues = {
         MAIN_PRAYER: "Transfer as prayed"
     },
     originalSideAppeal: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "OSA/66/2025",
         lowercourt: "Original Side, Hyderabad",
         myear: "2025",
@@ -566,7 +566,7 @@ export const initialValues = {
         MAIN_PRAYER: "Allow appeal on merits"
     },
     pil: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "PIL/03/2025",
         lowercourt: "N/A",
         myear: "2025",
@@ -584,7 +584,7 @@ export const initialValues = {
         MAIN_PRAYER: "Relief in public interest"
     },
     quash: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "Q/44/2025",
         lowercourt: "Magistrate Court, Hyderabad",
         myear: "2025",
@@ -600,7 +600,7 @@ export const initialValues = {
         R25: "Applicable"
     },
     receiveAndTransmit: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "RT/19/2025",
         lowercourt: "District Court, Hyderabad",
         myear: "2025",
@@ -618,7 +618,7 @@ export const initialValues = {
         MAIN_PRAYER: "Transmit record for hearing"
     },
     reviewPetition: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "RVW/02/2025",
         lowercourt: "High Court Bench, Hyderabad",
         myear: "2025",
@@ -632,7 +632,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Stay until review is heard"
     },
     secondAppeal: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "SA/77/2025",
         lowercourt: "District Court, Hyderabad",
         myear: "2025",
@@ -686,7 +686,7 @@ export const initialValues = {
         MAIN_PRAYER: "Set aside assessment"
     },
     vacate: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-10-01",
@@ -696,7 +696,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Vacate interim order"
     },
     vacateMacma: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-10-05",
@@ -706,7 +706,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Vacate MACMA order"
     },
     vakalath: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-01-02",
@@ -717,7 +717,7 @@ export const initialValues = {
         counsel_address: "Vakalath Chambers, High Court, Hyderabad - 500032"
     },
     writIa: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         myear: "2025",
         place: "Hyderabad",
         fdate: "2025-02-14",
@@ -726,7 +726,7 @@ export const initialValues = {
         INTERIM_PRAYER: "Interim directions as prayed"
     },
     writAppeal: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "WA/18/2025",
         lowercourt: "Original Side, Hyderabad",
         myear: "2025",
@@ -744,7 +744,7 @@ export const initialValues = {
         MAIN_PRAYER: "Allow writ appeal"
     },
     writPetition: {
-        highcourt: "High Court of Judicature at Hyderabad for the States of Telangana and Andhra Pradesh",
+        highcourt: "IN THE HIGH COURT FOR THE STATE OF TELANGANA AT HYDERABAD",
         OPNO: "WP/99/2025",
         lowercourt: "N/A",
         myear: "2025",

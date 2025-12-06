@@ -37,13 +37,13 @@ export const headerWith1Number = (lines) => {
 export const header = (head) => {
     let firstLine;
     if (head?.bold && head?.underline) {
-        firstLine = h3underlineBoldCenter(head?.text,head?.size && head?.size*2);
+        firstLine = h3underlineBoldCenter(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else if (head?.bold) {
-        firstLine = h3BoldCenter(head?.text,head?.size && head?.size*2);
+        firstLine = h3BoldCenter(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else if (head?.underline) {
-        firstLine = h3UnderlineCenter(head?.text,head?.size && head?.size*2);
+        firstLine = h3UnderlineCenter(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else {
-        firstLine = h3Center(head?.text,head?.size && head?.size*2);
+        firstLine = h3Center(head?.text,head?.size && head?.size*2,head?.allCaps);
     }
     return firstLine;
 }
@@ -51,13 +51,13 @@ export const header = (head) => {
 export const leftHeader = (head) => {
     let firstLine;
     if (head?.bold && head?.underline) {
-        firstLine = h3UnderlineBoldLeft(head?.text,head?.size && head?.size*2);
+        firstLine = h3UnderlineBoldLeft(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else if (head?.bold) {
-        firstLine = h3BoldLeft(head?.text,head?.size && head?.size*2);
+        firstLine = h3BoldLeft(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else if (head?.underline) {
-        firstLine = h3UnderlineLeft(head?.text,head?.size && head?.size*2);
+        firstLine = h3UnderlineLeft(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else {
-        firstLine = h3Left(head?.text,head?.size && head?.size*2);
+        firstLine = h3Left(head?.text,head?.size && head?.size*2,head?.allCaps);
     }
     return firstLine;
 }
@@ -65,13 +65,13 @@ export const leftHeader = (head) => {
 export const rightHeader = (head) => {
     let firstLine;
     if (head?.bold && head?.underline) {
-        firstLine = h3UnderlineBoldRight(head?.text,head?.size && head?.size*2);
+        firstLine = h3UnderlineBoldRight(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else if (head?.bold) {
-        firstLine = h3BoldRight(head?.text,head?.size && head?.size*2);
+        firstLine = h3BoldRight(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else if (head?.underline) {
-        firstLine = h3UnderlineRight(head?.text,head?.size && head?.size*2);
+        firstLine = h3UnderlineRight(head?.text,head?.size && head?.size*2,head?.allCaps);
     } else {
-        firstLine = h3Right(head?.text,head?.size && head?.size*2);
+        firstLine = h3Right(head?.text,head?.size && head?.size*2,head?.allCaps);
     }
     return firstLine;
 }

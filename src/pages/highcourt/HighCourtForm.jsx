@@ -12,7 +12,7 @@ import HighCourtModal from "./Modal";
 import { setFData } from "../../services/submitedDataSlice";
 
 function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
-    const [submitted,setSubmitted]=useState(false)
+    const [submitted, setSubmitted] = useState(false)
     const [filecase] = useFileCaseMutation();
     const [updateForm] = useEditFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
@@ -37,26 +37,19 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
             setFormData({ ...values/* , CaseType: caseType, */ });
             dispatch(setFData({ ...values/* , CaseType: caseType, */ }));
 
-            if (data?.case) {
-                updateForm({ ...values });
-            } else {
-                filecase({
-                    ...values,
-                    // FilledFrom: "highcourt",
-                    // CaseType: caseType,
-                });
-            }
+            // if (data?.case) {
+            //     updateForm({ ...values });
+            // } else {
+            //     filecase({
+            //         ...values,
+            //         // FilledFrom: "highcourt",
+            //         // CaseType: caseType,
+            //     });
+            // }
             const modal = new window.bootstrap.Modal(modalRef.current);
             modal.show();
         },
     });
-
-    const formatDate = (date) => {
-        // const rawDate = vakalathForm.values.Date;
-        if (!date) return "";
-        const parsedDate = new Date(date);
-        return isNaN(parsedDate) ? "" : parsedDate.toISOString().split("T")[0];
-    };
 
     useEffect(() => {
         document.title = "HighCourt"
@@ -87,21 +80,36 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
                     />
                     <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-3">
                         {fieldsData[caseType]?.map((field) => {
+                            const isDefaultTextField = field.name === "OPNO";
+                            const defaultPrefix = "CRL.P.No.";
+                            const handleChange = (e) => {
+                                let value = e.target.value;
+                                if (isDefaultTextField) {
+                                    if (!value.startsWith(defaultPrefix)) {
+                                        value = defaultPrefix ;
+                                    }
+                                }
+                                vakalathForm.setFieldValue(field.name, value);
+                            };
+                            let displayValue = vakalathForm.values[field.name] || "";
+                            if (isDefaultTextField && displayValue === "") {
+                                displayValue = defaultPrefix; // show default text if empty
+                            }
                             return (<FloatingInput
                                 key={field?.name}
                                 id={`${field?.name}`}
                                 name={`${field?.name}`}
                                 label={`${field?.label}`}
-                                value={vakalathForm?.values[field?.name] || ""}
+                                value={displayValue}
                                 type={`${field?.type}`}
-                                onChange={vakalathForm.handleChange}
+                                onChange={handleChange}
                             />)
                         })}
                     </div>
                     <div className="d-flex justify-content-center justify-content-md-end ">
                         <button
                             type="submit"
-                            onClick={()=>setSubmitted(true)}
+                            onClick={() => setSubmitted(true)}
                             className={`btn btn-success border border-3 border-success w-md-50 w-lg-25 ${submitted && "disabled"}`}
                         >
                             Submit
