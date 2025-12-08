@@ -27,7 +27,7 @@ const Signup = () => {
         .matches(/^[0-9]{10}$/, "Phone must be 10 digits")
         .required("Phone is required"),
       address: Yup.string()
-        .required("Phone is required"),
+        .required("Address is required"),
       // username: Yup.string()
       //   .min(2, "Username too short!")
       //   .max(50, "Username too long!")
