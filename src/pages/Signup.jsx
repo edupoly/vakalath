@@ -26,6 +26,8 @@ const Signup = () => {
       number: Yup.string()
         .matches(/^[0-9]{10}$/, "Phone must be 10 digits")
         .required("Phone is required"),
+      address: Yup.string()
+        .required("Phone is required"),
       // username: Yup.string()
       //   .min(2, "Username too short!")
       //   .max(50, "Username too long!")
@@ -77,12 +79,14 @@ const Signup = () => {
         errors.firstname ||
         errors.lastname ||
         errors.email ||
+        errors.address ||
         errors.number
       ) {
         formik.setTouched({
           firstname: true,
           lastname: true,
           email: true,
+          address: true,
           number: true,
         });
         return;
