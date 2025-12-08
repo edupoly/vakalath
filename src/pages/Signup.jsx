@@ -15,7 +15,7 @@ const Signup = () => {
       lastname: "",
       email: "",
       number: "",
-      // username: "",
+      address: "",
       password: "",
       confirmPassword: "",
     },
@@ -176,6 +176,22 @@ const Signup = () => {
               </div>
               {formik?.touched?.number && formik?.errors?.number && (
                 <div className="text-danger mt-1">{formik?.errors?.number}</div>
+              )}
+            </div>
+            <div className="col">
+              <div className="form-group">
+                <textarea
+                  className={`form-input ${formik?.touched?.address && formik?.errors?.address ? "is-invalid" : ""
+                    }`}
+                  placeholder=" "
+                  {...formik.getFieldProps("address")}
+                  rows={2}   // you can change row count
+                ></textarea>
+                <label className="form-label">Address</label>
+              </div>
+
+              {formik?.touched?.address && formik?.errors?.address && (
+                <div className="text-danger mt-1">{formik?.errors?.address}</div>
               )}
             </div>
 

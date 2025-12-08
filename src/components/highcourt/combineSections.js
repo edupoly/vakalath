@@ -23,6 +23,7 @@ export const combinedSections = (sectionData, formData) => {
         sectionData?.subTitle && header(sectionData?.subTitle),
         ...LineSpace(1),
         ...(sectionData?.headLines ? headerWithNumbers(sectionData?.headLines) : []),
+        ...LineSpace(1),
         ...BetweenSection(
             formData,
             sectionData?.betweenSection?.pet,

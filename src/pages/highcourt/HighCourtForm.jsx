@@ -34,7 +34,7 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
         initialValues: { ...selectedInitialValues },
         onSubmit: (values) => {
             console.log(values);
-            setFormData({ ...values/* , CaseType: caseType, */ });
+            setFormData({ ...values,userDetails/* , CaseType: caseType, */ });
             dispatch(setFData({ ...values/* , CaseType: caseType, */ }));
 
             if (data?.case) {

@@ -125,7 +125,7 @@ export const paragraphStyles1 = {
     rightLane: { alignment: AlignmentType.RIGHT }
 };
 export const createParagraph = (text, options = {}) => {
-    const textRunOptions = { text: text, ...options, font: "Calibri (Body)", size: options.size || 25,allCaps:options?.allCaps || false };
+    const textRunOptions = { text: text, ...options, font: "Calibri (Body)", size: options.size || 25, allCaps: options?.allCaps || false };
 
     return new Paragraph({
         children: [new TextRun(textRunOptions)],
@@ -287,7 +287,7 @@ export const templateProperties = {
 }
 
 export const caseTypeFields = [
-    { label: "AB", value: "antiBail" },
+    { label: "Anti Bail", value: "antiBail" },
     { label: "WPAFI", value: "affidavit" },
     { label: "AMENDMENT", value: "amendament" },
     { label: "BAIL", value: "bail" },
@@ -361,3 +361,9 @@ export const formatDate = (iso) => {
     const [y, m, d] = iso.split("-");
     return `${d}-${m}-${y}`;
 };
+
+export const advocateDetails = (data) => {
+    return [`M/s ${data?.firstname} ${data?.lastname}`,
+    `Office: ${data?.address}`,
+    `Mobile: ${data?.number}`,]
+}
