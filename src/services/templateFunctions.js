@@ -71,7 +71,7 @@ export const paragraphStyles = {
     emptySpace: { spacing: { line: 1000 } },
     emptySpaceSmall: { spacing: { line: 100 } },
     emptySpaceBig: { spacing: { line: 5000 } },
-    singleSpace: { spacing: { line: 200 } },
+    singleSpace: { spacing: { line: 200 },size:14 },
     leftunderlinedHeading: { alignment: AlignmentType.LEFT, bold: true, underline: { type: UnderlineType.SINGLE } },
     underlinedHeading: { alignment: AlignmentType.CENTER, bold: true, underline: { type: UnderlineType.SINGLE } },
     underlinedHeadingSmall: { alignment: AlignmentType.CENTER, bold: true, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
@@ -131,6 +131,10 @@ export const createParagraph = (text, options = {}) => {
         children: [new TextRun(textRunOptions)],
         alignment: options.alignment || AlignmentType.LEFT,
         spacing: options.spacing || { after: 200 },
+        indent: {
+            left: 0,
+            right: options?.indentRight ? options?.indentRight : 0,
+        }
     });
 };
 
@@ -268,21 +272,15 @@ export const SignatureRow = (formdata) => {
 export const templateProperties = {
     page: {
         size: {
-            width: 10478,   // 34 cm page width
-            height: 16839,  // A4 height (29.7 cm)
-        },
+    width: 11906,     // A4 width
+    height: 16838,    // A4 height
+},
         margin: {
             top: 1440,     // 2.54 cm
             bottom: 1440,  // 2.54 cm
             left: 1080,    // 1.91 cm
             right: 1080,   // 1.91 cm
         }
-        // margin: {
-        //     top: 1440,      // 1 inch
-        //     right: 1440,    // 1 inch
-        //     bottom: 1440,   // 1 inch
-        //     left: 2440,     // 1 inch
-        // },
     },
 }
 

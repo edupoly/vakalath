@@ -16,11 +16,11 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     const [filecase] = useFileCaseMutation();
     const [updateForm] = useEditFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
-        // { Name: "Rajesh Kumar", Address: "12A, Banjara Hills, Hyderabad - 500034", Age: "6" }
+        // { Name: "Kapu Narasimha, S/o Late lakshmaiah, Retired Veterinary Attendant", Address: "House No. 6-2, Ravichedu Village, Kadthal Mandal, Ranga Reddy District, Telangana", Age: "6" }
         { Name: "", Address: "", Age: "" },
     ]);
     const [respondents, setRespondents] = useState([
-        // { Name: "Ravi Verma", Address: "21B, Jubilee Hills, Hyderabad - 500033", Age: "21" }
+        // { Name: "The State of Telangana(Represented by the Inspector of Police, Kadthal Police Station, Ranga Reddy District)", Address: "Inspector of Police, Kadthal Police Station, Ranga Reddy District.", Age: "21" }
         { Name: "", Address: "", Age: "" },
     ]);
     const userDetails = useSelector((state) => state.user.userInfo);

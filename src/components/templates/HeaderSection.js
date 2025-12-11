@@ -81,8 +81,8 @@ export const headerWithNumbers = (data) => {
         const lines = row?.lines || [];
 
         return [
-            header(row?.head),
-            ...LineSpace(1),
+            ...(row?.head && [header(row?.head),
+            ...LineSpace(1)]),
             ...lines?.map((line) => h3Center(line)).flat(),
         ];
     }).flat() || [];

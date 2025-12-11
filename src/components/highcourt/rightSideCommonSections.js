@@ -8,24 +8,20 @@ import { addParagraphs } from "../templates/paragraphFunctions";
 
 const rightCell = (data, formData) => {
     return [
-        ...(data?.mainTitle ? [header(data.mainTitle), ...LineSpace(1)] : []),
-        ...(data?.subTitle ? [header(data.subTitle), ...LineSpace(1)] : []),
+        (data?.mainTitle && header(data.mainTitle)),
+        (data?.subTitle && header(data.subTitle)),
         ...(data?.headLines ? headerWithNumbers(data.headLines) : []),
         ...(data?.betweenSection?.pet ? [
-            createParagraph(formData?.Petitioners?.[0]?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
-            ...LineSpace(1),
-            createParagraph(data.betweenSection.pet, { ...paragraphStyles.rightAlignSmall, size: 22, font: "Tahoma" }),
-            ...LineSpace(1)
+            createParagraph(formData?.Petitioners?.[0]?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 },indentRight:1800 }),
+            createParagraph(data.betweenSection.pet, { ...paragraphStyles.rightAlignSmall }),
         ] : []),
         ...(data?.betweenSection?.res ? [
-            createParagraph(formData?.Respondents?.[0]?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
-            ...LineSpace(1),
-            createParagraph(data.betweenSection.res, { ...paragraphStyles.rightAlignSmall, size: 22, font: "Tahoma" }),
-            ...LineSpace(1)
+            createParagraph(formData?.Respondents?.[0]?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 } }),
+            createParagraph(data.betweenSection.res, { ...paragraphStyles.rightAlignSmall }),
         ] : []),
         ...(data?.headPara ? data.headPara.flatMap((set) => [
             ...(set?.head ? [header(set.head)] : []),
-            ...(set?.para ? addParagraphs(set.para) : [])
+            ...(set?.para ? addParagraphs(set.para,{ line: 250 }) : [])
         ]) : LineSpace(18)),
         ...(data?.middleHeader ? [header(data.middleHeader)] : []),
         ...LineSpace(data?.headPara?.length > 0 ? 5 : 15),

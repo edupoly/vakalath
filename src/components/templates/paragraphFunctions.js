@@ -3,10 +3,10 @@ import { createParagraph, paragraphStyles } from "../../services/templateFunctio
 import { h3Center } from "./elementTypes";
 
 
-export const addParagraphs = (paragraphs) => {
+export const addParagraphs = (paragraphs, style) => {
     const generatedParas = paragraphs?.flatMap((para) => {
         return [
-            createParagraph(para, paragraphStyles.paraText),
+            createParagraph(para, { ...paragraphStyles.paraText, spacing: style?.line ? style?.line : { line: 400 } }),
             createParagraph("", paragraphStyles.emptySpaceSmall),
         ]
     })
@@ -19,14 +19,14 @@ export const centeredPara = (paragraphs) => {
     })
 }
 
-export const nestedParagraph = (text1,text2, options1 = {}, options2={}) =>{
+export const nestedParagraph = (text1, text2, options1 = {}, options2 = {}) => {
     return new Paragraph({
-        children: [new TextRun({ text:text1+ ":", ...options1 }),new TextRun({text:" "+text2,...options2})],
+        children: [new TextRun({ text: text1 + ":", ...options1 }), new TextRun({ text: " " + text2, ...options2 })],
         // alignment: options1.alignment || options2.alignment || AlignmentType.LEFT,
         // spacing: options2.spacing || options2.spacing || { line: 800 },
     });
 }
 
-export const HeaderParagraph = (title,para)=>{
-    return nestedParagraph(title,para, paragraphStyles.underlinedHeadingLeft , paragraphStyles.paraText)
+export const HeaderParagraph = (title, para) => {
+    return nestedParagraph(title, para, paragraphStyles.underlinedHeadingLeft, paragraphStyles.paraText)
 }
