@@ -1,5 +1,5 @@
 import { AlignmentType, Table, TableRow, WidthType } from "docx";
-import { cell, headerCell } from "../../services/templateFunctions";
+import { cell, formatDate, headerCell } from "../../services/templateFunctions";
 import chronologicalTableData from "../../assets/chronologicalTableData.json";
 
 export const ChronologicalTable = (formData) => {
@@ -29,7 +29,7 @@ export const ChronologicalTable = (formData) => {
         (item) =>
           new TableRow({
             children: Object.keys(item).map((key) =>
-              cell(interpolate(item[key] || "", formData))
+              cell(interpolate(item[key] || "", {...formData,formatDate}))
             ),
           })
       ) || []),

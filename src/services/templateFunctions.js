@@ -71,7 +71,7 @@ export const paragraphStyles = {
     emptySpace: { spacing: { line: 1000 } },
     emptySpaceSmall: { spacing: { line: 100 } },
     emptySpaceBig: { spacing: { line: 5000 } },
-    singleSpace: { spacing: { line: 200 },size:14 },
+    singleSpace: { spacing: { line: 200 }, size: 14 },
     leftunderlinedHeading: { alignment: AlignmentType.LEFT, bold: true, underline: { type: UnderlineType.SINGLE } },
     underlinedHeading: { alignment: AlignmentType.CENTER, bold: true, underline: { type: UnderlineType.SINGLE } },
     underlinedHeadingSmall: { alignment: AlignmentType.CENTER, bold: true, underline: { type: UnderlineType.SINGLE }, spacing: { after: 0 } },
@@ -272,14 +272,14 @@ export const SignatureRow = (formdata) => {
 export const templateProperties = {
     page: {
         size: {
-    width: 11906,     // A4 width
-    height: 16838,    // A4 height
-},
+            width: 11906,     // A4 width
+            height: 16838,    // A4 height
+        },
         margin: {
             top: 1440,     // 2.54 cm
             bottom: 1440,  // 2.54 cm
-            left: 1080,    // 1.91 cm
-            right: 1080,   // 1.91 cm
+            left: 1802,    // 3.18 cm
+            right: 1802,   // 3.18 cm
         }
     },
 }

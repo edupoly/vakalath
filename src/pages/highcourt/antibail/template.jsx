@@ -1,5 +1,5 @@
 import { Document, PageBreak } from "docx";
-import { createParagraph, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
@@ -31,7 +31,7 @@ export const AntiBailTemplate = (formData) => {
                 ChronologicalTable(formData),
                 ...LineSpace(1),
                 createSignatureFooter(
-                    [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+                    [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
                     ["Counsel For Petitioner/Accused"]
                 ),
                 pageBreak(),

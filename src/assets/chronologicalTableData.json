@@ -15,14 +15,14 @@
                 "Exhibit": "",
                 "Description_of_Document": "Bail Application",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
                 "Sl_No": "2",
                 "Exhibit": "",
                 "Description_of_Document": "${OPNO}, of ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "",
                 "Page_No": "2"
             },
@@ -108,7 +108,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Bail Application",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -199,42 +199,42 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee paid Rs.",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
                 "Sl_No": "2",
                 "Description_of_Document": "Grounds",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "2"
             },
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Certified copy of the Judgment and Decree passed in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "3"
             },
             {
                 "Sl_No": "4",
                 "Description_of_Document": "Typed copy of the Judgment and Decree passed in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
                 "Sl_No": "5",
                 "Description_of_Document": "Vakalath",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
                 "Sl_No": "6",
                 "Description_of_Document": "",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -330,7 +330,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Grounds of Appeal",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -420,7 +420,7 @@
             {
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee",
-                "Date_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
                 "Date_of_filing_of_Document": "",
                 "Page_No": "1"
             },
@@ -434,14 +434,14 @@
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Certified copy of the Judgment and Decree passed in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": "3"
             },
             {
                 "Sl_No": "4",
                 "Description_of_Document": "Typed copy of Judgment and Decree passed in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": ""
             },
@@ -503,7 +503,7 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -516,14 +516,14 @@
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Certified copy of the Order and Decree in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": "3"
             },
             {
                 "Sl_No": "4",
                 "Description_of_Document": "Typed copy of the Order and Decree in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": ""
             },
@@ -587,7 +587,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Criminal Petition",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -685,13 +685,13 @@
                 "Sl_No": "2",
                 "Description_of_Document": "Affidavit",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Order in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": "2"
             },
@@ -762,7 +762,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Bail Application",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -855,14 +855,14 @@
                 "Exhibit": "",
                 "Description_of_Document": "Grounds",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
                 "Sl_No": "2",
                 "Exhibit": "",
                 "Description_of_Document": "Certified copy of the Judgment passed in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": "Filed"
             },
@@ -870,7 +870,7 @@
                 "Sl_No": "3",
                 "Exhibit": "",
                 "Description_of_Document": "Xerox copy of the Judgment passed in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": ""
             },
@@ -938,7 +938,7 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -951,7 +951,7 @@
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Judgment and Decree in ${OPNO} (Original)",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": "3"
             },
@@ -1020,7 +1020,7 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee paid Rs.",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1155,7 +1155,7 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1168,14 +1168,14 @@
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Certified copy of the Judgment and Decree passed in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": "3"
             },
             {
                 "Sl_No": "4",
                 "Description_of_Document": "Typed copy of Judgment and Decree ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": ""
             },
@@ -1239,7 +1239,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1247,7 +1247,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Grounds",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "2"
             },
             {
@@ -1255,7 +1255,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "3"
             },
             {
@@ -1263,7 +1263,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -1271,7 +1271,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -1279,7 +1279,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -1332,7 +1332,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1415,13 +1415,13 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Transfer Petition",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
                 "Sl_No": "2",
                 "Description_of_Document": "Xerox copy of the Order in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": ""
             },
@@ -1489,8 +1489,8 @@
             {
                 "Sl_No": "1",
                 "Description_of_Document": "Transfer Petition",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1559,8 +1559,8 @@
             {
                 "Sl_No": "6",
                 "Description_of_Document": "Vakalath",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             }
         ]
@@ -1579,7 +1579,7 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1599,7 +1599,7 @@
             {
                 "Sl_No": "4",
                 "Description_of_Document": "Order in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
                 "Date_of_filing_of_Document": "-do-",
                 "Page_No": ""
             },
@@ -1662,8 +1662,8 @@
                 "Sl_No": "1",
                 "Exhibit": "",
                 "Description_of_Document": "Service Certificate",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1822,8 +1822,8 @@
                 "Sl_No": "17",
                 "Exhibit": "",
                 "Description_of_Document": "Vakalath",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -1852,7 +1852,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Criminal Petition ",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -1942,8 +1942,8 @@
             {
                 "Sl_No": "1",
                 "Description_of_Document": "Affidavit and Petition",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -2005,8 +2005,8 @@
             {
                 "Sl_No": "7",
                 "Description_of_Document": "Vakalath",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -2039,21 +2039,21 @@
                 "Sl_No": "2",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Grounds",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
                 "Sl_No": "4",
                 "Description_of_Document": "Original Order in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -2107,49 +2107,49 @@
                 "Sl_No": "1",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
                 "Sl_No": "2",
                 "Description_of_Document": "Grounds",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "2"
             },
             {
                 "Sl_No": "3",
                 "Description_of_Document": "Certified copy of the Judgment and Decree in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "3"
             },
             {
                 "Sl_No": "4",
                 "Description_of_Document": "Certified copy of the Judgment and Decree in OS.No.",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "4"
             },
             {
                 "Sl_No": "5",
                 "Description_of_Document": "Typed copy of the Judgment and Decree in ${OPNO} on the file of the ${lowercourt}",
-                "Date_of_Document": "${OPDATE}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "5"
             },
             {
                 "Sl_No": "6",
                 "Description_of_Document": "Typed copy of Judgment and Decree in OS.No.",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "6"
             },
             {
                 "Sl_No": "",
                 "Description_of_Document": "Vakalath",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "7"
             },
             {
@@ -2184,7 +2184,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Bail Application",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -2285,7 +2285,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Court Fee",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -2293,15 +2293,15 @@
                 "Exhibit": "",
                 "Description_of_Document": "Grounds",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "2"
             },
             {
                 "Sl_No": "4",
                 "Exhibit": "",
                 "Description_of_Document": "Original Order in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "3"
             },
             {
@@ -2309,15 +2309,15 @@
                 "Exhibit": "",
                 "Description_of_Document": "Material Papers",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
                 "Sl_No": "6",
                 "Exhibit": "",
                 "Description_of_Document": "Order in ${OPNO}",
-                "Date_of_Document": "${OPDATE}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(OPDATE)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -2325,7 +2325,7 @@
                 "Exhibit": "",
                 "Description_of_Document": "Petition and Affidavit in ${OPNO}",
                 "Date_of_Document": "",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {
@@ -2377,8 +2377,8 @@
                 "Sl_No": "1",
                 "Exhibit": "",
                 "Description_of_Document": "Service Certificate",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": "1"
             },
             {
@@ -2521,8 +2521,8 @@
                 "Sl_No": "17",
                 "Exhibit": "",
                 "Description_of_Document": "Vakalath",
-                "Date_of_Document": "${fdate}",
-                "Date_of_filing_of_Document": "${fdate}",
+                "Date_of_Document": "${formatDate(fdate)}",
+                "Date_of_filing_of_Document": "${formatDate(fdate)}",
                 "Page_No": ""
             },
             {

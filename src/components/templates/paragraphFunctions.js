@@ -6,7 +6,7 @@ import { h3Center } from "./elementTypes";
 export const addParagraphs = (paragraphs, style) => {
     const generatedParas = paragraphs?.flatMap((para) => {
         return [
-            createParagraph(para, { ...paragraphStyles.paraText, spacing: style?.line ? style?.line : { line: 400 } }),
+            createParagraph(para, { ...paragraphStyles.paraText, spacing: style?.line ? style?.line : { line: 300 } }),
             createParagraph("", paragraphStyles.emptySpaceSmall),
         ]
     })

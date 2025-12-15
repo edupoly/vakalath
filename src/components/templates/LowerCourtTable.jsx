@@ -1,5 +1,5 @@
 import { Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType, Columns, } from "docx";
-import { cell, createParagraph, headerCell, paragraphStyles } from "../../services/templateFunctions";
+import { cell, createParagraph, formatDate, headerCell, paragraphStyles } from "../../services/templateFunctions";
 import { h3BoldCenter } from "./elementTypes";
 
 export const LowerCourtTable = (formData) => {
@@ -21,7 +21,7 @@ export const LowerCourtTable = (formData) => {
                 new TableRow({
                     children: [
                         cell(formData?.OPNO || "«OPNO»", { alignment: AlignmentType.CENTER,colSpan:3 }),
-                        cell(formData?.OPDATE || "«OPDATE»", { alignment: AlignmentType.CENTER }),
+                        cell(formatDate(formData?.OPDATE) || "«OPDATE»", { alignment: AlignmentType.CENTER }),
                         cell(formData?.lowercourt || "«lowercourt»", { alignment: AlignmentType.CENTER }),
                     ],
                 }),
