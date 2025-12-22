@@ -1,16 +1,16 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// const API_BASE_URL =
-//   import.meta.env.MODE === "development"
-//     ? "http://localhost:4500"
-//     : window.location.origin;
+const API_BASE_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:4500"
+    : window.location.origin;
     
 // Define a service using a base URL and expected endpoints
 export const caseDetailsApi = createApi({
   reducerPath: "caseDetailsApi",
-    // baseQuery: fetchBaseQuery({ baseUrl: `${API_BASE_URL}/api/cases` }),
-  baseQuery: fetchBaseQuery({ baseUrl: "https://vakalath-backend-production.up.railway.app/api/cases" }),
+    baseQuery: fetchBaseQuery({ baseUrl: `${API_BASE_URL}/api/cases` }),
+  // baseQuery: fetchBaseQuery({ baseUrl: "https://vakalath-backend-production.up.railway.app/api/cases" }),
   endpoints: (builder) => ({
     getAllCasesById: builder.query({
       query: (id) => `/getAllCasesById/${id}`,
