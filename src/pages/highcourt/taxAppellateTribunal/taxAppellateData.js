@@ -9,7 +9,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
     "sec-260A": {
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.T.T.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `AGAINST`,
@@ -45,7 +45,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
             lines: [],
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `ITTA.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `AGAINST`,
@@ -71,7 +71,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
     "affidavit": {
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             ` IN`,
@@ -90,12 +90,12 @@ export const taxAppellateTribunalSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+            )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
             `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
             `2.	I submit that `,
             `${tabSpace(
               1
-            )}I, ${formData?.verification || "«verification»"}, now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
+            )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
           ],
         },
       ],
@@ -116,7 +116,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
       subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -154,7 +154,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
             lines: [],
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `I.A.No${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,
@@ -182,7 +182,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
     "I.I.T.A.NO": {
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -279,7 +279,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
             lines: ["RESPONDENT"]
           },
           {
-            head: { text: `By ${formData?.counsel_code || "«counsel_code»"}` },
+            head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)` },
             lines: []
           }
         ],

@@ -6,7 +6,7 @@ export const IMPLEADSections = (key, formData) => {
         "page1": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [`W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`]
                 }
             ],
@@ -18,7 +18,7 @@ export const IMPLEADSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT FILED BY IMPLEAD / PROPOSED  RESPONDENT No.", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.   I submit that I am the Proposed Respondent No.___ and Implead Petitioner and I am the _________ and as such I am well acquainted with the facts of the case.`,
                         `2.   I submit that this affidavit may be read as affidavit filed in support of the implead petition and also this may be read as counter affidavit in this writ petition.`,
                         `3.   I read the petitioner's affidavit filed in support of writ petition. I submit that it does not disclose any valid or substantial grounds to issue any relief as prayed for. The petitioner is put to strict proof of the allegations which are denied, except to the extent of specifically admitted hereunder. The petitioner has not approached with clean hands. I submit that the writ petition is not maintainable and the same is liable to be dismissed.`,
@@ -44,7 +44,7 @@ export const IMPLEADSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC.16(A) OF WRIT RULES)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -61,7 +61,7 @@ export const IMPLEADSections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -84,7 +84,7 @@ export const IMPLEADSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 151 OF THE C.P.C.)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -118,7 +118,7 @@ export const IMPLEADSections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -162,7 +162,7 @@ export const IMPLEADSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -215,7 +215,7 @@ export const IMPLEADSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

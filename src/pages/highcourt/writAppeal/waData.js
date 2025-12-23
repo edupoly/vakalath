@@ -8,7 +8,7 @@ export const writAppealSections =(key,formData) => {
     subTitle: { text: "(UNDER CLAUSE 15 OF LETTER PATENT)" },
     headLines: [
       {
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `WRIT APPEAL No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `AGAINST`,
@@ -77,7 +77,7 @@ export const writAppealSections =(key,formData) => {
         para: [
           `${tabSpace(
             1
-          )} I, ${formData?.verification || "«verification»"},  now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
+          )} I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"},  now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
           "1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.",
           "2.   I submit that",
           "3.",
@@ -103,7 +103,7 @@ export const writAppealSections =(key,formData) => {
     subTitle:["(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)"],
     headLines: [
       {
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -136,7 +136,7 @@ export const writAppealSections =(key,formData) => {
   "sec-151-2nd":{
     headLines: [
       {
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -187,7 +187,7 @@ export const writAppealSections =(key,formData) => {
         para: [
           `${tabSpace(
             1
-          )}I ${formData?.counsel_address || "«counsel_address»"} hereby declare that I have been duly entrusted and engaged by ${formData?.verification || "«verification»"}, Person interested to file the present writ appeal on behalf of the Appellant/Petitioner.`,
+          )}I ${formData?.counsel_address || "«counsel_address»"} hereby declare that I have been duly entrusted and engaged by ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, Person interested to file the present writ appeal on behalf of the Appellant/Petitioner.`,
            `${tabSpace(
             1
           )}Kindly enter my case as Counsel for the Appellant/Petitioner in the above case.`,

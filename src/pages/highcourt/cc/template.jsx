@@ -24,7 +24,7 @@ export const ContemptAffidavitTemplate = (formData) => {
 
           createParagraph("A F F I D A V I T", paragraphStyles.centerTextBig),
 
-          createParagraph(`I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`, paragraphStyles.paraText),
+          createParagraph(`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`, paragraphStyles.paraText),
 
           createParagraph("1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.", paragraphStyles.paraText),
 
@@ -58,7 +58,7 @@ export const ContemptAffidavitTemplate = (formData) => {
 
           // Verification section
           createParagraph("VERIFICATION STATEMENT", paragraphStyles.centerTextBig),
-          createParagraph(`I, ${formData?.verification || "«verification»"}, being the petitioner/person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.`, paragraphStyles.paraText),
+          createParagraph(`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.`, paragraphStyles.paraText),
           createParagraph(`Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`, paragraphStyles.paraText),
 
           createParagraph("", paragraphStyles.centerText), // Empty line for spacing

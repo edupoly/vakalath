@@ -19,7 +19,7 @@ export const EXPEDITETemplate = (formData) => {
                     h3Center(`ADVOCATE :: ${formData?.place || "«place»"}`),
                     ...LineSpace(1),
                     h3underlineBoldCenter("VERIFICATION STATEMENT"),
-                    ...addParagraphs([`${tabSpace(1)}I, ${formData?.verification || "«verification»"}, being the petitioner/ person acquainted with the facts, do hereby verify that the above contents of the paras are true to best of my knowledge and belief. Hence verified.`]),
+                    ...addParagraphs([`${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts, do hereby verify that the above contents of the paras are true to best of my knowledge and belief. Hence verified.`]),
                     ...LineSpace(1),
                     h3Left(`Verified at ${formData?.place || "«place»"} on this`),
                     h3Left(`the day of ${formData?.fdate || "«fdate»"}`),

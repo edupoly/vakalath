@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { appealSuitSections } from "./asData";
 
@@ -28,8 +28,8 @@ export const AppealSuitTemplate = (formData) => {
                     pageBreak(),
                     h3underlineBoldCenter("VERIFICATION STATEMENT"),
                     ...LineSpace(1),
-                    h3Left(`${tabSpace(1)}I, ${formData?.verification || "«verification»"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`),
-                    createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formData?.fdate || "«fdate»"}`],
+                    h3Left(`${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`),
+                    createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formatDate(formData?.fdate) || "«fdate»"}`],
                         ["Deponent"],
                     ),
                     pageBreak(),
@@ -64,7 +64,7 @@ export const AppealSuitTemplate = (formData) => {
                     ChronologicalTable(formData),
                     ...LineSpace(1),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                         [
@@ -74,10 +74,10 @@ export const AppealSuitTemplate = (formData) => {
                     pageBreak(),
                     h3underlineBoldCenter("BATTA FORM"),
                     ...formData?.Respondents?.map((res) => [
-                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 } }),
                         createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
                     ]).flat(),
-                     createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                     createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                         ["Counsel for the Petitioner(s)."],
                     ),
 
@@ -85,10 +85,10 @@ export const AppealSuitTemplate = (formData) => {
                     ...LineSpace(10),
                     h3underlineBoldCenter("BATTA FORM"),
                     ...formData?.Respondents?.map((res) => [
-                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 }, size: 22, font: "Tahoma" }),
+                        createParagraph(res?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 } }),
                         createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
                     ]).flat(),
-                    createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                         ["Counsel for the Petitioner(s)."],
                     ),
                     pageBreak(),

@@ -7,7 +7,7 @@ export const WtaSections = (key, formData) => {
       subTitle: { text: "" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `W.T.T.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `AGAINST`,
@@ -96,7 +96,7 @@ export const WtaSections = (key, formData) => {
       subTitle: { text: "" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -115,7 +115,7 @@ export const WtaSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )} I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+            )} I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
             `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
             `2.   I submit that`,
             ` It is therefore prayed that this Hon'ble Court may be Pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
@@ -139,7 +139,7 @@ export const WtaSections = (key, formData) => {
       subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)   " },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -234,7 +234,7 @@ export const WtaSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -264,7 +264,7 @@ export const WtaSections = (key, formData) => {
       subTitle: { text: "" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"} ${tabSpace(2)}IN${tabSpace(2)} W.T.T.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `AGAINST`,
@@ -342,7 +342,7 @@ export const WtaSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`,
+              text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true
             },
             para: []

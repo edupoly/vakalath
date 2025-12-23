@@ -47,7 +47,7 @@ export const EXTENSIONSections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.DISTRICT || "«district»"} :: District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -88,7 +88,7 @@ export const EXTENSIONSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

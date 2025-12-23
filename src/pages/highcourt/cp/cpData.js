@@ -6,7 +6,7 @@ export const CPSections = (key, formData) => {
         "page1": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `(ORIGINAL JURISDICTION)`,
                         `IN THE MATTER OF THE COMPANIES ACT, 1956 AND`
@@ -25,7 +25,7 @@ export const CPSections = (key, formData) => {
                 {
                     head: { text: "VERIFYING AFFIDAVIT", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows`,
                         `1.   I am the ______________ Manager of the Petitioner herein and as such I am well acquainted with the facts of the case and I swear to the contents of this affidavit.`,
                         `2.   Contents stated in the accompanying company petition are true and correct to the best of my knowledge and belief and I believe them to be true.`,
                         `3.   The material papers filed in support of the company petition are originals/true copies of the originals.`
@@ -47,7 +47,7 @@ export const CPSections = (key, formData) => {
         "page2": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `(ORIGINAL JURISDICTION)`,
                         `IN THE MATTER OF THE COMPANIES ACT, 1956 AND`
@@ -95,7 +95,7 @@ export const CPSections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.district || "«district»"} District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `C.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                     ]
@@ -113,7 +113,7 @@ export const CPSections = (key, formData) => {
         "page3": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `(ORIGINAL JURISDICTION)`,
                         `IN THE MATTER OF THE COMPANIES ACT, 1956 AND`
@@ -136,7 +136,7 @@ export const CPSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows:`,
                         `1.   I state that I am the ____________ of the applicant Company herein who is the petitioner in the accompanying company petition and as such I am well acquainted with the facts of the case and I am authorized to depose to this affidavit.`,
                         `2.   I submit that the applicant/petitioner company has filed the above Company Petition under sections 433, 434 and 439 of the Companies Act 1956 for winding up of the Respondent Company.  The same may be read as part and parcel of this affidavit.`,
                         `${tabSpace(1)}For the facts and reasons stated above, it is prayed that this Hon'ble Court may be pleased to ${formData?.interim_prayer || "«interim_prayer»"}`,
@@ -158,7 +158,7 @@ export const CPSections = (key, formData) => {
         "page4": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `(ORIGINAL JURISDICTION)`,
                         `IN THE MATTER OF THE COMPANIES ACT, 1956 AND`
@@ -202,7 +202,7 @@ export const CPSections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.district || "«district»"} District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `COMPANY APPL. No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,

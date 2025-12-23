@@ -1,6 +1,6 @@
 import { Document, Packer, Paragraph, TextRun, AlignmentType, UnderlineType } from "docx";
 import { saveAs } from "file-saver";
-import { createParagraph, paragraphStyles, SignatureRow, templateProperties } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles, SignatureRow, templateProperties } from "../../../services/templateFunctions";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
 import { OfficeUseTable } from "../../../components/templates/officeUseTable";
@@ -14,8 +14,6 @@ import { createSignatureFooter } from "../../../components/templates/FooterSecti
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
 
 export const BailTemplate = (formData) => {
-  console.log("kaka", formData);
-
   return new Document({
     sections: [
       {
@@ -25,10 +23,10 @@ export const BailTemplate = (formData) => {
           pageBreak(),
           h3UnderlineCenter("VERIFICATION"),
           ...LineSpace(1),
-          h3Left(`${tabSpace(1)}I, ${formData?.verification || "«verification»"}, do  hereby  verify  that  I  am  the brother/wife/father of the petitioner/Accused and duly authorized / instructed by Accused   who is now lodged in __________Jail,  relating to ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} to appoint ${formData?.counsel_address || "«counsel_address»"} to act on his/her behalf and to defend them in the above case and no other person has been instructed to appoint any Advocate.`),
+          h3Left(`${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, do  hereby  verify  that  I  am  the brother/wife/father of the petitioner/Accused and duly authorized / instructed by Accused   who is now lodged in __________Jail,  relating to ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} to appoint ${formData?.counsel_address || "«counsel_address»"} to act on his/her behalf and to defend them in the above case and no other person has been instructed to appoint any Advocate.`),
           h3Left(`${tabSpace(1)} I also verify that this is the Bail Petition, no similar petition is filed or pending before any court of law, including the Higher courts of law.`),
           ...LineSpace(3),
-          createSignatureFooter([`${formData?.place || "«place»"}  `, `Date: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}  `, `Date: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Signature of Person Interested"],
           ),
           ...LineSpace(3),
@@ -49,7 +47,9 @@ export const BailTemplate = (formData) => {
           createParagraph("CHRONOLOGICAL / RUNNING INDEX", paragraphStyles.centerHeading),
           ChronologicalTable(formData),
           ...LineSpace(1),
-          SignatureRow(formData),
+          createSignatureFooter([`Date: ${formatDate(formData?.fdate) || "______________"}`,`${formData?.place || "______________"}`],
+            [`Counsel for the Petitioner`],
+          ),
           pageBreak(),
           createParagraph(formData?.highcourt || "__________", paragraphStyles.centerHeading),
           createParagraph("Basic Information", paragraphStyles.centerHeading),

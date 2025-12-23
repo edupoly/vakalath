@@ -149,7 +149,7 @@ export const getPetitionersParagraphs = (petitioners = []) => {
 
 export const generateAndDownloadDocx = (formData) => {
     const doc = caseTypeTemplates[formData?.CaseType](formData);
-    Packer.toBlob(doc).then((blob) => saveAs(blob, `${formData?.CaseType}.docx`));
+    Packer.toBlob(doc).then((blob) => saveAs(blob, `${formData?.CaseType}.doc`));
 };
 
 const margins = {
@@ -285,7 +285,7 @@ export const templateProperties = {
 }
 
 export const caseTypeFields = [
-    { label: "Anti Bail", value: "antiBail" },
+    { label: "Anticipatory  Bail", value: "antiBail" },
     { label: "WPAFI", value: "affidavit" },
     { label: "AMENDMENT", value: "amendament" },
     { label: "BAIL", value: "bail" },
@@ -364,4 +364,56 @@ export const advocateDetails = (data) => {
     return [`M/s ${data?.firstname} ${data?.lastname}`,
     `Office: ${data?.address}`,
     `Mobile: ${data?.number}`,]
+}
+
+export const templateOpno = {
+    antiBail: "CRL.P.No.",
+    affidavit: "W.P.NO.",
+    amendament: "W.P.NO.",
+    bail: "CRL.P.NO.",
+    appealSuit: "A.S.No.",
+    ca: "O.S.No.",
+    caveat: "",
+    centralExciseAppeal: "",
+    cma: "",
+    civilRevisionPetition: "",
+    crpSecond: "",
+    companyPetition: "",
+    compromiseHc: "",
+    contemptCase: "",
+    counter: "",
+    criminalAppeal: "",
+    criminalRevisionCase: "",
+    criminalRevisionCaseMacma: "",
+    crossObjections: "",
+    debtsRecoveryTribunal: "",
+    delayInRepresentation: "",
+    dispense: "",
+    expedite: "",
+    extension: "",
+    familyCourtsAppeal: "",
+    forbeing: "",
+    implead: "",
+    incomeTaxAppellateTribunal: "",
+    taxAppellateTribunal: "",
+    leave: "",
+    lrPetPet: "",
+    lrPreTreps: "",
+    memoForProofOfService: "",
+    civilMiscAppealMemorandum: "",
+    transferCriminalPetition: "",
+    transferMiscPetition: "",
+    originalSideAppeal: "",
+    pil: "",
+    quash: "",
+    receiveAndTransmit: "",
+    reviewPetition: "",
+    secondAppeal: "",
+    stateConsumerRedressalCommission: "",
+    vacateMacma: "",
+    vacate: "",
+    vakalath: "",
+    writIa: "",
+    writPetition: "",
+    writAppeal: "",
 }

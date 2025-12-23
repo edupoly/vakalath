@@ -7,7 +7,7 @@ export const reviewSections = (key, formData) => {
       subTitle: { text: "(UNDER SECTION 114 OF CIVIL PROCEDURE CODE)" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `REVIEW PETITION No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `AGAINST`,
@@ -87,7 +87,7 @@ export const reviewSections = (key, formData) => {
       subTitle: { text: "" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `Review I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -108,7 +108,7 @@ export const reviewSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )} I, ${formData?.verification || "«verification»"},  now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
+            )} I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"},  now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
             `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
             `2.   I submit that`,
             `3.`,
@@ -131,7 +131,7 @@ export const reviewSections = (key, formData) => {
       subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `Review I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -222,7 +222,7 @@ export const reviewSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -278,7 +278,7 @@ export const reviewSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -334,7 +334,7 @@ export const reviewSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -362,7 +362,7 @@ export const reviewSections = (key, formData) => {
       subTitle: { text: "(UNDER SEC. 5 OF LIMITATION ACT)" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `Review I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -453,7 +453,7 @@ export const reviewSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],

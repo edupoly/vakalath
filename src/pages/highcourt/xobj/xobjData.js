@@ -8,7 +8,7 @@ export const xobjSections = (key, formData) => {
             subTitle: { text: "(Under Order-41, Rule-22 of Civil Procedure Code)" },
 
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `CROSS OBJECTIONS No.      OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -60,7 +60,7 @@ export const xobjSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `Cross Objections No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -86,7 +86,7 @@ export const xobjSections = (key, formData) => {
         },
         "affidavit": {
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `I.A.No.          OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -105,7 +105,7 @@ export const xobjSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2.   I submit that ________`,
                         `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
@@ -126,7 +126,7 @@ export const xobjSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
 
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `I.A.No.          OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -161,7 +161,7 @@ export const xobjSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(12)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -187,7 +187,7 @@ export const xobjSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 5 OF LIMITATION ACT)" },
 
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `I.A.No.          OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -222,7 +222,7 @@ export const xobjSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(5)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -266,7 +266,7 @@ export const xobjSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -312,7 +312,7 @@ export const xobjSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -397,7 +397,7 @@ export const xobjSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}` },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)` },
                         lines: [
                             `Advocate`
                         ]

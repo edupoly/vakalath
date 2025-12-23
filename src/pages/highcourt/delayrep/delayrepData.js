@@ -6,7 +6,7 @@ export const DELAYREPSections = (key, formData) => {
         "151(1)": {
             subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `M.P.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                     "IN",
@@ -40,7 +40,7 @@ export const DELAYREPSections = (key, formData) => {
             right:{
                 subTitle: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `M.P.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         "IN",

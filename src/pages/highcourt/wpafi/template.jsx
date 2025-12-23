@@ -6,6 +6,8 @@ import { h3underlineBoldCenter, LineSpace, pageBreak, tabSpace } from "../../../
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { WPAFISections } from "./wpafiData";
 import { combinedSections } from "../../../components/highcourt/combineSections";
+import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
+import { ABSections } from "../antibail/antiBail";
 
 export const WPAffidavitTemplate = (formData) => {
     console.log(formData);
@@ -29,6 +31,8 @@ export const WPAffidavitTemplate = (formData) => {
                         paragraphStyles1.paragraph
                     ),
                     createSignatureFooter(["Advocate",], ["Deponent"]),
+                    pageBreak(),
+                    pageTable(WPAFISections("sidePage1", formData), formData),
                 ],
             },
         ],

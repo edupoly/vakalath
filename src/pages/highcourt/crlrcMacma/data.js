@@ -83,7 +83,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `M.A.C.M.A. No.${tabSpace(14)}OF ${formData?.myear || "«myear»"}`,
                         ]
@@ -107,7 +107,7 @@ export const CRLRCMacmaSections = (key, formData) => {
         },
         "affidavit": {
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `I.A. No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                     "IN",
@@ -121,7 +121,7 @@ export const CRLRCMacmaSections = (key, formData) => {
             headPara: [{
                 head: { text: "AFFIDAVIT FILED BY THE PETITIONER/APPELLANT" },
                 para: [
-                    `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                    `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                     "2. That",
                     `3. The petitioner herein aggrieved by the order dated ${formData?.OPDATE || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"} on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"} is filing the main appeal.`,
                     `4. It is submitted that in the above case the tribunal had passed an erroneous order-awarding sum of Rs. ${formData?.awardAmount || "________"} /- in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"}, ${formData?.district || "«DISTRICT»"} District, without any basis together with interest @ ${formData?.interest || "___"} % per annum from the date of ${formData?.interestStartDate || "________"} till the date of payment with costs.`,
@@ -148,7 +148,7 @@ export const CRLRCMacmaSections = (key, formData) => {
             subTitle: { text: "UNDER SEC. 151 OF CIVIL PROCEDURE CODE" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -183,7 +183,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(9)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -207,7 +207,7 @@ export const CRLRCMacmaSections = (key, formData) => {
             mainTitle: { text: "PETITION FILED UNDER SECTION 5 OF LIMITATION ACT" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A. No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -242,7 +242,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.No.${tabSpace(6)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -269,7 +269,7 @@ export const CRLRCMacmaSections = (key, formData) => {
         "notice": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -326,7 +326,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -370,7 +370,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

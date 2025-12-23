@@ -79,7 +79,7 @@ export const fcaSections = (key, formData) => {
                         "lines": []
                     },
                     {
-                        "head": { text: `${formData?.highcourt || "«highcourt»"}` },
+                        "head": { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         "lines": []
                     },
                     {
@@ -112,7 +112,7 @@ export const fcaSections = (key, formData) => {
         },
         "affidavit": {
             "mainTitle": {
-                text: `${formData?.highcourt || "«highcourt»"}`
+                text: `${formData?.highcourt || "«highcourt»"}`,bold:true
             },
 
             "caseInfo": [
@@ -130,7 +130,7 @@ export const fcaSections = (key, formData) => {
                 {
                     head: { text: "A F F I D A V I T", bold: true, underline: true },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows:`,
                         "1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.",
                         "2. I submit that",
                         "",
@@ -153,7 +153,7 @@ export const fcaSections = (key, formData) => {
                 {
                     head: { text: "VERIFICATION STATEMENT", underline: true },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`,
                         "Deponent"
                     ]
                 }
@@ -165,7 +165,7 @@ export const fcaSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -208,7 +208,7 @@ export const fcaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -339,7 +339,7 @@ export const fcaSections = (key, formData) => {
         "151_notice": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"} IN F.C.A.NO. OF ${formData?.myear || "«myear»"}`,
                         `AGAINST`,

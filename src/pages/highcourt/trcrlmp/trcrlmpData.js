@@ -6,7 +6,7 @@ export const trcrlmpSections = (key, formData) => {
         "affidavit": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `TR.CRL.P.No. ${formData?.TRCRLNo || "«TRCRLNo»"} OF ${formData?.myear || "«myear»"}`,
                         `Against`,
@@ -23,7 +23,7 @@ export const trcrlmpSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2. I submit that`,
                         `3.`,
@@ -51,7 +51,7 @@ export const trcrlmpSections = (key, formData) => {
             subTitle: { text: "(PETITION FILED UNDER SEC. 407  OF CR.P.C)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `TR.CRL.P.No. ${formData?.TRCRLNo || "«TRCRLNo»"} OF ${formData?.myear || "«myear»"}`,
                         `Against`,
@@ -125,7 +125,7 @@ export const trcrlmpSections = (key, formData) => {
             subTitle: { text: "(PETITION FILED UNDER SEC. 407(6) OF CR.P.C)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `TR.CRL.P.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -217,7 +217,7 @@ export const trcrlmpSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -265,7 +265,7 @@ export const trcrlmpSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

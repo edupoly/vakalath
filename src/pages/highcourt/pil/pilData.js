@@ -8,7 +8,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "(Rule-4(e) the High Court of Judicature at Hyderabad for the State Telangana and the State of Andhra Pradesh Public Interest Litigation Rules, 2015)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL).NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -22,7 +22,7 @@ export const pilSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         "CONTENTS OF WRIT PETITION (PIL)",
                         "I. Particulars of the cause/order against which the petition is made:",
                         "The writ petition is being filed in public interest aggrieved by the action of the Respondents in seeking ________________. The Public Interest Litigation therefore alleges violations of Statutes, Norms governing Public administration and Constitutional Court judgments in relation to such actions.",
@@ -33,7 +33,7 @@ export const pilSections = (key, formData) => {
                         "ii. A brief profile of the Petitioner is being filed herewith as Annexure P-1",
                         "2. Locus Standi: The Present Petition is being filed by way of Public Interest Litigation(PIL) and the Petitioner does not have any personal interest in the matter. This Petition is filed in the larger interest of the people. Therefore this Hon’ble court has got both territorial and pecuniary Jurisdiction to entertain the above PIL under the Public Interest Litigation Rules, 2015, since cause of action arose in the State of Telangana, which is well within the Jurisdiction of this Hon’ble court.",
                         "III. Declaration and understanding of the Petitioner:",
-                        `${formData?.verification || "«verification»"}. The Petitioner is the native of _______`,
+                        `${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}. The Petitioner is the native of _______`,
                         "The Petitioner herein declares and undertakes:",
                         "i. That the present Petition is being filed by way of a public Interest Litigation in the larger interest of the public and the Petitioner does not have any personal interest in the matter. The Petitioner is well acquainted with the facts and circumstances of the case.",
                         "ii. The entire litigation costs, including the advocate’s fee and other charges are being borne by the Petitioner from his personal expenditure.",
@@ -73,7 +73,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "In Compliance with Rule 5 of the Public Interest Litigation Rules, 2015" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL).NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -87,7 +87,7 @@ export const pilSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         "1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.",
                         `2. I state that my mail ID is ${formData?.email || "___________"}, mobile number ${formData?.mobile || "__________"}, Aadhar number ${formData?.aadhar || "___________"}, Bank Account No. ${formData?.bank || "___________"}, PAN Number ${formData?.pan || "___________"} and my address and all particulars furnished in the above cause title is true and correct.`,
                         "3. I am herewith annexing copies of Aadhar Card, Bank Account, PAN Card towards my identity and address proof as required under Rule-5(b) of the PIL Rules, 2015.",
@@ -115,7 +115,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "Filed under Rule 6 of the Public Interest Litigation Rules, 2015" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL).NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -129,7 +129,7 @@ export const pilSections = (key, formData) => {
                 {
                     head: { text: "DECLARATION" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state on oath and declare that the writ petition (PIL) is being instituted purely in Public Interest and not at the instance of any other persons or organization other than the petitioner.`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state on oath and declare that the writ petition (PIL) is being instituted purely in Public Interest and not at the instance of any other persons or organization other than the petitioner.`,
                         `Verified at ${formData?.place || "«place»"} on this day ${formData?.fdate || "«fdate»"}`
                     ]
                 }
@@ -146,7 +146,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "Under the Public Interest Litigation Rules, 2015" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL).NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -160,7 +160,7 @@ export const pilSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2. I hereby affirm and state on oath that I have no personal interest in the above subject matter of this petition. I hereby undertake to pay exemplary costs and/or compensatory damages as directed by the court if the writ petition (PIL) is filed for extraneous/personal considerations or with an oblique motive.`
                     ]
@@ -183,7 +183,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "Under the Public Interest Litigation Rules, 2015" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL).NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -197,7 +197,7 @@ export const pilSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and declare that the questions made in the writ petition (PIL) have not been raised or agitated earlier and there are no other case(s) or petition(s) filed or that are pending before this Hon’ble Court or any other forum or court to the best of my knowledge and belief.`
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and declare that the questions made in the writ petition (PIL) have not been raised or agitated earlier and there are no other case(s) or petition(s) filed or that are pending before this Hon’ble Court or any other forum or court to the best of my knowledge and belief.`
                     ]
                 }
             ],
@@ -219,7 +219,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "In Compliance With Rule 10(a),(b),(c)&(e) of the Public Interest Litigation Rules, 2015" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL).NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -233,7 +233,7 @@ export const pilSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2. I respectfully state that I have no personal gain, private motive or oblique reason in filing the present Public Interest Litigation.`,
                         `3. I hereby undertake to pay costs as ordered by the court, if it is ultimately held that the petition is frivolous or has been filed for extraneous consideration or that it lack bona fides.`,
@@ -262,7 +262,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL).NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -276,7 +276,7 @@ export const pilSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby provide the following information in accordance with 5(a) and (b) of the Public Interest Litigation Rules, 2015.`
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby provide the following information in accordance with 5(a) and (b) of the Public Interest Litigation Rules, 2015.`
                     ]
                 }
             ],
@@ -294,7 +294,7 @@ export const pilSections = (key, formData) => {
             },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `WP(PIL). NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -333,7 +333,7 @@ export const pilSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `WP(PIL). NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                         ]
@@ -363,7 +363,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 151 OF THE C.P.C.)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A. NO. OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -399,7 +399,7 @@ export const pilSections = (key, formData) => {
             right: {
                 headLines: [
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -456,7 +456,7 @@ export const pilSections = (key, formData) => {
                 headPara: [
                     {
                         head: {
-                            text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`,
+                            text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
                             bold: true
                         },
                         para: ["COUNSEL FOR PETITIONER"]
@@ -514,7 +514,7 @@ export const pilSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -574,7 +574,7 @@ export const pilSections = (key, formData) => {
             subTitle: { text: "" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. ${formData?.IANO || "«IANO»"} OF ${formData?.myear || "«myear»"}   IN     WP(PIL). NO. ${formData?.WPILNO || "«WPILNO»"} OF ${formData?.myear || "«myear»"}`,
                     ]

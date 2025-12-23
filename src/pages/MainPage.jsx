@@ -67,30 +67,30 @@ const MainPage = ({ type, setType }) => {
                     <td>{c?.FilledFrom}</td>
                     <td>{c?.Petitioners[0] ? c?.Petitioners?.[0]?.Name : c?.PetitionerName1 ? c?.PetitionerName1 : ""}</td>
                     <td>{c?.Respondents[0] ? c?.Respondents?.[0]?.Name : c?.RespondentName1 ? c?.RespondentName1 : ""}</td>
-                    <td className="d-flex gap-2 justify-content-center">
-                      <button
-                        className="btn btn-success px-2 py-1"
-                        onClick={() => {
-                          openCase(c);
-                          setSelectedType(c?.CaseType)
-                        }}
-                      >
-                        <i className="bi bi-eye lh-1"></i>
-                      </button>
-                      <Link
-                        to={`/${c?.FilledFrom}/${c["_id"]}`}
-                        className="btn btn-info text-light px-2 py-1"
-                      >
-                        <i className="bi bi-pencil-square lh-1"></i>
-                      </Link>
-                      <button
-                        className="btn btn-danger px-2 py-1"
-                        onClick={() => {
-                          deleteCase(c["_id"]);
-                        }}
-                      >
-                        <i className="bi bi-trash3 lh-1"></i>
-                      </button>
+                    <td className="d-flex gap-2 justify-content-center align-items-center">
+                        <button 
+                          className="btn btn-success px-2 py-1"
+                          onClick={() => {
+                            openCase(c);
+                            setSelectedType(c?.CaseType)
+                          }}
+                        >
+                          <i className="bi bi-eye lh-1"></i> 
+                         </button>
+                        <Link 
+                          to={`/${c?.FilledFrom}/${c["_id"]}`}
+                          className="btn btn-info text-light px-2 py-1"
+                        >
+                          <i className="bi bi-pencil-square lh-1"></i> 
+                         </Link>
+                        <button 
+                          className="btn btn-danger px-2 py-1"
+                          onClick={() => {
+                            deleteCase(c["_id"]);
+                          }}
+                        >
+                           <i className="bi bi-trash3 lh-1"></i> 
+                         </button>
                     </td>
                   </tr>
                 }
@@ -99,7 +99,7 @@ const MainPage = ({ type, setType }) => {
           </tbody>
         </table>
       </div>
-      <HighCourtModal formData={pdfData} modalRef={modalRef} type={selectedType} />
+      {data?.cases && <HighCourtModal formData={pdfData} modalRef={modalRef} type={selectedType} />}
     </div>
   );
 };

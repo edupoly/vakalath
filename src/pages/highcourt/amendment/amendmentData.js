@@ -15,7 +15,7 @@ export const AmendamentSections = (key, formData) => {
                         size: 14
                     },
                     lines: [
-                        `W.P. NO.${tabSpace(6)}OF ${formData?.myear || "«myear»"}`
+                        `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                     ]
                 }
             ],
@@ -33,7 +33,7 @@ export const AmendamentSections = (key, formData) => {
                         underline: true
                     },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name || "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age || "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address || "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
 
                         `1.${tabSpace(1)}I submit that I am the ____ Petitioner herein and as such I am well acquainted with the facts of the case. I am filing this affidavit on behalf of other petitioners as well.`,
 
@@ -48,17 +48,26 @@ export const AmendamentSections = (key, formData) => {
                 }
             ],
 
-            footer: [
-                {
-                    left: [
-                        "last page corrs.",
-                        "Solemnly and sincerely affirm this",
-                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
-                        "and signed his name in my presence."
-                    ],
-                    right: ["Deponent"]
-                }
-            ]
+            // footer: [
+            //     {
+            //         left: [
+            //             "last page corrs.",
+            //             "Solemnly and sincerely affirm this",
+            //             `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
+            //             "and signed his name in my presence."
+            //         ],
+            //         right: ["Deponent"]
+            //     }
+            // ]
+            footer: [{
+                left: [
+                    `${formData?.place || "«place»"}`,
+                    `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
+                ],
+                right: [
+                    "Counsel for the Petitioner"
+                ]
+            }]
         },
         "151": {
             mainTitle: "MEMORANDUM OF WRIT PETITION MISC. PETITION",
@@ -72,9 +81,9 @@ export const AmendamentSections = (key, formData) => {
                         size: 14
                     },
                     lines: [
-                        `I.A. NO.${tabSpace(6)}OF ${formData?.myear || "«myear»"}`,
+                        `I.A. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         "IN",
-                        `W.P. NO.${tabSpace(6)}OF ${formData?.myear || "«myear»"}`
+                        `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                     ]
                 }
             ],
@@ -111,11 +120,11 @@ export const AmendamentSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
-                            `I.A.NO.${tabSpace(20)}OF ${formData?.myear || "«myear»"}`,
+                            `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
-                            `W.P. NO.${tabSpace(20)}OF ${formData?.myear || "«myear»"}`
+                            `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                         ]
                     },
                 ],
@@ -137,9 +146,9 @@ export const AmendamentSections = (key, formData) => {
                     {
                         head: { text: `` },
                         lines: [
-                            `I.A.NO.${tabSpace(20)}OF ${formData?.myear || "«myear»"}`,
+                            `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
-                            `W.P. NO.${tabSpace(20)}OF ${formData?.myear || "«myear»"}`
+                            `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                         ]
                     },
                     {
@@ -152,7 +161,7 @@ export const AmendamentSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By \nM/s ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

@@ -16,7 +16,7 @@ export const secondAppealSections = (key, formData) => {
             lines: [],
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `ITTA.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `AGAINST`,
@@ -46,7 +46,7 @@ export const secondAppealSections = (key, formData) => {
     affidavit: {
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             ` IN`,
@@ -93,7 +93,7 @@ export const secondAppealSections = (key, formData) => {
       subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.No${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -316,7 +316,7 @@ export const secondAppealSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -366,7 +366,7 @@ export const secondAppealSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -417,7 +417,7 @@ export const secondAppealSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -495,7 +495,7 @@ export const secondAppealSections = (key, formData) => {
       subTitle: { text: "" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `S.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `Second Appeal to revise the order / decree in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`,
@@ -519,7 +519,7 @@ export const secondAppealSections = (key, formData) => {
             )}If no appearance is entered on your behalf by yourself, your pleader, or someone by law authorized to act for you in this appeal/revision it will be heard and decided in your absence.`,
             `${tabSpace(
               2
-            )}The address for service of the appellant /petitioner is that of his Advocate By ${formData?.counsel_code || "«counsel_code»"}`,
+            )}The address for service of the appellant /petitioner is that of his Advocate By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
             `${tabSpace(
               3
             )}A copy of the Memorandum of which is annexed hereto-A`,
@@ -572,7 +572,7 @@ export const secondAppealSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [

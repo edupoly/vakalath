@@ -73,7 +73,7 @@ export const taxAppellateTribunalTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(1) +
-              `I, ${formData?.verification || "«verification»"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`
+              `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`
           ),
           h3Right("Deponent"),
           pageBreak(),
@@ -101,7 +101,7 @@ export const taxAppellateTribunalTemplate = (formData) => {
             h3Left(``),
             h3Right("... Petitioner"),
             ...LineSpace(1),
-            h3BoldCenter(`By ${formData?.counsel_code || "«counsel_code»"}`),
+            h3BoldCenter(`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`),
             ...LineSpace(1),
             h3Center("NATURE OF APPLICATION"),
             h3Center("(UNDER SEC. 151 C.P.C.)"),
@@ -175,7 +175,7 @@ export const taxAppellateTribunalTemplate = (formData) => {
             ...LineSpace(1),
             ...BetweenSection(formData, "APPELLANT", "RESPONDENT"),
             ...LineSpace(1),
-            h3BoldCenter(`By ${formData?.counsel_code || "«counsel_code»"}`),
+            h3BoldCenter(`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`),
             ...LineSpace(1),
             h3Left("Nature of Claim"),
             h3Left("Decree passed on"),

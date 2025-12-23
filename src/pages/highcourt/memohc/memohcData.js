@@ -8,7 +8,7 @@ export const memohcSections = (key, formData) => {
             subTitle: { text: "" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `W.P.NO. OF ${formData?.myear || "«myear»"}`,
                     ]
@@ -42,7 +42,7 @@ export const memohcSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `W.P.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                         ]

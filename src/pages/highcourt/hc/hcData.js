@@ -21,7 +21,7 @@ export const HCSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT FILED BY THE PETITIONER/RESPONDENT", underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.   I am the deponent herein and defacto complainant in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, as such I am well acquainted with the facts of the case.`,
                         `2.   It is submitted that I have given a complaint before ${formData?.lowercourt || "«lowercourt»"}, against the petitioners herein (Accused No.____) and police registered a FIR vide ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} against the petitioners herein for Offences Punishable Under Sec.________.`,
                         `3.   I submit that the intervention of the well wishers and elders of the both parties settled the matter amicably out of the court. That due to the said reasons, I came forward to withdraw the complaint for which I am also executed an Affidavit stating that I am ready to withdraw the above said case.`,
@@ -84,7 +84,7 @@ export const HCSections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.district || "«district»"} :: District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -239,7 +239,7 @@ export const HCSections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.district || "«district»"} :: District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,

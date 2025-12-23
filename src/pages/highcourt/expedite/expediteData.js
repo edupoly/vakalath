@@ -18,7 +18,7 @@ export const EXPEDITESections = (key,formData) => {
                 {
                     head:{text:`AFFIDAVIT`,bold:true,underline:true},
                     para:[
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.   I am the petitioner herein in the above Writ Petition and as such I am well acquainted with the facts of the case.`,
                         `2.	It is submitted that `,
                         `3.	In view of the above there is an urgency to decide this litigation.`,
@@ -49,7 +49,7 @@ export const EXPEDITESections = (key,formData) => {
             mainTitle:{text:`MEMORANDUM OF WRIT PETITION MISCELLANEOUS PETITION`},
             subTitle:{text:`(UNDER SEC. 151 OF THE C.P.C.)`},
             headLines:[{
-                head:{text:`${formData?.highcourt || "«highcourt»"}`},
+                head:{text:`${formData?.highcourt || "«highcourt»"}`,bold:true},
                 lines:[
                     `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -80,7 +80,7 @@ export const EXPEDITESections = (key,formData) => {
             right: {
                 subTitle: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         "IN",

@@ -7,7 +7,7 @@ export const rectranSections = (key, formData) => {
       subTitle: { text: "" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `R & T. C.M.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           ],
@@ -24,7 +24,7 @@ export const rectranSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+            )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
             `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
             `2.   I submit that`,
             `3.	It is submitted that in view of Sankranthi/Summer/Dasara vacations, the lower Courts are closed and hence this receive and transmit petition.`,
@@ -49,7 +49,7 @@ export const rectranSections = (key, formData) => {
       subTitle: { text: "(UNDER SEC. 34 OF THE CIVIL COURTS ACT)" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `R & T. C.M.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           ],
@@ -113,7 +113,7 @@ export const rectranSections = (key, formData) => {
       subTitle: { text: "(UNDER SEC.151 OF CIVIL PROCEDURE CODE)" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,
@@ -197,7 +197,7 @@ export const rectranSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -250,7 +250,7 @@ export const rectranSections = (key, formData) => {
         headPara: [
           {
             head: {
-              text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+              text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
               bold: true,
             },
             para: [],
@@ -280,7 +280,7 @@ export const rectranSections = (key, formData) => {
       subTitle: { text: "" },
       headLines: [
          {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         },
         {
           head: { text: `ORIGINAL/APPELLATE SIDE`,bold:true },
@@ -296,7 +296,7 @@ export const rectranSections = (key, formData) => {
       paragraphs: [
       `${tabSpace(
               1
-            )}I, ${formData?.verification || "«verification»"}, Petitioner in the above Petition do hereby appoint and retain`,
+            )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, Petitioner in the above Petition do hereby appoint and retain`,
       ],
       headPara: [
         {

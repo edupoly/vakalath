@@ -9,7 +9,7 @@ export const stateConsumerRedressalCommissionSections =(key,formData)=> {
     
     headLines: [
       {
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `F.A.I.A.NO:${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -100,7 +100,7 @@ export const stateConsumerRedressalCommissionSections =(key,formData)=> {
     
     headLines: [
       {
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `F.A.I.A.NO:${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,

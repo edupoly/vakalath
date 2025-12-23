@@ -6,7 +6,7 @@ export const vacateSections =(key,formData)=> {
     "counter-affidavit": {
     headLines: [
       {
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `W.P. NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
         ],
@@ -23,7 +23,7 @@ export const vacateSections =(key,formData)=> {
         para: [
           `${tabSpace(
             1
-          )}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:.`,
+          )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:.`,
           `1.   I am the Respondent No._____ herein in the above Writ Petition and as such I am well acquainted with the facts of the case.`,
           `2.	  I read the petitioner’s affidavit filed in support of writ petition and I submit that it does not disclose any valid or substantial grounds to issue any relief as prayed for. The petitioner is put to strict proof of the allegations which are denied, except to the extent of specifically admitted hereunder. The petitioner has not approached with the clean hands. The writ petition has to be dismissed as the writ petition is not maintainable. The petitioner has to move the appropriate forum.`,
           `3.	I deny that `,
@@ -52,7 +52,7 @@ export const vacateSections =(key,formData)=> {
         para: [
           `${tabSpace(
             1
-          )}I, ${formData?.verification || "«verification»"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`,
+          )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`,
         ],
       },
     ],
@@ -107,7 +107,7 @@ export const vacateSections =(key,formData)=> {
           lines: []
         },
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             `IN`,

@@ -8,7 +8,7 @@ export const trcmpSections = (key, formData) => {
             subTitle: { text: "(AFFIDAVIT IN SUPPORT)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `Tr.C.M.P.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -24,7 +24,7 @@ export const trcmpSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"} now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"} now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2. I submit that`,
                         `It is therefore prayed that this Hon'ble Court may be pleased ${formData?.MAIN_PRAYER || "«MAIN_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
@@ -44,7 +44,7 @@ export const trcmpSections = (key, formData) => {
             subTitle: { text: "(PETITION FILED UNDER SEC.24 OF CIVIL PROCEDURE CODE)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `Tr.C.M.P.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -80,7 +80,7 @@ export const trcmpSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `Tr.C.M.P.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -112,7 +112,7 @@ export const trcmpSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 151 OF THE C.P.C.)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `Tr.C.M.P.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -147,7 +147,7 @@ export const trcmpSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `Tr.C.MP.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -197,7 +197,7 @@ export const trcmpSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

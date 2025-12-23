@@ -26,7 +26,7 @@ export const OSATemplate = (formData) => {
                     ...combinedSections(osaSections("affidavit", formData), formData),
                     header({ text: "BEFORE ME" }),
                     header({ text: "VERIFICATION STATEMENT", underline: true }),
-                    ...addParagraphs([`I, ${formData?.verification || "«verification»"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`]),
+                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`]),
                     h3Right("Deponent"),
                     pageBreak(),
                     pageBreak(),

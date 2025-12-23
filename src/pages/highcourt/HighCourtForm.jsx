@@ -10,6 +10,7 @@ import { fieldsData } from "../../services/highcourtFields";
 import { initialValues } from "../../services/initialFormValues";
 import HighCourtModal from "./Modal";
 import { setFData } from "../../services/submitedDataSlice";
+import { templateOpno } from "../../services/templateFunctions";
 
 function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     const [submitted, setSubmitted] = useState(false)
@@ -81,7 +82,7 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
                     <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-3">
                         {fieldsData[caseType]?.map((field) => {
                             const isDefaultTextField = field.name === "OPNO";
-                            const defaultPrefix = "CRL.P.No.";
+                            const defaultPrefix = templateOpno[caseType];
                             const handleChange = (e) => {
                                 let value = e.target.value;
                                 if (isDefaultTextField) {

@@ -7,7 +7,7 @@ export const DISPENSESections = (key, formData) => {
             mainTitle: { text: "MEMORANDUM OF CRIMINAL MISC. PETITION" },
             subTitle: { text: "(UNDER SEC. 482 OF CRIMINAL PROCEDURE CODE)" },
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                     "IN",
@@ -41,7 +41,7 @@ export const DISPENSESections = (key, formData) => {
             right: {
                 subTitle: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` },
                 headLines: [{
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -82,7 +82,7 @@ export const DISPENSESections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

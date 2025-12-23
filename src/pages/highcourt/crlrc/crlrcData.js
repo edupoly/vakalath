@@ -1,4 +1,3 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
 
 export const CRLRCSections = (key, formData) => {
@@ -101,7 +100,7 @@ export const CRLRCSections = (key, formData) => {
             mainTitle: { text: "MEMORANDUM OF CRIMINAL REVISION MISC. PETITION" },
             subTitle: { text: "UNDER SECTION 482 OF CRIMINAL PROCEDURE CODE, 1973" },
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `I.A.No. OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -171,7 +170,7 @@ export const CRLRCSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -348,7 +347,7 @@ export const CRLRCSections = (key, formData) => {
             mainTitle: { text: "MEMO OF APPEARANCE" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [`CRL.R.C.No. OF ${formData?.myear || "«myear»"}`]
                 }
             ],
@@ -361,7 +360,7 @@ export const CRLRCSections = (key, formData) => {
                 { left: ["The Registrar", "High Court", `${formData?.place || "«place»"}.`] }
             ],
             headPara: [`Sir,`, `Please enter my/our appearance in the above matter on behalf of the Petitioner.`],
-            signatureBlock: [`By ${formData?.counsel_code || "«counsel_code»"}`, `Counsel for Petitioner`],
+            signatureBlock: [`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, `Counsel for Petitioner`],
             footer: [
                 {
                     left: [
@@ -401,7 +400,7 @@ export const CRLRCSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 482 OF CRIMINAL PROCEDURE CODE)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [`I.A.No. OF ${formData?.myear || "«myear»"}`, `IN`, `CRL.R.C.NO. OF ${formData?.myear || "«myear»"}`]
                 }
             ],
@@ -461,7 +460,7 @@ export const CRLRCSections = (key, formData) => {
                 res: `...Petitioner`
             },
             middleContent: [
-                { left: [`By ${formData?.counsel_code || "«counsel_code»"}`] },
+                { left: [`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`] },
                 { left: ["NATURE OF APPLICATION", "(UNDER SEC. 482 Cr.P.C.)"] }
             ],
             headPara: [

@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { advocateDetails, formatDate } from "../../../services/templateFunctions";
 
 export const appealSuitSections = (key, formData) => {
     let data = {
@@ -11,7 +12,7 @@ export const appealSuitSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
                         `In the court of the ${formData?.lowercourt || "«lowercourt»"}`,
                         `${formData?.OPNO || "«OPNO»"}`,
@@ -54,7 +55,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         `Counsel For Appellant`,
@@ -70,7 +71,7 @@ export const appealSuitSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
                             `A.S.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `AGAINST`,
@@ -93,8 +94,7 @@ export const appealSuitSections = (key, formData) => {
                     {
                         left: [
                             `Filed By:`,
-                            `M/s ${formData?.counsel_code || "«counsel_code»"}`,
-                            `Advocate`,
+                            ...advocateDetails(formData?.userDetails),
                             `Counsel for Appellant`
                         ]
                     }
@@ -109,7 +109,7 @@ export const appealSuitSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
                         `I.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -127,7 +127,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name || "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age || "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address || "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.${tabSpace(1)}I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2.${tabSpace(1)}I submit that `,
                         `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
@@ -139,7 +139,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     left: [
                         `Last Page Cross....`,
-                        `Sworn and Signed in my presence on this day of ${formData?.fdate || "«fdate»"} at ${formData?.place || "«place»"}`
+                        `Sworn and Signed in my presence on this day of ${formatDate(formData?.fdate) || "«fdate»"} at ${formData?.place || "«place»"}`
                     ],
                     right: [
                         `Deponent`
@@ -156,11 +156,11 @@ export const appealSuitSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
-                        `I.A.No. OF ${formData?.myear || "«myear»"}`,
+                        `I.A.No.${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         `IN`,
-                        `A.S.No. OF ${formData?.myear || "«myear»"}`
+                        `A.S.No.${tabSpace(3)} OF ${formData?.myear || "«myear»"}`
                     ]
                 }
             ],
@@ -183,7 +183,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -199,7 +199,7 @@ export const appealSuitSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -218,8 +218,7 @@ export const appealSuitSections = (key, formData) => {
                     {
                         left: [
                             `Filed By:`,
-                            `M/s ${formData?.counsel_code || "«counsel_code»"}`,
-                            `Advocate`,
+                            ...advocateDetails(formData?.userDetails),
                             `Counsel for Petitioner`
                         ]
                     }
@@ -234,7 +233,7 @@ export const appealSuitSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
                         `I.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -261,7 +260,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         `Counsel for the Petitioner`
@@ -277,7 +276,7 @@ export const appealSuitSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -296,8 +295,7 @@ export const appealSuitSections = (key, formData) => {
                     {
                         left: [
                             `Filed By:`,
-                            `M/s ${formData?.counsel_code || "«counsel_code»"}`,
-                            `Advocate`,
+                            ...advocateDetails(formData?.userDetails),
                             `Counsel for Petitioner`
                         ]
                     }
@@ -312,11 +310,11 @@ export const appealSuitSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
-                        `I.A.No. OF ${formData?.myear || "«myear»"}`,
+                        `I.A.No.${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         `IN`,
-                        `A.S.No. OF ${formData?.myear || "«myear»"}`
+                        `A.S.No.${tabSpace(3)} OF ${formData?.myear || "«myear»"}`
                     ]
                 }
             ],
@@ -339,7 +337,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -355,7 +353,7 @@ export const appealSuitSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -374,8 +372,7 @@ export const appealSuitSections = (key, formData) => {
                     {
                         left: [
                             `Filed By:`,
-                            `M/s ${formData?.counsel_code || "«counsel_code»"}`,
-                            `Advocate`,
+                            ...advocateDetails(formData?.userDetails),
                             `Counsel for Petitioner`
                         ]
                     }
@@ -384,7 +381,7 @@ export const appealSuitSections = (key, formData) => {
         },
         "sidePage5": {
             right: {
-                mainTitle: { text: "HIGH COURT", bold: true, underline: true,size:20 },
+                mainTitle: { text: "HIGH COURT", bold: true, underline: true, size: 20 },
                 subTitle: { text: "CIVIL MISC.PETITION", bold: true },
 
                 headLines: [
@@ -409,7 +406,7 @@ export const appealSuitSections = (key, formData) => {
                 headPara: [
                     {
                         head: {
-                            text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+                            text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
                             bold: true
                         },
                         para: []
@@ -427,9 +424,9 @@ export const appealSuitSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -437,7 +434,7 @@ export const appealSuitSections = (key, formData) => {
         },
         "sidePage6": {
             right: {
-                mainTitle: { text: "HIGH COURT", bold: true, underline: true,size:20 },
+                mainTitle: { text: "HIGH COURT", bold: true, underline: true, size: 20 },
                 subTitle: { text: "CIVIL MISC.PETITION", bold: true },
 
                 headLines: [
@@ -462,7 +459,7 @@ export const appealSuitSections = (key, formData) => {
                 headPara: [
                     {
                         head: {
-                            text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+                            text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
                             bold: true
                         },
                         para: []
@@ -480,9 +477,9 @@ export const appealSuitSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -490,7 +487,7 @@ export const appealSuitSections = (key, formData) => {
         },
         "sidePage7": {
             right: {
-                mainTitle: { text: "HIGH COURT", bold: true, underline: true,size:20 },
+                mainTitle: { text: "HIGH COURT", bold: true, underline: true, size: 20 },
                 subTitle: { text: "CIVIL MISC.PETITION", bold: true },
 
                 headLines: [
@@ -515,7 +512,7 @@ export const appealSuitSections = (key, formData) => {
                 headPara: [
                     {
                         head: {
-                            text: `By ${formData?.counsel_code || "«counsel_code»"}`,
+                            text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
                             bold: true
                         },
                         para: []
@@ -533,9 +530,9 @@ export const appealSuitSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -576,7 +573,7 @@ export const appealSuitSections = (key, formData) => {
                         "head": { "text": "Dates & Details", "bold": true },
                         "para": [
                             `Date of Order/Decree: ${formData?.OPDATE || "«OPDATE»"}`,
-                            `Appeal Presented on: ${formData?.fdate || "«fdate»"}`,
+                            `Appeal Presented on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `Appeal Represented on: `,
                             `Appeal Filed On: `,
                             `Appeal admitted on: `,
@@ -596,7 +593,7 @@ export const appealSuitSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
                         `A.S.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
                         `Appeal Suit to revise the order / decree ${formData?.OPNO || "«OPNO»"} ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
@@ -611,12 +608,13 @@ export const appealSuitSections = (key, formData) => {
 
             headPara: [
                 {
-                    head: { text: "To" },
+                    head: { text: "" },
                     para: [
-                        `${formData?.respondent_address || "«respondent_address»"}`,
+                        "To",
+                        // `${formData?.respondent_address || "«respondent_address»"}`,
                         `${tabSpace(1)}Take Notice that an appeal/revision/petition from the above decree/order has been presented by the above named appellant/petitioner and registered in this court and that if you intend the same you must enter your appearance in this court and give notice thereof to the appellant or petitioner or his pleader within 30 days after service of the notice on you.`,
                         `${tabSpace(1)}If no appearance is entered on your behalf by yourself, your pleader, or someone by law authorized to act for you in this appeal/revision it will be heard and decided in your absence.`,
-                        `${tabSpace(1)}The address for service of the appellant/petitioner is that of his Advocate By ${formData?.counsel_code || "«counsel_code»"}`,
+                        `${tabSpace(1)}The address for service of the appellant/petitioner is that of his Advocate By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
                         `${tabSpace(1)}A copy of the Memorandum of which is annexed hereto-A`
                     ]
                 }
@@ -625,7 +623,7 @@ export const appealSuitSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [
@@ -641,7 +639,7 @@ export const appealSuitSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
                         `I.A.No. ${formData?.IANo || "«IANo»"} OF ${formData?.myear || "«myear»"} IN A.S.NO. ${formData?.ASNo || "«ASNo»"} OF ${formData?.myear || "«myear»"}`,
                         `AGAINST ${formData?.OPNO || "«OPNO»"} On the file of ${formData?.lowercourt || "«lowercourt»"}`

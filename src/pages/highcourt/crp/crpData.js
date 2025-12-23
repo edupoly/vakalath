@@ -8,7 +8,7 @@ export const CRPSections = (key, formData) => {
             subTitle: { text: "(Under Section 115 Of C.P.C.) (Under Art.227 of Constitution Of India)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `In the court of the ${formData?.lowercourt || "«lowercourt»"}`,
                         `${formData?.OPNO || "«OPNO»"}`,
@@ -93,7 +93,7 @@ export const CRPSections = (key, formData) => {
             }
         },
         "affidavit": {
-            mainTitle: { text: `${formData?.highcourt || "«highcourt»"}` },
+            mainTitle: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             caseInfo: [
                 { text: `I.A.No. OF ${formData?.myear || "«myear»"}` },
                 { text: `IN` },
@@ -107,7 +107,7 @@ export const CRPSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         "1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.",
                         "2. I submit that",
                         "3.",
@@ -126,7 +126,7 @@ export const CRPSections = (key, formData) => {
                 {
                     head: { text: "VERIFICATION STATEMENT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, being the petitioner/person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`,
                         "Deponent"
                     ]
                 }
@@ -135,7 +135,7 @@ export const CRPSections = (key, formData) => {
         "151(1)": {
             mainTitle: { text: "MEMORANDUM OF CIVIL MISC. PETITION" },
             subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
-            court: { text: `${formData?.highcourt || "«highcourt»"}` },
+            court: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             caseInfo: [
                 { text: `I.A.No. OF ${formData?.myear || "«myear»"}` },
                 { text: "IN" },
@@ -169,7 +169,7 @@ export const CRPSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -193,7 +193,7 @@ export const CRPSections = (key, formData) => {
         "sec-5": {
             mainTitle: { text: "MEMORANDUM OF CIVIL MISC. PETITION" },
             subTitle: { text: "(UNDER SEC. 5 OF LIMITATION ACT)" },
-            court: { text: `${formData?.highcourt || "«highcourt»"}` },
+            court: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             caseInfo: [
                 { text: `I.A.No. OF ${formData?.myear || "«myear»"}` },
                 { text: "IN" },
@@ -227,7 +227,7 @@ export const CRPSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -251,7 +251,7 @@ export const CRPSections = (key, formData) => {
         "151(2)": {
             mainTitle: { text: "MEMORANDUM OF CIVIL MISC. PETITION" },
             subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
-            court: { text: `${formData?.highcourt || "«highcourt»"}` },
+            court: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             caseInfo: [
                 { text: `I.A.No. OF ${formData?.myear || "«myear»"}` },
                 { text: "IN" },
@@ -285,7 +285,7 @@ export const CRPSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -314,7 +314,7 @@ export const CRPSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -327,7 +327,7 @@ export const CRPSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -356,7 +356,7 @@ export const CRPSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -369,7 +369,7 @@ export const CRPSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -398,7 +398,7 @@ export const CRPSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -411,7 +411,7 @@ export const CRPSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -433,7 +433,7 @@ export const CRPSections = (key, formData) => {
             }
         },
         "notice": {
-            court: { text: `${formData?.highcourt || "«highcourt»"}` },
+            court: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             caseInfo: {
                 text: `I.A.No. ${formData?.IANo || "«IANo»"} OF ${formData?.myear || "«myear»"} IN C.R.P.NO. ${formData?.CRPNo || "«CRPNo»"} OF ${formData?.myear || "«myear»"} AGAINST ${formData?.OPNO || "«OPNO»"} on the file of the ${formData?.lowercourt || "«lowercourt»"}`
             },
@@ -459,7 +459,7 @@ export const CRPSections = (key, formData) => {
             ]
         },
         "crp_notice": {
-            court: { text: `${formData?.highcourt || "«highcourt»"}` },
+            court: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             caseInfo: {
                 text: `C.R.P.NO. ${formData?.CRPNo || "«CRPNo»"} OF ${formData?.myear || "«myear»"} Civil Revision Petition to revise the order / decree in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
             },
@@ -502,7 +502,7 @@ export const CRPSections = (key, formData) => {
             subTitle: { text: "" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `C.R.P.NO. OF ${formData?.myear || "«myear»"}`,
                         `BETWEEN:`,
@@ -578,7 +578,7 @@ export const CRPSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -591,7 +591,7 @@ export const CRPSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

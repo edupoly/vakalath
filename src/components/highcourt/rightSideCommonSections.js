@@ -16,15 +16,15 @@ const rightCell = (data, formData) => {
             createParagraph(data.betweenSection.pet, { ...paragraphStyles.rightAlignSmall }),
         ] : []),
         ...(data?.betweenSection?.res ? [
-            createParagraph(formData?.Respondents?.[0]?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 } }),
+            createParagraph(formData?.Respondents?.[0]?.Name, { ...paragraphStyles.leftAlignSmall, spacing: { before: 150 },indentRight:1800 }),
             createParagraph(data.betweenSection.res, { ...paragraphStyles.rightAlignSmall }),
         ] : []),
         ...(data?.headPara ? data.headPara.flatMap((set) => [
             ...(set?.head ? [header(set.head)] : []),
             ...(set?.para ? addParagraphs(set.para,{ line: 250 }) : [])
-        ]) : LineSpace(18)),
+        ]) : LineSpace(5)),
         ...(data?.middleHeader ? [header(data.middleHeader)] : []),
-        ...LineSpace(data?.headPara?.length > 0 ? 5 : 15),
+        ...LineSpace(data?.headPara?.length > 0 ? 5 : 10),
         ...(data?.footer ? data.footer.flatMap((foot) => [
             ...(foot?.left ? foot.left.map((text) => h3Left(text)) : []),
             ...LineSpace(1)

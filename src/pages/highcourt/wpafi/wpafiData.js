@@ -21,7 +21,7 @@ export const WPAFISections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name || "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age || "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address || "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.${tabSpace(1)}I submit that I am the ____ Petitioner herein and as such I am well acquainted with the facts of the case. I am filing this affidavit on behalf of other petitioners as well.`,
                         `2.${tabSpace(1)}I further submit that since the cause of action of all the petitioners herein is one and the same, we are filing a single writ petition. However, as required under writ rules, separate court fee is paid herewith.`,
                         `3.${tabSpace(1)}I submit that`,
@@ -43,7 +43,36 @@ export const WPAFISections = (key, formData) => {
                     right: ["Deponent"]
                 }
             ]
-        }
+        },
+        "sidePage1": {
+            right: {
+                headLines: [
+                    {
+                        head: { text: `${formData?.district || "«district»"} :: District` },
+                        lines: []
+                    },
+                    {
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, allCaps: true, bold: true, size: 14 },
+                        lines: [
+                            `Crl.P.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
+                        ]
+                    }
+                ],
+                middleHeader: {
+                    text: `AFFIDAVIT`,
+                    bold: true, underline: true
+                },
+                footer: [
+                    {
+                        left: [
+                            `Filed By:`,
+                            ...advocateDetails(formData?.userDetails),
+                            `Counsel for Petitioner/Accused`
+                        ]
+                    }
+                ]
+            }
+        },
     }
 
     return data[key];

@@ -5,7 +5,7 @@ export const caveatSections = (key, formData) => {
     let data = {
         "affidavit": {
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `CAVEAT PETITION No.                                     OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -25,7 +25,7 @@ export const caveatSections = (key, formData) => {
                 {
                     head: { text: "A F F I D A V I T", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2.   I submit that ________`,
                         `3.   ________`,
@@ -48,7 +48,7 @@ export const caveatSections = (key, formData) => {
             subTitle: { text: "(UNDER SECTION 148-A C.P.C.)" },
 
             headLines: [{
-                head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `CAVEAT PETITION No.                         OF ${formData?.myear || "«myear»"}`,
                     `IN`,
@@ -85,7 +85,7 @@ export const caveatSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `Caveat Petition No.${tabSpace(9)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,

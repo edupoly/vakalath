@@ -21,7 +21,7 @@ export const combinedSections = (sectionData, formData) => {
         ...((sectionData?.header && headerTable(sectionData?.header)) || []),
         sectionData?.mainTitle && header(sectionData?.mainTitle),
         sectionData?.subTitle && header(sectionData?.subTitle),
-        ...LineSpace(1),
+        ...((sectionData?.header || sectionData?.mainTitle || sectionData?.subTitle) ? LineSpace(1) : []),
         ...(sectionData?.headLines ? headerWithNumbers(sectionData?.headLines) : []),
         ...LineSpace(1),
         ...BetweenSection(
@@ -39,7 +39,7 @@ export const combinedSections = (sectionData, formData) => {
             }).flat()
             : []),
         ...SignatureFooter(sectionData?.footer),
-          ...LineSpace(1),
+        ...LineSpace(1),
         sectionData?.note && headerList(sectionData?.note),
         sectionData?.before && header(sectionData?.before),
         ...(sectionData?.advocate ? LineSpace(3) : []),

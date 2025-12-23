@@ -10,7 +10,7 @@ export const CRLASections = (key, formData) => {
       mainTitle: { text: "MEMORANDUM OF CRIMINAL APPEAL" },
       subTitle: { text: "UNDER SECTION 374(2) OF CRIMINAL PROCEDURE CODE, 1973" },
       headLines: [{
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `Crl.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -61,7 +61,7 @@ export const CRLASections = (key, formData) => {
       mainTitle: { text: "MEMORANDUM OF CRIMINAL MISC. PETITION" },
       subTitle: { text: "UNDER SECTION 482 OF CRIMINAL PROCEDURE CODE, 1973" },
       headLines: [{
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `I.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -93,7 +93,7 @@ export const CRLASections = (key, formData) => {
       mainTitle: { text: "MEMORANDUM OF CRIMINAL MISC. PETITION" },
       subTitle: { text: "(UNDER SEC. 482 OF CRIMINAL PROCEDURE CODE)" },
       headLines: [{
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -123,7 +123,7 @@ export const CRLASections = (key, formData) => {
     },
     "affidavit": {
       headLines: [{
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -138,7 +138,7 @@ export const CRLASections = (key, formData) => {
         {
           head: { text: "AFFIDAVIT" },
           para: [
-            `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+            `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
             "",
             `1. I submit that I am the Appellant/Petitioner herein and as such I am well acquainted with the facts of the case.`,
             "",
@@ -166,7 +166,7 @@ export const CRLASections = (key, formData) => {
       mainTitle: { text: "MEMORANDUM OF CRIMINAL MISC. PETITION" },
       subTitle: { text: "UNDER SECTION 389(1) OF CRIMINAL PROCEDURE CODE, 1973" },
       headLines: [{
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `I.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -204,7 +204,7 @@ export const CRLASections = (key, formData) => {
       mainTitle: { text: "MEMORANDUM OF CRIMINAL MISC. PETITION" },
       subTitle: { text: "UNDER SECTION 378 (4) OF CRIMINAL PROCEDURE CODE, 1973" },
       headLines: [{
-        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
         lines: [
           `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
           `IN`,
@@ -239,7 +239,7 @@ export const CRLASections = (key, formData) => {
             lines: []
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `Crl.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,
@@ -266,7 +266,7 @@ export const CRLASections = (key, formData) => {
             lines: []
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,
@@ -295,7 +295,7 @@ export const CRLASections = (key, formData) => {
             lines: []
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,
@@ -324,7 +324,7 @@ export const CRLASections = (key, formData) => {
             lines: []
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,
@@ -353,7 +353,7 @@ export const CRLASections = (key, formData) => {
             lines: []
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,
@@ -397,7 +397,7 @@ export const CRLASections = (key, formData) => {
         },
         headPara: [
           {
-            head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+            head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
             para: []
           },
           {
@@ -443,7 +443,7 @@ export const CRLASections = (key, formData) => {
         },
         headPara: [
           {
-            head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+            head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
             para: []
           },
           {
@@ -543,7 +543,7 @@ export const CRLASections = (key, formData) => {
 
         headPara: [
           {
-            head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+            head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
             para: []
           },
           {
@@ -595,7 +595,7 @@ export const CRLASections = (key, formData) => {
           pet: "... Petitioner/Accused"
         },
 
-        middleHeader: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true, underline: true },
+        middleHeader: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true, underline: true },
 
         footer: [
           {
@@ -616,7 +616,7 @@ export const CRLASections = (key, formData) => {
       mainTitle: { text: "MEMO OF APPEARANCE" },
       headLines: [
         {
-          head: { text: `${formData?.highcourt || "«highcourt»"}` },
+          head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `Crl.A.No. ${tabSpace(5)} OF ${formData?.myear || "«myear»"}`
           ]
@@ -650,7 +650,7 @@ export const CRLASections = (key, formData) => {
             `DATE:${formData?.fdate || "«fdate»"}`,
             `${formData?.place || "«place»"}.`
           ],
-          right: [`By ${formData?.counsel_code || "«counsel_code»"}`, "Counsel for Petitioner"]
+          right: [`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, "Counsel for Petitioner"]
         }
       ]
     },

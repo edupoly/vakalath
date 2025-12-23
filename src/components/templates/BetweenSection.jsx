@@ -6,8 +6,8 @@ export const BetweenSection = (formData,petSign,resSign) => {
 
     return [
         createParagraph("Between:", {...paragraphStyles.leftAlignSmall,bold:true,indentRight:4000}),
-        ...formData?.Petitioners?.map((pet) => [
-            createParagraph(pet?.Name, {...paragraphStyles.leftAlignSmall,spacing:{before:150},indentRight:4000}),
+        ...formData?.Petitioners?.map((pet,i) => [
+            createParagraph(`${formData?.Petitioners.length >1 ? `${i+1}. ` : ""}${pet?.Name}`, {...paragraphStyles.leftAlignSmall,spacing:{before:150},indentRight:4000}),
             createParagraph(pet?.Address,{...paragraphStyles.leftAlignSmall,indentRight:4000}),
         ]).flat(),
         createParagraph(petSign, {...paragraphStyles.rightAlignSmall}),

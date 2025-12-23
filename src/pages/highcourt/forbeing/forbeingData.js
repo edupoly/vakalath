@@ -6,7 +6,7 @@ export const forbeingSections = (key, formData) => {
         affidavit: {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `W.P. NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -22,7 +22,7 @@ export const forbeingSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT", bold: true, underline: true },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
 
                         `1. I submit that I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
 
@@ -51,7 +51,7 @@ export const forbeingSections = (key, formData) => {
                 {
                     head: "VERIFICATION STATEMENT",
                     left: [
-                        `I, ${formData?.verification || "«verification»"}, being the petitioner/person acquainted with the facts, do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/person acquainted with the facts, do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`
                     ],
                     right: ["Deponent"]
                 }
@@ -62,7 +62,7 @@ export const forbeingSections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 151 OF C.P.C)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -102,7 +102,7 @@ export const forbeingSections = (key, formData) => {
                 headLines: [
                     { head: { "text": `${formData?.DISTRICT || "«DISTRICT»"} :: District` }, lines: [] },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,

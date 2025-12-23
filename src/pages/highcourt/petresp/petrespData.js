@@ -8,7 +8,7 @@ export const petrespSections = (key, formData) => {
             subTitle: { text: "" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `W.P. NO. OF ${tabSpace(3)} ${formData?.myear || "«myear»"}`,
                     ]
@@ -22,14 +22,14 @@ export const petrespSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `I submit that`,
                         `It is therefore prayed that this Hon'ble Court may be pleased to bring the Petitioners No._____ on record as Legal representatives of the deceased Writ Petitioner in above W.P.No__________ as petitioner No.____ ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
                         `BEFORE ME`,
                         `ADVOCATE :: ${formData?.place || "«place»"}`,
                         `VERIFICATION STATEMENT`,
-                        `I, ${formData?.verification || "«verification»"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`,
                     ]
                 }
             ],
@@ -50,7 +50,7 @@ export const petrespSections = (key, formData) => {
             subTitle: { text: "(UNDER ORDER-XXII, RULE-3  R/W.SEC. 151 OF THE C.P.C.)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.NO. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -85,7 +85,7 @@ export const petrespSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -128,7 +128,7 @@ export const petrespSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By M/s ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text:`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {

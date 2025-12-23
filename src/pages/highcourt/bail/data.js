@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { advocateDetails, formatDate } from "../../../services/templateFunctions";
 
 export const bailSections = (key, formData) => {
     let data = {
@@ -6,9 +7,7 @@ export const bailSections = (key, formData) => {
             mainTitle: { text: "MEMORANDUM OF CRIMINAL MISC. PETITION" },
             subTitle: { text: "UNDER SECTION 389(1) OF CRIMINAL PROCEDURE CODE, 1973" },
             headLines: [{
-                head: {
-                    text: `${formData?.highcourt || "«highcourt»"}`
-                },
+                head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                 lines: [
                     `I.A.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"} `,
                     `IN`,
@@ -36,13 +35,13 @@ export const bailSections = (key, formData) => {
                         "4. The petitioner submits that he filed a bail application vide Crl.M.P.No.________ before the Hon'ble ___________ and the same was dismissed on ______. The petitioner is in Jail since _______.",
                         "5. The petitioner submits that he is approaching this Hon'ble Court U/s.439 of Cr.P.C. for the first time.",
                         "6. The officials arrested the petitioner herein on _______ and he is in ______ Jail.",
-                        `${tabSpace(1)} It is therefore prayed that this Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)} It is therefore prayed that this Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 },
             ],
             footer: [{
                 left: [
-                    `DATE:${formData?.fdate || "«fdate»"}`,
+                    `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     `${formData?.place || "«place»"}`
                 ],
                 right: [`Counsel For petitioner`]
@@ -63,12 +62,12 @@ export const bailSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `Crl.P. NO.${tabSpace(5)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
                             `${formData?.OPNO || "«OPNO»"},`,
-                            `dated ${formData?.OPDATE || "«OPDATE»"},`,
+                            `dated ${formatDate(formData?.OPDATE) || "«OPDATE»"},`,
                             `of ${formData?.lowercourt || "«lowercourt»"}`
                         ]
                     }
@@ -84,10 +83,7 @@ export const bailSections = (key, formData) => {
                     {
                         left: [
                             `Filed By:`,
-                            ``,
-                            `M/s ${formData?.counsel_code || "«counsel_code»"}`,
-                            `Advocate`,
-                            ``,
+                            ...advocateDetails(formData?.userDetails),
                             `Counsel for Petitioner`
                         ]
                     }
@@ -100,11 +96,11 @@ export const bailSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `CRL.P.No.${tabSpace(5)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
-                        `(${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"})`
+                        `(${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"})`
                     ]
                 }
             ],
@@ -118,7 +114,7 @@ export const bailSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `I ${formData?.counsel_address || "«counsel_address»"} hereby declare that I have been duly entrusted and engaged by ${formData?.verification || "«verification»"}, Person interested in accused to file the present bail application on behalf of the accused.`,
+                        `I ${formData?.counsel_address || "«counsel_address»"} hereby declare that I have been duly entrusted and engaged by ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, Person interested in accused to file the present bail application on behalf of the accused.`,
                         `Kindly enter my case as Counsel for the Petitioner/Accused in the above case.`
                     ]
                 }
@@ -135,11 +131,6 @@ export const bailSections = (key, formData) => {
                     ]
                 }
             ],
-
-            note: {
-                head: { text: "" },
-                lines: []
-            }
         },
         sidePage2: {
             right: {
@@ -149,12 +140,12 @@ export const bailSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `Crl.P. NO.                       OF ${formData?.myear || "«myear»"}`,
                             "IN",
                             `(${formData?.OPNO || "«OPNO»"},`,
-                            `dated ${formData?.OPDATE || "«OPDATE»"},`,
+                            `dated ${formatDate(formData?.OPDATE) || "«OPDATE»"},`,
                             `of ${formData?.lowercourt || "«lowercourt»"})`
                         ]
                     }
@@ -170,8 +161,7 @@ export const bailSections = (key, formData) => {
                     {
                         left: [
                             "Filed By:",
-                            `M/s ${formData?.counsel_code || "«counsel_code»"}`,
-                            "Advocate",
+                            ...advocateDetails(formData?.userDetails),
                             "Counsel for Petitioner"
                         ]
                     }
@@ -204,13 +194,13 @@ export const bailSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
                         head: { text: "NATURE OF APPLICATION\n(UNDER SEC. 437 & 439 Cr.P.C.)" },
                         para: [
-                            `The Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                            `The Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
@@ -218,11 +208,9 @@ export const bailSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
-                            "",
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             "REPRESENTED ON:",
-                            "",
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

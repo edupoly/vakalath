@@ -12,7 +12,7 @@ export const CCCASections = (key, formData) => {
                     lines: [`${formData?.OPNO || "«OPNO»"}`]
                 },
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [`C.C.C.A. No. OF ${formData?.myear || "«myear»"}`]
                 }
             ],
@@ -66,7 +66,7 @@ export const CCCASections = (key, formData) => {
                 headLines: [
                     { head: { text: `${formData?.district || "«district»"} :: District` }, lines: [] },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` }, lines: [
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true }, lines: [
                             `C.C.C.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `AGAINST`,
                             `${formData?.OPNO || "«OPNO»"}`,
@@ -91,7 +91,7 @@ export const CCCASections = (key, formData) => {
         "affidavit_cma": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -107,7 +107,7 @@ export const CCCASections = (key, formData) => {
                 {
                     head: { text: "A F F I D A V I T" },
                     para: [
-                        `I, ${formData?.verification || "«verification»"}, temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows:`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2. I submit that`,
                         `It is therefore prayed that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
@@ -130,7 +130,7 @@ export const CCCASections = (key, formData) => {
                 {
                     head: "VERIFICATION STATEMENT",
                     left: [
-                        `I, ${formData?.verification || "«verification»"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`
                     ],
                     right: ["Deponent"]
                 }
@@ -141,7 +141,7 @@ export const CCCASections = (key, formData) => {
             subTitle: { text: "(UNDER SEC. 151 OF CIVIL PROCEDURE CODE)" },
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -173,7 +173,7 @@ export const CCCASections = (key, formData) => {
                 headLines: [
                     { head: { text: `${formData?.DISTRICT || "«DISTRICT»"} District` }, lines: [] },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` }, lines: [
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true }, lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
                             `C.C.C.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
@@ -216,7 +216,7 @@ export const CCCASections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}`, bold: true },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, bold: true },
                         para: []
                     },
                     {
@@ -303,7 +303,7 @@ export const CCCASections = (key, formData) => {
         "notice": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"} IN C.C.C.A.NO. OF ${formData?.myear || "«myear»"}`,
                         `AGAINST`,
@@ -321,7 +321,7 @@ export const CCCASections = (key, formData) => {
                     para: [
                         ``,
                         `Take Notice that the Appellant/Petitioner (Respondent) has/have presented a petition to the Court praying that Under Section 151 of C.P.C. (AFFIDAVIT AND PETITION ENCLOSED) and that the same will be heard by the Court on the day ${formData?.myear || "«myear»"}.`,
-                        `Notice and Interim Stay has/have been granted by order Court dated the day of ${formData?.myear || "«myear»"} the affidavit of ${formData?.verification || "«verification»"} has been filed in support thereof. Dated at ${formData?.place || "«place»"} this day ${formData?.myear || "«myear»"}.`
+                        `Notice and Interim Stay has/have been granted by order Court dated the day of ${formData?.myear || "«myear»"} the affidavit of ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"} has been filed in support thereof. Dated at ${formData?.place || "«place»"} this day ${formData?.myear || "«myear»"}.`
                     ]
                 }
             ],
@@ -334,7 +334,7 @@ export const CCCASections = (key, formData) => {
         "cma_notice": {
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `C.C.C.A.NO. OF ${formData?.myear || "«myear»"}`,
                         `Civil Miscellaneous Appeal to revise the order/decree in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
@@ -352,7 +352,7 @@ export const CCCASections = (key, formData) => {
                         ``,
                         `Take Notice that an appeal/revision/petition from the above decree/order has been presented by the above named appellant/petitioner and registered in this court and that if you intend the same you must enter your appearance in this court and give notice thereof to the appellant or petitioner or his pleader within 30 days after service of the notice on you.`,
                         `If no appearance is entered on your behalf by yourself, your pleader, or someone by law authorized to act for you in this appeal/revision, it will be heard and decided in your absence.`,
-                        `The address for service of the appellant/petitioner is that of his Advocate By ${formData?.counsel_code || "«counsel_code»"}`,
+                        `The address for service of the appellant/petitioner is that of his Advocate By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
                         `A copy of the Memorandum of which is annexed hereto-A`,
                         `By order of the Court`
                     ]

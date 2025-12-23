@@ -29,7 +29,7 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `C.E.A.NO. OF ${formData?.myear || "«myear»"}`
                     ]
@@ -108,7 +108,7 @@ export const ceaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `CEA.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `AGAINST`,
@@ -144,7 +144,7 @@ export const ceaSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -162,7 +162,7 @@ export const ceaSections = (key, formData) => {
                 {
                     head: { text: "AFFIDAVIT",bold:true,underline:true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.verification || "«verification»"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2. I submit that`,
                         ``,
@@ -191,7 +191,7 @@ export const ceaSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. OF ${formData?.myear || "«myear»"}`,
                         `IN`,
@@ -234,7 +234,7 @@ export const ceaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -269,7 +269,7 @@ export const ceaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -289,7 +289,7 @@ export const ceaSections = (key, formData) => {
                         left: [
                             ``,
                             `... Petitioner`,
-                            `By ${formData?.counsel_code || "«counsel_code»"}`,
+                            `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
                             ``,
                             `NATURE OF APPLICATION`,
                             `(UNDER SEC. 151 C.P.C.)`,
@@ -312,7 +312,7 @@ export const ceaSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No. ${formData?.IANO || "«IANO»"} OF ${formData?.myear || "«myear»"} IN C.E.A.No. ${formData?.CEANO || "«CEANO»"} OF ${formData?.myear || "«myear»"}`,
                         `AGAINST`,

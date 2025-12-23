@@ -28,7 +28,7 @@ export const vacateMacmaSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )}I, ${formData?.verification || "«verification»"}, now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
+            )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to «place», do hereby solemnly and sincerely affirm and state as follows:`,
             `1.   I am the Respondent No._____ herein in the above MACMA and as such I am well acquainted with the facts of the case.`,
 
             `2.	I submit that I have gone through the contents of the affidavit filed in support of the above application and I deny all those allegations, averments, and contentions save those that are specifically admitted or traversed hereunder and the petitioner is put to strict proof of the same.`,
@@ -108,7 +108,7 @@ export const vacateMacmaSections = (key, formData) => {
             lines: [],
           },
           {
-            head: { text: `${formData?.highcourt || "«highcourt»"}` },
+            head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             lines: [
               `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,

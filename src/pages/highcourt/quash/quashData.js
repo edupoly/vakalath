@@ -5,7 +5,7 @@ export const quashSections = (key, formData) => {
     let data = {
         "482": {
             header: [],
-            mainTitle: { text: `${formData?.highcourt || "«highcourt»"}` },
+            mainTitle: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             subTitle: { text: "(MEMORANDUM OF CRIMINAL PETITION FILED U/S.482 OF CR.PC.)" },
 
             headLines: [
@@ -68,7 +68,7 @@ export const quashSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `Crl.P.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                         ]
@@ -101,7 +101,7 @@ export const quashSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No.                  OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -144,7 +144,7 @@ export const quashSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -179,7 +179,7 @@ export const quashSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `I.A.No.                 OF ${formData?.myear || "«myear»"}`,
                         "IN",
@@ -223,7 +223,7 @@ export const quashSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}` },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -275,7 +275,7 @@ export const quashSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}` },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)` },
                         para: [`Counsel for Petitioner`]
                     },
                     {
@@ -326,7 +326,7 @@ export const quashSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}` },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)` },
                         para: ["Counsel for Petitioner"]
                     },
                     {
@@ -375,7 +375,7 @@ export const quashSections = (key, formData) => {
 
                 headPara: [
                     {
-                        head: { text: `By ${formData?.counsel_code || "«counsel_code»"}` },
+                        head: { text: `By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)` },
                         para: []
                     },
                     {
