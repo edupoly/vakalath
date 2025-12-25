@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const reviewSections = (key, formData) => {
   let data = {
@@ -29,7 +30,7 @@ export const reviewSections = (key, formData) => {
             )}The address for service of all notices and process on the above named Review Petitioner is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
             `${tabSpace(
               1
-            )}The above named Review Petitioner begs to present this Memorandum of Review Petition aggrieved by the orders passed by this Hon’ble Court passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} passed by His Lordship ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`,
+            )}The above named Review Petitioner begs to present this Memorandum of Review Petition aggrieved by the orders passed by this Hon’ble Court passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed by His Lordship ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`,
           ],
         },
         {
@@ -47,7 +48,7 @@ export const reviewSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+          left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for Review Petitioner`],
         },
       ],
@@ -121,7 +122,7 @@ export const reviewSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`Last Page Corss....`,`Sworn and Signed in my presence`,`on this day of ${formData?.fdate || "«fdate»"}`,`at ${formData?.place || "«place»"}.`],
+          left: [`Last Page Corss....`,`Sworn and Signed in my presence`,`on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,`at ${formData?.place || "«place»"}.`],
           right: [`Deponent`],
         },
       ],
@@ -158,7 +159,7 @@ export const reviewSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+          left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -241,9 +242,9 @@ export const reviewSections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON   : ${formData?.fdate || "«fdate»"}`,
+              `FILED ON   : ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],
@@ -297,9 +298,9 @@ export const reviewSections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON   : ${formData?.fdate || "«fdate»"}`,
+              `FILED ON   : ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],
@@ -343,7 +344,7 @@ export const reviewSections = (key, formData) => {
         footer: [
           {
             left: [
-              `Date of Order : ${formData?.OPDATE || "«OPDATE»"}`,
+              `Date of Order : ${formatDate(formData?.OPDATE) || "«OPDATE»"}`,
               `Presented on:`,
               `Re-presented on :`,
               `Filed:`,
@@ -381,13 +382,13 @@ export const reviewSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of     (_____) days in filing the above Review Petition in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
+            )}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of     (_____) days in filing the above Review Petition in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
           ],
         },
       ],
       footer: [
         {
-          left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+          left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -465,16 +466,16 @@ export const reviewSections = (key, formData) => {
            {
             head: { text: "(UNDER SEC. 151 C.P.C.)" },
             para: [
-              `The Hon’ble Court may be pleased to condone the delay of     (_____) days in filing the above Review Petition in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
+              `The Hon’ble Court may be pleased to condone the delay of     (_____) days in filing the above Review Petition in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
             ],
           },
         ],
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON   : ${formData?.fdate || "«fdate»"}`,
+              `FILED ON   : ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],

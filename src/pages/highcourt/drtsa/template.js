@@ -4,6 +4,7 @@ import { DRTSASections } from "./drtsaData"
 import { h3BoldCenter, h3Center, h3Left, h3Right, h3underlineBoldCenter, LineSpace, pageBreak } from "../../../components/templates/elementTypes"
 import { createSignatureFooter } from "../../../components/templates/FooterSections"
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable"
+import { formatDate } from "../../../services/templateFunctions"
 
 
 export const DRTSATemplate = (formData) => {
@@ -17,13 +18,13 @@ export const DRTSATemplate = (formData) => {
                     ...LineSpace(1),
                     h3Center("MATERIAL PAPER INDEX"),
 
-                    createSignatureFooter(["PLACE : HYDERABAD",`DATE : ${formData?.fdate || "«fdate»"}`],["COUNSEL FOR APPLICANT"]),
+                    createSignatureFooter(["PLACE : HYDERABAD",`DATE : ${formatDate(formData?.fdate) || "«fdate»"}`],["COUNSEL FOR APPLICANT"]),
                     pageBreak(),
                     ...combinedSections(DRTSASections("page2",formData),formData),
                     pageBreak(),
                     ...combinedSections(DRTSASections("page3",formData),formData),
                     ...LineSpace(4),
-                    h3Center(`Filed on   .…${formData?.fdate || "«fdate»"}`),
+                    h3Center(`Filed on   .…${formatDate(formData?.fdate) || "«fdate»"}`),
                     h3Center(`Filed by :  COUNSEL FOR APPLICANTS`),
                     ...LineSpace(3),
                     h3Center("___________________________________________________"),
@@ -42,11 +43,11 @@ export const DRTSATemplate = (formData) => {
                     h3underlineBoldCenter("RUNNING INDEX"),
                     ChronologicalTable(formData),
                     ...LineSpace(2),
-                    createSignatureFooter(["Hyderabad",`Date  : ${formData?.fdate || "«fdate»"}`],["COUNSEL FOR APPLICANTS"]),
+                    createSignatureFooter(["Hyderabad",`Date  : ${formatDate(formData?.fdate) || "«fdate»"}`],["COUNSEL FOR APPLICANTS"]),
                     pageBreak(),
                     ...combinedSections(DRTSASections("page6",formData),formData),
                     ...LineSpace(3),
-                    h3Center(`FILED ON :  ${formData?.fdate || "«fdate»"}`),
+                    h3Center(`FILED ON :  ${formatDate(formData?.fdate) || "«fdate»"}`),
                     ...LineSpace(2),
                     h3Center("FILED BY  :"),
                     h3Center(`M/s ${formData?.counsel_address || "«counsel_address»"}`),

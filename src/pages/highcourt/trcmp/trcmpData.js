@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const trcmpSections = (key, formData) => {
     let data = {
@@ -34,7 +35,7 @@ export const trcmpSections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: ["last page corrs. Deponent", `DATE: ${formData?.fdate || "«fdate»"}`],
+                    left: ["last page corrs. Deponent", `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                     right: ["Counsel for the Petitioner"]
                 }
             ]
@@ -67,7 +68,7 @@ export const trcmpSections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                     right: ["Counsel for the Petitioner"]
                 }
             ]
@@ -134,7 +135,7 @@ export const trcmpSections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                     right: ["Counsel for the Petitioner"]
                 }
             ]
@@ -211,9 +212,9 @@ export const trcmpSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

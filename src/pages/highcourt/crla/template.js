@@ -14,6 +14,7 @@ import { ChallanTable } from "../../../components/templates/ChallanTable";
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CRLATemplate = (formData) => {
 
@@ -61,7 +62,7 @@ export const CRLATemplate = (formData) => {
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`

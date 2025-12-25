@@ -31,7 +31,7 @@ export const appealSuitSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `${tabSpace(1)}The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
-                        `${tabSpace(1)}The above named Appellant begs to present this Memorandum of Appeal against the Judgment dated ${formData?.OPDATE || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"} to the extent it went against the appellant, for the following grounds among other:`
+                        `${tabSpace(1)}The above named Appellant begs to present this Memorandum of Appeal against the Judgment dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"} to the extent it went against the appellant, for the following grounds among other:`
                     ]
                 },
                 {
@@ -251,7 +251,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (${formData?.delayDays || "     "}) days in filing the above A.S. in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (${formData?.delayDays || "     "}) days in filing the above A.S. in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
@@ -328,7 +328,7 @@ export const appealSuitSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        ` For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to dispense with Xerox  Copy of the judgment dated  ${formData?.OPDATE || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"}  in filing the above AS otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case. `
+                        ` For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to dispense with Xerox  Copy of the judgment dated  ${formatDate(formData?.OPDATE) || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"}  in filing the above AS otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case. `
                     ]
                 }
             ],
@@ -469,7 +469,7 @@ export const appealSuitSections = (key, formData) => {
                             text: "NATURE OF APPLICATION (UNDER SEC. 151 C.P.C.)"
                         },
                         para: [
-                            `The Hon’ble Court may be pleased to condone the delay of (     ) days in filing the above AS in ${formData?.OPNO || "«OPNO»"} dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to condone the delay of (     ) days in filing the above AS in ${formData?.OPNO || "«OPNO»"} dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
@@ -522,7 +522,7 @@ export const appealSuitSections = (key, formData) => {
                             text: "NATURE OF APPLICATION (UNDER SEC. 151 C.P.C.)"
                         },
                         para: [
-                            `The Hon’ble Court may be pleased to dispense with Xerox Copy of the judgment passed in ${formData?.OPNO || "«OPNO»"} dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} in filing the above AS otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to dispense with Xerox Copy of the judgment passed in ${formData?.OPNO || "«OPNO»"} dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} in filing the above AS otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
@@ -556,7 +556,7 @@ export const appealSuitSections = (key, formData) => {
                             `Advocate`,
                             `In the court of the ${formData?.lowercourt || "«lowercourt»"}`,
                             `${formData?.OPNO || "«OPNO»"}`,
-                            `dated ${formData?.OPDATE || "«OPDATE»"}`
+                            `dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}`
                         ]
                     }
                 ],
@@ -572,7 +572,7 @@ export const appealSuitSections = (key, formData) => {
                     {
                         "head": { "text": "Dates & Details", "bold": true },
                         "para": [
-                            `Date of Order/Decree: ${formData?.OPDATE || "«OPDATE»"}`,
+                            `Date of Order/Decree: ${formatDate(formData?.OPDATE) || "«OPDATE»"}`,
                             `Appeal Presented on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `Appeal Represented on: `,
                             `Appeal Filed On: `,
@@ -596,7 +596,7 @@ export const appealSuitSections = (key, formData) => {
                     head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
                         `A.S.No. ${tabSpace(3)} OF ${formData?.myear || "«myear»"}`,
-                        `Appeal Suit to revise the order / decree ${formData?.OPNO || "«OPNO»"} ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
+                        `Appeal Suit to revise the order / decree ${formData?.OPNO || "«OPNO»"} ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
                     ]
                 }
             ],
@@ -611,7 +611,7 @@ export const appealSuitSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         "To",
-                        // `${formData?.respondent_address || "«respondent_address»"}`,
+                        // ``,
                         `${tabSpace(1)}Take Notice that an appeal/revision/petition from the above decree/order has been presented by the above named appellant/petitioner and registered in this court and that if you intend the same you must enter your appearance in this court and give notice thereof to the appellant or petitioner or his pleader within 30 days after service of the notice on you.`,
                         `${tabSpace(1)}If no appearance is entered on your behalf by yourself, your pleader, or someone by law authorized to act for you in this appeal/revision it will be heard and decided in your absence.`,
                         `${tabSpace(1)}The address for service of the appellant/petitioner is that of his Advocate By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`,
@@ -650,7 +650,7 @@ export const appealSuitSections = (key, formData) => {
             betweenSection: {
                 pet: `..Petitioner`,
                 res: `..Respondent`,
-                resAddress: `${formData?.respondent_address || "«respondent_address»"}`
+                resAddress: ``
             },
 
             headPara: [

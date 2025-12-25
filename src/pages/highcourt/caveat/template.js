@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { caveatSections } from "./caveatData";
 
@@ -34,7 +34,7 @@ export const CaveatTemplate = (formData) => {
                         )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`
                     ),
                     ...LineSpace(1),
-                    createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formData?.fdate || "«fdate»"}`],
+                    createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formatDate(formData?.fdate) || "«fdate»"}`],
                         ["Deponent"],
                     ),
                     pageBreak(),

@@ -11,7 +11,7 @@ import { addParagraphs } from "../../../components/templates/paragraphFunctions"
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
 import { CMASections } from "./cmaData";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 
 export const CMATemplate = (formData) => {
 
@@ -27,7 +27,7 @@ export const CMATemplate = (formData) => {
                     ...combinedSections(CMASections("affidavit_cma", formData), formData),
                     pageBreak(),
                     h3UnderlineCenter("VERIFICATION STATEMENT"),
-                    ...addParagraphs([`I, ${formData?.verification || "_________"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true, I understood and the contents are correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language. Hence verified at ${formData?.place || "_________"} on this the day of ${formData?.fdate || "_________"}.`]),
+                    ...addParagraphs([`I, ${formData?.verification || "_________"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true, I understood and the contents are correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language. Hence verified at ${formData?.place || "_________"} on this the day of ${formatDate(formData?.fdate) || "_________"}.`]),
                     createSignatureFooter([], ["Deponent"]),
                     pageBreak(),
                     ...combinedSections(CMASections("151", formData), formData),
@@ -47,7 +47,7 @@ export const CMATemplate = (formData) => {
                     ChronologicalTable(formData),
                     // createSignatureFooter([{
                     //     left: [
-                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     //         `${formData?.place || "«place»"}`
                     //     ],
                     //     right: [
@@ -62,7 +62,7 @@ export const CMATemplate = (formData) => {
                     ]).flat(),
                     // createSignatureFooter([{
                     //     left: [
-                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     //         `${formData?.place || "«place»"}`
                     //     ],
                     //     right: [
@@ -77,7 +77,7 @@ export const CMATemplate = (formData) => {
                     ]).flat(),
                     // createSignatureFooter([{
                     //     left: [
-                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     //         `${formData?.place || "«place»"}`
                     //     ],
                     //     right: [

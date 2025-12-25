@@ -1,5 +1,6 @@
 import { LineSpace, tabSpace } from "../../../components/templates/elementTypes";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const writAppealSections =(key,formData) => {
   let data = {
@@ -30,7 +31,7 @@ export const writAppealSections =(key,formData) => {
           )} The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
            `${tabSpace(
             1
-          )} The above named Appellant begs to present this Memorandum of Writ Appeal against the Judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} passed by His Lordship ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`,
+          )} The above named Appellant begs to present this Memorandum of Writ Appeal against the Judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed by His Lordship ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`,
         ],
       },
     ],
@@ -51,7 +52,7 @@ export const writAppealSections =(key,formData) => {
     ],
     footer: [
       {
-        left: [`${formData?.place || "«place»"}`, `DATE:${formData?.fdate || "«fdate»"}`],
+        left: [`${formData?.place || "«place»"}`, `DATE:${formatDate(formData?.fdate) || "«fdate»"}`],
         right: [`Counsel For Appellant`],
       },
     ],
@@ -91,7 +92,7 @@ export const writAppealSections =(key,formData) => {
     ],
          footer: [
       {
-        left: [`Last Page Corss....`,`Sworn and Signed in my presence`,`on this day of ${formData?.fdate || "«fdate»"}`,`at ${formData?.place || "«place»"}.`],
+        left: [`Last Page Corss....`,`Sworn and Signed in my presence`,`on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,`at ${formData?.place || "«place»"}.`],
         right: [`Deponent`],
       },
       
@@ -127,7 +128,7 @@ export const writAppealSections =(key,formData) => {
     ],
          footer: [
       {
-        left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+        left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
         right: [`Counsel for the Petitioner`,``],
       },  
     ],
@@ -154,13 +155,13 @@ export const writAppealSections =(key,formData) => {
         para: [
           `${tabSpace(
             1
-          )}For the reasons stated in the accompanying affidavit, it is hereby prayed that this Hon'ble Court may be to grant leave to the petitioner to file appeal against the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+          )}For the reasons stated in the accompanying affidavit, it is hereby prayed that this Hon'ble Court may be to grant leave to the petitioner to file appeal against the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
         ],
         },
     ],
          footer: [
       {
-        left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+        left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
         right: [`Counsel for the Petitioner`,``],
       },  
     ],
@@ -196,7 +197,7 @@ export const writAppealSections =(key,formData) => {
     ],
          footer: [
       {
-        left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+        left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
         right: [`Counsel for the Petitioner`,``],
       },  
     ],

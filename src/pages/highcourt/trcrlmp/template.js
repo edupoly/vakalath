@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 import { trcrlmpSections } from "./trcrlmpData";
 import { header } from "../../../components/templates/HeaderSection";
 
@@ -47,7 +47,7 @@ export const TRCRLMPTemplate = (formData) => {
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`

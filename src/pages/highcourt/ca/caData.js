@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { advocateDetails, formatDate } from "../../../services/templateFunctions";
 
 export const caSections = (key, formData) => {
     let data = {
@@ -8,8 +9,8 @@ export const caSections = (key, formData) => {
                 left: { text: "Form No.51", bold: true },
                 right: { text: "Rule 128(C.R.P)", bold: true }
             }],
-            mainTitle: { text: "Application for Certified Copies",bold:true },
-            subTitle: { text: "IN THE COURT OF THE " + (formData?.district || "«district»"),bold:true },
+            mainTitle: { text: "Application for Certified Copies", bold: true },
+            subTitle: { text: "IN THE COURT OF THE " + (formData?.district || "«district»"), bold: true },
             headLines: [{
                 head: { text: "" },
                 lines: [
@@ -33,14 +34,10 @@ export const caSections = (key, formData) => {
             right: {
                 headLines: [
                     {
-                        head: { text: `IN THE COURT OF THE` },
+                        head: { text: `IN THE COURT OF THE ${formData?.district || "«district»"}`, underline: true },
                         lines: [
-                            `${formData?.district || "«district»"}`
+                            { text: `O.S.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}` },
                         ]
-                    },
-                    {
-                        head: { text: `O.S.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}` },
-                        lines: []
                     }
                 ],
 
@@ -49,14 +46,14 @@ export const caSections = (key, formData) => {
                     res: "….Defendant",
                 },
 
-                middleHeader:{ text: "COPY APPLICATION", bold: true },
+                middleHeader: { text: "COPY APPLICATION", bold: true },
 
                 footer: [
                     {
                         left: [
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`,
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `FILED BY:`,
-                            `M/s ${formData?.counsel_address || "«counsel_address»"}`,
+                            ...advocateDetails(formData?.userDetails),
                             `Advocate`,
                             `ADVOCATE FOR PLAINTIFF`
                         ]

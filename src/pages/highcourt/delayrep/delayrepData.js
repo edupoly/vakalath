@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 
 export const DELAYREPSections = (key, formData) => {
@@ -29,7 +30,7 @@ export const DELAYREPSections = (key, formData) => {
             footer: [{
                 left: [
                     `${formData?.place || "«place»"}`,
-                    `DATE: ${formData?.fdate || "«fdate»"}`
+                    `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                 ],
                 right: [
                     `Counsel for the Petitioner`

@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles, templateProperties } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { caSections } from "./caData";
 
@@ -24,7 +24,7 @@ export const CATemplate = (formData) => {
                     ChronologicalTable(formData),
                     ...LineSpace(1),
                     createSignatureFooter([
-                        `Date: ${formData?.fdate || "«fdate»"}`,
+                        `Date: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.station || "«station»"}`
                     ], [
                         `${formData?.counsel_code || "«counsel_code»"}`,

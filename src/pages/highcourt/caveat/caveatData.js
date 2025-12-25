@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { advocateDetails, formatDate } from "../../../services/templateFunctions";
 
 export const caveatSections = (key, formData) => {
     let data = {
@@ -29,16 +30,17 @@ export const caveatSections = (key, formData) => {
                         `1.   I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2.   I submit that ________`,
                         `3.   ________`,
-                        `4.   That aggrieved thereby, the Respondents may file WP before this Hon'ble Court and obtain ex parte ad interim orders in WP and WPMP against ${formData?.OPNO || "«OPNO»"} dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"}. If any ex parte orders are obtained it will suffer serious and irreparable loss.`,
-                        `${tabSpace(1)}It is prayed that this Hon'ble Court may be pleased to order notice to be served on our counsel ${formData?.counsel_address || "«counsel_address»"} before passing any orders on any Writ Petition or WPMP that may be filed against ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `4.   That aggrieved thereby, the Respondents may file WP before this Hon'ble Court and obtain ex parte ad interim orders in WP and WPMP against ${formData?.OPNO || "«OPNO»"} dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"}. If any ex parte orders are obtained it will suffer serious and irreparable loss.`,
+                        `${tabSpace(1)}It is prayed that this Hon'ble Court may be pleased to order notice to be served on our counsel ${formData?.counsel_address || "«counsel_address»"} before passing any orders on any Writ Petition or WPMP that may be filed against ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
 
             footer: [{
                 left: [
-                    "last page corrs.",
-                    `Solemnly and sincerely affirmed on this the day of ${formData?.fdate || "«fdate»"} and signed his name in my presence.`
+                    // "last page corrs.",
+                    "",
+                    `Solemnly and sincerely affirmed on this the day of ${formatDate(formData?.fdate) || "«fdate»"} and signed his name in my presence.`
                 ],
                 right: ["Deponent"]
             }]
@@ -67,13 +69,13 @@ export const caveatSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `${tabSpace(1)}For the reasons stated in above this Hon'ble Court may be pleased to order notice to be served on our counsel ${formData?.counsel_address || "«counsel_address»"} before passing any orders on any Writ Petition or WPMP that may be filed against ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)}For the reasons stated in above this Hon'ble Court may be pleased to order notice to be served on our counsel ${formData?.counsel_address || "«counsel_address»"} before passing any orders on any Writ Petition or WPMP that may be filed against ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
 
             footer: [{
-                left: [`Date: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+                left: [`Date: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
                 right: ["Counsel for Petitioner"]
             }]
         },
@@ -87,9 +89,9 @@ export const caveatSections = (key, formData) => {
                     {
                         head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                         lines: [
-                            `Caveat Petition No.${tabSpace(9)}OF ${formData?.myear || "«myear»"}`,
+                            `Caveat Petition No.${tabSpace(2)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
-                            `W.P.No.${tabSpace(7)}OF ${formData?.myear || "«myear»"}`,
+                            `W.P.No.${tabSpace(2)}OF ${formData?.myear || "«myear»"}`,
                             `Against`,
                             `${formData?.OPNO || "«OPNO»"} (${formData?.lowercourt || "«lowercourt»"})`
                         ]
@@ -100,7 +102,7 @@ export const caveatSections = (key, formData) => {
                     {
                         left: [
                             `Filed By:`,
-                            `M/s ${formData?.counsel_code || "«counsel_code»"}`,
+                            ...advocateDetails(formData?.userDetails),
                             `Advocate`,
                             `Counsel for Petitioner`
                         ]

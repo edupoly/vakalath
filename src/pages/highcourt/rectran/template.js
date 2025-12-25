@@ -10,6 +10,7 @@ import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
+import { formatDate } from "../../../services/templateFunctions";
 
 
 export const rectranTemplate = (formData) => {
@@ -41,7 +42,7 @@ export const rectranTemplate = (formData) => {
         h3UnderlineCenter("RUNNING INDEX "),
         ...LineSpace(1),
         ChronologicalTable(formData),
-        createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+        createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
               ["Counsel for the Petitioner"],
         ),
         pageBreak(),

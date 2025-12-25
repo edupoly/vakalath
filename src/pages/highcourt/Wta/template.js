@@ -22,6 +22,7 @@ import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const WtaTemplate = (formData) => {
   return new Document({
@@ -37,7 +38,7 @@ export const WtaTemplate = (formData) => {
           h3Center(`ADVOCATE :: ${formData?.place || "«place»"}`),
           pageBreak(),
           h3UnderlineCenter("VERIFICATION STATEMENT"),
-          h3Left(`${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`),
+          h3Left(`${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`),
           h3Right("Deponent"),
           pageBreak(),
           ...combinedSections(WtaSections("sec-151", formData), formData),
@@ -50,7 +51,7 @@ export const WtaTemplate = (formData) => {
           h3Center(`W.T.T.A.No.${tabSpace(3)}OF ${formData?.myear || " «myear»"}`),
           h3Center(`CHRONOLOGICAL / RUNNING INDEX`),
           ChronologicalTable(formData),
-          createSignatureFooter([`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+          createSignatureFooter([`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
             [``, `Counsel for the Petitioner`],
           ),
           pageBreak(),
@@ -58,7 +59,7 @@ export const WtaTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
           ...LineSpace(2),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             [`Counsel for the Petitioner(s).`],
           ),
           ...LineSpace(10),
@@ -67,7 +68,7 @@ export const WtaTemplate = (formData) => {
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
           ...LineSpace(2),
           createSignatureFooter(
-            [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+            [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             [`Counsel for the Petitioner(s).`]
           ),
           pageBreak(),
@@ -79,7 +80,7 @@ export const WtaTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(`${tabSpace(1)}We have served the copies of W.T.T.A Grounds, Affidavit, Miscellaneous Petition(s) and Material Papers on the  other side Counsel/Government Pleader.`),
           ...LineSpace(1),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Counsel for the Petitioner(s)."],
           ),
           pageTable(WtaSections("sidePage4", formData), formData),

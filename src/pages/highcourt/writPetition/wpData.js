@@ -1,4 +1,5 @@
 import { LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const writPetitionSections =(key,formData)=> {
   let data = {
@@ -26,7 +27,7 @@ export const writPetitionSections =(key,formData)=> {
     footerLeft: [
       `last page corrs.`,
       `Solemnly and sincerely affirm this`,
-      `the day of  ${formData?.fdate || "«fdate»"}`,
+      `the day of  ${formatDate(formData?.fdate) || "«fdate»"}`,
       `and signed his name in my presence.`,
     ],
     footerRight: [`Deponent`],
@@ -50,7 +51,7 @@ export const writPetitionSections =(key,formData)=> {
         ],
       },
     ],
-    footerLeft: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+    footerLeft: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
     footerRight: [`Counsel for the Petitioner`],
   },
   "sec-151": {
@@ -74,7 +75,7 @@ export const writPetitionSections =(key,formData)=> {
         ],
       },
     ],
-    footerLeft: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+    footerLeft: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
     footerRight: ["Counsel for the Petitioner"],
   },
   

@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 
 export const CPSections = (key, formData) => {
@@ -38,7 +39,7 @@ export const CPSections = (key, formData) => {
                         `Last page corrs…`,
                         "",
                         `Verified on this the`,
-                        `day of ${formData?.fdate || "«fdate»"}`
+                        `day of ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [`Deponent`]
                 }
@@ -68,7 +69,7 @@ export const CPSections = (key, formData) => {
                     para: [
                         `${tabSpace(1)}The petition of , the petitioner herein, most respectfully showeth:`,
                         `1.     The address of the Petitioner Company for the purpose of service of notices, summons, etc., is that of their counsel ${formData?.counsel_address || "«counsel_address»"}`,
-                        `2.   ${formData?.respondent_name || "«respondent_name»"} (hereinafter referred to as "The Respondent Company") is a public limited Company incorporated under the Companies Act, 1956, as Company No.__________ with the Registrar of Companies, ___________________`,
+                        `2.    (hereinafter referred to as "The Respondent Company") is a public limited Company incorporated under the Companies Act, 1956, as Company No.__________ with the Registrar of Companies, ___________________`,
                         `3.   The Registered Office of the Respondent Company is at  _______`,
                         `4.   The authorised share capital of the respondent company, as ascertained from the records available with the office of the Registrar of Companies, ___________, is Rs.________/- consisting of   __________________ equity shares of Rs.______/- each.  The issued, subscribed and paid up share capital of the respondent company is Rs.____________/- divided into equity shares of Rs.________/- each paid in cash at par.`,
                         `4.   THE MAIN OBJECTS OF THE RESPONDENT COMPANY ARE  AS FOLLOWS:\n(i)\n(ii)\n(iii)`,
@@ -76,7 +77,7 @@ export const CPSections = (key, formData) => {
                         `14.  The Registered Office of the respondent company is within the State of Andhra Pradesh and hence this Hon'ble Court has jurisdiction to try and decide the case.`,
                         `15.  This petition has been filed bonafide and in the interest of justice and a fixed court fee of Rs.200/- is paid in accordance with the provisions of Article 11(v) of the II-Schedule of Andhra Pradesh Court Fees and Suit Valuation Act.`,
                         `16.  The petitioner therefore prays that :`,
-                        `a)    ${formData?.respondent_name || "«respondent_name»"} the respondent be wound up in accordance with the provisions of the Companies Act, 1956 and`,
+                        `a)     the respondent be wound up in accordance with the provisions of the Companies Act, 1956 and`,
                         `b)   Appoint Official Liquidator as provisional liquidator pending the disposal of the winding up petition under Sec.450 of the Companies Act, 1956, and to pass such other order or orders as are deemed fit and proper in the circumstances of the case.`
                     ]
                 }
@@ -85,7 +86,7 @@ export const CPSections = (key, formData) => {
                 {
                     left: [
                         `Counsel for Petitioner`,
-                        `Date: ${formData?.fdate || "«fdate»"}`
+                        `Date: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [`Petitioner`]
                 }
@@ -103,7 +104,7 @@ export const CPSections = (key, formData) => {
                 middleHeader: { text: `PETITION FILED UNDER SEC.433(e),(f), 434(1)(a) and (439) OF THE COMPANIES ACT, 1956 READ WITH RULE-95 OF THE COMPANY (COURT) RULES1959.`, underline: true },
                 footer: [{
                     left: [
-                        `Filed on: ${formData?.fdate || "«fdate»"}`,
+                        `Filed on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `M/s ${formData?.counsel_address || "«counsel_address»"}`,
                         `Counsel for Petitioner`
                     ]
@@ -148,7 +149,7 @@ export const CPSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [`Deponent`]
@@ -191,7 +192,7 @@ export const CPSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `Dated this day of ${formData?.fdate || "«fdate»"}`,
+                        `Dated this day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `ADVOCATE FOR THE APPLICANT`
                     ],
                     right: [`REGISTRAR`]
@@ -212,7 +213,7 @@ export const CPSections = (key, formData) => {
                 middleHeader: { text: `JUDGE'S SUMMONS UNDER SECTION 450 OF THE COMPANIES ACT, 1956 R/W.RULES 9 & 106 OF THE  COMPANIES (COURT) RULES 1959.`, underline: true },
                 footer: [{
                     left: [
-                        `Filed on: ${formData?.fdate || "«fdate»"}`,
+                        `Filed on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `FILED BY:`,
                         `M/s ${formData?.counsel_address || "«counsel_address»"}`,
                         `Counsel for Applicant`

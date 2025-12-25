@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CRLASections = (key, formData) => {
   let data = {
@@ -30,7 +31,7 @@ export const CRLASections = (key, formData) => {
           head: { text: "" },
           para: [
             `${tabSpace(1)}The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
-            `${tabSpace(1)}The above named Appellant begs to file this Criminal Appeal against the judgment and sentence passed by the learned ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, for the following grounds among other:`
+            `${tabSpace(1)}The above named Appellant begs to file this Criminal Appeal against the judgment and sentence passed by the learned ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, for the following grounds among other:`
           ]
         },
         {
@@ -51,7 +52,7 @@ export const CRLASections = (key, formData) => {
       ],
       footer: [{
         left: [
-          `DATE:${formData?.fdate || "«fdate»"}`,
+          `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
           `${formData?.place || "«place»"}`
         ],
         right: [`Counsel For Appellant`]
@@ -83,7 +84,7 @@ export const CRLASections = (key, formData) => {
       ],
       footer: [{
         left: [
-          `DATE:${formData?.fdate || "«fdate»"}`,
+          `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
           `${formData?.place || "«place»"}`
         ],
         right: [`Counsel For Appellant`]
@@ -108,15 +109,15 @@ export const CRLASections = (key, formData) => {
         {
           head: { text: "DISPENSEWITH PETITION" },
           para: [
-            `${tabSpace(1)}That the above Criminal Appeal is filed seeking to appeal the order passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} and the petitioner did not obtain the certified copies of the said ${formData?.OPNO || "«OPNO»"} and hence filed the photocopy of the same and the same may be dispensed with.`,
-            `${tabSpace(1)}For the reasons stated in the accompanying criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+            `${tabSpace(1)}That the above Criminal Appeal is filed seeking to appeal the order passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} and the petitioner did not obtain the certified copies of the said ${formData?.OPNO || "«OPNO»"} and hence filed the photocopy of the same and the same may be dispensed with.`,
+            `${tabSpace(1)}For the reasons stated in the accompanying criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
           ]
         }
       ],
       footer: [{
         left: [
           `${formData?.place || "«place»"}`,
-          `DATE: ${formData?.fdate || "«fdate»"}`
+          `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
         ],
         right: [`Counsel for the Petitioner`]
       }]
@@ -146,7 +147,7 @@ export const CRLASections = (key, formData) => {
             "",
             `3. `,
             "",
-            `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to grant leave to file appeal against the order passed by the ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+            `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to grant leave to file appeal against the order passed by the ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
           ]
         }
       ],
@@ -154,7 +155,7 @@ export const CRLASections = (key, formData) => {
         left: [
           `last page corrs.`,
           `Solemnly and sincerely affirm this`,
-          `the day of ${formData?.fdate || "«fdate»"}`,
+          `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
           `and signed his name in my presence.`
         ],
         right: [`Deponent`]
@@ -181,13 +182,13 @@ export const CRLASections = (key, formData) => {
         {
           head: { text: "" },
           para: [
-            `${tabSpace(1)} It is therefore prayed that this Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+            `${tabSpace(1)} It is therefore prayed that this Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
           ]
         },
       ],
       footer: [{
         left: [
-          `DATE:${formData?.fdate || "«fdate»"}`,
+          `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
           `${formData?.place || "«place»"}`
         ],
         right: [`Counsel For petitioner`]
@@ -219,13 +220,13 @@ export const CRLASections = (key, formData) => {
         {
           head: "",
           para: [
-            `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to grant leave to file appeal against the order passed by the ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+            `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to grant leave to file appeal against the order passed by the ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
           ]
         }
       ],
       footer: [{
         left: [
-          `DATE: ${formData?.fdate || "«fdate»"}`,
+          `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
           `${formData?.place || "«place»"}`
         ],
         right: [`Counsel For petitioner`]
@@ -243,7 +244,7 @@ export const CRLASections = (key, formData) => {
             lines: [
               `Crl.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
               `IN`,
-              `${formData?.OPNO || "«OPNO»"} \n Dated ${formData?.OPDATE || "«OPDATE»"} \n On the file of the \n ${formData?.lowercourt || "«lowercourt»"}`
+              `${formData?.OPNO || "«OPNO»"} \n Dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} \n On the file of the \n ${formData?.lowercourt || "«lowercourt»"}`
             ]
           },
         ],
@@ -412,9 +413,9 @@ export const CRLASections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `AdvocatREPRESENTED ON:e`,
-              `FILED ON: ${formData?.fdate || "«fdate»"}`
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
             ]
           }
         ]
@@ -451,16 +452,16 @@ export const CRLASections = (key, formData) => {
               text: "NATURE OF APPLICATION (UNDER SEC. 389(1) Cr.P.C.)"
             },
             para: [
-              `The Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"}  and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+              `The Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"}  and pass such other order or orders may deem fit and proper in the circumstances of the case.`
             ]
           },
         ],
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `AdvocatREPRESENTED ON:e`,
-              `FILED ON: ${formData?.fdate || "«fdate»"}`
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
             ]
           }
         ]
@@ -501,7 +502,7 @@ export const CRLASections = (key, formData) => {
               text: `NATURE OF APPLICATION (UNDER SEC. 482 Cr.P.C.)`
             },
             para: [
-              `The Hon’ble Court may be pleased to dispense with certified copy of ${formData?.OPNO || `«OPNO»`}, dated ${formData?.OPDATE || `«OPDATE»`} on the file of ${formData?.lowercourt || `«lowercourt»`} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+              `The Hon’ble Court may be pleased to dispense with certified copy of ${formData?.OPNO || `«OPNO»`}, dated ${formatDate(formData?.OPDATE) || `«OPDATE»`} on the file of ${formData?.lowercourt || `«lowercourt»`} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
             ]
           }
         ],
@@ -509,9 +510,9 @@ export const CRLASections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || `«fdate»`}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || `«fdate»`}`,
               `REPRESENTED ON:`,
-              `FILED ON: ${formData?.fdate || `«fdate»`}`
+              `FILED ON: ${formatDate(formData?.fdate) || `«fdate»`}`
             ]
           }
         ]
@@ -551,7 +552,7 @@ export const CRLASections = (key, formData) => {
               text: "NATURE OF APPLICATION (UNDER SEC. 378 (4) Cr.P.C.)"
             },
             para: [
-              `The Hon'ble Court may be pleased to grant leave to file appeal against the order passed by the ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+              `The Hon'ble Court may be pleased to grant leave to file appeal against the order passed by the ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
             ]
           }
         ],
@@ -559,9 +560,9 @@ export const CRLASections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               "REPRESENTED ON:",
-              `FILED ON: ${formData?.fdate || "«fdate»"}`
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
             ]
           }
         ]
@@ -600,13 +601,13 @@ export const CRLASections = (key, formData) => {
         footer: [
           {
             left: [
-              `Date of Order: ${formData?.OPDATE || "«OPDATE»"}`,
+              `Date of Order: ${formatDate(formData?.OPDATE) || "«OPDATE»"}`,
               "Order:"
             ]
           },
           {
             left: [
-              `DATE OF FILING: ${formData?.fdate || "«fdate»"}`
+              `DATE OF FILING: ${formatDate(formData?.fdate) || "«fdate»"}`
             ]
           }
         ]
@@ -647,7 +648,7 @@ export const CRLASections = (key, formData) => {
       footer: [
         {
           left: [
-            `DATE:${formData?.fdate || "«fdate»"}`,
+            `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
             `${formData?.place || "«place»"}.`
           ],
           right: [`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`, "Counsel for Petitioner"]
@@ -757,7 +758,7 @@ export const CRLASections = (key, formData) => {
             ]
           },
           {
-            head: { text: `Date of Sentence: ${formData?.OPDATE || `«OPDATE»`}` },
+            head: { text: `Date of Sentence: ${formatDate(formData?.OPDATE) || `«OPDATE»`}` },
             lines: []
           }
         ],

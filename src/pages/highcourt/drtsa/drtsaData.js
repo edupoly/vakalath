@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes"
+import { formatDate } from "../../../services/templateFunctions";
 
 
 export const DRTSASections = (key, formData) => {
@@ -93,7 +94,7 @@ export const DRTSASections = (key, formData) => {
                     head : {text:""},
                     para :[
                         `Place : Hyderabad`,
-                        `Date  : ${formData?.fdate || "«fdate»"}`
+                        `Date  : ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ],

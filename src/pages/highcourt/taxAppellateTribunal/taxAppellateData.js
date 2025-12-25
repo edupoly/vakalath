@@ -3,6 +3,7 @@ import {
   tabSpace,
 } from "../../../components/templates/elementTypes";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const taxAppellateTribunalSections = (key, formData) => {
   let data = {
@@ -141,7 +142,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -275,7 +276,7 @@ export const taxAppellateTribunalSections = (key, formData) => {
             lines: []
           },
           {
-            head: { text: `${formData?.respondent_name || "«respondent_name»"}` },
+            head: { text: `` },
             lines: ["RESPONDENT"]
           },
           {

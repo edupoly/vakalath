@@ -11,6 +11,7 @@ import { addParagraphs } from "../../../components/templates/paragraphFunctions"
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
 import { CRLRCMacmaSections } from "./data";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CRLRCMacmaTemplate = (formData) => {
 
@@ -48,7 +49,7 @@ export const CRLRCMacmaTemplate = (formData) => {
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                            `DATE:${formData?.fdate || "«fdate»"}`,
+                            `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                             `${formData?.place || "«place»"}`
                         ],
                         [

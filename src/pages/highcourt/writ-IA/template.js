@@ -4,6 +4,7 @@ import { writIaSections } from "./writIaData";
 import { combinedSections } from "../../../components/highcourt/combineSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
 import { createRightAlignPage } from "../../../components/templates/tableFunctions";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const WIATemplate = (formData) => {
   return new Document({
@@ -37,11 +38,11 @@ export const WIATemplate = (formData) => {
         ...LineSpace(1),
         h3Left(`The Hon’ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} pending disposal the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
         ...LineSpace(5),
-        h3Left(`PRESENTED ON: ${formData?.fdate || "«fdate»"}`),
+        h3Left(`PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
         ...LineSpace(1),
         h3Left("REPRESENTED ON:"),
         ...LineSpace(1),
-        h3Left(`FILED ON: ${formData?.fdate || "«fdate»"}`),
+        h3Left(`FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
 
 
         

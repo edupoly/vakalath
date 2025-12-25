@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const rectranSections = (key, formData) => {
   let data = {
@@ -39,7 +40,7 @@ export const rectranSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`last page corrs.`, `Solemnly and sincerely affirm this`,`the day of ${formData?.fdate || "«fdate»"}`,`and signed his name in my presence.`],
+          left: [/*  `last page corrs.`, */"", `Solemnly and sincerely affirm this`,`the day of ${formatDate(formData?.fdate) || "«fdate»"}`,`and signed his name in my presence.`],
           right: [`Deponent`],
         },
       ],
@@ -75,7 +76,7 @@ export const rectranSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+          left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -138,7 +139,7 @@ export const rectranSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`${formData?.place || "«place»"}`,`DATE: ${formData?.fdate || "«fdate»"}`],
+          left: [`${formData?.place || "«place»"}`,`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -214,9 +215,9 @@ export const rectranSections = (key, formData) => {
         footer: [
           {
             left: [
-              `Permitted on: ${formData?.fdate || "«fdate»"}`,
-              `Presented on: ${formData?.fdate || "«fdate»"}`,
-              `Filed on    : ${formData?.fdate || "«fdate»"}`,
+              `Permitted on: ${formatDate(formData?.fdate) || "«fdate»"}`,
+              `Presented on: ${formatDate(formData?.fdate) || "«fdate»"}`,
+              `Filed on    : ${formatDate(formData?.fdate) || "«fdate»"}`,
               `R&T CMP.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
             ],
           },
@@ -267,9 +268,9 @@ export const rectranSections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON: ${formData?.fdate || "«fdate»"}`,
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],
@@ -358,7 +359,7 @@ export const rectranSections = (key, formData) => {
         footer: [
           {
             left: [
-              `DATE : ${formData?.fdate || "«fdate»"}`,
+              `DATE : ${formatDate(formData?.fdate) || "«fdate»"}`,
               `_____________________________`,
               `Address for Service:`,
               `${formData?.counsel_address || "«counsel_address»"}`,

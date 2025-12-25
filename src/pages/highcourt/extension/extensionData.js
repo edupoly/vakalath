@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes"
+import { formatDate } from "../../../services/templateFunctions"
 
 export const EXTENSIONSections = (key, formData) => {
     let data = {
@@ -25,16 +26,16 @@ export const EXTENSIONSections = (key, formData) => {
                 {
                     head: { text: `EXTENSION OF INTERIM ORDERS`, bold: true, underline: true },
                     para: [
-                        `1.	That the above Crl.P is filed against the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`,
+                        `1.	That the above Crl.P is filed against the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`,
                         `2.`,
-                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to extend the interim stay order passed by this Hon’ble Court in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} until further orders in the interest of justice and to pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to extend the interim stay order passed by this Hon’ble Court in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} until further orders in the interest of justice and to pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
             footer: [
                 {
                     left: [
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [
@@ -96,16 +97,16 @@ export const EXTENSIONSections = (key, formData) => {
                             text: "NATURE OF APPLICATION\n(UNDER SEC. 482 OF Cr.P.C.)"
                         },
                         para: [
-                            `The Hon'ble Court may be pleased to extend the interim stay order passed by this Hon’ble Court in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} until further orders in the interest of justice and to pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon'ble Court may be pleased to extend the interim stay order passed by this Hon’ble Court in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} until further orders in the interest of justice and to pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     },
                 ],
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

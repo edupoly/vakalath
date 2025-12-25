@@ -244,7 +244,7 @@ export const SignatureRow = (formdata) => {
         rows: [
             new TableRow({
                 children: [
-                    cell(`Date: ${formdata?.fdate || "______________"}`, paragraphStyles.leftAlignSmall),
+                    cell(`Date: ${formatDate(formData?.fdate) || "______________"}`, paragraphStyles.leftAlignSmall),
                     cell(`Counsel for the Petitioner`, paragraphStyles.leftAlignSmall),
                 ]
             }),
@@ -356,8 +356,10 @@ export const caseTypeFields = [
 
 export const formatDate = (iso) => {
     if (!iso) return "";
-    const [y, m, d] = iso.split("-");
-    return `${d}-${m}-${y}`;
+    const [yy, mm, dd] = iso.split("-");
+      const d = dd.split("T")[0];
+
+    return `${d}-${mm}-${yy}`;
 };
 
 export const advocateDetails = (data) => {

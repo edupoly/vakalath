@@ -1,6 +1,6 @@
 import { Document, Packer, Table, TableRow, TableCell, WidthType } from "docx";
 import { saveAs } from "file-saver";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 import { BetweenSection } from "../../../components/templates/BetweenSection";
 
 export const CounterTemplate = (formData) => {
@@ -29,7 +29,7 @@ export const CounterTemplate = (formData) => {
           createParagraph("Deponent", paragraphStyles.leftAlignText),
 
           createParagraph("Solemnly and sincerely affirm this", paragraphStyles.paraText),
-          createParagraph(`the day of ${formData?.fdate} || «fdate»`, paragraphStyles.paraText),
+          createParagraph(`the day of ${formatDate(formData?.fdate)} || «fdate»`, paragraphStyles.paraText),
           createParagraph("and signed his name in my presence.", paragraphStyles.paraText),
           createParagraph("BEFORE ME", paragraphStyles.centerText),
           createParagraph(`ADVOCATE :: ${formData?.place} || «place»`, paragraphStyles.centerText),
@@ -37,7 +37,7 @@ export const CounterTemplate = (formData) => {
           createParagraph("VERIFICATION STATEMENT", paragraphStyles.centerTextBig),
           createParagraph(`I, ${formData?.verification} || «verification», being the Respondent/person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`, paragraphStyles.paraText),
           createParagraph(`Verified at ${formData?.place} || «place» on this`, paragraphStyles.paraText),
-          createParagraph(`the day of ${formData?.fdate} || «fdate»`, paragraphStyles.paraText),
+          createParagraph(`the day of ${formatDate(formData?.fdate)} || «fdate»`, paragraphStyles.paraText),
           createParagraph("Deponent", paragraphStyles.leftAlignText),
 
           createParagraph(`${formData?.DISTRICT} || «DISTRICT» District`, paragraphStyles.centerText),

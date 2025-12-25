@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const petpetrSections = (key, formData) => {
     let data = {
@@ -29,7 +30,7 @@ export const petpetrSections = (key, formData) => {
                         `BEFORE ME`,
                         `ADVOCATE :: ${formData?.place || "«place»"}`,
                         `VERIFICATION STATEMENT`,
-                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                     ]
                 }
             ],
@@ -38,7 +39,7 @@ export const petpetrSections = (key, formData) => {
                     left: [
                         `last page corrs.`,
                         `Solemnly and sincerely affirm this`,
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `and signed his name in my presence.`,
                     ],
                     right: [`Deponent`]
@@ -73,7 +74,7 @@ export const petpetrSections = (key, formData) => {
             footer: [
                 {
                     left: [`${formData?.place || "«place»"}`],
-                    right: ["Counsel for the Petitioner", `DATE: ${formData?.fdate || "«fdate»"}`]
+                    right: ["Counsel for the Petitioner", `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`]
                 }
             ]
         },
@@ -141,9 +142,9 @@ export const petpetrSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

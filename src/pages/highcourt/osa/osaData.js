@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const osaSections = (key, formData) => {
     let data = {
@@ -27,21 +28,21 @@ export const osaSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
-                        `The above named Appellant/s begs to present this Memorandum of Original Side Appeal, aggrieved by the order passed by the learned Company Judge in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} for the following among other:`
+                        `The above named Appellant/s begs to present this Memorandum of Original Side Appeal, aggrieved by the order passed by the learned Company Judge in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} for the following among other:`
                     ]
                 },
                 {
                     head: { text: "G R O U N D S" },
                     para: [
-                        `1. The order of the learned company judge made in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} with respect is contrary to law, facts of the case and is liable to be set aside.`,
+                        `1. The order of the learned company judge made in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} with respect is contrary to law, facts of the case and is liable to be set aside.`,
                         "Other grounds would be urged at the time of arguments.",
-                        `It is therefore prayed that this Hon’ble Court may be pleased to set aside the order passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} by the learned company Judge and consequently allow the said company petition as prayed for and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `It is therefore prayed that this Hon’ble Court may be pleased to set aside the order passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} by the learned company Judge and consequently allow the said company petition as prayed for and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
             footer: [
                 {
-                    left: ["last page corrs. Deponent", `DATE: ${formData?.fdate || "«fdate»"}`],
+                    left: ["last page corrs. Deponent", `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                     right: ["Counsel for the Petitioner"]
                 }
             ]
@@ -115,7 +116,7 @@ export const osaSections = (key, formData) => {
                 {
                     left: [
                         "Last Page Corss....",
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Deponent"
@@ -151,7 +152,7 @@ export const osaSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -237,9 +238,9 @@ export const osaSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -301,7 +302,7 @@ export const osaSections = (key, formData) => {
                     {
                         head: { text: "" },
                         para: [
-                            `DECREE PASSED ON: ${formData?.OPDATE || "«OPDATE»"}`
+                            `DECREE PASSED ON: ${formatDate(formData?.OPDATE) || "«OPDATE»"}`
                         ]
                     },
                     {

@@ -1,6 +1,6 @@
 import { Document, Packer, Table, TableRow, TableCell, WidthType } from "docx";
 import { saveAs } from "file-saver";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 
 export const ContemptAffidavitTemplate = (formData) => {
   return new Document({
@@ -32,7 +32,7 @@ export const ContemptAffidavitTemplate = (formData) => {
           createParagraph("3.", paragraphStyles.paraText),
           createParagraph("4.", paragraphStyles.paraText),
 
-          createParagraph(`The first respondent willfully and wantonly is not implementing orders of the Hon'ble High Court passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} by His Lordship’s ${formData?.lowercourt || "«lowercourt»"}, and deliberately avoiding, and the action of the 1st respondent amounts to punishment under Sec.10 to 12 of the Contempt of Courts Act.`, paragraphStyles.paraText),
+          createParagraph(`The first respondent willfully and wantonly is not implementing orders of the Hon'ble High Court passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} by His Lordship’s ${formData?.lowercourt || "«lowercourt»"}, and deliberately avoiding, and the action of the 1st respondent amounts to punishment under Sec.10 to 12 of the Contempt of Courts Act.`, paragraphStyles.paraText),
           createParagraph("", paragraphStyles.centerText), // Empty line for spacing
           createParagraph(`It is therefore prayed that this Hon'ble Court may be pleased to ${formData?.MAIN_PRAYER || "«MAIN_PRAYER»"} and pass such other order or orders as may deem fit and proper in the circumstances of the case.`, paragraphStyles.paraText),
           createParagraph("", paragraphStyles.centerText), // Empty line for spacing
@@ -45,7 +45,7 @@ export const ContemptAffidavitTemplate = (formData) => {
           createParagraph("Deponent", paragraphStyles.leftAlignText),
           createParagraph("", paragraphStyles.centerText), // Empty line for spacing
           createParagraph("Solemnly and sincerely affirmed on", paragraphStyles.paraText),
-          createParagraph(`this the day of ${formData?.fdate || "«fdate»"}`, paragraphStyles.paraText),
+          createParagraph(`this the day of ${formatDate(formData?.fdate) || "«fdate»"}`, paragraphStyles.paraText),
           createParagraph("and signed his name in my presence.", paragraphStyles.paraText),
 
           createParagraph("", paragraphStyles.centerText), // Empty line for spacing
@@ -59,7 +59,7 @@ export const ContemptAffidavitTemplate = (formData) => {
           // Verification section
           createParagraph("VERIFICATION STATEMENT", paragraphStyles.centerTextBig),
           createParagraph(`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.`, paragraphStyles.paraText),
-          createParagraph(`Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`, paragraphStyles.paraText),
+          createParagraph(`Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`, paragraphStyles.paraText),
 
           createParagraph("", paragraphStyles.centerText), // Empty line for spacing
           createParagraph("Deponent", paragraphStyles.leftAlignText),

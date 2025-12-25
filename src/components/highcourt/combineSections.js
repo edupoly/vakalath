@@ -24,11 +24,11 @@ export const combinedSections = (sectionData, formData) => {
         ...((sectionData?.header || sectionData?.mainTitle || sectionData?.subTitle) ? LineSpace(1) : []),
         ...(sectionData?.headLines ? headerWithNumbers(sectionData?.headLines) : []),
         ...LineSpace(1),
-        ...BetweenSection(
+        ...((sectionData?.betweenSection?.pet || sectionData?.betweenSection?.res) ? BetweenSection(
             formData,
             sectionData?.betweenSection?.pet,
             sectionData?.betweenSection?.res
-        ),
+        ):[]),
         ...SignatureFooter(sectionData?.middleContent),
         ...(sectionData?.headPara
             ? sectionData.headPara.map((set) => {

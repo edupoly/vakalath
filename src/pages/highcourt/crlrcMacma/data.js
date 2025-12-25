@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CRLRCMacmaSections = (key, formData) => {
     let data = {
@@ -21,7 +22,7 @@ export const CRLRCMacmaSections = (key, formData) => {
 
             betweenSection: {
                 pet: {
-                    address: `${formData?.PETITIONER_ADDRESS || "«PETITIONER_ADDRESS»"}`,
+                    address: ``,
                     suffix: "..Appellant / Respondent No."
                 },
                 res: {
@@ -35,7 +36,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `The address for service of all summons, notices and processes etc., on the above named appellant is that of their counsel ${formData?.counsel_address || "«counsel_address»"}.`,
-                        `The above named appellants beg to prefer this memorandum of appeal, being aggrieved by the decree and judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"} for the following among other.`
+                        `The above named appellants beg to prefer this memorandum of appeal, being aggrieved by the decree and judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"} for the following among other.`
                     ]
                 }
             ],
@@ -68,7 +69,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                 },
                 {
                     left: [
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: ["Counsel for Appellant"]
@@ -93,7 +94,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `Filed on: ${formData?.fdate || "«fdate»"}`,
+                            `Filed on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             ``,
                             `Filed by:`,
                             ``,
@@ -123,8 +124,8 @@ export const CRLRCMacmaSections = (key, formData) => {
                 para: [
                     `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                     "2. That",
-                    `3. The petitioner herein aggrieved by the order dated ${formData?.OPDATE || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"} on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"} is filing the main appeal.`,
-                    `4. It is submitted that in the above case the tribunal had passed an erroneous order-awarding sum of Rs. ${formData?.awardAmount || "________"} /- in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"}, ${formData?.district || "«DISTRICT»"} District, without any basis together with interest @ ${formData?.interest || "___"} % per annum from the date of ${formData?.interestStartDate || "________"} till the date of payment with costs.`,
+                    `3. The petitioner herein aggrieved by the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"} on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"} is filing the main appeal.`,
+                    `4. It is submitted that in the above case the tribunal had passed an erroneous order-awarding sum of Rs. ${formData?.awardAmount || "________"} /- in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"}, ${formData?.district || "«DISTRICT»"} District, without any basis together with interest @ ${formData?.interest || "___"} % per annum from the date of ${formData?.interestStartDate || "________"} till the date of payment with costs.`,
                     `5. It is submitted that the tribunal erred in passing award granting a sum of Rs. ${formData?.awardAmount || "________"} /- without any basis. It is submitted that the ...`,
                     `It is therefore prayed that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} pending disposal of the above appeal in the interest of justice and pass such other order or orders as may deem fit and proper in the circumstances of the case.`
                 ]
@@ -137,7 +138,7 @@ export const CRLRCMacmaSections = (key, formData) => {
             },
             {
                 left: [
-                    `Sworn and Signed in my presence on this day of ${formData?.fdate || "«fdate»"}`,
+                    `Sworn and Signed in my presence on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                     `at ${formData?.place || "«place»"}`
                 ],
                 right: [""]
@@ -157,8 +158,8 @@ export const CRLRCMacmaSections = (key, formData) => {
                 }
             ],
             betweenSection: {
-                pet: { address: `${formData?.PETITIONER_ADDRESS || "«PETITIONER_ADDRESS»"}`, suffix: "..Petitioner" },
-                res: { address: `${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`, suffix: "..Respondent" }
+                pet: { address: ``, suffix: "..Petitioner" },
+                res: { address: ``, suffix: "..Respondent" }
             },
             headPara: [
                 {
@@ -170,7 +171,7 @@ export const CRLRCMacmaSections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                     right: ["Counsel for the Petitioner"]
                 }
             ]
@@ -216,20 +217,20 @@ export const CRLRCMacmaSections = (key, formData) => {
                 }
             ],
             betweenSection: {
-                pet: { address: `${formData?.PETITIONER_ADDRESS || "«PETITIONER_ADDRESS»"}`, suffix: "..Petitioner/ Appellant" },
-                res: { address: `${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`, suffix: "..Respondents/Respondents" }
+                pet: { address: ``, suffix: "..Petitioner/ Appellant" },
+                res: { address: ``, suffix: "..Respondents/Respondents" }
             },
             headPara: [
                 {
                     head: { text: "" },
                     para: [
-                        `For the reasons stated in the common affidavit, the petitioner/appellant herein prays that this Hon’ble Court may be pleased to condone the delay of ${formData?.delayDays || "______"} days in filing the appeal against ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of Motor Accidents Claims Tribunal -Cum- ${formData?.lowercourt || "«lowercourt»"} and to pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                        `For the reasons stated in the common affidavit, the petitioner/appellant herein prays that this Hon’ble Court may be pleased to condone the delay of ${formData?.delayDays || "______"} days in filing the appeal against ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of Motor Accidents Claims Tribunal -Cum- ${formData?.lowercourt || "«lowercourt»"} and to pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
             footer: [
                 {
-                    left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+                    left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
                     right: ["Counsel for Petitioner/Appellant"]
                 }
             ]
@@ -254,7 +255,7 @@ export const CRLRCMacmaSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `Filed on: ${formData?.fdate || "«fdate»"}`,
+                            `Filed on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             ``,
                             `Filed by:`,
                             ``,
@@ -339,9 +340,9 @@ export const CRLRCMacmaSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -376,16 +377,16 @@ export const CRLRCMacmaSections = (key, formData) => {
                     {
                         head: { text: "NATURE OF APPLICATION\n(UNDER SEC. 151 C.P.C.)" },
                         para: [
-                            `The Hon’ble Court may be pleased to condone the delay of (${formData?.DELAY_DAYS || "     "}) days in filing the above MACMA in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of Motor Accident Claims Tribunal-cum-${formData?.lowercourt || "«lowercourt»"}, otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to condone the delay of (${formData?.DELAY_DAYS || "     "}) days in filing the above MACMA in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of Motor Accident Claims Tribunal-cum-${formData?.lowercourt || "«lowercourt»"}, otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -416,14 +417,14 @@ export const CRLRCMacmaSections = (key, formData) => {
                 },
                 headPara: [
                     {
-                        head: { text: `Date of Order/ Decree: ${formData?.OPDATE || "«OPDATE»"}`, bold: false },
+                        head: { text: `Date of Order/ Decree: ${formatDate(formData?.OPDATE) || "«OPDATE»"}`, bold: false },
                         para: []
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `Presented on     : ${formData?.fdate || "«fdate»"}`,
+                            `Presented on     : ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `Represented on :`,
                             `Filed on       :`,
                             `Admitted on    :`

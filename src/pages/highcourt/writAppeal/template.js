@@ -10,6 +10,7 @@ import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const WATemplate = (formData) => {
   return new Document({
@@ -39,7 +40,7 @@ export const WATemplate = (formData) => {
           h3Center(`ADVOCATE :: ${formData?.place || "«place»"}`),
           pageBreak(),
           h3UnderlineCenter("VERIFICATION STATEMENT"),
-          h3Left(tabSpace(1)+`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`),
+          h3Left(tabSpace(1)+`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`),
           h3Right(`Deponent`),
           pageBreak(),
           ...combinedSections(writAppealSections("sec-151-1st",formData),formData),
@@ -75,7 +76,7 @@ export const WATemplate = (formData) => {
         h3Center("(UNDER SEC. 151 C.P.C."),
         h3Left(`The Hon’ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
         ...LineSpace(3),
-        h3Left(`PRESENTED ON: ${formData?.fdate || "«fdate»"}`),
+        h3Left(`PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
         ...LineSpace(1),
         h3Left("REPRESENTED ON:"),
         ...LineSpace(1),
@@ -115,9 +116,9 @@ export const WATemplate = (formData) => {
         h3Left(`By ${formData?.userDetails?.firstname} ${formData?.userDetails?.lastname} (9377)`),
         h3Center("NATURE OF APPLICATION"),
         h3Center("(UNDER SEC. 151 C.P.C."),
-        h3Left(`The Hon’ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
+        h3Left(`The Hon’ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
         ...LineSpace(3),
-        h3Left(`PRESENTED ON: ${formData?.fdate || "«fdate»"}`),
+        h3Left(`PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
         ...LineSpace(1),
         h3Left("REPRESENTED ON:"),
         ...LineSpace(1),
@@ -133,7 +134,7 @@ export const WATemplate = (formData) => {
         h3Center(`W.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`),
         h3Center("AGAINST"),
         h3Center(`${formData?.OPNO || "«OPNO»"}`),
-        h3Center(`dated ${formData?.OPDATE || "«OPDATE»"}`),
+        h3Center(`dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}`),
         ...LineSpace(1),
         h3Left(``),
         h3Right("…Appellant/s"),
@@ -146,7 +147,7 @@ export const WATemplate = (formData) => {
         h3Left(""),
         h3Left(`${formData?.RESPONDENT_NAME || "«RESPONDENT_NAME»"}`),
         h3Right("..Respondent/s"),
-        h3Left(`Date of Order : ${formData?.OPDATE || "«OPDATE»"}`),
+        h3Left(`Date of Order : ${formatDate(formData?.OPDATE) || "«OPDATE»"}`),
         h3Left("Appeal Presented on:"),
         h3Left("Re-presented on :"),
         h3Left("Filed:"),
@@ -161,7 +162,7 @@ export const WATemplate = (formData) => {
       ChronologicalTable(formData),
       ...SignatureFooter([
     {
-        left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+        left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
         right: ["", "Counsel for the Petitioner"]
     }
 ]),
@@ -173,7 +174,7 @@ export const WATemplate = (formData) => {
       ...LineSpace(2),
      ...SignatureFooter([
     {
-        left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+        left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
         right: ["", "Counsel for the Petitioner"]
     }
 ]),
@@ -185,7 +186,7 @@ export const WATemplate = (formData) => {
       ...LineSpace(2),
       ...SignatureFooter([
     {
-        left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+        left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
         right: ["", "Counsel for the Petitioner"]
     }
 ]),
@@ -200,7 +201,7 @@ export const WATemplate = (formData) => {
       ...LineSpace(10),
      ...SignatureFooter([
     {
-        left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+        left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
         right: ["", "Counsel for the Petitioner"]
     }
 ]),
@@ -238,7 +239,7 @@ export const WATemplate = (formData) => {
         ...LineSpace(1),
         h3Left(tabSpace(1)+`It is also just and necessary that this Hon'ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} pending disposal of the above writ petition and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
         ...LineSpace(2),
-        h3Left(tabSpace(1)+`It is also just and necessary that this Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
+        h3Left(tabSpace(1)+`It is also just and necessary that this Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
     ],
       },
     ],

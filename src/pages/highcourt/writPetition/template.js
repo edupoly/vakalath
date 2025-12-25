@@ -38,6 +38,7 @@ import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const writPetitionTemplate = (formData) => {
   return new Document({
@@ -63,7 +64,7 @@ export const writPetitionTemplate = (formData) => {
             tabSpace(3) +
             `I, ${formData?.verification || "«verification»"
             }, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. The above contents are typed under my instructions and same are read over and explained to me in vernacular language.   Hence verified at ${formData?.place || "«place»"
-            } on this the day of ${formData?.fdate || "«fdate»"}`
+            } on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`
           ),
           ...LineSpace(1),
           createSignatureFooter(["Advocate"],
@@ -166,9 +167,9 @@ export const writPetitionTemplate = (formData) => {
               } «MAIN_PRAYER» and to pass such other order or orders as this Hon’ble Court may deems fit just and proper in the circumstances of the case.`
             ),
             ...LineSpace(1),
-            h3Left(`Permitted on  : ${formData?.fdate || "«fdate»"}`),
-            h3Left(`Presented on  : ${formData?.fdate || "«fdate»"}`),
-            h3Left(`Filed on      : ${formData?.fdate || "«fdate»"}`),
+            h3Left(`Permitted on  : ${formatDate(formData?.fdate) || "«fdate»"}`),
+            h3Left(`Presented on  : ${formatDate(formData?.fdate) || "«fdate»"}`),
+            h3Left(`Filed on      : ${formatDate(formData?.fdate) || "«fdate»"}`),
             ...LineSpace(1),
             h3Left(`I.A..No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`),
           ]),
@@ -190,9 +191,9 @@ export const writPetitionTemplate = (formData) => {
               `This Hon’ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER» "} pending disposal of the above writ petition and to pass such other order or orders as this Hon’ble Court may deems fit just and proper in the circumstances of the case.`
             ),
             ...LineSpace(5),
-            h3Left(`PRESENTED ON: ${formData?.fdate || "«fdate»"}`),
+            h3Left(`PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
             h3Left("REPRESENTED ON:"),
-            h3Left(`FILED ON: ${formData?.fdate || "«fdate»"}`),
+            h3Left(`FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
           ]),
           pageBreak(),
           h3Center(`${formData?.highcourt || "«highcourt»"}`),
@@ -265,14 +266,14 @@ export const writPetitionTemplate = (formData) => {
           pageBreak(),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Counsel for the Petitioner(s)."],
           ),
 
           ...LineSpace(10),
           h3underlineBoldCenter("BATTA FORM"),
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Counsel for the Petitioner(s)."],
           ),
 
@@ -297,7 +298,7 @@ export const writPetitionTemplate = (formData) => {
             "We have served the copies of Writ Petition, Affidavit, Writ Petition Miscellaneous Petition(s) and Material Papers on the other side Counsel/Government Pleader."
           ),
           ...LineSpace(5),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Counsel for the Petitioner"],
           ),
 
@@ -401,7 +402,7 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(3),
           h3UnderlineCenter("Annexure – I"),
           ...LineSpace(3),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Counsel for Petitioner/s"],
           ),
 
@@ -413,7 +414,7 @@ export const writPetitionTemplate = (formData) => {
           ...LineSpace(1),
           h3underlineBoldCenter("COURT FEE"),
           ...LineSpace(20),
-          createSignatureFooter([`DATE: ${formData?.fdate || "«fdate»"}`, "«place»"],
+          createSignatureFooter([`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, "«place»"],
             ["", "Counsel for the Petitioner"],
           ),
 
@@ -464,7 +465,7 @@ export const writPetitionTemplate = (formData) => {
             h3Center(`${formData?.counsel_code || "«counsel_code»"}`),
             h3Center("COUNSEL FOR  PETITIONER"),
             ...LineSpace(3),
-            h3Left(`DATE :   ${formData?.fdate || "«fdate»"}`),
+            h3Left(`DATE :   ${formatDate(formData?.fdate) || "«fdate»"}`),
             h3Left("_____________________________"),
             h3Left("Address for Service:"),
             h3Left(`${formData?.counsel_address || "«counsel_address»"}`),

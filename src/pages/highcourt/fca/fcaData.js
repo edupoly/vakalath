@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 
 export const fcaSections = (key, formData) => {
@@ -32,7 +33,7 @@ export const fcaSections = (key, formData) => {
                     "head": { "text": "" },
                     "para": [
                         `The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
-                        `The above named Appellant begs to present this Memorandum of Family Court Appeal against the Order and Decree / Judgment dated ${formData?.OPDATE || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"} on the file of ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`
+                        `The above named Appellant begs to present this Memorandum of Family Court Appeal against the Order and Decree / Judgment dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"} on the file of ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`
                     ]
                 },
 
@@ -58,14 +59,14 @@ export const fcaSections = (key, formData) => {
                 {
                     "head": { "text": "" },
                     "para": [
-                        `Hence, it is prayed that this Hon’ble Court may be pleased to set aside the order and decree dated ${formData?.OPDATE || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} and allow the ${formData?.OPNO || "«OPNO»"} by dissolving the marriage between the parties performed on _______ and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `Hence, it is prayed that this Hon’ble Court may be pleased to set aside the order and decree dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} and allow the ${formData?.OPNO || "«OPNO»"} by dissolving the marriage between the parties performed on _______ and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
 
             "footer": [
                 {
-                    "left": [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+                    "left": [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
                     "right": ["Counsel For Appellant"]
                 }
             ]
@@ -143,7 +144,7 @@ export const fcaSections = (key, formData) => {
                     para: [
                         "Last Page Corss....                             Deponent",
                         `Sworn and Signed in my presence`,
-                        `on this day of ${formData?.fdate || "«fdate»"}`,
+                        `on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `at ${formData?.place || "«place»"}.`,
                         "",
                         `ADVOCATE :: ${formData?.place || "«place»"}`
@@ -153,7 +154,7 @@ export const fcaSections = (key, formData) => {
                 {
                     head: { text: "VERIFICATION STATEMENT", underline: true },
                     para: [
-                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}.`,
                         "Deponent"
                     ]
                 }
@@ -191,7 +192,7 @@ export const fcaSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -266,9 +267,9 @@ export const fcaSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -319,7 +320,7 @@ export const fcaSections = (key, formData) => {
                     {
                         "head": { "text": `Date of Order/ Decree:` },
                         "lines": [
-                            `${formData?.OPDATE || "«OPDATE»"}`
+                            `${formatDate(formData?.OPDATE) || "«OPDATE»"}`
                         ]
                     }
                 ],
@@ -327,7 +328,7 @@ export const fcaSections = (key, formData) => {
                 "footer": [
                     {
                         "left": [
-                            `Presented on: ${formData?.fdate || "«fdate»"}`,
+                            `Presented on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `Represented on:`,
                             `Filed on:`,
                             `Admitted on:`
@@ -351,7 +352,7 @@ export const fcaSections = (key, formData) => {
             betweenSection: {
                 pet: `..Petitioner`,
                 res: `..Respondent`,
-                resAddress: `${formData?.respondent_address || "«respondent_address»"}`
+                resAddress: ``
             },
 
             "headPara": [

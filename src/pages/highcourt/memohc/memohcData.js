@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const memohcSections = (key, formData) => {
     let data = {
@@ -29,7 +30,7 @@ export const memohcSections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                     right: ["Counsel for the Petitioner"]
                 }
             ]

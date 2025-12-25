@@ -5,6 +5,7 @@ import {
   tabSpace,
 } from "../../../components/templates/elementTypes";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const secondAppealSections = (key, formData) => {
   let data = {
@@ -81,7 +82,7 @@ export const secondAppealSections = (key, formData) => {
           left: [
             `Last Page Corss....`,
             `Sworn and Signed in my presence`,
-            `on this day of ${formData?.fdate || "«fdate»"}`,
+            `on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,
             `at ${formData?.place || "«place»"}.`,
           ],
           right: [`Deponent`],
@@ -118,7 +119,7 @@ export const secondAppealSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`${tabSpace(3)}OF ${formData?.place || "«place»"}`, `DATE: ${tabSpace(3)}OF ${formData?.fdate || "«fdate»"}`],
+          left: [`${tabSpace(3)}OF ${formData?.place || "«place»"}`, `DATE: ${tabSpace(3)}OF ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -180,13 +181,13 @@ export const secondAppealSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (     ) days in filing the above S.A. in ${tabSpace(3)}OF ${formData?.OPNO || "«OPNO»"}, dated ${tabSpace(3)}OF ${formData?.OPDATE || "«OPDATE»"},  on the file of the ${tabSpace(3)}OF ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
+            )}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (     ) days in filing the above S.A. in ${tabSpace(3)}OF ${formData?.OPNO || "«OPNO»"}, dated ${tabSpace(3)}OF ${formatDate(formData?.OPDATE) || "«OPDATE»"},  on the file of the ${tabSpace(3)}OF ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
           ],
         },
       ],
       footer: [
         {
-          left: [`${tabSpace(3)}OF ${formData?.place || "«place»"}`, `DATE: ${tabSpace(3)}OF ${formData?.fdate || "«fdate»"}`],
+          left: [`${tabSpace(3)}OF ${formData?.place || "«place»"}`, `DATE: ${tabSpace(3)}OF ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -248,13 +249,13 @@ export const secondAppealSections = (key, formData) => {
           para: [
             `${tabSpace(
               1
-            )}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to dispense with Xerox  Copy of the judgment and decree dated ${tabSpace(3)}OF ${formData?.OPDATE || "«OPDATE»"}  passed in ${tabSpace(3)}OF ${formData?.OPNO || "«OPNO»"} on the file of  ${tabSpace(3)}OF ${formData?.lowercourt || "«lowercourt»"} in filing the above S.A., otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
+            )}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to dispense with Xerox  Copy of the judgment and decree dated ${tabSpace(3)}OF ${formatDate(formData?.OPDATE) || "«OPDATE»"}  passed in ${tabSpace(3)}OF ${formData?.OPNO || "«OPNO»"} on the file of  ${tabSpace(3)}OF ${formData?.lowercourt || "«lowercourt»"} in filing the above S.A., otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
           ],
         },
       ],
       footer: [
         {
-          left: [`${tabSpace(3)}OF ${formData?.place || "«place»"}`, `DATE: ${tabSpace(3)}OF ${formData?.fdate || "«fdate»"}`],
+          left: [`${tabSpace(3)}OF ${formData?.place || "«place»"}`, `DATE: ${tabSpace(3)}OF ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],
@@ -334,9 +335,9 @@ export const secondAppealSections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON: ${formData?.fdate || "«fdate»"}`,
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],
@@ -377,7 +378,7 @@ export const secondAppealSections = (key, formData) => {
             },
             para: [
               `The Hon’ble Court may be pleased to condone the delay of (     ) days in filing the above S.A. passed in ${formData?.OPNO || "«OPNO»"
-              } , dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"
+              } , dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"
               } otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
             ],
           },
@@ -385,9 +386,9 @@ export const secondAppealSections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON: ${formData?.fdate || "«fdate»"}`,
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],
@@ -427,7 +428,7 @@ export const secondAppealSections = (key, formData) => {
               text: "NATURE OF APPLICATION(UNDER SEC. 151 C.P.C.)",
             },
             para: [
-              `The Hon’ble Court may be pleased to    dispense with Xerox  Copy of the judgment and decree dated ${formData?.OPDATE || "«OPDATE»"
+              `The Hon’ble Court may be pleased to    dispense with Xerox  Copy of the judgment and decree dated ${formatDate(formData?.OPDATE) || "«OPDATE»"
               } passed in ${formData?.OPNO || "«OPNO»"} on the file of the  ${formData?.lowercourt || "«lowercourt»"
               } in filing the above S.A. otherwise the petitioner will be suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`,
             ],
@@ -436,9 +437,9 @@ export const secondAppealSections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON: ${formData?.fdate || "«fdate»"}`,
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],
@@ -498,7 +499,7 @@ export const secondAppealSections = (key, formData) => {
           head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
           lines: [
             `S.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
-            `Second Appeal to revise the order / decree in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`,
+            `Second Appeal to revise the order / decree in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`,
           ],
         },
       ],
@@ -531,7 +532,7 @@ export const secondAppealSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+          left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
           right: [` Advocate for Petitioner`],
         },
       ],
@@ -579,7 +580,7 @@ export const secondAppealSections = (key, formData) => {
               `Advocate`,
               `In the court of the ${formData?.lowercourt || "«lowercourt»"}`,
               `${formData?.OPNO || "«OPNO»"}`,
-              `dated ${formData?.OPDATE || "«OPDATE»"}`,
+              `dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}`,
               `In the court of the`,
               `ORIGINAL SUIT No.           OF   ${formData?.myear || "«myear»"}`,
             ],

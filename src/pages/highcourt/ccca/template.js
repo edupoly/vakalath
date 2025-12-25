@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 import { CCCASections } from "./cccaData";
 
 export const CCCATemplate = (formData) => {
@@ -40,7 +40,7 @@ export const CCCATemplate = (formData) => {
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`
@@ -52,7 +52,7 @@ export const CCCATemplate = (formData) => {
                         createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
                     ]).flat(),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`
@@ -65,7 +65,7 @@ export const CCCATemplate = (formData) => {
                         createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
                     ]).flat(),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                         [`Counsel for the Petitioner`]

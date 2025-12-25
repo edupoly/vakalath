@@ -16,6 +16,7 @@ import {
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
 import { createRightAlignPage } from "../../../components/templates/tableFunctions";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const vacateMacmaTemplate = (formData) => {
   return new Document({
@@ -43,7 +44,7 @@ export const vacateMacmaTemplate = (formData) => {
             {
               left: [
                 `Verified at ${formData?.place || "«place»"} on this`,
-                `the day of ${formData?.fdate || "«fdate»"}`,
+                `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                 "",
                 "",
               ],
@@ -79,11 +80,11 @@ export const vacateMacmaTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(`The Hon’ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
           ...LineSpace(3),
-          h3Left(`PRESENTED ON: ${formData?.fdate || "«fdate»"}`),
+          h3Left(`PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
           ...LineSpace(1),
           h3Left("REPRESENTED ON:"),
           ...LineSpace(1),
-          h3Left(`FILED ON: ${formData?.fdate || "«fdate»"}`),
+          h3Left(`FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
           
         ])
         ],

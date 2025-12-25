@@ -16,6 +16,7 @@ import {
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
 import { createRightAlignPage } from "../../../components/templates/tableFunctions";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const vacateTemplate = (formData) => {
   return new Document({
@@ -36,7 +37,7 @@ export const vacateTemplate = (formData) => {
               1
             )}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the Respondent/ person acquainted with the facts do hereby verify and state that the above said paras are based on records and believed to be correct.`
           ),
-          createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formData?.fdate || "«fdate»"}`, "", ""],
+          createSignatureFooter([`Verified at ${formData?.place || "«place»"} on this `, `the day of ${formatDate(formData?.fdate) || "«fdate»"}`, "", ""],
             ["", "", "Deponent", ""],
           ),
           pageBreak(),
@@ -66,11 +67,11 @@ export const vacateTemplate = (formData) => {
             ...LineSpace(1),
             h3Left(`The Hon’ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`),
             ...LineSpace(5),
-            h3Left(`PRESENTED ON: ${formData?.fdate || "«fdate»"}`),
+            h3Left(`PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
             ...LineSpace(1),
             h3Left("REPRESENTED ON:"),
             ...LineSpace(1),
-            h3Left(`FILED ON: ${formData?.fdate || "«fdate»"}`),
+            h3Left(`FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
           ])
         ],
       },

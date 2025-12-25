@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const HCSections = (key, formData) => {
     let data = {
@@ -22,11 +23,11 @@ export const HCSections = (key, formData) => {
                     head: { text: "AFFIDAVIT FILED BY THE PETITIONER/RESPONDENT", underline: true },
                     para: [
                         `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
-                        `1.   I am the deponent herein and defacto complainant in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, as such I am well acquainted with the facts of the case.`,
-                        `2.   It is submitted that I have given a complaint before ${formData?.lowercourt || "«lowercourt»"}, against the petitioners herein (Accused No.____) and police registered a FIR vide ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} against the petitioners herein for Offences Punishable Under Sec.________.`,
+                        `1.   I am the deponent herein and defacto complainant in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, as such I am well acquainted with the facts of the case.`,
+                        `2.   It is submitted that I have given a complaint before ${formData?.lowercourt || "«lowercourt»"}, against the petitioners herein (Accused No.____) and police registered a FIR vide ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} against the petitioners herein for Offences Punishable Under Sec.________.`,
                         `3.   I submit that the intervention of the well wishers and elders of the both parties settled the matter amicably out of the court. That due to the said reasons, I came forward to withdraw the complaint for which I am also executed an Affidavit stating that I am ready to withdraw the above said case.`,
-                        `4.   It is submitted that the matter is settled out of the court, I am ready to withdraw the case against the petitioners considering all the above circumstances this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, otherwise the petitioners and their family members will suffer irreparable loss.`,
-                        `${tabSpace(1)}Therefore, it is prayed that this Hon’ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+                        `4.   It is submitted that the matter is settled out of the court, I am ready to withdraw the case against the petitioners considering all the above circumstances this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, otherwise the petitioners and their family members will suffer irreparable loss.`,
+                        `${tabSpace(1)}Therefore, it is prayed that this Hon’ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
                         `${tabSpace(1)}Hence, this affidavit,`
                     ]
 
@@ -38,7 +39,7 @@ export const HCSections = (key, formData) => {
                         `Last page corrs…`,
                         "",
                         `Solemnly and sincerely affirm this`,
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `and signed his name in my presence.`
                     ],
                     right: [`Deponent`]
@@ -66,14 +67,14 @@ export const HCSections = (key, formData) => {
                 {
                     head: { text: "", underline: true },
                     para: [
-                        `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
             footer: [
                 {
                     left: [
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [`Counsel For Petitioner`]
@@ -133,16 +134,16 @@ export const HCSections = (key, formData) => {
                     {
                         head: { text: "" },
                         para: [
-                            `The Hon’ble High Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble High Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                         ]
                     },
                 ],
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -169,10 +170,10 @@ export const HCSections = (key, formData) => {
                     para: [
                         `May it please your lordship,`,
                         `1.   It is to submit that the allegation of the complaint is that`,
-                        `2.   It is submitted that I have given a complaint before ${formData?.lowercourt || "«lowercourt»"}, against the petitioners herein (Accused No.____) and police registered a FIR vide ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} against the petitioners herein for Offences Punishable Under Sec.________.`,
+                        `2.   It is submitted that I have given a complaint before ${formData?.lowercourt || "«lowercourt»"}, against the petitioners herein (Accused No.____) and police registered a FIR vide ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} against the petitioners herein for Offences Punishable Under Sec.________.`,
                         `3.   I submit that the intervention of the well wishers and elders of the both parties settled the matter amicably out of the court. That due to the said reasons, I came forward to withdraw the complaint for which I am also executed an Affidavit stating that I am ready to withdraw the above said case.`,
-                        `4.   It is submitted that the matter is settled out of the court, I am ready to withdraw the case against the petitioners considering all the above circumstances this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, otherwise the petitioners and their family members will suffer irreparable loss.`,
-                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+                        `4.   It is submitted that the matter is settled out of the court, I am ready to withdraw the case against the petitioners considering all the above circumstances this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, otherwise the petitioners and their family members will suffer irreparable loss.`,
+                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
                         `${tabSpace(1)}Hence, this Joint Memo.`
                     ]
 
@@ -183,7 +184,7 @@ export const HCSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                     ],
                     // right: [`Deponent`]
                 },
@@ -221,14 +222,14 @@ export const HCSections = (key, formData) => {
                 {
                     head: { text: "", underline: true },
                     para: [
-                        `${tabSpace(1)}For the reasons stated in the Compromise Petition and Joint Memo, it is therefore prayed that this Hon'ble Court may be pleased to grant permission to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)}For the reasons stated in the Compromise Petition and Joint Memo, it is therefore prayed that this Hon'ble Court may be pleased to grant permission to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
             footer: [
                 {
                     left: [
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [`Counsel For Petitioner`]

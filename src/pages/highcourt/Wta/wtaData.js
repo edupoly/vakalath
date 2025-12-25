@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const WtaSections = (key, formData) => {
   let data = {
@@ -45,14 +46,14 @@ export const WtaSections = (key, formData) => {
             `(6)	From the order of the Income Tax Appellate Tribunal, the following question of law arise:`,
             `${tabSpace(1)}(A)	Whether the Appellate Tribunal is justified in directing grant of deduction of an amount equivalent to 50% of the valuation, on the ground of uncertainties and hazards of litigation ?`,
             `${tabSpace(1)}(B)	Whether the findings of the Appellate Tribunal in this behalf are based on material on record ?`,
-            `${tabSpace(1)}For the reasons stated above, it is prayed that the Hon’ble Court may be pleased to call for the records relating to ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} and set aside the same to the aforesaid extent`,
+            `${tabSpace(1)}For the reasons stated above, it is prayed that the Hon’ble Court may be pleased to call for the records relating to ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} and set aside the same to the aforesaid extent`,
           ],
         },
       ],
       footer: [
         {
           left: [
-            `DATE:${formData?.fdate || "«fdate»"}`,
+            `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
             `${formData?.place || "«place»"}`,
           ],
           right: [`Counsel for Appellant`],
@@ -127,7 +128,7 @@ export const WtaSections = (key, formData) => {
           left: [
             `Last Page Corss...`,
             `Sworn and Signed in my presence`,
-            `on this day of ${formData?.fdate || "«fdate»"}`,
+            `on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,
             `at ${formData?.place || "«place»"}`,
           ],
           right: [`Deponent`],
@@ -167,7 +168,7 @@ export const WtaSections = (key, formData) => {
         {
           left: [
             `${formData?.place || "«place»"}`,
-            `${formData?.fdate || "«fdate»"}`,
+            `${formatDate(formData?.fdate) || "«fdate»"}`,
           ],
           right: [`Counsel for the Petitioner`],
         },
@@ -251,9 +252,9 @@ export const WtaSections = (key, formData) => {
         footer: [
           {
             left: [
-              `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+              `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
               `REPRESENTED ON:`,
-              `FILED ON: ${formData?.fdate || "«fdate»"}`,
+              `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
             ],
           },
         ],

@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CCCASections = (key, formData) => {
     let data = {
@@ -25,13 +26,13 @@ export const CCCASections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
-                        `Aggrieved by the Judgment and Decree dated ${formData?.OPDATE || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"}, this Appeal is being filed within the time prescribed on the following among other grounds:`
+                        `Aggrieved by the Judgment and Decree dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"}, this Appeal is being filed within the time prescribed on the following among other grounds:`
                     ]
                 },
                 {
                     head: { text: "Brief Facts of the Case:", underline: true },
                     para: [
-                        `Challenging the dismissal of the said suit vide Judgment and Decree dated  ${formData?.OPDATE || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} this appeal is being filed within the time prescribed on the following among other`
+                        `Challenging the dismissal of the said suit vide Judgment and Decree dated  ${formatDate(formData?.OPDATE) || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} this appeal is being filed within the time prescribed on the following among other`
                     ]
                 },
                 {
@@ -41,7 +42,7 @@ export const CCCASections = (key, formData) => {
                         "2. The court below failed to take into consideration _______",
                         "",
                         "Other grounds would be urged at the time of hearing.",
-                        `Hence, it is prayed that this Hon’ble Court may be allowed by setting aside the Judgment and Decree dated ${formData?.OPDATE || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} and in effect decreeing the suit of the Appellant/ Plaintiff and be pleased to pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `Hence, it is prayed that this Hon’ble Court may be allowed by setting aside the Judgment and Decree dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} and in effect decreeing the suit of the Appellant/ Plaintiff and be pleased to pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 },
                 {
@@ -55,7 +56,7 @@ export const CCCASections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     ],
                     right: ["Counsel For Appellant"]
                 }
@@ -122,7 +123,7 @@ export const CCCASections = (key, formData) => {
                 {
                     left: [
                         `Sworn and Signed in my presence`,
-                        `on this day of ${formData?.fdate || "«fdate»"}`,
+                        `on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `at ${formData?.place || "«place»"}`,
                         `ADVOCATE :: ${formData?.place || "«place»"}`
                     ]
@@ -130,7 +131,7 @@ export const CCCASections = (key, formData) => {
                 {
                     head: "VERIFICATION STATEMENT",
                     left: [
-                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}.`
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}.`
                     ],
                     right: ["Deponent"]
                 }
@@ -163,7 +164,7 @@ export const CCCASections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                     right: ["Counsel for the Petitioner"]
                 },
             ]
@@ -231,9 +232,9 @@ export const CCCASections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -266,7 +267,7 @@ export const CCCASections = (key, formData) => {
                             `In the court of the`,
                             `${formData?.lowercourt || "«lowercourt»"}`,
                             `${formData?.OPNO || "«OPNO»"}`,
-                            `dated ${formData?.OPDATE || "«OPDATE»"}`
+                            `dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}`
                         ]
                     },
                     {
@@ -280,14 +281,14 @@ export const CCCASections = (key, formData) => {
                 ],
                 headPara: [
                     {
-                        head: { text: `Date of Order/ Decree: ${formData?.OPDATE || "«OPDATE»"}` },
+                        head: { text: `Date of Order/ Decree: ${formatDate(formData?.OPDATE) || "«OPDATE»"}` },
                         para: []
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `DECREE PASSED ON : ${formData?.OPDATE || "«OPDATE»"}`,
+                            `DECREE PASSED ON : ${formatDate(formData?.OPDATE) || "«OPDATE»"}`,
                             `APPEAL PRESENTED ON     :`,
                             `APPEAL RE-PRESENTED ON:`,
                             `APPEAL FILED ON               :`,
@@ -337,7 +338,7 @@ export const CCCASections = (key, formData) => {
                     head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `C.C.C.A.NO. OF ${formData?.myear || "«myear»"}`,
-                        `Civil Miscellaneous Appeal to revise the order/decree in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
+                        `Civil Miscellaneous Appeal to revise the order/decree in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
                     ]
                 }
             ],
@@ -360,7 +361,7 @@ export const CCCASections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+                    left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
                     right: ["Assistant Registrar Judicial"]
                 },
                 {

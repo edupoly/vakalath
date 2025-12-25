@@ -1,4 +1,5 @@
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CRLRCSections = (key, formData) => {
     let data = {
@@ -26,7 +27,7 @@ export const CRLRCSections = (key, formData) => {
                     para: [
                         `${tabSpace(1)}The address for service of all notices and process on the above named petitioner is that of his counsel ${formData?.counsel_address || "«counsel_address»"}.`,
                         "",
-                        `${tabSpace(1)}The above named petitioner begs to file this Criminal Revision Case against the judgment and sentence passed by the learned ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} for the following grounds among other:`,
+                        `${tabSpace(1)}The above named petitioner begs to file this Criminal Revision Case against the judgment and sentence passed by the learned ${formData?.lowercourt || "«lowercourt»"} in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} for the following grounds among other:`,
                     ]
                 },
                 {
@@ -56,7 +57,7 @@ export const CRLRCSections = (key, formData) => {
             ],
             footer: [{
                 left: [
-                    `DATE:${formData?.fdate || "«fdate»"}`,
+                    `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     `${formData?.place || "«place»"}`
                 ],
                 right: ["Counsel For petitioner"]
@@ -119,7 +120,7 @@ export const CRLRCSections = (key, formData) => {
             }],
             footer: [{
                 left: [
-                    `DATE:${formData?.fdate || "«fdate»"}`,
+                    `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     `${formData?.place || "«place»"}`
                 ],
                 right: ["Counsel For petitioner"]
@@ -187,14 +188,14 @@ export const CRLRCSections = (key, formData) => {
             headPara: [
                 {
                     head: {text:""},
-                    para: [`It is therefore prayed that this Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                    para: [`It is therefore prayed that this Hon'ble Court may be pleased to enlarge the petitioner on bail in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, of ${formData?.lowercourt || "«lowercourt»"} ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }],
 
             footer: [
                 {
                     left: [
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: ["Counsel For petitioner"]
@@ -364,7 +365,7 @@ export const CRLRCSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ]
                 }
@@ -411,13 +412,13 @@ export const CRLRCSections = (key, formData) => {
             headPara: [{
                 head: `DISPENSEWITH PETITION`,
                 para: [
-                    `That the above Criminal RC is filed seeking to revision the Judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} and the petitioner did not obtained the certified copies of the said ${formData?.OPNO || "«OPNO»"} and hence filed the photocopy of the same and the same may be dispensed with.`,
-                    `For the reasons stated in the accompanying criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court pending disposal of the main Crl. RC and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                    `That the above Criminal RC is filed seeking to revision the Judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} and the petitioner did not obtained the certified copies of the said ${formData?.OPNO || "«OPNO»"} and hence filed the photocopy of the same and the same may be dispensed with.`,
+                    `For the reasons stated in the accompanying criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court pending disposal of the main Crl. RC and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                 ]
             }],
             footer: [
                 { left: [`${formData?.place || "«place»"}`], right: ["Counsel for the Petitioner"] },
-                { left: [`DATE: ${formData?.fdate || "«fdate»"}`] }
+                { left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`] }
             ]
         },
         "sidePage8": {
@@ -466,14 +467,14 @@ export const CRLRCSections = (key, formData) => {
             headPara: [
                 {
                     head: {text:""},
-                    para: [`The Hon’ble Court may be pleased to dispense with certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                    para: [`The Hon’ble Court may be pleased to dispense with certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 }],
             footer: [{
                 left: [
-                    `PRESENTED ON:${formData?.fdate || "«fdate»"}`,
+                    `PRESENTED ON:${formatDate(formData?.fdate) || "«fdate»"}`,
                     `REPRESENTED ON:`,
-                    `FILED ON:${formData?.fdate || "«fdate»"}`
+                    `FILED ON:${formatDate(formData?.fdate) || "«fdate»"}`
                 ]
             }]
         }

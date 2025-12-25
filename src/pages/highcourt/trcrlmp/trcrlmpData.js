@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const trcrlmpSections = (key, formData) => {
     let data = {
@@ -35,9 +36,10 @@ export const trcrlmpSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        "last page corrs.",
+                   //"last page corrs.",
+"",
                         `Solemnly and sincerely affirm this`,
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "and signed his name in my presence."
                     ],
                     right: [
@@ -78,7 +80,7 @@ export const trcrlmpSections = (key, formData) => {
                     left: [`${formData?.place || "«place»"}`],
                     right: [
                         "Counsel for the Petitioner",
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ]
@@ -153,7 +155,7 @@ export const trcrlmpSections = (key, formData) => {
                     left: [`${formData?.place || "«place»"}`],
                     right: [
                         "Counsel for the Petitioner",
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ]
@@ -231,9 +233,9 @@ export const trcrlmpSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -279,9 +281,9 @@ export const trcrlmpSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

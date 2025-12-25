@@ -23,6 +23,7 @@ import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const secondAppealTemplate = (formData) => {
   return new Document({
@@ -53,7 +54,7 @@ export const secondAppealTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(1) +
-            `The above named Appellant begs to present this Memorandum of Second Appeal against the Judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}  on the file of ${formData?.lowercourt || "«lowercourt»"} confirming/reversing the orders passed in O.S.No.______ of Dt._______, on the file of _________________, __________. For the following grounds among other:`
+            `The above named Appellant begs to present this Memorandum of Second Appeal against the Judgment passed in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}  on the file of ${formData?.lowercourt || "«lowercourt»"} confirming/reversing the orders passed in O.S.No.______ of Dt._______, on the file of _________________, __________. For the following grounds among other:`
           ),
           ...LineSpace(1),
           h3Left(
@@ -77,7 +78,7 @@ export const secondAppealTemplate = (formData) => {
             "The value of appeal is Rs.____________ and the Court Fee payable thereon is Rs._____/- and the same is sufficient under the A.P.C.F. and S.V.Act."
           ),
           ...LineSpace(2),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE:${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE:${formatDate(formData?.fdate) || "«fdate»"}`],
             ["", "Counsel For Appellant"],
           ),
           pageBreak(),
@@ -92,7 +93,7 @@ export const secondAppealTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(1) +
-            `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at «place» on this the day of ${formData?.fdate || "«fdate»"}`,
+            `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at «place» on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
           ),
           h3Right("Deponent"),
           pageBreak(),
@@ -128,7 +129,7 @@ export const secondAppealTemplate = (formData) => {
           h3Center(`S.A. No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`),
           ...LineSpace(1),
           ChronologicalTable(formData),
-          createSignatureFooter([`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+          createSignatureFooter([`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
             ["", "Counsel for the Petitioner"],
           ),
           pageBreak(),
@@ -136,7 +137,7 @@ export const secondAppealTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
           ...LineSpace(1),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Counsel for the Petitioner(s)."],
           ),
           ...LineSpace(5),
@@ -144,7 +145,7 @@ export const secondAppealTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
           ...LineSpace(1),
-          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
             ["Counsel for the Petitioner(s)."],
           ),
           pageBreak(),
@@ -180,7 +181,7 @@ export const secondAppealTemplate = (formData) => {
           h3underlineBoldCenter("COURT FEE"),
           ...LineSpace(15),
           createSignatureFooter([
-            `DATE: ${formData?.fdate || "«fdate»"}`,
+            `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
             `${formData?.place || "«place»"}`,
           ],
             ["Counsel for the Petitioner"],

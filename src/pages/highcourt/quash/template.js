@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { quashSections } from "./quashData";
 
@@ -45,7 +45,7 @@ export const QuashTemplate = (formData) => {
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                         [
@@ -62,10 +62,10 @@ export const QuashTemplate = (formData) => {
                     h3UnderlineBoldLeft("Full Cause Title:"),
                     ...BetweenSection(formData),
                     h3UnderlineBoldLeft("Main Case Prayer:"),
-                    ...addParagraphs([`It is therefore prayed that this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, against the Petitioner/Accused and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
+                    ...addParagraphs([`It is therefore prayed that this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, against the Petitioner/Accused and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
                     h3UnderlineBoldLeft("IA(s) Prayer:"),
-                    ...addParagraphs([`It is just and necessary that this Hon'ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of the justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
-                    ...addParagraphs([`It is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"}  on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case. `]),
+                    ...addParagraphs([`It is just and necessary that this Hon'ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of the justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
+                    ...addParagraphs([`It is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}  on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case. `]),
                 ],
             },
         ],

@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const quashSections = (key, formData) => {
     let data = {
@@ -21,8 +22,8 @@ export const quashSections = (key, formData) => {
             ],
 
             betweenSection: {
-                pet: `${formData?.petitioner_address || "«petitioner_address»"} ...Petitioner/Accused`,
-                res: `${formData?.respondent_address || "«respondent_address»"} ...Respondent`
+                pet: ` ...Petitioner/Accused`,
+                res: ` ...Respondent`
             },
 
             headPara: [
@@ -30,7 +31,7 @@ export const quashSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}.`,
-                        `This memorandum of criminal petition is filed under Sec.482 of Cr.P.C. to quash the proceedings dated ${formData?.OPDATE || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"} on the file of ${formData?.lowercourt || "«lowercourt»"}.`,
+                        `This memorandum of criminal petition is filed under Sec.482 of Cr.P.C. to quash the proceedings dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} in ${formData?.OPNO || "«OPNO»"} on the file of ${formData?.lowercourt || "«lowercourt»"}.`,
                         `It is submitted that the petitioner is Accused in ${formData?.OPNO || "«OPNO»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, registered under Section ________, questioning the same, the present criminal quash petition is filed on the following among other grounds:`
                     ]
                 },
@@ -41,9 +42,9 @@ export const quashSections = (key, formData) => {
                         "2.",
                         "3. That the other grounds would be urged at the time of hearing.",
                         "",
-                        `It is therefore prayed that this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, against the Petitioner/Accused and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+                        `It is therefore prayed that this Hon'ble Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, against the Petitioner/Accused and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
                         "",
-                        `It is just and necessary that this Hon'ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of justice and pass such other order or orders may deem fit and proper.`
+                        `It is just and necessary that this Hon'ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of justice and pass such other order or orders may deem fit and proper.`
                     ]
                 }
             ],
@@ -51,7 +52,7 @@ export const quashSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [
@@ -111,15 +112,15 @@ export const quashSections = (key, formData) => {
             ],
 
             betweenSection: {
-                pet: `${formData?.petitioner_address || "«petitioner_address»"} ...Petitioner/Accused`,
-                res: `${formData?.respondent_address || "«respondent_address»"} ...Respondent`
+                pet: ` ...Petitioner/Accused`,
+                res: ` ...Respondent`
             },
 
             headPara: [
                 {
                     head: { text: "" },
                     para: [
-                        `For the reasons stated in the accompanying quash petition grounds filed in support of the above criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of the justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `For the reasons stated in the accompanying quash petition grounds filed in support of the above criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of the justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
@@ -127,7 +128,7 @@ export const quashSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [
@@ -189,16 +190,16 @@ export const quashSections = (key, formData) => {
             ],
 
             betweenSection: {
-                pet: `${formData?.PETITIONER_ADDRESS || "«PETITIONER_ADDRESS»"}..Petitioner/s`,
-                res: `${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}..Respondent/s`
+                pet: `..Petitioner/s`,
+                res: `..Respondent/s`
             },
 
             headPara: [
                 {
                     head: { text: "DISPENSEWITH PETITION" },
                     para: [
-                        `That the above Criminal petition is filed seeking to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} and the petitioner did not obtained the certified copies of the said ${formData?.OPNO || "«OPNO»"} and hence filed the photocopy of the same and the same may be dispensed with.`,
-                        `For the reasons stated in the accompanying criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                        `That the above Criminal petition is filed seeking to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} and the petitioner did not obtained the certified copies of the said ${formData?.OPNO || "«OPNO»"} and hence filed the photocopy of the same and the same may be dispensed with.`,
+                        `For the reasons stated in the accompanying criminal petition, it is therefore prayed that this Hon'ble Court may be pleased to dispense with filing of the original certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
@@ -207,7 +208,7 @@ export const quashSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -283,7 +284,7 @@ export const quashSections = (key, formData) => {
                             text: "NATURE OF APPLICATION (UNDER SEC. 482 Cr.P.C.)"
                         },
                         para: [
-                            `The Hon’ble High Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, against the Petitioner/Accused and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble High Court may be pleased to quash the proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, against the Petitioner/Accused and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
@@ -291,9 +292,9 @@ export const quashSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -332,7 +333,7 @@ export const quashSections = (key, formData) => {
                     {
                         head: { text: "NATURE OF APPLICATION (UNDER SEC. 482 Cr.P.C.)" },
                         para: [
-                            `The Hon’ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of the justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to grant stay of all further proceedings in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} including the appearance of the Accused till the disposal of the Main Quash Petition in the interest of the justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
@@ -340,9 +341,9 @@ export const quashSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -381,7 +382,7 @@ export const quashSections = (key, formData) => {
                     {
                         head: { text: "NATURE OF APPLICATION (UNDER SEC. 482 Cr.P.C.)" },
                         para: [
-                            `The Hon’ble Court may be pleased to dispense with certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to dispense with certified copy of ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} before this Hon’ble Court and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
@@ -389,9 +390,9 @@ export const quashSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

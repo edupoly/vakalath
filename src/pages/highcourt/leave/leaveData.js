@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const leaveSections = (key, formData) => {
     let data = {
@@ -17,8 +18,8 @@ export const leaveSections = (key, formData) => {
                 }
             ],
             betweenSection: {
-                pet: `${formData?.petitioner_address || "«petitioner_address»"} ...Accused/Appellant`,
-                res: `${formData?.respondent_address || "«respondent_address»"} ...Complainant/Respondent`
+                pet: ` ...Accused/Appellant`,
+                res: ` ...Complainant/Respondent`
             },
             headPara: [
                 {
@@ -30,16 +31,17 @@ export const leaveSections = (key, formData) => {
                         "2. I submit that ",
                         "3. ",
                         "",
-                        `It is therefore prayed that this Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders as may deem fit and proper in the circumstances of the case.`
+                        `It is therefore prayed that this Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders as may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
             footer: [
                 {
                     left: [
-                        "last page corrs.",
+                   //"last page corrs.",
+"",
                         "Solemnly and sincerely affirm this",
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "and signed his name in my presence."
                     ],
                     right: [
@@ -70,14 +72,14 @@ export const leaveSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
             footer: [
                 {
                     left: [
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: [
@@ -154,7 +156,7 @@ export const leaveSections = (key, formData) => {
                     {
                         head: { text: "NATURE OF APPLICATION (UNDER SEC. 378 (4) Cr.P.C.)" },
                         para: [
-                            `The Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                            `The Hon'ble Court may be pleased to grant leave to the petitioner to file appeal against the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, by the ${formData?.lowercourt || "«lowercourt»"} in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
@@ -162,9 +164,9 @@ export const leaveSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

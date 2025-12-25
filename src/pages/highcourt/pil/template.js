@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { pilSections } from "./pilData";
 import { pilTable } from "./pilTable";
@@ -25,13 +25,13 @@ export const PILTemplate = (formData) => {
                     ...combinedSections(pilSections("affidavit", formData), formData),
                     header({ text: "BEFORE ME" }),
                     header({ text: "VERIFICATION STATEMENT", underline: true }),
-                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`]),
+                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`]),
                     h3Right("Deponent"),
                     pageBreak(),
                     ...combinedSections(pilSections("affidavit_rule5", formData), formData),
                     header({ text: "BEFORE ME" }),
                     header({ text: "VERIFICATION STATEMENT", underline: true }),
-                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`]),
+                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`]),
                     h3Right("Deponent"),
                     pageBreak(),
                     ...combinedSections(pilSections("declaration_rule6", formData), formData),
@@ -39,7 +39,7 @@ export const PILTemplate = (formData) => {
                     ...combinedSections(pilSections("affidavit_rule7A", formData), formData),
                     header({ text: "BEFORE ME" }),
                     header({ text: "VERIFICATION STATEMENT", underline: true }),
-                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`]),
+                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`]),
                     h3Right("Deponent"),
                     pageBreak(),
                     ...combinedSections(pilSections("declaration_rule8", formData), formData),
@@ -47,7 +47,7 @@ export const PILTemplate = (formData) => {
                     ...combinedSections(pilSections("affidavit_rule10", formData), formData),
                     header({ text: "BEFORE ME" }),
                     header({ text: "VERIFICATION STATEMENT", underline: true }),
-                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`]),
+                    ...addParagraphs([`I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner / person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`]),
                     h3Right("Deponent"),
                     pageBreak(),
                     ...combinedSections(pilSections("rule5_ab", formData), formData),
@@ -95,7 +95,7 @@ export const PILTemplate = (formData) => {
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`

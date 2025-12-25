@@ -4,6 +4,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { vakalathSections } from "./vakalathData";
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections";
 import { createRightAlignPage } from "../../../components/templates/tableFunctions";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const vakalathTemplate = (formData) => {
   return new Document({
@@ -46,7 +47,7 @@ export const vakalathTemplate = (formData) => {
         h3Right("APPELLANT/"),
         h3Right("RESPONDENT"),
         ...LineSpace(5),
-        h3Left(`DATE :   ${formData?.fdate || "«fdate»"}`),
+        h3Left(`DATE :   ${formatDate(formData?.fdate) || "«fdate»"}`),
         ...LineSpace(1),
         h3Right("COUNSEL FOR  PETITIONER/"),
         h3Right("APPELLANT/"),

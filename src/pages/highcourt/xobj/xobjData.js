@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const xobjSections = (key, formData) => {
     let data = {
@@ -29,7 +30,7 @@ export const xobjSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `${tabSpace(1)}The address for service of all notices and process on the above named Cross Objector is that of his counsel ${formData?.counsel_address || "«counsel_address»"}.`,
-                        `${tabSpace(1)}The above named Cross Objector begs to present this Memorandum of Cross Objections in L.A.A.S.No.______ against the Order/Judgment dated ${formData?.OPDATE || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"}.`,
+                        `${tabSpace(1)}The above named Cross Objector begs to present this Memorandum of Cross Objections in L.A.A.S.No.______ against the Order/Judgment dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"}.`,
                         `${tabSpace(1)}The notice is received in the above L.A.A.S.No._____ on ___________ and the above Cross Objections are being filed with a petition to condone the delay for the following among other:`
                     ]
                 },
@@ -96,7 +97,7 @@ export const xobjSections = (key, formData) => {
 
             betweenSection: {
                 pet: `\n..Petitioner/s`,
-                res: `${formData?.respondent_name || "«respondent_name»"}\n...Respondent/s`
+                res: `\n...Respondent/s`
             },
 
             mainTitle: { text: "A F F I D A V I T" },
@@ -116,7 +117,7 @@ export const xobjSections = (key, formData) => {
             footer: [{
                 left: [
                     "Last Page Cross....",
-                    `Sworn and Signed in my presence on this day of ${formData?.fdate || "«fdate»"} at ${formData?.place || "«place»"}.`
+                    `Sworn and Signed in my presence on this day of ${formatDate(formData?.fdate) || "«fdate»"} at ${formData?.place || "«place»"}.`
                 ],
                 right: ["Deponent"]
             }]
@@ -204,13 +205,13 @@ export const xobjSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (     ) days in filing the above LA.A.S. in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)}For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (     ) days in filing the above LA.A.S. in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 }
             ],
 
             footer: [{
-                left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                 right: ["Counsel for the Petitioner"]
             }]
         },
@@ -281,9 +282,9 @@ export const xobjSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -320,16 +321,16 @@ export const xobjSections = (key, formData) => {
                             text: "NATURE OF APPLICATION (UNDER SEC. 151 C.P.C.)"
                         },
                         para: [
-                            `The Hon’ble Court may be pleased to condone the delay of (     ) days in filing the above AS in ${formData?.OPNO || "«OPNO»"} dated ${formData?.OPDATE || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"}; otherwise the petitioner will suffer irreparable loss and hardship, and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to condone the delay of (     ) days in filing the above AS in ${formData?.OPNO || "«OPNO»"} dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of the ${formData?.lowercourt || "«lowercourt»"}; otherwise the petitioner will suffer irreparable loss and hardship, and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

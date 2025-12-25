@@ -12,6 +12,7 @@ import { ChallanTable } from "../../../components/templates/ChallanTable"
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable"
 import { BetweenSection } from "../../../components/templates/BetweenSection"
 import { addParagraphs } from "../../../components/templates/paragraphFunctions"
+import { formatDate } from "../../../services/templateFunctions"
 
 
 export const HCTemplate = (formData) => {
@@ -48,7 +49,7 @@ export const HCTemplate = (formData) => {
                     ChronologicalTable(formData),
                     ...LineSpace(3),
                     createSignatureFooter(
-                        [`DATE: ${formData?.fdate || "«fdate»"}`,`${formData?.place || "«place»"}`],
+                        [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,`${formData?.place || "«place»"}`],
                         [`Counsel for the Petitioner`]
                     ),
                     pageBreak(),
@@ -63,12 +64,12 @@ export const HCTemplate = (formData) => {
                     ...BetweenSection(formData, "..Petitioner(s)", "..Respondent(s)"),
                     pageBreak(),
                     h3UnderlineBoldLeft("Main Case Prayer:"),
-                    ...addParagraphs([`${tabSpace(1)}Therefore, it is prayed that this Hon’ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
+                    ...addParagraphs([`${tabSpace(1)}Therefore, it is prayed that this Hon’ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`]),
                     h3UnderlineBoldLeft("IA(s) Prayer:"),
                     ...addParagraphs([
-                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
+                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
 
-                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to grant permission to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
+                        `${tabSpace(1)}It is therefore prayed that this Hon'ble Court may be pleased to grant permission to record the compromise statement and quash the ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}, in the interest of justice and pass such other order or orders may deem fit and proper in the circumstances of the case.`
                     ]
                     ),
                 ]

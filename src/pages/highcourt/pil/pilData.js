@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const pilSections = (key, formData) => {
     let data = {
@@ -59,9 +60,10 @@ export const pilSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        "last page corrs.",
+                   //"last page corrs.",
+"",
                         "Solemnly and sincerely affirm this",
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "and signed his name in my presence."
                     ],
                     right: ["Deponent"]
@@ -101,9 +103,10 @@ export const pilSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        "last page corrs.",
+                   //"last page corrs.",
+"",
                         "Solemnly and sincerely affirm this",
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "and signed his name in my presence."
                     ],
                     right: ["Deponent"]
@@ -130,7 +133,7 @@ export const pilSections = (key, formData) => {
                     head: { text: "DECLARATION" },
                     para: [
                         `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state on oath and declare that the writ petition (PIL) is being instituted purely in Public Interest and not at the instance of any other persons or organization other than the petitioner.`,
-                        `Verified at ${formData?.place || "«place»"} on this day ${formData?.fdate || "«fdate»"}`
+                        `Verified at ${formData?.place || "«place»"} on this day ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ],
@@ -169,9 +172,10 @@ export const pilSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        "last page corrs.",
+                   //"last page corrs.",
+"",
                         "Solemnly and sincerely affirm this",
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "and signed his name in my presence."
                     ],
                     right: ["Deponent"]
@@ -205,7 +209,7 @@ export const pilSections = (key, formData) => {
                 {
                     left: [
                         "Verified at",
-                        `${formData?.place || "«place»"} on this day ${formData?.fdate || "«fdate»"}`
+                        `${formData?.place || "«place»"} on this day ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Advocate",
@@ -246,9 +250,10 @@ export const pilSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        "last page corrs.",
+                   //"last page corrs.",
+"",
                         "Solemnly and sincerely affirm this",
-                        `the day of ${formData?.fdate || "«fdate»"}`,
+                        `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "and signed his name in my presence."
                     ],
                     right: [
@@ -317,7 +322,7 @@ export const pilSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -387,7 +392,7 @@ export const pilSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -478,9 +483,9 @@ export const pilSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `Permitted on  : ${formData?.fdate || "«fdate»"}`,
-                            `Presented on  : ${formData?.fdate || "«fdate»"}`,
-                            `Filed on      : ${formData?.fdate || "«fdate»"}`,
+                            `Permitted on  : ${formatDate(formData?.fdate) || "«fdate»"}`,
+                            `Presented on  : ${formatDate(formData?.fdate) || "«fdate»"}`,
+                            `Filed on      : ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `I.A.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                         ]
                     }
@@ -528,9 +533,9 @@ export const pilSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -561,7 +566,7 @@ export const pilSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"

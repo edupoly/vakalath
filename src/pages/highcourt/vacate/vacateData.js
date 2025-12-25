@@ -1,5 +1,6 @@
 import { LineSpace, tabSpace } from "../../../components/templates/elementTypes";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const vacateSections =(key,formData)=> {
   let data={
@@ -38,7 +39,7 @@ export const vacateSections =(key,formData)=> {
     ],
     footer: [
       {
-        left: [`last page corrs.`, `Solemnly and sincerely affirm this`,`the day of  ${formData?.fdate || "«fdate»"}`,`and signed his name in my presence.`],
+        left: [/*  `last page corrs.`, */"", `Solemnly and sincerely affirm this`,`the day of  ${formatDate(formData?.fdate) || "«fdate»"}`,`and signed his name in my presence.`],
         right: [`Deponent`,``,``,``]
       },
     ],
@@ -58,7 +59,7 @@ export const vacateSections =(key,formData)=> {
     ],
     footer: [
       {
-        left: [`Verified at ${formData?.place || "«place»"} on this `,`the day of  ${formData?.fdate || "«fdate»"}`,``,``],
+        left: [`Verified at ${formData?.place || "«place»"} on this `,`the day of  ${formatDate(formData?.fdate) || "«fdate»"}`,``,``],
         right: [``,``,`Deponent`,``]
       },
     ],
@@ -94,7 +95,7 @@ export const vacateSections =(key,formData)=> {
     ],
     footer: [
       {
-        left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+        left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
         right: [`Counsel for the Petitioner`]
       },
     ],

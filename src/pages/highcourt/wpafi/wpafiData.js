@@ -35,7 +35,8 @@ export const WPAFISections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        "last page corrs.",
+                   //"last page corrs.",
+"",
                         "Solemnly and sincerely affirm this",
                         `the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "and signed his name in my presence."

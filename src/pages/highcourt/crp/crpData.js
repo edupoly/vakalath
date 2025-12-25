@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CRPSections = (key, formData) => {
     let data = {
@@ -25,7 +26,7 @@ export const CRPSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
-                        `The above named Petitioner begs to present this Memorandum of Civil Revision Petition against the Order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`
+                        `The above named Petitioner begs to present this Memorandum of Civil Revision Petition against the Order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`
                     ]
                 },
                 {
@@ -49,7 +50,7 @@ export const CRPSections = (key, formData) => {
             footer: [
                 {
                     left: [`${formData?.place || "«place»"}`],
-                    right: ["Counsel For Petitioner", `DATE: ${formData?.fdate || "«fdate»"}`]
+                    right: ["Counsel For Petitioner", `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`]
                 }
             ]
         },
@@ -119,14 +120,14 @@ export const CRPSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         "Last Page Corss....                               Deponent",
-                        `Sworn and Signed in my presence on this day of ${formData?.fdate || "«fdate»"} at ${formData?.place || "«place»"}.`,
+                        `Sworn and Signed in my presence on this day of ${formatDate(formData?.fdate) || "«fdate»"} at ${formData?.place || "«place»"}.`,
                         `ADVOCATE :: ${formData?.place || "«place»"}`
                     ]
                 },
                 {
                     head: { text: "VERIFICATION STATEMENT" },
                     para: [
-                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`,
+                        `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge. Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         "Deponent"
                     ]
                 }
@@ -156,7 +157,7 @@ export const CRPSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `${formData?.place || "«place»"} Counsel for the Petitioner`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ]
@@ -207,14 +208,14 @@ export const CRPSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (${formData?.DELAY_DAYS || "     "}) days in filing the above CRP in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                        `For the reasons stated in the accompanying affidavit, it is therefore prayed that this Hon'ble Court may be pleased to condone the delay of (${formData?.DELAY_DAYS || "     "}) days in filing the above CRP in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 },
                 {
                     head: { text: "" },
                     para: [
                         `${formData?.place || "«place»"} Counsel for the Petitioner`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ]
@@ -265,14 +266,14 @@ export const CRPSections = (key, formData) => {
                 {
                     head: { text: "" },
                     para: [
-                        `For the reasons stated in the accompanying affidavit, it is hereby prayed that this Hon'ble Court may be pleased to dispense with Xerox Copy of the order dated ${formData?.OPDATE || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} in filing the above CRP otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                        `For the reasons stated in the accompanying affidavit, it is hereby prayed that this Hon'ble Court may be pleased to dispense with Xerox Copy of the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}, passed in ${formData?.OPNO || "«OPNO»"}, on the file of the ${formData?.lowercourt || "«lowercourt»"} in filing the above CRP otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                     ]
                 },
                 {
                     head: { text: "" },
                     para: [
                         `${formData?.place || "«place»"} Counsel for the Petitioner`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ]
@@ -340,9 +341,9 @@ export const CRPSections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -375,16 +376,16 @@ export const CRPSections = (key, formData) => {
                     {
                         head: { text: "NATURE OF APPLICATION (UNDER SEC. 151 C.P.C.)" },
                         para: [
-                            `The Hon’ble Court may be pleased to condone the delay of (${formData?.DELAY_DAYS || "     "}) days in filing the above CRP in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to condone the delay of (${formData?.DELAY_DAYS || "     "}) days in filing the above CRP in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"} otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -417,16 +418,16 @@ export const CRPSections = (key, formData) => {
                     {
                         head: { text: "NATURE OF APPLICATION (UNDER SEC. 151 C.P.C.)" },
                         para: [
-                            `The Hon’ble Court may be pleased to dispense with Xerox Copy of the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"}, in filing the above CRP otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to dispense with Xerox Copy of the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"}, in filing the above CRP otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -461,7 +462,7 @@ export const CRPSections = (key, formData) => {
         "crp_notice": {
             court: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
             caseInfo: {
-                text: `C.R.P.NO. ${formData?.CRPNo || "«CRPNo»"} OF ${formData?.myear || "«myear»"} Civil Revision Petition to revise the order / decree in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
+                text: `C.R.P.NO. ${formData?.CRPNo || "«CRPNo»"} OF ${formData?.myear || "«myear»"} Civil Revision Petition to revise the order / decree in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
             },
             betweenSection: {
                 pet: ` ..Petitioner/s`,
@@ -488,7 +489,7 @@ export const CRPSections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `By order of the Court`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`,
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"} Assistant Registrar Judicial`,
                         `Interlocutory Application No.________ has been made by the Appellant/Petitioner and execution has been stayed (or other order made) by order, dated the ____________________________ ${formData?.myear || "«myear»"}.`,
                         `The hours of attendance of the office of the Registrar of High Court are from 10-30 AM to 4.15 PM.`,
@@ -547,7 +548,7 @@ export const CRPSections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+                    left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
                     right: ["Counsel for the Petitioner"]
                 }
             ]
@@ -597,16 +598,16 @@ export const CRPSections = (key, formData) => {
                     {
                         head: { text: "NATURE OF APPLICATION (UNDER SEC. 151 C.P.C.)" },
                         para: [
-                            `The Hon’ble Court may be pleased to dispense with Xerox Copy of the order dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"}, in filing the above CRP otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
+                            `The Hon’ble Court may be pleased to dispense with Xerox Copy of the order dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"}, in filing the above CRP otherwise the petitioner will suffer irreparable loss and hardship and pass such other order or orders as this Hon’ble Court may deem fit and proper in the circumstances of the case.`
                         ]
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]

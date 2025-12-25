@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const CMASections = (key, formData) => {
     let data = {
@@ -25,7 +26,7 @@ export const CMASections = (key, formData) => {
                     head: { text: "" },
                     para: [
                         `The address for service of all notices and process on the above named Appellant is that of his counsel ${formData?.counsel_address || "«counsel_address»"}`,
-                        `The above named Appellant begs to present this Memorandum of Civil Miscellaneous Appeal against the Judgment dated ${formData?.OPDATE || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`
+                        `The above named Appellant begs to present this Memorandum of Civil Miscellaneous Appeal against the Judgment dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} passed in ${formData?.OPNO || "«OPNO»"}, on the file of ${formData?.lowercourt || "«lowercourt»"} for the following grounds among other:`
                     ]
                 },
                 {
@@ -49,7 +50,7 @@ export const CMASections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                     right: ["Counsel For Appellant"]
@@ -117,7 +118,7 @@ export const CMASections = (key, formData) => {
                 {
                     left: [
                         `Sworn and Signed in my presence`,
-                        `on this day of ${formData?.fdate || "«fdate»"}`,
+                        `on this day of ${formatDate(formData?.fdate) || "«fdate»"}`,
                         `at ${formData?.place || "«place»"}`,
                         `ADVOCATE :: ${formData?.place || "«place»"}`
                     ]
@@ -155,7 +156,7 @@ export const CMASections = (key, formData) => {
                     right: ["Counsel for the Petitioner"]
                 },
                 {
-                    left: [`DATE: ${formData?.fdate || "«fdate»"}`]
+                    left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`]
                 }
             ]
         },
@@ -220,9 +221,9 @@ export const CMASections = (key, formData) => {
                 footer: [
                     {
                         left: [
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -243,7 +244,7 @@ export const CMASections = (key, formData) => {
                             `In the court of the`,
                             `${formData?.lowercourt || "«lowercourt»"}`,
                             `${formData?.OPNO || "«OPNO»"}`,
-                            `dated ${formData?.OPDATE || "«OPDATE»"}`
+                            `dated ${formatDate(formData?.OPDATE) || "«OPDATE»"}`
                         ]
                     },
                     {
@@ -257,14 +258,14 @@ export const CMASections = (key, formData) => {
                 ],
                 headPara: [
                     {
-                        head: { text: `Date of Order/ Decree: ${formData?.OPDATE || "«OPDATE»"}` },
+                        head: { text: `Date of Order/ Decree: ${formatDate(formData?.OPDATE) || "«OPDATE»"}` },
                         para: []
                     }
                 ],
                 footer: [
                     {
                         left: [
-                            `Presented on: ${formData?.fdate || "«fdate»"}`,
+                            `Presented on: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `Represented on:`,
                             `Filed on:`,
                             `Admitted on:`
@@ -310,7 +311,7 @@ export const CMASections = (key, formData) => {
                     head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
                     lines: [
                         `C.M.A.NO. OF ${formData?.myear || "«myear»"}`,
-                        `Civil Miscellaneous Appeal to revise the order/decree in ${formData?.OPNO || "«OPNO»"}, dated ${formData?.OPDATE || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
+                        `Civil Miscellaneous Appeal to revise the order/decree in ${formData?.OPNO || "«OPNO»"}, dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} on the file of ${formData?.lowercourt || "«lowercourt»"}`
                     ]
                 }
             ],
@@ -333,7 +334,7 @@ export const CMASections = (key, formData) => {
             ],
             footer: [
                 {
-                    left: [`DATE: ${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+                    left: [`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
                     right: ["Assistant Registrar Judicial"]
                 },
                 {

@@ -4,6 +4,7 @@ import { EXPEDITESections } from "./expediteData"
 import { h3Center, h3Left, h3Right, h3underlineBoldCenter, LineSpace, pageBreak, tabSpace } from "../../../components/templates/elementTypes"
 import { addParagraphs } from "../../../components/templates/paragraphFunctions"
 import { pageTable } from "../../../components/highcourt/rightSideCommonSections"
+import { formatDate } from "../../../services/templateFunctions"
 
 
 export const EXPEDITETemplate = (formData) => {
@@ -22,7 +23,7 @@ export const EXPEDITETemplate = (formData) => {
                     ...addParagraphs([`${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts, do hereby verify that the above contents of the paras are true to best of my knowledge and belief. Hence verified.`]),
                     ...LineSpace(1),
                     h3Left(`Verified at ${formData?.place || "«place»"} on this`),
-                    h3Left(`the day of ${formData?.fdate || "«fdate»"}`),
+                    h3Left(`the day of ${formatDate(formData?.fdate) || "«fdate»"}`),
                     h3Right("Deponent"),
                     // pageBreak(),
                     ...combinedSections(EXPEDITESections("151(1)",formData),formData),

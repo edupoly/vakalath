@@ -12,7 +12,7 @@ import { createSignatureFooter } from "../../../components/templates/FooterSecti
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
 import { fcaSections } from "./fcaData";
 import { header, headerWith1Number } from "../../../components/templates/HeaderSection";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 
 export const FCATemplate = (formData) => {
 
@@ -42,7 +42,7 @@ export const FCATemplate = (formData) => {
                     h3Center("RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`
@@ -55,7 +55,7 @@ export const FCATemplate = (formData) => {
                         createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
                     ]).flat(),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`
@@ -68,7 +68,7 @@ export const FCATemplate = (formData) => {
                         createParagraph(res?.Address, paragraphStyles.leftAlignSmall),
                     ]).flat(),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ], [
                         `Counsel for the Petitioner`

@@ -26,6 +26,7 @@ import { OfficeUseTable } from "../../../components/templates/officeUseTable";
 import { InfoTable } from "../../../components/templates/InfoTable";
 import { ChallanTable } from "../../../components/templates/ChallanTable";
 import { LowerCourtTable } from "../../../components/templates/LowerCourtTable";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const taxAppellateTribunalTemplate = (formData) => {
   return new Document({
@@ -48,12 +49,12 @@ export const taxAppellateTribunalTemplate = (formData) => {
             "From the order of the Income Tax Appellate Tribunal, the following question of law arises:",
             "“Whether the Appellate Tribunal is justified in holding that the ________?”",
             tabSpace(1) +
-              `For the reasons stated above, it is prayed that the Hon’ble Court may be pleased to call for the records relating to ${formData?.OPNO || "«OPNO»"}, dated  ${formData?.OPDATE || "«OPDATE»"} and set aside the same to the aforesaid extent.`,
+              `For the reasons stated above, it is prayed that the Hon’ble Court may be pleased to call for the records relating to ${formData?.OPNO || "«OPNO»"}, dated  ${formatDate(formData?.OPDATE) || "«OPDATE»"} and set aside the same to the aforesaid extent.`,
           ]),
           ...LineSpace(1),
           ...createSignatureFooter([
             {
-              left: [`DATE:${formData?.fdate || "«fdate»"}`, `${formData?.place || "«place»"}`],
+              left: [`DATE:${formatDate(formData?.fdate) || "«fdate»"}`, `${formData?.place || "«place»"}`],
               right: ["", "Counsel for Appellant "],
             },
           ]),
@@ -73,7 +74,7 @@ export const taxAppellateTribunalTemplate = (formData) => {
           ...LineSpace(1),
           h3Left(
             tabSpace(1) +
-              `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formData?.fdate || "«fdate»"}`
+              `I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, being the petitioner/ person acquainted with the facts do hereby verify and state that the contents of the above paras of the Affidavit are true and correct to the best of my knowledge.  Hence verified at ${formData?.place || "«place»"} on this the day of ${formatDate(formData?.fdate) || "«fdate»"}`
           ),
           h3Right("Deponent"),
           pageBreak(),
@@ -110,11 +111,11 @@ export const taxAppellateTribunalTemplate = (formData) => {
               `The Hon’ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`
             ),
             ...LineSpace(2),
-            h3Left(`PRESENTED ON: ${formData?.fdate || "«fdate»"}`),
+            h3Left(`PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
             ...LineSpace(1),
             h3Left("REPRESENTED ON:"),
             ...LineSpace(1),
-            h3Left(`FILED ON: ${formData?.fdate || "«fdate»"}`),
+            h3Left(`FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`),
           ]),
           pageBreak(),
           h3Center(`${formData?.highcourt || "«highcourt»"}`),
@@ -131,7 +132,7 @@ export const taxAppellateTribunalTemplate = (formData) => {
           ...LineSpace(2),
           ...createSignatureFooter([
             {
-              left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+              left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
               right: ["Counsel for the Petitioner(s)."],
             },
           ]),
@@ -142,7 +143,7 @@ export const taxAppellateTribunalTemplate = (formData) => {
           ...LineSpace(2),
           ...createSignatureFooter([
             {
-              left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+              left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
               right: ["Counsel for the Petitioner(s)."],
             },
           ]),

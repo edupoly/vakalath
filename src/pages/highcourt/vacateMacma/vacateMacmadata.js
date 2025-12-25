@@ -3,6 +3,7 @@ import {
   tabSpace,
 } from "../../../components/templates/elementTypes";
 import { createSignatureFooter } from "../../../components/templates/FooterSections";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const vacateMacmaSections = (key, formData) => {
   let data = {
@@ -35,7 +36,7 @@ export const vacateMacmaSections = (key, formData) => {
 
             `3.	I submit that at the very out set, I am advised to submit that the appeal as filed by the appellant/respondent no.1 either is not maintainable in law or on the facts and the same is liable to be dismissed in limini. I further submit that the court below rightly allowed ${formData?.OPNO || "«OPNO»"}, dated «OPDATE» and there are no valid grounds to interfere with the order of the court below.`,
 
-            `4.	    I submit that respondents No._____ in the above MACMA filed «OPNO», dated ${formData?.OPDATE || "«OPDATE»"},  on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"} U/Sec.166 of Motor Vehicle Act claiming compensation of Rs.___________/-. I submit that the court below through its Award and Decree dated ${formData?.OPDATE || "«OPDATE»"} was pleased to award compensation of Rs.________/- together with interest @ ____% P.A. along with proportionate costs and interest. It is also pertinent to submit that the compensation awarded to the share of the respondent No.____ is directed to be deposited in a Nationalized bank until he attains majority.`,
+            `4.	    I submit that respondents No._____ in the above MACMA filed «OPNO», dated ${formatDate(formData?.OPDATE) || "«OPDATE»"},  on the file of Motor Accident Claims Tribunal -cum- ${formData?.lowercourt || "«lowercourt»"} U/Sec.166 of Motor Vehicle Act claiming compensation of Rs.___________/-. I submit that the court below through its Award and Decree dated ${formatDate(formData?.OPDATE) || "«OPDATE»"} was pleased to award compensation of Rs.________/- together with interest @ ____% P.A. along with proportionate costs and interest. It is also pertinent to submit that the compensation awarded to the share of the respondent No.____ is directed to be deposited in a Nationalized bank until he attains majority.`,
 
             `5.	I submit that the petitioner herein had preferred the above appeal challenging the said order and decree of the court below contending that the compensation granted by Tribunal is huge by raising frivolous grounds. I submit that it is well-established judicial precedent that the ___________ cannot question the award alleging that the compensation is huge without any proper ground.`,
 
@@ -56,7 +57,7 @@ export const vacateMacmaSections = (key, formData) => {
           left: [
             `last page corrs.`,
             `Solemnly and sincerely affirm this`,
-            `the day of  ${formData?.fdate || "«fdate»"}`,
+            `the day of  ${formatDate(formData?.fdate) || "«fdate»"}`,
             `and signed his name in my presence.`,
           ],
           right: [`Deponent`],
@@ -95,7 +96,7 @@ export const vacateMacmaSections = (key, formData) => {
       ],
       footer: [
         {
-          left: [`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+          left: [`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
           right: [`Counsel for the Petitioner`],
         },
       ],

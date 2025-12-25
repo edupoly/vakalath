@@ -1,5 +1,6 @@
 import { text } from "@fortawesome/fontawesome-svg-core";
 import { tabSpace } from "../../../components/templates/elementTypes";
+import { formatDate } from "../../../services/templateFunctions";
 
 export const ceaSections = (key, formData) => {
     let data = {
@@ -29,16 +30,16 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
-                        `C.E.A.NO. OF ${formData?.myear || "«myear»"}`
+                        `C.E.A.NO. OF ${tabSpace(3)} ${formData?.myear || "«myear»"}`
                     ]
                 }
             ],
 
             betweenSection: {
-                pet: `${formData?.petitioner_address || "«petitioner_address»"}...Appellant/s`,
-                res: `${formData?.respondent_address || "«respondent_address»"}...Respondent/s`
+                pet: `...Appellant/s`,
+                res: `...Respondent/s`
             },
 
             headPara: [
@@ -51,7 +52,7 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "BRIEF FACTS:",bold:true,underline:true },
+                    head: { text: "BRIEF FACTS:", bold: true, underline: true },
                     para: [
                         "1.",
                         "2.",
@@ -59,7 +60,7 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "GROUNDS OF APPEAL",underline:true },
+                    head: { text: "GROUNDS OF APPEAL", underline: true },
                     para: [
                         "1.1). The Order of the Appellate Tribunal is contrary to law.",
                         "1.2).",
@@ -67,7 +68,7 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "Substantial Question of Law",bold:true,underline:true },
+                    head: { text: "Substantial Question of Law", bold: true, underline: true },
                     para: [
                         "a) Whether the Hon’ble Tribunal is right in allowing",
                         "b) Whether the Hon’ble Tribunal is right in holding",
@@ -75,13 +76,13 @@ export const ceaSections = (key, formData) => {
                     ]
                 },
                 {
-                    head: { text: "PRAYER:",bold:true,underline:true },
+                    head: { text: "PRAYER:", bold: true, underline: true },
                     para: [
                         `It is therefore prayed in the interest of justice that the Hon’ble High Court may be pleased to allow the appeal by duly setting aside the Final Order No.______ dated _____ passed in Appeal No._______ by the Customs, Excise and Service Tax Appellate Tribunal, South Zonal Bench, Bangalore and pass such other order as the Hon’ble Court may deem fit and proper in the facts and circumstances of the case.`
                     ]
                 },
                 {
-                    head: { text: "Memo of Valuation:",bold:true,underline:true },
+                    head: { text: "Memo of Valuation:", bold: true, underline: true },
                     para: [
                         `The value of the appeal is Rs._______ and fixed Court of Rs.200/- is exempted under Section 35(G) of Central Excise Act 1944.`
                     ]
@@ -92,7 +93,7 @@ export const ceaSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE:${formData?.fdate || "«fdate»"}`
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel For Appellant"
@@ -108,7 +109,7 @@ export const ceaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
                             `CEA.No.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `AGAINST`,
@@ -144,25 +145,25 @@ export const ceaSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
-                        `I.A.No. OF ${formData?.myear || "«myear»"}`,
+                        `I.A.No. ${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
-                        `C.E.A.No. OF ${formData?.myear || "«myear»"}`
+                        `C.E.A.No. ${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                     ]
                 }
             ],
 
             betweenSection: {
                 pet: `...Petitioner`,
-                res: `${formData?.respondent_name || "«respondent_name»"}...Respondent`
+                res: `...Respondent`
             },
 
             headPara: [
                 {
-                    head: { text: "AFFIDAVIT",bold:true,underline:true },
+                    head: { text: "AFFIDAVIT", bold: true, underline: true },
                     para: [
-                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name|| "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age|| "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address|| "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
+                        `${tabSpace(1)}I, ${formData?.Petitioners[0]?.Name || "<<petitionerName>>"}, Aged about: ${formData?.Petitioners[0]?.Age || "<<petitionerAge>>"} Years, ${formData?.Petitioners[0]?.Address || "<<petitionerAddress>>"}, now having temporarily come down to ${formData?.place || "«place»"}, do hereby solemnly and sincerely affirm and state as follows:`,
                         `1. I am the Petitioner herein and as such I am well acquainted with the facts of the case.`,
                         `2. I submit that`,
                         ``,
@@ -175,7 +176,7 @@ export const ceaSections = (key, formData) => {
                 {
                     left: [
                         `Last Page Corss....`,
-                        `Sworn and Signed in my presence on this day of ${formData?.fdate || "«fdate»"} at ${formData?.place || "«place»"}`
+                        `Sworn and Signed in my presence on this day of ${formatDate(formData?.fdate) || "«fdate»"} at ${formData?.place || "«place»"}`
                     ],
                     right: [
                         "Deponent"
@@ -191,18 +192,18 @@ export const ceaSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
-                        `I.A.No. OF ${formData?.myear || "«myear»"}`,
+                        `I.A.No. ${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                         `IN`,
-                        `C.E.A.No. OF ${formData?.myear || "«myear»"}`
+                        `C.E.A.No. ${tabSpace(3)}OF ${formData?.myear || "«myear»"}`
                     ]
                 }
             ],
 
             betweenSection: {
-                pet: `${formData?.PETITIONER_ADDRESS || "«PETITIONER_ADDRESS»"}..Petitioner`,
-                res: `${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}..Respondent`
+                pet: `..Petitioner`,
+                res: `..Respondent`
             },
 
             headPara: [
@@ -218,7 +219,7 @@ export const ceaSections = (key, formData) => {
                 {
                     left: [
                         `${formData?.place || "«place»"}`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         "Counsel for the Petitioner"
@@ -234,7 +235,7 @@ export const ceaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -269,7 +270,7 @@ export const ceaSections = (key, formData) => {
                         lines: []
                     },
                     {
-                        head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
+                        head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                         lines: [
                             `I.A.NO.${tabSpace(3)}OF ${formData?.myear || "«myear»"}`,
                             `IN`,
@@ -296,9 +297,9 @@ export const ceaSections = (key, formData) => {
                             ``,
                             `The Hon’ble Court may be pleased ${formData?.INTERIM_PRAYER || "«INTERIM_PRAYER»"} and pass such other order or orders may deem fit and proper in the circumstances of the case.`,
                             ``,
-                            `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
+                            `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
                             `REPRESENTED ON:`,
-                            `FILED ON: ${formData?.fdate || "«fdate»"}`
+                            `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ]
                     }
                 ]
@@ -312,7 +313,7 @@ export const ceaSections = (key, formData) => {
 
             headLines: [
                 {
-                    head: { text: `${formData?.highcourt || "«highcourt»"}`,bold:true },
+                    head: { text: `${formData?.highcourt || "«highcourt»"}`, bold: true },
                     lines: [
                         `I.A.No. ${formData?.IANO || "«IANO»"} OF ${formData?.myear || "«myear»"} IN C.E.A.No. ${formData?.CEANO || "«CEANO»"} OF ${formData?.myear || "«myear»"}`,
                         `AGAINST`,
@@ -324,7 +325,7 @@ export const ceaSections = (key, formData) => {
             betweenSection: {
                 pet: `..Petitioner/s`,
                 res: `${formData?.RESPONDENT_NAME || "«RESPONDENT_NAME»"}..Respondent/s`,
-                resAddress: `${formData?.respondent_address || "«respondent_address»"}`
+                resAddress: ``
             },
 
             headPara: [
@@ -340,9 +341,9 @@ export const ceaSections = (key, formData) => {
             footer: [
                 {
                     left: [
-                        `PRESENTED ON: ${formData?.fdate || "«fdate»"}`,
-                        `REPRESENTED ON: ${formData?.fdate || "«fdate»"}`,
-                        `FILED ON: ${formData?.fdate || "«fdate»"}`
+                        `PRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
+                        `REPRESENTED ON: ${formatDate(formData?.fdate) || "«fdate»"}`,
+                        `FILED ON: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ],
                     right: [
                         `Advocate for Petitioner`
@@ -353,8 +354,8 @@ export const ceaSections = (key, formData) => {
         "ServiceCertificate": {
             header: [],
 
-            mainTitle: { text: "SERVICE CERTIFICATE",bold:true,underline:true },
-            subTitle: { text: "(PROOF OF SERVICE)",underline:true },
+            mainTitle: { text: "SERVICE CERTIFICATE", bold: true, underline: true },
+            subTitle: { text: "(PROOF OF SERVICE)", underline: true },
 
             headPara: [
                 {
@@ -372,7 +373,7 @@ export const ceaSections = (key, formData) => {
                     ],
                     right: [
                         `Counsel for the Petitioner/s`,
-                        `DATE: ${formData?.fdate || "«fdate»"}`
+                        `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                     ]
                 }
             ]

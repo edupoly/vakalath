@@ -54,7 +54,7 @@ export const CRPTemplate = (formData) => {
                     ChronologicalTable(formData),
                     // createSignatureFooter([{
                     //     left: [
-                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     //         `${formData?.place || "«place»"}`
                     //     ],
                     //     right: [
@@ -69,7 +69,7 @@ export const CRPTemplate = (formData) => {
                     ]).flat(),
                     // createSignatureFooter([{
                     //     left: [
-                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     //         `${formData?.place || "«place»"}`
                     //     ],
                     //     right: [
@@ -84,7 +84,7 @@ export const CRPTemplate = (formData) => {
                     ]).flat(),
                     // createSignatureFooter([{
                     //     left: [
-                    //         `DATE:${formData?.fdate || "«fdate»"}`,
+                    //         `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                     //         `${formData?.place || "«place»"}`
                     //     ],
                     //     right: [

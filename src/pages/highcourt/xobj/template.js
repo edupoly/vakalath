@@ -10,7 +10,7 @@ import { BetweenSection } from "../../../components/templates/BetweenSection";
 import { addParagraphs } from "../../../components/templates/paragraphFunctions";
 import { createSignatureFooter, SignatureFooter } from "../../../components/templates/FooterSections";
 import { ChronologicalTable } from "../../../components/templates/ChronologicalTable";
-import { createParagraph, paragraphStyles } from "../../../services/templateFunctions";
+import { createParagraph, formatDate, paragraphStyles } from "../../../services/templateFunctions";
 import { header } from "../../../components/templates/HeaderSection";
 import { xobjSections } from "./xobjData";
 import { xobjTable } from "./table";
@@ -25,7 +25,7 @@ export const XOBJTemplate = (formData) => {
                     xobjTable(),
                     createSignatureFooter([
                             `${formData?.place || "«place»"}`,
-                            `DATE: ${formData?.fdate || "«fdate»"}`
+                            `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`
                         ],
                         [`Counsel For Cross Objector`]
                     ),
@@ -55,7 +55,7 @@ export const XOBJTemplate = (formData) => {
                     h3Center("CHRONOLOGICAL / RUNNING INDEX "),
                     ChronologicalTable(formData),
                     createSignatureFooter([
-                        `DATE:${formData?.fdate || "«fdate»"}`,
+                        `DATE:${formatDate(formData?.fdate) || "«fdate»"}`,
                         `${formData?.place || "«place»"}`
                     ],
                         [
@@ -65,14 +65,14 @@ export const XOBJTemplate = (formData) => {
                     pageBreak(),
                     h3underlineBoldCenter("BATTA FORM"),
                     h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
-                    createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                         ["Counsel for the Petitioner(s)."],
                     ),
 
                     ...LineSpace(10),
                     h3underlineBoldCenter("BATTA FORM"),
                     h3Left(`${formData?.RESPONDENT_ADDRESS || "«RESPONDENT_ADDRESS»"}`),
-                    createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formData?.fdate || "«fdate»"}`],
+                    createSignatureFooter([`${formData?.place || "«place»"}`, `DATE: ${formatDate(formData?.fdate) || "«fdate»"}`],
                         ["Counsel for the Petitioner(s)."],
                     ),
                     pageBreak(),
@@ -83,7 +83,7 @@ export const XOBJTemplate = (formData) => {
                     ...LineSpace(1),
                     h3underlineBoldCenter("COURT FEE"),
                     ...LineSpace(20),
-                    createSignatureFooter([`DATE: ${formData?.fdate || "«fdate»"}`, "«place»"],
+                    createSignatureFooter([`DATE: ${formatDate(formData?.fdate) || "«fdate»"}`, "«place»"],
                         ["", "Counsel for the Petitioner"],
                     ),
 
