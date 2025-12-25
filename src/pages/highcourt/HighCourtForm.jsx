@@ -7,7 +7,7 @@ import PetitionerDetails from "./PetitionerDetails";
 import RespondentDetails from "./RespondentDetails";
 import FloatingInput from "../../components/floatingInput";
 import { fieldsData } from "../../services/highcourtFields";
-import { initialValues } from "../../services/initialFormValues1";
+import { initialValues } from "../../services/initialFormValues";
 import HighCourtModal from "./Modal";
 import { setFData } from "../../services/submitedDataSlice";
 import { templateOpno } from "../../services/templateFunctions";
@@ -17,12 +17,12 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     const [filecase] = useFileCaseMutation();
     const [updateForm] = useEditFileCaseMutation();
     const [petitioners, setPetitioners] = useState([
-        { Name: "Kapu Narasimha, S/o Late lakshmaiah, Retired Veterinary Attendant", Address: "House No. 6-2, Ravichedu Village, Kadthal Mandal, Ranga Reddy District, Telangana", Age: "6" }
-        // { Name: "", Address: "", Age: "" },
+        // { Name: "Kapu Narasimha, S/o Late lakshmaiah, Retired Veterinary Attendant", Address: "House No. 6-2, Ravichedu Village, Kadthal Mandal, Ranga Reddy District, Telangana", Age: "6" }
+        { Name: "", Address: "", Age: "" },
     ]);
     const [respondents, setRespondents] = useState([
-        { Name: "The State of Telangana(Represented by the Inspector of Police, Kadthal Police Station, Ranga Reddy District)", Address: "Inspector of Police, Kadthal Police Station, Ranga Reddy District.", Age: "21" }
-        // { Name: "", Address: "", Age: "" },
+        // { Name: "The State of Telangana(Represented by the Inspector of Police, Kadthal Police Station, Ranga Reddy District)", Address: "Inspector of Police, Kadthal Police Station, Ranga Reddy District.", Age: "21" }
+        { Name: "", Address: "", Age: "" },
     ]);
     const userDetails = useSelector((state) => state.user.userInfo);
     const dispatch = useDispatch()
@@ -38,15 +38,15 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
             setFormData({ ...values,userDetails/* , CaseType: caseType, */ });
             dispatch(setFData({ ...values/* , CaseType: caseType, */ }));
 
-            // if (data?.case) {
-            //     updateForm({ ...values });
-            // } else {
-            //     filecase({
-            //         ...values,
-            //         // FilledFrom: "highcourt",
-            //         // CaseType: caseType,
-            //     });
-            // }
+            if (data?.case) {
+                updateForm({ ...values });
+            } else {
+                filecase({
+                    ...values,
+                    // FilledFrom: "highcourt",
+                    // CaseType: caseType,
+                });
+            }
             const modal = new window.bootstrap.Modal(modalRef.current);
             modal.show();
         },
