@@ -11,11 +11,14 @@ import { initialValues } from "../../services/initialFormValues";
 import HighCourtModal from "./Modal";
 import { setFData } from "../../services/submitedDataSlice";
 import { templateOpno } from "../../services/templateFunctions";
+import { lowerFieldsData } from "../../services/lowercourt/inputFields";
+import { lowerInitialValues } from "../../services/lowercourt/initialFormValues";
 
-function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
+function HighCourtForm({ caseType, formData, setFormData, modalRef, data, title }) {
     const [submitted, setSubmitted] = useState(false)
     const [filecase] = useFileCaseMutation();
     const [updateForm] = useEditFileCaseMutation();
+    const formFields = title == "High Court" ? fieldsData[caseType] : lowerFieldsData[caseType]
     const [petitioners, setPetitioners] = useState([
         // { Name: "Kapu Narasimha, S/o Late lakshmaiah, Retired Veterinary Attendant", Address: "House No. 6-2, Ravichedu Village, Kadthal Mandal, Ranga Reddy District, Telangana", Age: "6" }
         { Name: "", Address: "", Age: "" },
@@ -27,7 +30,8 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     const userDetails = useSelector((state) => state.user.userInfo);
     const dispatch = useDispatch()
 
-    const selectedInitialValues = initialValues[caseType] ? { ...initialValues[caseType], Petitioners: petitioners, Respondents: respondents, CaseType: caseType, FilledFrom: "highcourt", Userid: userDetails && userDetails["_id"] } : {}
+    const courtInitialValues = title == "High Court" ? initialValues[caseType] : lowerInitialValues[caseType]
+    const selectedInitialValues = courtInitialValues ? { ...courtInitialValues, Petitioners: petitioners, Respondents: respondents, CaseType: caseType, FilledFrom: title, Userid: userDetails && userDetails["_id"] } : {}
     console.log("initialValues[caseType]", initialValues[caseType]);
 
     const vakalathForm = useFormik({
@@ -35,7 +39,7 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
         initialValues: { ...selectedInitialValues },
         onSubmit: (values) => {
             console.log(values);
-            setFormData({ ...values,userDetails/* , CaseType: caseType, */ });
+            setFormData({ ...values, userDetails/* , CaseType: caseType, */ });
             dispatch(setFData({ ...values/* , CaseType: caseType, */ }));
 
             if (data?.case) {
@@ -53,7 +57,7 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
     });
 
     useEffect(() => {
-        document.title = "HighCourt"
+        document.title = title
         if (data?.case) {
             // vakalathForm.values = { ...data?.case }
             vakalathForm.setValues({ ...data?.case })
@@ -80,14 +84,14 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
                         vakalathForm={vakalathForm}
                     />
                     <div className="row row-cols-1 row-cols-md-2 row-cols-xl-3 mb-3">
-                        {fieldsData[caseType]?.map((field) => {
+                        {formFields?.map((field) => {
                             const isDefaultTextField = field.name === "OPNO";
                             const defaultPrefix = templateOpno[caseType];
                             const handleChange = (e) => {
                                 let value = e.target.value;
                                 if (isDefaultTextField) {
                                     if (!value.startsWith(defaultPrefix)) {
-                                        value = defaultPrefix ;
+                                        value = defaultPrefix;
                                     }
                                 }
                                 vakalathForm.setFieldValue(field.name, value);
@@ -119,7 +123,7 @@ function HighCourtForm({ caseType, formData, setFormData, modalRef, data }) {
                 </div>
                 }
             </form>
-            <HighCourtModal formData={formData} modalRef={modalRef} type={caseType} />
+            <HighCourtModal title={title} formData={formData} modalRef={modalRef} type={caseType} />
         </div>
     );
 }

@@ -4,9 +4,11 @@ import { Packer } from "docx";
 import { renderAsync } from "docx-preview";
 import { caseTypeTemplates, generateAndDownloadDocx } from "../../services/templateFunctions";
 import { useNavigate } from "react-router-dom";
-function HighCourtModal({ formData, modalRef, type }) {
+import { lowerCaseTypeTemplates } from "../../services/lowercourt/formFunctions";
+
+function HighCourtModal({ formData, modalRef, type,title }) {
   const [isMobile, setIsMobile] = useState(false);
-  const SelectedTemplate = caseTypeTemplates[type];
+  const SelectedTemplate = title == "High Court" ? caseTypeTemplates[type]: lowerCaseTypeTemplates[type]
   const navigate = useNavigate();
 
   useEffect(() => {

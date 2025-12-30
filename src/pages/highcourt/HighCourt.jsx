@@ -14,13 +14,15 @@ import RevisionCaseForm from "../criminal/revisionCase/Form";
 import { useLazyGetCaseByIdQuery } from "../../services/caseDetailsApi";
 import HighCourtForm from "./HighCourtForm";
 import { caseTypeFields } from "../../services/templateFunctions";
+import { lowerCaseTypeFields } from "../../services/lowercourt/formFunctions";
 
-function HighCourt({ casedata }) {
+function HighCourt({ casedata,title }) {
   const { id } = useParams();
   const [formData, setFormData] = useState({});
   const modalRef = useRef(null);
   const [triggerGetCaseById, { data, isLoading }] = useLazyGetCaseByIdQuery();
   const [caseType, setCaseType] = useState("");
+  const [courtFields, setCourtFields] = useState(title == "High Court" ? caseTypeFields : lowerCaseTypeFields);
   const caseTypeComponents = {
     cma: CMAForm,
     crp: CRPForm,
@@ -36,7 +38,7 @@ function HighCourt({ casedata }) {
 
   const SelectedForm = caseTypeComponents[caseType];
   useEffect(() => {
-    document.title = "High Court"
+    document.title = title
     if (data?.case) {
       setCaseType(data?.case?.CaseType)
     }
@@ -61,7 +63,7 @@ function HighCourt({ casedata }) {
           <option value="" disabled>
             Select Case Type
           </option>
-          {caseTypeFields?.map(({ label, value }) => {
+          {courtFields?.map(({ label, value }) => {
             return <option key={label} value={value}>{label}</option>
           })}
         </select>
@@ -70,7 +72,7 @@ function HighCourt({ casedata }) {
         </label>
       </div>
 
-      <HighCourtForm  caseType={caseType} formData={formData} data={data} setFormData={setFormData} modalRef={modalRef} />
+      <HighCourtForm title={title} caseType={caseType} formData={formData} data={data} setFormData={setFormData} modalRef={modalRef} />
       {/* {SelectedForm && <SelectedForm caseType={caseType} formData={formData} data={data} setFormData={setFormData} modalRef={modalRef} />} */}
     </div>
   );

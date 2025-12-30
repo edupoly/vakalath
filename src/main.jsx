@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/highcourt",
-        element: <HighCourt />,
+        element: <HighCourt key="highcourt" title="High Court" />,
       },
       {
         path: "/highcourt/:id",
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/district",
-        element: <h1>lower court</h1>,
+        element: <HighCourt key="lowercourt" title="Lower Court" />,
       },
       {
         path: "/supremecourt",

@@ -35,6 +35,15 @@ export const headerWith1Number = (lines) => {
 }
 
 export const header = (head) => {
+    if (head?.align == "left") {
+        return leftHeader(head)
+    } else if (head?.align == "right") {
+        return rightHeader(head)
+    } else {
+        return centerheader(head)
+    }
+}
+export const centerheader = (head) => {
     let firstLine;
     if (head?.bold && head?.underline) {
         firstLine = h3underlineBoldCenter(head?.text,head?.size && head?.size*2,head?.allCaps);

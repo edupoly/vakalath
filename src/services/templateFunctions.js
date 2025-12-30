@@ -57,6 +57,7 @@ import { CPTemplate } from "../pages/highcourt/cp/template";
 import { HCTemplate } from "../pages/highcourt/hc/template";
 import { IMPLEADTemplate } from "../pages/highcourt/implead/template";
 import { CRLRCMacmaTemplate } from "../pages/highcourt/crlrcMacma/template";
+import { lowerCaseTypeTemplates } from "./lowercourt/formFunctions";
 
 export const paragraphStyles = {
     centerText: { alignment: AlignmentType.CENTER },
@@ -148,7 +149,7 @@ export const getPetitionersParagraphs = (petitioners = []) => {
 };
 
 export const generateAndDownloadDocx = (formData) => {
-    const doc = caseTypeTemplates[formData?.CaseType](formData);
+    const doc = formData?.FilledFrom == "High Court" ?  caseTypeTemplates[formData?.CaseType](formData) : lowerCaseTypeTemplates[formData?.CaseType](formData)
     Packer.toBlob(doc).then((blob) => saveAs(blob, `${formData?.CaseType}.doc`));
 };
 
@@ -357,7 +358,7 @@ export const caseTypeFields = [
 export const formatDate = (iso) => {
     if (!iso) return "";
     const [yy, mm, dd] = iso.split("-");
-      const d = dd.split("T")[0];
+      const d = dd?.split("T")[0];
 
     return `${d}-${mm}-${yy}`;
 };
@@ -375,12 +376,11 @@ export const templateOpno = {
     bail: "CRL.P.NO.",
     appealSuit: "A.S.No.",
     ca: "O.S.No.",
-    caveat: "",
-    centralExciseAppeal: "",
-    cma: "",
-    civilRevisionPetition: "",
-    crpSecond: "",
-    companyPetition: "",
+    caveat: "W.P.No.",
+    centralExciseAppeal: "C.E.A.NO.",
+    cma: "C.M.A.No.",
+    civilRevisionPetition: "C.R.P.No.",
+    companyPetition: "COMPANY PETITION No.",
     compromiseHc: "",
     contemptCase: "",
     counter: "",
